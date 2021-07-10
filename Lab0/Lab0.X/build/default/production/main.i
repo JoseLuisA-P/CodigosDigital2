@@ -2839,6 +2839,9 @@ union Carrera{
     };
 }EstadoCarrera;
 
+uint8_t conteo;
+uint8_t semaforo;
+
 
 
 
@@ -2846,12 +2849,67 @@ void configuracion(void);
 
 void __attribute__((picinterrupt(("")))) intVec(void){
 
+    if(PIR1bits.TMR1IF){
+        conteo ++;
+        TMR1H = 0B00111100;
+        TMR1L = 0B10101111;
+        PIR1bits.TMR1IF = 0;
+    }
+
+    if(INTCONbits.RBIF && PORTBbits.RB0){
+        EstadoCarrera.comienzo = 0;
+        if(!T1CONbits.TMR1ON) semaforo++;
+        T1CONbits.TMR1ON = 1;
+    }
+
+    if(INTCONbits.RBIF && PORTBbits.RB1){
+        if(EstadoCarrera.comienzo)PORTC<<1;
+    }
+
+    if(INTCONbits.RBIF && PORTBbits.RB2){
+        if(EstadoCarrera.comienzo)PORTD<<1;
+    }
+
+    INTCONbits.RBIF = 0;
+
 }
 
 void main(void){
     configuracion();
 
     while(1){
+        if(conteo >= 10){
+            semaforo++;
+            conteo = 0;
+        }
+
+        switch(semaforo){
+            case 1:
+                PORTA = 0b01001111;
+                PORTE = 0b001;
+                break;
+            case 2:
+                PORTA = 0b01011011;
+                PORTE = 0b010;
+                break;
+            case 3:
+                PORTA = 0b00000110;
+                PORTE = 0b010;
+                break;
+            case 4:
+                PORTA = 0b00111111;
+                PORTE = 0b100;
+                EstadoCarrera.comienzo = 1;
+                T1CONbits.TMR1ON = 0;
+                TMR1H = 0B00111100;
+                TMR1L = 0B10101111;
+                semaforo = 0;
+                PORTC = 1;
+                PORTD = 1;
+                break;
+            default:
+                break;
+        }
 
     }
 }
@@ -2872,7 +2930,10 @@ void configuracion(void){
     PORTE = 0X00;
 
 
-    OSCCONbits.IRCF = 0b110;
+    conteo = 0;
+
+
+    OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
 
 
@@ -2880,6 +2941,11 @@ void configuracion(void){
     TMR1H = 0B00111100;
     TMR1L = 0B10101111;
     T1CONbits.TMR1ON = 0;
+
+
+    IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
+    IOCBbits.IOCB2 = 1;
 
 
     PIE1bits.TMR1IE = 1;

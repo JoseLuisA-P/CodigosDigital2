@@ -11,23 +11,35 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"58 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+"61 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 [v _intVec intVec `II(v  1 e 1 0 ]
-"62
+"88
 [v _main main `(v  1 e 1 0 ]
-"70
+"128
 [v _configuracion configuracion `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S79 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"245
+[u S88 . 1 `S79 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES88  1 e 1 @6 ]
 "290
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
-[s S151 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S47 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -37,14 +49,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S160 . 1 `uc 1 . 1 0 :2:0 
+[s S56 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S165 . 1 `S151 1 . 1 0 `S160 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES165  1 e 1 @11 ]
-[s S132 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S61 . 1 `S47 1 . 1 0 `S56 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES61  1 e 1 @11 ]
+[s S26 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -53,13 +65,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S140 . 1 `S132 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES140  1 e 1 @12 ]
+[u S34 . 1 `S26 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES34  1 e 1 @12 ]
 "657
 [v _TMR1L TMR1L `VEuc  1 e 1 @14 ]
 "664
 [v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
-[s S68 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S100 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -68,7 +80,7 @@
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S76 . 1 `uc 1 . 1 0 :2:0 
+[s S108 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -76,11 +88,11 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S84 . 1 `uc 1 . 1 0 :2:0 
+[s S116 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S87 . 1 `S68 1 . 1 0 `S76 1 . 1 0 `S84 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES87  1 e 1 @16 ]
+[u S119 . 1 `S100 1 . 1 0 `S108 1 . 1 0 `S116 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES119  1 e 1 @16 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
@@ -91,7 +103,7 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S113 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S211 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -100,38 +112,61 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S121 . 1 `S113 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES121  1 e 1 @140 ]
-[s S42 . 1 `uc 1 SCS 1 0 :1:0 
+[u S219 . 1 `S211 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES219  1 e 1 @140 ]
+[s S159 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S48 . 1 `uc 1 . 1 0 :4:0 
+[s S165 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S53 . 1 `S42 1 . 1 0 `S48 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES53  1 e 1 @143 ]
+[u S170 . 1 `S159 1 . 1 0 `S165 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES170  1 e 1 @143 ]
+[s S185 . 1 `uc 1 IOCB 1 0 :8:0 
+]
+"2436
+[s S187 . 1 `uc 1 IOCB0 1 0 :1:0 
+`uc 1 IOCB1 1 0 :1:1 
+`uc 1 IOCB2 1 0 :1:2 
+`uc 1 IOCB3 1 0 :1:3 
+`uc 1 IOCB4 1 0 :1:4 
+`uc 1 IOCB5 1 0 :1:5 
+`uc 1 IOCB6 1 0 :1:6 
+`uc 1 IOCB7 1 0 :1:7 
+]
+[u S196 . 1 `S185 1 . 1 0 `S187 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES196  1 e 1 @150 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"62 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+[s S22 . 1 `uc 1 comienzo 1 0 :1:0 
+]
+"51 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+[u S24 Carrera 1 `S22 1 . 1 0 ]
+[v _EstadoCarrera EstadoCarrera `S24  1 e 1 0 ]
+"53
+[v _conteo conteo `uc  1 e 1 0 ]
+"54
+[v _semaforo semaforo `uc  1 e 1 0 ]
+"88
 [v _main main `(v  1 e 1 0 ]
 {
-"68
+"126
 } 0
-"70
+"128
 [v _configuracion configuracion `(v  1 e 1 0 ]
 {
-"103
+"169
 } 0
-"58
+"61
 [v _intVec intVec `II(v  1 e 1 0 ]
 {
-"60
+"86
 } 0

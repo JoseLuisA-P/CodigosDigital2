@@ -44,11 +44,14 @@
  *                                Variables
  */
 
-union Carrera{
+union Carrera{ //manejar las condiciones de la carrera
     struct{
         unsigned comienzo: 1; //indicar si comienza la carrera
     };
 }EstadoCarrera;
+
+uint8_t conteo; //para contar 1 segundo con timmer 1
+uint8_t semaforo; //conteo del semaforo
 
 /*
  *                          Funciones y prototipos
@@ -56,14 +59,69 @@ union Carrera{
 void configuracion(void);
 
 void __interrupt() intVec(void){//Funcion de interrupcion
-
+    
+    if(PIR1bits.TMR1IF){
+        conteo ++;
+        TMR1H = 0B00111100;     //para overflow cada 0.1seg
+        TMR1L = 0B10101111;
+        PIR1bits.TMR1IF = 0;
+    }
+    
+    if(INTCONbits.RBIF && PORTBbits.RB0){
+        EstadoCarrera.comienzo = 0; //evita jugar
+        if(!T1CONbits.TMR1ON) semaforo++;
+        T1CONbits.TMR1ON = 1;   //activar el timmer 1
+    }
+    
+    if(INTCONbits.RBIF && PORTBbits.RB1){
+        if(EstadoCarrera.comienzo)PORTC<<1;
+    }
+    
+    if(INTCONbits.RBIF && PORTBbits.RB2){
+        if(EstadoCarrera.comienzo)PORTD<<1;
+    }
+    
+    INTCONbits.RBIF = 0;
+    
 }
 
 void main(void){//Configuraciones y loop principal
     configuracion();
     
     while(1){//loop principal-continuo
-    
+        if(conteo >= 10){
+            semaforo++;
+            conteo = 0;
+        }
+        
+        switch(semaforo){
+            case 1:
+                PORTA = 0b01001111;
+                PORTE = 0b001;
+                break;
+            case 2:
+                PORTA = 0b01011011;
+                PORTE = 0b010;
+                break;
+            case 3:
+                PORTA = 0b00000110;
+                PORTE = 0b010;
+                break;
+            case 4:
+                PORTA = 0b00111111;
+                PORTE = 0b100;
+                EstadoCarrera.comienzo = 1; //permite jugar
+                T1CONbits.TMR1ON = 0; //apaga el timmer
+                TMR1H = 0B00111100;     //para overflow cada 0.1seg
+                TMR1L = 0B10101111;
+                semaforo = 0;
+                PORTC = 1; //Comienza el valor en la carrera
+                PORTD = 1;
+                break;
+            default:
+                break;
+        }
+        
     }
 }
 
@@ -82,8 +140,11 @@ void configuracion(void){//Configuraciones del uC
     PORTD =         0X00;
     PORTE =         0X00;
     
+    //iniciando valores
+    conteo = 0;
+    
     //Configuracion del reloj
-    OSCCONbits.IRCF = 0b110; //oscilador a 4Mhz
+    OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
     OSCCONbits.SCS = 0b1;
     
     //Configuracion del TIMER 1
@@ -92,6 +153,11 @@ void configuracion(void){//Configuraciones del uC
     TMR1L = 0B10101111;
     T1CONbits.TMR1ON = 0; //mantenerlo apagado
     
+    //Configuracion del IOCB
+    IOCBbits.IOCB0 = 1;     //detecta cambios en RB0
+    IOCBbits.IOCB1 = 1;     //detecta cambios en RB1
+    IOCBbits.IOCB2 = 1;     //detecta cambios en RB2
+    
     //Configuracion de interrupciones
     PIE1bits.TMR1IE = 1;    //habilita interrupcion timmer 1
     PIR1bits.TMR1IF = 0;    //apaga bandera timmer 1
@@ -99,5 +165,5 @@ void configuracion(void){//Configuraciones del uC
     INTCONbits.RBIF = 0;    //apaga bandera IOCB
     INTCONbits.RBIE = 1;    //habilita IOCB
     INTCONbits.GIE = 1;     //habilitadas interrupcioens globales
-    
+       
 }
