@@ -44,6 +44,11 @@
  *                                Variables
  */
 
+union Carrera{
+    struct{
+        unsigned comienzo: 1; //indicar si comienza la carrera
+    };
+}EstadoCarrera;
 
 /*
  *                          Funciones y prototipos
@@ -67,7 +72,7 @@ void configuracion(void){//Configuraciones del uC
     ANSEL =         0X00;
     ANSELH =        0X00;
     TRISA =         0X00;
-    TRISB =         0X00;
+    TRISB =         0X07; //primeros 3 pines como entradas
     TRISC =         0X00;
     TRISD =         0X00;
     TRISE =         0X00;
@@ -76,4 +81,23 @@ void configuracion(void){//Configuraciones del uC
     PORTC =         0X00;
     PORTD =         0X00;
     PORTE =         0X00;
+    
+    //Configuracion del reloj
+    OSCCONbits.IRCF = 0b110; //oscilador a 4Mhz
+    OSCCONbits.SCS = 0b1;
+    
+    //Configuracion del TIMER 1
+    T1CONbits.T1CKPS = 0B10;    //preescalador de 4
+    TMR1H = 0B00111100;     //para overflow cada 0.1seg
+    TMR1L = 0B10101111;
+    T1CONbits.TMR1ON = 0; //mantenerlo apagado
+    
+    //Configuracion de interrupciones
+    PIE1bits.TMR1IE = 1;    //habilita interrupcion timmer 1
+    PIR1bits.TMR1IF = 0;    //apaga bandera timmer 1
+    INTCONbits.PEIE = 1;    //habilita las interrpciones perifericas
+    INTCONbits.RBIF = 0;    //apaga bandera IOCB
+    INTCONbits.RBIE = 1;    //habilita IOCB
+    INTCONbits.GIE = 1;     //habilitadas interrupcioens globales
+    
 }

@@ -2827,7 +2827,21 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 # 41 "main.c" 2
-# 51 "main.c"
+
+
+
+
+
+
+union Carrera{
+    struct{
+        unsigned comienzo: 1;
+    };
+}EstadoCarrera;
+
+
+
+
 void configuracion(void);
 
 void __attribute__((picinterrupt(("")))) intVec(void){
@@ -2847,7 +2861,7 @@ void configuracion(void){
     ANSEL = 0X00;
     ANSELH = 0X00;
     TRISA = 0X00;
-    TRISB = 0X00;
+    TRISB = 0X07;
     TRISC = 0X00;
     TRISD = 0X00;
     TRISE = 0X00;
@@ -2856,4 +2870,23 @@ void configuracion(void){
     PORTC = 0X00;
     PORTD = 0X00;
     PORTE = 0X00;
+
+
+    OSCCONbits.IRCF = 0b110;
+    OSCCONbits.SCS = 0b1;
+
+
+    T1CONbits.T1CKPS = 0B10;
+    TMR1H = 0B00111100;
+    TMR1L = 0B10101111;
+    T1CONbits.TMR1ON = 0;
+
+
+    PIE1bits.TMR1IE = 1;
+    PIR1bits.TMR1IF = 0;
+    INTCONbits.PEIE = 1;
+    INTCONbits.RBIF = 0;
+    INTCONbits.RBIE = 1;
+    INTCONbits.GIE = 1;
+
 }
