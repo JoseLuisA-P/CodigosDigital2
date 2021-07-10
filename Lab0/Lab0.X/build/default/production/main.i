@@ -2836,6 +2836,10 @@ typedef uint16_t uintptr_t;
 union Carrera{
     struct{
         unsigned comienzo: 1;
+        unsigned revision: 1;
+        unsigned revisar: 1;
+        unsigned ganador1: 1;
+        unsigned ganador2: 1;
     };
 }EstadoCarrera;
 
@@ -2851,6 +2855,7 @@ void __attribute__((picinterrupt(("")))) intVec(void){
 
     if(PIR1bits.TMR1IF){
         conteo ++;
+        if(EstadoCarrera.revision) EstadoCarrera.revisar = 1;
         TMR1H = 0B00111100;
         TMR1L = 0B10101111;
         PIR1bits.TMR1IF = 0;
@@ -2860,14 +2865,17 @@ void __attribute__((picinterrupt(("")))) intVec(void){
         EstadoCarrera.comienzo = 0;
         if(!T1CONbits.TMR1ON) semaforo++;
         T1CONbits.TMR1ON = 1;
+        conteo = 0;
+        PORTC = 0;
+        PORTD = 0;
     }
 
     if(INTCONbits.RBIF && PORTBbits.RB1){
-        if(EstadoCarrera.comienzo)PORTC<<1;
+        if(EstadoCarrera.comienzo)PORTC = PORTC<<1;
     }
 
     if(INTCONbits.RBIF && PORTBbits.RB2){
-        if(EstadoCarrera.comienzo)PORTD<<1;
+        if(EstadoCarrera.comienzo)PORTD = PORTD<<1;
     }
 
     INTCONbits.RBIF = 0;
@@ -2878,9 +2886,31 @@ void main(void){
     configuracion();
 
     while(1){
-        if(conteo >= 10){
+        if(conteo >= 10 && !EstadoCarrera.revision){
             semaforo++;
             conteo = 0;
+        }
+
+        if(EstadoCarrera.revisar){
+            if(PORTC > PORTD){
+                if(PORTC >= 128){
+                    EstadoCarrera.comienzo = 0;
+                    EstadoCarrera.revision = 0;
+                    PORTA = 0b00000110;
+                    T1CONbits.TMR1ON = 0;
+                    conteo = 0;
+                    semaforo = 0;}
+            }
+            else if(PORTC < PORTD){
+                if(PORTD >= 128){
+                    EstadoCarrera.comienzo = 0;
+                    EstadoCarrera.revision = 0;
+                    PORTA = 0b01011011;
+                    T1CONbits.TMR1ON = 0;
+                    conteo = 0;
+                    semaforo = 0;}
+            }
+            EstadoCarrera.revisar = 0;
         }
 
         switch(semaforo){
@@ -2900,9 +2930,10 @@ void main(void){
                 PORTA = 0b00111111;
                 PORTE = 0b100;
                 EstadoCarrera.comienzo = 1;
-                T1CONbits.TMR1ON = 0;
-                TMR1H = 0B00111100;
-                TMR1L = 0B10101111;
+
+
+
+                EstadoCarrera.revision = 1;
                 semaforo = 0;
                 PORTC = 1;
                 PORTD = 1;

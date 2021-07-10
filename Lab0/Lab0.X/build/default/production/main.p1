@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "48 main.c
 [; ;main.c: 48:     struct{
-[s S144 :1 `uc 1 ]
-[n S144 . comienzo ]
+[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S144 . comienzo revision revisar ganador1 ganador2 ]
 "47
 [; ;main.c: 47: union Carrera{
 [u S143 `S144 1 ]
@@ -78,8 +78,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [p mainexit ]
-"59 main.c
-[; ;main.c: 59: void configuracion(void);
+"63 main.c
+[; ;main.c: 63: void configuracion(void);
 [v _configuracion `(v ~T0 @X0 0 ef ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
@@ -410,313 +410,398 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"51 main.c
-[; ;main.c: 51: }EstadoCarrera;
+"55 main.c
+[; ;main.c: 55: }EstadoCarrera;
 [v _EstadoCarrera `S143 ~T0 @X0 1 e ]
-"53
-[; ;main.c: 53: uint8_t conteo;
+"57
+[; ;main.c: 57: uint8_t conteo;
 [v _conteo `uc ~T0 @X0 1 e ]
-"54
-[; ;main.c: 54: uint8_t semaforo;
+"58
+[; ;main.c: 58: uint8_t semaforo;
 [v _semaforo `uc ~T0 @X0 1 e ]
 [v $root$_intVec `(v ~T0 @X0 0 e ]
-"61
-[; ;main.c: 61: void __attribute__((picinterrupt(("")))) intVec(void){
+"65
+[; ;main.c: 65: void __attribute__((picinterrupt(("")))) intVec(void){
 [v _intVec `(v ~T1 @X0 1 ef ]
 {
 [e :U _intVec ]
 [f ]
-"63
-[; ;main.c: 63:     if(PIR1bits.TMR1IF){
+"67
+[; ;main.c: 67:     if(PIR1bits.TMR1IF){
 [e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 146  ]
 {
-"64
-[; ;main.c: 64:         conteo ++;
-[e ++ _conteo -> -> 1 `i `uc ]
-"65
-[; ;main.c: 65:         TMR1H = 0B00111100;
-[e = _TMR1H -> -> 60 `i `uc ]
-"66
-[; ;main.c: 66:         TMR1L = 0B10101111;
-[e = _TMR1L -> -> 175 `i `uc ]
-"67
-[; ;main.c: 67:         PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "68
-[; ;main.c: 68:     }
+[; ;main.c: 68:         conteo ++;
+[e ++ _conteo -> -> 1 `i `uc ]
+"69
+[; ;main.c: 69:         if(EstadoCarrera.revision) EstadoCarrera.revisar = 1;
+[e $ ! != -> . . _EstadoCarrera 0 1 `i -> 0 `i 147  ]
+[e = . . _EstadoCarrera 0 2 -> -> 1 `i `uc ]
+[e :U 147 ]
+"70
+[; ;main.c: 70:         TMR1H = 0B00111100;
+[e = _TMR1H -> -> 60 `i `uc ]
+"71
+[; ;main.c: 71:         TMR1L = 0B10101111;
+[e = _TMR1L -> -> 175 `i `uc ]
+"72
+[; ;main.c: 72:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"73
+[; ;main.c: 73:     }
 }
 [e :U 146 ]
-"70
-[; ;main.c: 70:     if(INTCONbits.RBIF && PORTBbits.RB0){
-[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 0 `i -> 0 `i 147  ]
+"75
+[; ;main.c: 75:     if(INTCONbits.RBIF && PORTBbits.RB0){
+[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 0 `i -> 0 `i 148  ]
 {
-"71
-[; ;main.c: 71:         EstadoCarrera.comienzo = 0;
-[e = . . _EstadoCarrera 0 0 -> -> 0 `i `uc ]
-"72
-[; ;main.c: 72:         if(!T1CONbits.TMR1ON) semaforo++;
-[e $ ! ! != -> . . _T1CONbits 0 0 `i -> 0 `i 148  ]
-[e ++ _semaforo -> -> 1 `i `uc ]
-[e :U 148 ]
-"73
-[; ;main.c: 73:         T1CONbits.TMR1ON = 1;
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"74
-[; ;main.c: 74:     }
-}
-[e :U 147 ]
 "76
-[; ;main.c: 76:     if(INTCONbits.RBIF && PORTBbits.RB1){
-[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 1 `i -> 0 `i 149  ]
-{
+[; ;main.c: 76:         EstadoCarrera.comienzo = 0;
+[e = . . _EstadoCarrera 0 0 -> -> 0 `i `uc ]
 "77
-[; ;main.c: 77:         if(EstadoCarrera.comienzo)PORTC<<1;
-[e $ ! != -> . . _EstadoCarrera 0 0 `i -> 0 `i 150  ]
-[e << -> _PORTC `i -> 1 `i ]
-[e :U 150 ]
-"78
-[; ;main.c: 78:     }
-}
+[; ;main.c: 77:         if(!T1CONbits.TMR1ON) semaforo++;
+[e $ ! ! != -> . . _T1CONbits 0 0 `i -> 0 `i 149  ]
+[e ++ _semaforo -> -> 1 `i `uc ]
 [e :U 149 ]
+"78
+[; ;main.c: 78:         T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+"79
+[; ;main.c: 79:         conteo = 0;
+[e = _conteo -> -> 0 `i `uc ]
 "80
-[; ;main.c: 80:     if(INTCONbits.RBIF && PORTBbits.RB2){
-[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 2 `i -> 0 `i 151  ]
-{
+[; ;main.c: 80:         PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
 "81
-[; ;main.c: 81:         if(EstadoCarrera.comienzo)PORTD<<1;
-[e $ ! != -> . . _EstadoCarrera 0 0 `i -> 0 `i 152  ]
-[e << -> _PORTD `i -> 1 `i ]
-[e :U 152 ]
+[; ;main.c: 81:         PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "82
 [; ;main.c: 82:     }
 }
-[e :U 151 ]
+[e :U 148 ]
 "84
-[; ;main.c: 84:     INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 84:     if(INTCONbits.RBIF && PORTBbits.RB1){
+[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 1 `i -> 0 `i 150  ]
+{
+"85
+[; ;main.c: 85:         if(EstadoCarrera.comienzo)PORTC = PORTC<<1;
+[e $ ! != -> . . _EstadoCarrera 0 0 `i -> 0 `i 151  ]
+[e = _PORTC -> << -> _PORTC `i -> 1 `i `uc ]
+[e :U 151 ]
 "86
-[; ;main.c: 86: }
+[; ;main.c: 86:     }
+}
+[e :U 150 ]
+"88
+[; ;main.c: 88:     if(INTCONbits.RBIF && PORTBbits.RB2){
+[e $ ! && != -> . . _INTCONbits 0 0 `i -> 0 `i != -> . . _PORTBbits 0 2 `i -> 0 `i 152  ]
+{
+"89
+[; ;main.c: 89:         if(EstadoCarrera.comienzo)PORTD = PORTD<<1;
+[e $ ! != -> . . _EstadoCarrera 0 0 `i -> 0 `i 153  ]
+[e = _PORTD -> << -> _PORTD `i -> 1 `i `uc ]
+[e :U 153 ]
+"90
+[; ;main.c: 90:     }
+}
+[e :U 152 ]
+"92
+[; ;main.c: 92:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"94
+[; ;main.c: 94: }
 [e :UE 145 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"88
-[; ;main.c: 88: void main(void){
+"96
+[; ;main.c: 96: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"89
-[; ;main.c: 89:     configuracion();
-[e ( _configuracion ..  ]
-"91
-[; ;main.c: 91:     while(1){
-[e :U 155 ]
-{
-"92
-[; ;main.c: 92:         if(conteo >= 10){
-[e $ ! >= -> _conteo `i -> 10 `i 157  ]
-{
-"93
-[; ;main.c: 93:             semaforo++;
-[e ++ _semaforo -> -> 1 `i `uc ]
-"94
-[; ;main.c: 94:             conteo = 0;
-[e = _conteo -> -> 0 `i `uc ]
-"95
-[; ;main.c: 95:         }
-}
-[e :U 157 ]
 "97
-[; ;main.c: 97:         switch(semaforo){
-[e $U 159  ]
-{
-"98
-[; ;main.c: 98:             case 1:
-[e :U 160 ]
+[; ;main.c: 97:     configuracion();
+[e ( _configuracion ..  ]
 "99
-[; ;main.c: 99:                 PORTA = 0b01001111;
-[e = _PORTA -> -> 79 `i `uc ]
-"100
-[; ;main.c: 100:                 PORTE = 0b001;
-[e = _PORTE -> -> 1 `i `uc ]
-"101
-[; ;main.c: 101:                 break;
-[e $U 158  ]
-"102
-[; ;main.c: 102:             case 2:
-[e :U 161 ]
-"103
-[; ;main.c: 103:                 PORTA = 0b01011011;
-[e = _PORTA -> -> 91 `i `uc ]
-"104
-[; ;main.c: 104:                 PORTE = 0b010;
-[e = _PORTE -> -> 2 `i `uc ]
-"105
-[; ;main.c: 105:                 break;
-[e $U 158  ]
-"106
-[; ;main.c: 106:             case 3:
-[e :U 162 ]
-"107
-[; ;main.c: 107:                 PORTA = 0b00000110;
-[e = _PORTA -> -> 6 `i `uc ]
-"108
-[; ;main.c: 108:                 PORTE = 0b010;
-[e = _PORTE -> -> 2 `i `uc ]
-"109
-[; ;main.c: 109:                 break;
-[e $U 158  ]
-"110
-[; ;main.c: 110:             case 4:
-[e :U 163 ]
-"111
-[; ;main.c: 111:                 PORTA = 0b00111111;
-[e = _PORTA -> -> 63 `i `uc ]
-"112
-[; ;main.c: 112:                 PORTE = 0b100;
-[e = _PORTE -> -> 4 `i `uc ]
-"113
-[; ;main.c: 113:                 EstadoCarrera.comienzo = 1;
-[e = . . _EstadoCarrera 0 0 -> -> 1 `i `uc ]
-"114
-[; ;main.c: 114:                 T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"115
-[; ;main.c: 115:                 TMR1H = 0B00111100;
-[e = _TMR1H -> -> 60 `i `uc ]
-"116
-[; ;main.c: 116:                 TMR1L = 0B10101111;
-[e = _TMR1L -> -> 175 `i `uc ]
-"117
-[; ;main.c: 117:                 semaforo = 0;
-[e = _semaforo -> -> 0 `i `uc ]
-"118
-[; ;main.c: 118:                 PORTC = 1;
-[e = _PORTC -> -> 1 `i `uc ]
-"119
-[; ;main.c: 119:                 PORTD = 1;
-[e = _PORTD -> -> 1 `i `uc ]
-"120
-[; ;main.c: 120:                 break;
-[e $U 158  ]
-"121
-[; ;main.c: 121:             default:
-[e :U 164 ]
-"122
-[; ;main.c: 122:                 break;
-[e $U 158  ]
-"123
-[; ;main.c: 123:         }
-}
-[e $U 158  ]
-[e :U 159 ]
-[e [\ -> _semaforo `i , $ -> 1 `i 160
- , $ -> 2 `i 161
- , $ -> 3 `i 162
- , $ -> 4 `i 163
- 164 ]
-[e :U 158 ]
-"125
-[; ;main.c: 125:     }
-}
-[e :U 154 ]
-[e $U 155  ]
+[; ;main.c: 99:     while(1){
 [e :U 156 ]
-"126
-[; ;main.c: 126: }
-[e :UE 153 ]
+{
+"100
+[; ;main.c: 100:         if(conteo >= 10 && !EstadoCarrera.revision){
+[e $ ! && >= -> _conteo `i -> 10 `i ! != -> . . _EstadoCarrera 0 1 `i -> 0 `i 158  ]
+{
+"101
+[; ;main.c: 101:             semaforo++;
+[e ++ _semaforo -> -> 1 `i `uc ]
+"102
+[; ;main.c: 102:             conteo = 0;
+[e = _conteo -> -> 0 `i `uc ]
+"103
+[; ;main.c: 103:         }
 }
+[e :U 158 ]
+"105
+[; ;main.c: 105:         if(EstadoCarrera.revisar){
+[e $ ! != -> . . _EstadoCarrera 0 2 `i -> 0 `i 159  ]
+{
+"106
+[; ;main.c: 106:             if(PORTC > PORTD){
+[e $ ! > -> _PORTC `i -> _PORTD `i 160  ]
+{
+"107
+[; ;main.c: 107:                 if(PORTC >= 128){
+[e $ ! >= -> _PORTC `i -> 128 `i 161  ]
+{
+"108
+[; ;main.c: 108:                     EstadoCarrera.comienzo = 0;
+[e = . . _EstadoCarrera 0 0 -> -> 0 `i `uc ]
+"109
+[; ;main.c: 109:                     EstadoCarrera.revision = 0;
+[e = . . _EstadoCarrera 0 1 -> -> 0 `i `uc ]
+"110
+[; ;main.c: 110:                     PORTA = 0b00000110;
+[e = _PORTA -> -> 6 `i `uc ]
+"111
+[; ;main.c: 111:                     T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"112
+[; ;main.c: 112:                     conteo = 0;
+[e = _conteo -> -> 0 `i `uc ]
+"113
+[; ;main.c: 113:                     semaforo = 0;}
+[e = _semaforo -> -> 0 `i `uc ]
+}
+[e :U 161 ]
+"114
+[; ;main.c: 114:             }
+}
+[e $U 162  ]
+"115
+[; ;main.c: 115:             else if(PORTC < PORTD){
+[e :U 160 ]
+[e $ ! < -> _PORTC `i -> _PORTD `i 163  ]
+{
+"116
+[; ;main.c: 116:                 if(PORTD >= 128){
+[e $ ! >= -> _PORTD `i -> 128 `i 164  ]
+{
+"117
+[; ;main.c: 117:                     EstadoCarrera.comienzo = 0;
+[e = . . _EstadoCarrera 0 0 -> -> 0 `i `uc ]
+"118
+[; ;main.c: 118:                     EstadoCarrera.revision = 0;
+[e = . . _EstadoCarrera 0 1 -> -> 0 `i `uc ]
+"119
+[; ;main.c: 119:                     PORTA = 0b01011011;
+[e = _PORTA -> -> 91 `i `uc ]
+"120
+[; ;main.c: 120:                     T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"121
+[; ;main.c: 121:                     conteo = 0;
+[e = _conteo -> -> 0 `i `uc ]
+"122
+[; ;main.c: 122:                     semaforo = 0;}
+[e = _semaforo -> -> 0 `i `uc ]
+}
+[e :U 164 ]
+"123
+[; ;main.c: 123:             }
+}
+[e :U 163 ]
+[e :U 162 ]
+"124
+[; ;main.c: 124:             EstadoCarrera.revisar = 0;
+[e = . . _EstadoCarrera 0 2 -> -> 0 `i `uc ]
+"125
+[; ;main.c: 125:         }
+}
+[e :U 159 ]
+"127
+[; ;main.c: 127:         switch(semaforo){
+[e $U 166  ]
+{
 "128
-[; ;main.c: 128: void configuracion(void){
+[; ;main.c: 128:             case 1:
+[e :U 167 ]
+"129
+[; ;main.c: 129:                 PORTA = 0b01001111;
+[e = _PORTA -> -> 79 `i `uc ]
+"130
+[; ;main.c: 130:                 PORTE = 0b001;
+[e = _PORTE -> -> 1 `i `uc ]
+"131
+[; ;main.c: 131:                 break;
+[e $U 165  ]
+"132
+[; ;main.c: 132:             case 2:
+[e :U 168 ]
+"133
+[; ;main.c: 133:                 PORTA = 0b01011011;
+[e = _PORTA -> -> 91 `i `uc ]
+"134
+[; ;main.c: 134:                 PORTE = 0b010;
+[e = _PORTE -> -> 2 `i `uc ]
+"135
+[; ;main.c: 135:                 break;
+[e $U 165  ]
+"136
+[; ;main.c: 136:             case 3:
+[e :U 169 ]
+"137
+[; ;main.c: 137:                 PORTA = 0b00000110;
+[e = _PORTA -> -> 6 `i `uc ]
+"138
+[; ;main.c: 138:                 PORTE = 0b010;
+[e = _PORTE -> -> 2 `i `uc ]
+"139
+[; ;main.c: 139:                 break;
+[e $U 165  ]
+"140
+[; ;main.c: 140:             case 4:
+[e :U 170 ]
+"141
+[; ;main.c: 141:                 PORTA = 0b00111111;
+[e = _PORTA -> -> 63 `i `uc ]
+"142
+[; ;main.c: 142:                 PORTE = 0b100;
+[e = _PORTE -> -> 4 `i `uc ]
+"143
+[; ;main.c: 143:                 EstadoCarrera.comienzo = 1;
+[e = . . _EstadoCarrera 0 0 -> -> 1 `i `uc ]
+"147
+[; ;main.c: 147:                 EstadoCarrera.revision = 1;
+[e = . . _EstadoCarrera 0 1 -> -> 1 `i `uc ]
+"148
+[; ;main.c: 148:                 semaforo = 0;
+[e = _semaforo -> -> 0 `i `uc ]
+"149
+[; ;main.c: 149:                 PORTC = 1;
+[e = _PORTC -> -> 1 `i `uc ]
+"150
+[; ;main.c: 150:                 PORTD = 1;
+[e = _PORTD -> -> 1 `i `uc ]
+"151
+[; ;main.c: 151:                 break;
+[e $U 165  ]
+"152
+[; ;main.c: 152:             default:
+[e :U 171 ]
+"153
+[; ;main.c: 153:                 break;
+[e $U 165  ]
+"154
+[; ;main.c: 154:         }
+}
+[e $U 165  ]
+[e :U 166 ]
+[e [\ -> _semaforo `i , $ -> 1 `i 167
+ , $ -> 2 `i 168
+ , $ -> 3 `i 169
+ , $ -> 4 `i 170
+ 171 ]
+[e :U 165 ]
+"156
+[; ;main.c: 156:     }
+}
+[e :U 155 ]
+[e $U 156  ]
+[e :U 157 ]
+"157
+[; ;main.c: 157: }
+[e :UE 154 ]
+}
+"159
+[; ;main.c: 159: void configuracion(void){
 [v _configuracion `(v ~T0 @X0 1 ef ]
 {
 [e :U _configuracion ]
 [f ]
-"130
-[; ;main.c: 130:     ANSEL = 0X00;
+"161
+[; ;main.c: 161:     ANSEL = 0X00;
 [e = _ANSEL -> -> 0 `i `uc ]
-"131
-[; ;main.c: 131:     ANSELH = 0X00;
-[e = _ANSELH -> -> 0 `i `uc ]
-"132
-[; ;main.c: 132:     TRISA = 0X00;
-[e = _TRISA -> -> 0 `i `uc ]
-"133
-[; ;main.c: 133:     TRISB = 0X07;
-[e = _TRISB -> -> 7 `i `uc ]
-"134
-[; ;main.c: 134:     TRISC = 0X00;
-[e = _TRISC -> -> 0 `i `uc ]
-"135
-[; ;main.c: 135:     TRISD = 0X00;
-[e = _TRISD -> -> 0 `i `uc ]
-"136
-[; ;main.c: 136:     TRISE = 0X00;
-[e = _TRISE -> -> 0 `i `uc ]
-"137
-[; ;main.c: 137:     PORTA = 0X00;
-[e = _PORTA -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138:     PORTB = 0X00;
-[e = _PORTB -> -> 0 `i `uc ]
-"139
-[; ;main.c: 139:     PORTC = 0X00;
-[e = _PORTC -> -> 0 `i `uc ]
-"140
-[; ;main.c: 140:     PORTD = 0X00;
-[e = _PORTD -> -> 0 `i `uc ]
-"141
-[; ;main.c: 141:     PORTE = 0X00;
-[e = _PORTE -> -> 0 `i `uc ]
-"144
-[; ;main.c: 144:     conteo = 0;
-[e = _conteo -> -> 0 `i `uc ]
-"147
-[; ;main.c: 147:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"148
-[; ;main.c: 148:     OSCCONbits.SCS = 0b1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"151
-[; ;main.c: 151:     T1CONbits.T1CKPS = 0B10;
-[e = . . _T1CONbits 0 4 -> -> 2 `i `uc ]
-"152
-[; ;main.c: 152:     TMR1H = 0B00111100;
-[e = _TMR1H -> -> 60 `i `uc ]
-"153
-[; ;main.c: 153:     TMR1L = 0B10101111;
-[e = _TMR1L -> -> 175 `i `uc ]
-"154
-[; ;main.c: 154:     T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"157
-[; ;main.c: 157:     IOCBbits.IOCB0 = 1;
-[e = . . _IOCBbits 1 0 -> -> 1 `i `uc ]
-"158
-[; ;main.c: 158:     IOCBbits.IOCB1 = 1;
-[e = . . _IOCBbits 1 1 -> -> 1 `i `uc ]
-"159
-[; ;main.c: 159:     IOCBbits.IOCB2 = 1;
-[e = . . _IOCBbits 1 2 -> -> 1 `i `uc ]
 "162
-[; ;main.c: 162:     PIE1bits.TMR1IE = 1;
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 162:     ANSELH = 0X00;
+[e = _ANSELH -> -> 0 `i `uc ]
 "163
-[; ;main.c: 163:     PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 163:     TRISA = 0X00;
+[e = _TRISA -> -> 0 `i `uc ]
 "164
-[; ;main.c: 164:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 164:     TRISB = 0X07;
+[e = _TRISB -> -> 7 `i `uc ]
 "165
-[; ;main.c: 165:     INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 165:     TRISC = 0X00;
+[e = _TRISC -> -> 0 `i `uc ]
 "166
-[; ;main.c: 166:     INTCONbits.RBIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 166:     TRISD = 0X00;
+[e = _TRISD -> -> 0 `i `uc ]
 "167
-[; ;main.c: 167:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 167:     TRISE = 0X00;
+[e = _TRISE -> -> 0 `i `uc ]
+"168
+[; ;main.c: 168:     PORTA = 0X00;
+[e = _PORTA -> -> 0 `i `uc ]
 "169
-[; ;main.c: 169: }
-[e :UE 165 ]
+[; ;main.c: 169:     PORTB = 0X00;
+[e = _PORTB -> -> 0 `i `uc ]
+"170
+[; ;main.c: 170:     PORTC = 0X00;
+[e = _PORTC -> -> 0 `i `uc ]
+"171
+[; ;main.c: 171:     PORTD = 0X00;
+[e = _PORTD -> -> 0 `i `uc ]
+"172
+[; ;main.c: 172:     PORTE = 0X00;
+[e = _PORTE -> -> 0 `i `uc ]
+"175
+[; ;main.c: 175:     conteo = 0;
+[e = _conteo -> -> 0 `i `uc ]
+"178
+[; ;main.c: 178:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"179
+[; ;main.c: 179:     OSCCONbits.SCS = 0b1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"182
+[; ;main.c: 182:     T1CONbits.T1CKPS = 0B10;
+[e = . . _T1CONbits 0 4 -> -> 2 `i `uc ]
+"183
+[; ;main.c: 183:     TMR1H = 0B00111100;
+[e = _TMR1H -> -> 60 `i `uc ]
+"184
+[; ;main.c: 184:     TMR1L = 0B10101111;
+[e = _TMR1L -> -> 175 `i `uc ]
+"185
+[; ;main.c: 185:     T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"188
+[; ;main.c: 188:     IOCBbits.IOCB0 = 1;
+[e = . . _IOCBbits 1 0 -> -> 1 `i `uc ]
+"189
+[; ;main.c: 189:     IOCBbits.IOCB1 = 1;
+[e = . . _IOCBbits 1 1 -> -> 1 `i `uc ]
+"190
+[; ;main.c: 190:     IOCBbits.IOCB2 = 1;
+[e = . . _IOCBbits 1 2 -> -> 1 `i `uc ]
+"193
+[; ;main.c: 193:     PIE1bits.TMR1IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"194
+[; ;main.c: 194:     PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"195
+[; ;main.c: 195:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"196
+[; ;main.c: 196:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"197
+[; ;main.c: 197:     INTCONbits.RBIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"198
+[; ;main.c: 198:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"200
+[; ;main.c: 200: }
+[e :UE 172 ]
 }

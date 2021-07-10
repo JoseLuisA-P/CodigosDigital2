@@ -47,6 +47,10 @@
 union Carrera{ //manejar las condiciones de la carrera
     struct{
         unsigned comienzo: 1; //indicar si comienza la carrera
+        unsigned revision: 1; //permite revisar los datos
+        unsigned revisar:  1; //revisa los datos
+        unsigned ganador1: 1; //indica que gano el jugador 1
+        unsigned ganador2: 1; //indica que gano el jugador 2
     };
 }EstadoCarrera;
 
@@ -62,6 +66,7 @@ void __interrupt() intVec(void){//Funcion de interrupcion
     
     if(PIR1bits.TMR1IF){
         conteo ++;
+        if(EstadoCarrera.revision) EstadoCarrera.revisar = 1;
         TMR1H = 0B00111100;     //para overflow cada 0.1seg
         TMR1L = 0B10101111;
         PIR1bits.TMR1IF = 0;
@@ -71,14 +76,17 @@ void __interrupt() intVec(void){//Funcion de interrupcion
         EstadoCarrera.comienzo = 0; //evita jugar
         if(!T1CONbits.TMR1ON) semaforo++;
         T1CONbits.TMR1ON = 1;   //activar el timmer 1
+        conteo = 0;
+        PORTC = 0;
+        PORTD = 0;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB1){
-        if(EstadoCarrera.comienzo)PORTC<<1;
+        if(EstadoCarrera.comienzo)PORTC = PORTC<<1;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB2){
-        if(EstadoCarrera.comienzo)PORTD<<1;
+        if(EstadoCarrera.comienzo)PORTD = PORTD<<1;
     }
     
     INTCONbits.RBIF = 0;
@@ -89,11 +97,33 @@ void main(void){//Configuraciones y loop principal
     configuracion();
     
     while(1){//loop principal-continuo
-        if(conteo >= 10){
+        if(conteo >= 10 && !EstadoCarrera.revision){
             semaforo++;
             conteo = 0;
         }
         
+        if(EstadoCarrera.revisar){
+            if(PORTC > PORTD){
+                if(PORTC >= 128){
+                    EstadoCarrera.comienzo = 0;
+                    EstadoCarrera.revision = 0;
+                    PORTA = 0b00000110;
+                    T1CONbits.TMR1ON = 0;
+                    conteo = 0;
+                    semaforo = 0;}
+            }
+            else if(PORTC < PORTD){
+                if(PORTD >= 128){
+                    EstadoCarrera.comienzo = 0;
+                    EstadoCarrera.revision = 0;
+                    PORTA = 0b01011011;
+                    T1CONbits.TMR1ON = 0;
+                    conteo = 0;
+                    semaforo = 0;}
+            }
+            EstadoCarrera.revisar = 0;
+        }
+
         switch(semaforo){
             case 1:
                 PORTA = 0b01001111;
@@ -111,9 +141,10 @@ void main(void){//Configuraciones y loop principal
                 PORTA = 0b00111111;
                 PORTE = 0b100;
                 EstadoCarrera.comienzo = 1; //permite jugar
-                T1CONbits.TMR1ON = 0; //apaga el timmer
+                /*T1CONbits.TMR1ON = 0; //apaga el timmer
                 TMR1H = 0B00111100;     //para overflow cada 0.1seg
-                TMR1L = 0B10101111;
+                TMR1L = 0B10101111;*/
+                EstadoCarrera.revision = 1; //comienza la revision
                 semaforo = 0;
                 PORTC = 1; //Comienza el valor en la carrera
                 PORTD = 1;
