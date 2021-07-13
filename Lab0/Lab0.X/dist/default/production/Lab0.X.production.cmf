@@ -13,14 +13,14 @@
 %PSECTS
 $dist/default/production\Lab0.X.production.o
 cinit CODE 0 F F 7 2
-text1 CODE 0 E5 E5 32 2
-text2 CODE 0 94 94 51 2
-maintext CODE 0 16 16 7E 2
+text1 CODE 0 E8 E8 32 2
+text2 CODE 0 96 96 52 2
+maintext CODE 0 16 16 80 2
 cstackCOMMON COMMON 1 70 70 5 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 75 75 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\sc8k.o
+$C:\Users\jalva\AppData\Local\Temp\sg5s.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -39,13 +39,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 117-1FFF 2
+CONST 11A-1FFF 2
 ENTRY 3-3 2
-ENTRY 117-1FFF 2
+ENTRY 11A-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 117-1FFF 2
+CODE 11A-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -53,9 +53,9 @@ SFR3 180-18F 1
 COMMON 78-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 117-1FFF 2
+STRCODE 11A-1FFF 2
 STRING 3-3 2
-STRING 117-1FFF 2
+STRING 11A-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -70,104 +70,107 @@ STRING 117-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab0.X.production.o
-F cinit CODE >472:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-F cinit CODE >475:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-F cinit CODE >492:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-10 cinit CODE >493:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-11 cinit CODE >494:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-12 cinit CODE >500:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-12 cinit CODE >502:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-13 cinit CODE >503:C:\Users\jalva\AppData\Local\Temp\sc8k.s
-4 intentry CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-94 text2 CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-94 text2 CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-9A text2 CODE >68:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-9E text2 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-A3 text2 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F cinit CODE >472:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+F cinit CODE >475:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+F cinit CODE >492:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+10 cinit CODE >493:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+11 cinit CODE >494:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+12 cinit CODE >500:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+12 cinit CODE >502:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+13 cinit CODE >503:C:\Users\jalva\AppData\Local\Temp\sg5s.s
+4 intentry CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+96 text2 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+96 text2 CODE >68:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+9C text2 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+A0 text2 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 A5 text2 CODE >71:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 A7 text2 CODE >72:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-A8 text2 CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-B0 text2 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-B1 text2 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-B9 text2 CODE >78:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-BA text2 CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-BB text2 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-BC text2 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-BD text2 CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-C5 text2 CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-CD text2 CODE >88:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-D5 text2 CODE >89:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-DD text2 CODE >92:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-DE text2 CODE >94:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-E5 text1 CODE >159:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-E5 text1 CODE >161:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-E8 text1 CODE >162:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-E9 text1 CODE >163:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-EC text1 CODE >164:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-EE text1 CODE >165:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-EF text1 CODE >166:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F0 text1 CODE >167:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F1 text1 CODE >168:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F4 text1 CODE >169:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F5 text1 CODE >170:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F6 text1 CODE >171:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F7 text1 CODE >172:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F8 text1 CODE >175:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-F9 text1 CODE >178:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-FD text1 CODE >179:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-FE text1 CODE >182:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-104 text1 CODE >183:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-106 text1 CODE >184:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-108 text1 CODE >185:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+A9 text2 CODE >73:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+AA text2 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+B2 text2 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+B3 text2 CODE >78:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+B4 text2 CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+BC text2 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+BD text2 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+BE text2 CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+BF text2 CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+C0 text2 CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+C8 text2 CODE >87:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+D0 text2 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+D8 text2 CODE >91:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+E0 text2 CODE >94:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+E1 text2 CODE >96:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+E8 text1 CODE >163:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+E8 text1 CODE >165:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+EB text1 CODE >166:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+EC text1 CODE >167:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+EF text1 CODE >168:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F1 text1 CODE >169:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F2 text1 CODE >170:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F3 text1 CODE >171:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F4 text1 CODE >172:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F7 text1 CODE >173:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F8 text1 CODE >174:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+F9 text1 CODE >175:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+FA text1 CODE >176:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+FB text1 CODE >179:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+FC text1 CODE >182:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+100 text1 CODE >183:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+101 text1 CODE >186:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+107 text1 CODE >187:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 109 text1 CODE >188:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-10C text1 CODE >189:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-10D text1 CODE >190:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-10E text1 CODE >193:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-10F text1 CODE >194:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-112 text1 CODE >195:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-113 text1 CODE >196:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-114 text1 CODE >197:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-115 text1 CODE >198:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+10B text1 CODE >189:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+10C text1 CODE >192:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+10F text1 CODE >193:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+110 text1 CODE >194:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+111 text1 CODE >197:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+112 text1 CODE >198:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+115 text1 CODE >199:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 116 text1 CODE >200:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-16 maintext CODE >96:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-16 maintext CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-1B maintext CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-25 maintext CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-29 maintext CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-2A maintext CODE >105:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-2E maintext CODE >106:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-36 maintext CODE >107:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-3C maintext CODE >108:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-3D maintext CODE >109:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-3E maintext CODE >110:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-40 maintext CODE >111:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-41 maintext CODE >112:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-42 maintext CODE >113:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-44 maintext CODE >115:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-4A maintext CODE >116:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-50 maintext CODE >117:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-51 maintext CODE >118:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-52 maintext CODE >119:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-54 maintext CODE >120:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+117 text1 CODE >201:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+118 text1 CODE >202:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+119 text1 CODE >204:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+16 maintext CODE >98:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+16 maintext CODE >99:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+1B maintext CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+25 maintext CODE >103:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+29 maintext CODE >104:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+2A maintext CODE >107:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+2E maintext CODE >108:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+36 maintext CODE >109:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+3C maintext CODE >110:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+3D maintext CODE >111:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+3E maintext CODE >112:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+40 maintext CODE >113:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+41 maintext CODE >114:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+42 maintext CODE >115:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+43 maintext CODE >116:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+45 maintext CODE >118:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+4B maintext CODE >119:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+51 maintext CODE >120:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+52 maintext CODE >121:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+53 maintext CODE >122:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+55 maintext CODE >123:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 56 maintext CODE >124:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-58 maintext CODE >129:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-5C maintext CODE >130:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-5E maintext CODE >131:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-5F maintext CODE >133:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-63 maintext CODE >134:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-65 maintext CODE >135:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-66 maintext CODE >137:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-6A maintext CODE >138:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-6C maintext CODE >139:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-6D maintext CODE >141:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-71 maintext CODE >142:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-73 maintext CODE >143:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-74 maintext CODE >147:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-75 maintext CODE >148:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-76 maintext CODE >149:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-78 maintext CODE >150:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-7A maintext CODE >151:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
-7B maintext CODE >154:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+58 maintext CODE >128:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+5A maintext CODE >133:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+5E maintext CODE >134:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+60 maintext CODE >135:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+61 maintext CODE >137:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+65 maintext CODE >138:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+67 maintext CODE >139:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+68 maintext CODE >141:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+6C maintext CODE >142:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+6E maintext CODE >143:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+6F maintext CODE >145:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+73 maintext CODE >146:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+75 maintext CODE >147:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+76 maintext CODE >151:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+77 maintext CODE >152:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+78 maintext CODE >153:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+7A maintext CODE >154:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+7C maintext CODE >155:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
+7D maintext CODE >158:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -181,7 +184,7 @@ FE text1 CODE >182:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab0\Lab0.
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Lab0.X.production.o
-__Hspace_0 117 0 ABS 0 - -
+__Hspace_0 11A 0 ABS 0 - -
 __Hspace_1 78 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
@@ -189,19 +192,19 @@ __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _T1CONbits 10 0 ABS 0 - dist/default/production\Lab0.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sc8k.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sg5s.o
 _main 2C 0 CODE 0 maintext dist/default/production\Lab0.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab0.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sc8k.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sg5s.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab0.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc8k.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sg5s.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab0.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab0.X.production.o
@@ -209,14 +212,14 @@ __size_of_configuracion 0 0 ABS 0 - dist/default/production\Lab0.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab0.X.production.o
-__end_of_configuracion 22E 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
+__end_of_configuracion 234 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sc8k.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sc8k.o
-__end_of_intVec 1CA 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sg5s.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sg5s.o
+__end_of_intVec 1D0 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab0.X.production.o
 _EstadoCarrera 77 0 COMMON 1 bssCOMMON dist/default/production\Lab0.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sc8k.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sg5s.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -251,15 +254,15 @@ __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 117 0 ABS 0 - -
+__S0 11A 0 ABS 0 - -
 __S1 78 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/production\Lab0.X.production.o
 _conteo 76 0 COMMON 1 bssCOMMON dist/default/production\Lab0.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sc8k.o
-_intVec 128 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sg5s.o
+_intVec 12C 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab0.X.production.o
 __pmaintext 2C 0 CODE 0 maintext dist/default/production\Lab0.X.production.o
 __Lcommon 0 0 ABS 0 common -
@@ -279,8 +282,8 @@ end_of_initialization 24 0 CODE 0 cinit dist/default/production\Lab0.X.productio
 __Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
-__ptext1 1CA 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
-__ptext2 128 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
+__ptext1 1D0 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
+__ptext2 12C 0 CODE 0 text2 dist/default/production\Lab0.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -289,7 +292,7 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab0.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 128 0 CODE 0 maintext dist/default/production\Lab0.X.production.o
+__end_of_main 12C 0 CODE 0 maintext dist/default/production\Lab0.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab0.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab0.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Lab0.X.production.o
@@ -308,7 +311,7 @@ __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Lab0.X.production.o
 _IOCBbits 96 0 ABS 0 - dist/default/production\Lab0.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Lab0.X.production.o
-_configuracion 1CA 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
+_configuracion 1D0 0 CODE 0 text1 dist/default/production\Lab0.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab0.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -336,7 +339,7 @@ __initialization 1E 0 CODE 0 cinit dist/default/production\Lab0.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackCOMMON 1 70 70 8 1
-intentry 0 4 8 113 2
+intentry 0 4 8 116 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

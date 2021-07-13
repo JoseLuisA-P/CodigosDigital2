@@ -39,6 +39,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <pic16f887.h>
 
 /*                      
  *                                Variables
@@ -74,6 +75,7 @@ void __interrupt() intVec(void){//Funcion de interrupcion
     
     if(INTCONbits.RBIF && PORTBbits.RB0){
         EstadoCarrera.comienzo = 0; //evita jugar
+        PORTB = 0;
         if(!T1CONbits.TMR1ON) semaforo++;
         T1CONbits.TMR1ON = 1;   //activar el timmer 1
         conteo = 0;
@@ -108,6 +110,7 @@ void main(void){//Configuraciones y loop principal
                     EstadoCarrera.comienzo = 0;
                     EstadoCarrera.revision = 0;
                     PORTA = 0b00000110;
+                    PORTBbits.RB6 = 1;
                     T1CONbits.TMR1ON = 0;
                     conteo = 0;
                     semaforo = 0;}
@@ -117,6 +120,7 @@ void main(void){//Configuraciones y loop principal
                     EstadoCarrera.comienzo = 0;
                     EstadoCarrera.revision = 0;
                     PORTA = 0b01011011;
+                    PORTBbits.RB7 = 1;
                     T1CONbits.TMR1ON = 0;
                     conteo = 0;
                     semaforo = 0;}

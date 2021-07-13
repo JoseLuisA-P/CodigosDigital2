@@ -2833,6 +2833,7 @@ typedef uint16_t uintptr_t;
 
 
 
+
 union Carrera{
     struct{
         unsigned comienzo: 1;
@@ -2863,6 +2864,7 @@ void __attribute__((picinterrupt(("")))) intVec(void){
 
     if(INTCONbits.RBIF && PORTBbits.RB0){
         EstadoCarrera.comienzo = 0;
+        PORTB = 0;
         if(!T1CONbits.TMR1ON) semaforo++;
         T1CONbits.TMR1ON = 1;
         conteo = 0;
@@ -2897,6 +2899,7 @@ void main(void){
                     EstadoCarrera.comienzo = 0;
                     EstadoCarrera.revision = 0;
                     PORTA = 0b00000110;
+                    PORTBbits.RB6 = 1;
                     T1CONbits.TMR1ON = 0;
                     conteo = 0;
                     semaforo = 0;}
@@ -2906,6 +2909,7 @@ void main(void){
                     EstadoCarrera.comienzo = 0;
                     EstadoCarrera.revision = 0;
                     PORTA = 0b01011011;
+                    PORTBbits.RB7 = 1;
                     T1CONbits.TMR1ON = 0;
                     conteo = 0;
                     semaforo = 0;}
