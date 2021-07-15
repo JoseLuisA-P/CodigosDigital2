@@ -47,6 +47,7 @@ void configuracion(void);
 //  Rutina de interrupcion
 //******************************************************************************
 void __interrupt() interrupcion(void){
+    
     if(INTCONbits.RBIF && PORTBbits.RB0){
         referencia++;
         INTCONbits.RBIF = 0;

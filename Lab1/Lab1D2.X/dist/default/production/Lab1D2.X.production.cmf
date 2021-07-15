@@ -20,7 +20,7 @@ cstackCOMMON COMMON 1 70 70 3 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 73 73 1 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\s5qk.o
+$C:\Users\jalva\AppData\Local\Temp\s5kk.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -70,45 +70,45 @@ STRING 64-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab1D2.X.production.o
-F cinit CODE >460:C:\Users\jalva\AppData\Local\Temp\s5qk.s
-F cinit CODE >463:C:\Users\jalva\AppData\Local\Temp\s5qk.s
-F cinit CODE >474:C:\Users\jalva\AppData\Local\Temp\s5qk.s
-10 cinit CODE >480:C:\Users\jalva\AppData\Local\Temp\s5qk.s
-10 cinit CODE >482:C:\Users\jalva\AppData\Local\Temp\s5qk.s
-11 cinit CODE >483:C:\Users\jalva\AppData\Local\Temp\s5qk.s
+F cinit CODE >460:C:\Users\jalva\AppData\Local\Temp\s5kk.s
+F cinit CODE >463:C:\Users\jalva\AppData\Local\Temp\s5kk.s
+F cinit CODE >474:C:\Users\jalva\AppData\Local\Temp\s5kk.s
+10 cinit CODE >480:C:\Users\jalva\AppData\Local\Temp\s5kk.s
+10 cinit CODE >482:C:\Users\jalva\AppData\Local\Temp\s5kk.s
+11 cinit CODE >483:C:\Users\jalva\AppData\Local\Temp\s5kk.s
 4 intentry CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 14 text2 CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-14 text2 CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-1E text2 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-22 text2 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-23 text2 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-2D text2 CODE >56:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-2F text2 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-30 text2 CODE >59:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-37 text1 CODE >73:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-37 text1 CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-3B text1 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-3C text1 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-40 text1 CODE >78:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-42 text1 CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-43 text1 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-44 text1 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-45 text1 CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-48 text1 CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-49 text1 CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-4A text1 CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-4B text1 CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-4C text1 CODE >89:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-50 text1 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-51 text1 CODE >93:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-52 text1 CODE >94:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-53 text1 CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-54 text1 CODE >98:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-55 text1 CODE >99:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-56 text1 CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-57 maintext CODE >63:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+14 text2 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+1E text2 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+22 text2 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+23 text2 CODE >56:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+2D text2 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+2F text2 CODE >58:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+30 text2 CODE >60:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+37 text1 CODE >74:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+37 text1 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+3B text1 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+3C text1 CODE >78:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+40 text1 CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+42 text1 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+43 text1 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+44 text1 CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+45 text1 CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+48 text1 CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+49 text1 CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+4A text1 CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+4B text1 CODE >87:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+4C text1 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+50 text1 CODE >91:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+51 text1 CODE >94:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+52 text1 CODE >95:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+53 text1 CODE >98:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+54 text1 CODE >99:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+55 text1 CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+56 text1 CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 57 maintext CODE >64:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
-5C maintext CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+57 maintext CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+5C maintext CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -129,19 +129,19 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s5qk.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s5kk.o
 _main AE 0 CODE 0 maintext dist/default/production\Lab1D2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s5qk.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s5kk.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5qk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s5kk.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
@@ -151,10 +151,10 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
 __end_of_configuracion AE 0 CODE 0 text1 dist/default/production\Lab1D2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s5qk.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s5qk.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s5kk.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s5kk.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab1D2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s5qk.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s5kk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -195,7 +195,7 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/production\Lab1D2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s5qk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s5kk.o
 __pmaintext AE 0 CODE 0 maintext dist/default/production\Lab1D2.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -

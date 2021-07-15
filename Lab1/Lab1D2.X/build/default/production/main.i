@@ -2839,6 +2839,7 @@ void configuracion(void);
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
+
     if(INTCONbits.RBIF && PORTBbits.RB0){
         referencia++;
         INTCONbits.RBIF = 0;
