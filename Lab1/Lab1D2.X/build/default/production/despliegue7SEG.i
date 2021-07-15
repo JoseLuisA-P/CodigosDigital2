@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "despliegue7SEG.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,27 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 17 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
+# 1 "despliegue7SEG.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2507,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 35 "main.c" 2
+# 1 "despliegue7SEG.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2606,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 36 "main.c" 2
+# 2 "despliegue7SEG.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2691,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 37 "main.c" 2
+# 3 "despliegue7SEG.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2826,100 +2806,61 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 38 "main.c" 2
+# 4 "despliegue7SEG.c" 2
 
 # 1 "./despliegue7SEG.h" 1
 # 35 "./despliegue7SEG.h"
 void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower);
 void ADCconfig(uint8_t canal, uint8_t just);
 void Seg7EQ(uint8_t *dato);
-# 39 "main.c" 2
+# 5 "despliegue7SEG.c" 2
 
 
 
 
 
-uint8_t referencia;
-uint8_t uphex,lowhex;
-uint8_t tempo;
-void configuracion(void);
-
-
-
-void __attribute__((picinterrupt(("")))) interrupcion(void){
-
-    if(INTCONbits.RBIF && PORTBbits.RB0){
-        referencia++;
-        INTCONbits.RBIF = 0;
+void ADCconfig(uint8_t canal, uint8_t just){
+    switch(OSCCONbits.IRCF){
+        case 0b100:
+            ADCON0bits.ADCS = 0b000;
+            break;
+        case 0b110:
+            ADCON0bits.ADCS = 0b001;
+            break;
+        case 0b111:
+            ADCON0bits.ADCS = 0b010;
+            break;
+        default:
+            ADCON0bits.ADCS = 0b11;
+            break;
     }
-
-    if(INTCONbits.RBIF && PORTBbits.RB1){
-        referencia--;
-        INTCONbits.RBIF = 0;
-    }
-
-    if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        tempo = 1;
-        INTCONbits.T0IF = 0;
-    }
-
+    ADCON0bits.CHS = canal;
+    ADCON0bits.GO = 0b0;
+    ADCON0bits.ADON = 0b1;
+    ADCON1bits.ADFM = just;
+    ADCON1bits.VCFG1 = 0b0;
+    ADCON1bits.VCFG0 = 0b0;
 }
 
 
 
-void main(void){
-    configuracion();
-    while(1){
-        if(tempo && !ADCON0bits.GO)CONVhexa(ADRESH,&uphex,&lowhex);
+void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
 
 
-        PORTD = referencia;
 
 
-    }
+    uint8_t temp;
+    temp = valor;
+    *lower = (temp & 0x0F);
+    temp = temp>>4;
+    *upper = (temp & 0x0F);
 }
 
 
 
-void configuracion(void){
 
-    ANSEL = 0X01;
-    ANSELH = 0X00;
-    TRISA = 0X01;
-    TRISB = 0X03;
-    TRISC = 0X00;
-    TRISD = 0X00;
-    TRISE = 0X00;
-    PORTA = 0X00;
-    PORTB = 0X00;
-    PORTC = 0X00;
-    PORTD = 0X00;
-    PORTE = 0X00;
+void Seg7EQ(uint8_t *dato){
 
 
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
-
-
-    IOCBbits.IOCB0 = 1;
-    IOCBbits.IOCB1 = 1;
-
-
-    INTCONbits.RBIF = 0;
-    INTCONbits.RBIE = 1;
-    INTCONbits.T0IF = 0;
-    INTCONbits.T0IE = 1;
-    INTCONbits.GIE = 1;
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 0;
-    OPTION_REGbits.PS0 = 0;
-
-
-    ADCconfig(0,0);
 
 }

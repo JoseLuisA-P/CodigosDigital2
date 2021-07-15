@@ -36,12 +36,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include "despliegue7SEG.h"
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
 uint8_t referencia; //referencia contrastada en el ADC
-
+uint8_t uphex,lowhex; //valores hex a desplegar
+uint8_t tempo; //para realizar la conversion solo con el timmer0
 void configuracion(void);
 //******************************************************************************
 //  Rutina de interrupcion
@@ -57,6 +59,13 @@ void __interrupt() interrupcion(void){
         referencia--;
         INTCONbits.RBIF = 0;
     }
+    
+    if(INTCONbits.T0IF){
+        if(!ADCON0bits.GO)ADCON0bits.GO = 1; //hacer la conversion acorde al T0
+        tempo = 1;
+        INTCONbits.T0IF = 0;
+    }
+         
 }
 //******************************************************************************
 //  loop principal
@@ -64,7 +73,11 @@ void __interrupt() interrupcion(void){
 void main(void){
     configuracion();
     while(1){
+        if(tempo && !ADCON0bits.GO)CONVhexa(ADRESH,&uphex,&lowhex);
+        //empleado para realizar la conversion del valor actualizado
+        //se adquieren los valores y se separan para su despliegue
         PORTD = referencia;
+        
         
     }
 }
@@ -97,6 +110,18 @@ void configuracion(void){
     //Configuracion de interrupciones
     INTCONbits.RBIF = 0;    //apaga bandera IOCB
     INTCONbits.RBIE = 1;    //habilita IOCB
+    INTCONbits.T0IF = 0;    //Interrupciones del timmer 0
+    INTCONbits.T0IE = 1;
     INTCONbits.GIE = 1;     //habilitadas interrupcioens globales
     
+    //configuracion timmer0
+    OPTION_REGbits.T0CS = 0;    //Timmer 0 a FOSC y Prescalador asignado
+    OPTION_REGbits.PSA  = 0;
+    OPTION_REGbits.PS2  = 1;    //valor del prescalador
+    OPTION_REGbits.PS1  = 0;
+    OPTION_REGbits.PS0  = 0;
+    
+    //Configuracion del ADC
+    ADCconfig(0,0); //seleccion de canal 0 y justificado a la izquierda
+
 }
