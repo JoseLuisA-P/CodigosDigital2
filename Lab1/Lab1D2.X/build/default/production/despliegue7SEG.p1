@@ -378,8 +378,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;despliegue7SEG.c: 41:     temp = valor;
 [e = _temp _valor ]
 "42
-[; ;despliegue7SEG.c: 42:     *lower = (temp & 0x0F);
-[e = *U _lower -> & -> _temp `i -> 15 `i `uc ]
+[; ;despliegue7SEG.c: 42:     *lower = (valor & 0x0F);
+[e = *U _lower -> & -> _valor `i -> 15 `i `uc ]
 "43
 [; ;despliegue7SEG.c: 43:     temp = temp>>4;
 [e = _temp -> >> -> _temp `i -> 4 `i `uc ]
@@ -391,13 +391,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 150 ]
 }
 "50
-[; ;despliegue7SEG.c: 50: void Seg7EQ(uint8_t *dato){
-[v _Seg7EQ `(v ~T0 @X0 1 ef1`*uc ]
+[; ;despliegue7SEG.c: 50: uint8_t Seg7EQ(uint8_t dato){
+[v _Seg7EQ `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Seg7EQ ]
-[v _dato `*uc ~T0 @X0 1 r1 ]
+[v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
+"53
+[; ;despliegue7SEG.c: 53:     switch(dato){
+[e $U 153  ]
+{
 "54
-[; ;despliegue7SEG.c: 54: }
+[; ;despliegue7SEG.c: 54:         case 0:
+[e :U 154 ]
+"55
+[; ;despliegue7SEG.c: 55:         return 0b00111111; break;
+[e ) -> -> 63 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"56
+[; ;despliegue7SEG.c: 56:         case 1:
+[e :U 155 ]
+"57
+[; ;despliegue7SEG.c: 57:         return 0b00000110; break;
+[e ) -> -> 6 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"58
+[; ;despliegue7SEG.c: 58:         case 2:
+[e :U 156 ]
+"59
+[; ;despliegue7SEG.c: 59:         return 0b01011011; break;
+[e ) -> -> 91 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"60
+[; ;despliegue7SEG.c: 60:         case 3:
+[e :U 157 ]
+"61
+[; ;despliegue7SEG.c: 61:         return 0b01001111; break;
+[e ) -> -> 79 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"62
+[; ;despliegue7SEG.c: 62:         case 4:
+[e :U 158 ]
+"63
+[; ;despliegue7SEG.c: 63:         return 0b01100110; break;
+[e ) -> -> 102 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"64
+[; ;despliegue7SEG.c: 64:         case 5:
+[e :U 159 ]
+"65
+[; ;despliegue7SEG.c: 65:         return 0b01101101; break;
+[e ) -> -> 109 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"66
+[; ;despliegue7SEG.c: 66:         case 6:
+[e :U 160 ]
+"67
+[; ;despliegue7SEG.c: 67:         return 0b01111101; break;
+[e ) -> -> 125 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"68
+[; ;despliegue7SEG.c: 68:         case 7:
+[e :U 161 ]
+"69
+[; ;despliegue7SEG.c: 69:         return 0b00000111; break;
+[e ) -> -> 7 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"70
+[; ;despliegue7SEG.c: 70:         case 8:
+[e :U 162 ]
+"71
+[; ;despliegue7SEG.c: 71:         return 0b01111111; break;
+[e ) -> -> 127 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"72
+[; ;despliegue7SEG.c: 72:         case 9:
+[e :U 163 ]
+"73
+[; ;despliegue7SEG.c: 73:         return 0b01100111; break;
+[e ) -> -> 103 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"74
+[; ;despliegue7SEG.c: 74:         case 10:
+[e :U 164 ]
+"75
+[; ;despliegue7SEG.c: 75:         return 0b01110111; break;
+[e ) -> -> 119 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"76
+[; ;despliegue7SEG.c: 76:         case 11:
+[e :U 165 ]
+"77
+[; ;despliegue7SEG.c: 77:         return 0b01111100; break;
+[e ) -> -> 124 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"78
+[; ;despliegue7SEG.c: 78:         case 12:
+[e :U 166 ]
+"79
+[; ;despliegue7SEG.c: 79:         return 0b00111001; break;
+[e ) -> -> 57 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"80
+[; ;despliegue7SEG.c: 80:         case 13:
+[e :U 167 ]
+"81
+[; ;despliegue7SEG.c: 81:         return 0b01011110; break;
+[e ) -> -> 94 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"82
+[; ;despliegue7SEG.c: 82:         case 14:
+[e :U 168 ]
+"83
+[; ;despliegue7SEG.c: 83:         return 0b01111001; break;
+[e ) -> -> 121 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"84
+[; ;despliegue7SEG.c: 84:         case 15:
+[e :U 169 ]
+"85
+[; ;despliegue7SEG.c: 85:         return 0b01110001; break;
+[e ) -> -> 113 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"86
+[; ;despliegue7SEG.c: 86:         default:
+[e :U 170 ]
+"87
+[; ;despliegue7SEG.c: 87:         return 0b00111111; break;
+[e ) -> -> 63 `i `uc ]
+[e $UE 151  ]
+[e $U 152  ]
+"88
+[; ;despliegue7SEG.c: 88:     }
+}
+[e $U 152  ]
+[e :U 153 ]
+[e [\ -> _dato `i , $ -> 0 `i 154
+ , $ -> 1 `i 155
+ , $ -> 2 `i 156
+ , $ -> 3 `i 157
+ , $ -> 4 `i 158
+ , $ -> 5 `i 159
+ , $ -> 6 `i 160
+ , $ -> 7 `i 161
+ , $ -> 8 `i 162
+ , $ -> 9 `i 163
+ , $ -> 10 `i 164
+ , $ -> 11 `i 165
+ , $ -> 12 `i 166
+ , $ -> 13 `i 167
+ , $ -> 14 `i 168
+ , $ -> 15 `i 169
+ 170 ]
+[e :U 152 ]
+"89
+[; ;despliegue7SEG.c: 89: }
 [e :UE 151 ]
 }

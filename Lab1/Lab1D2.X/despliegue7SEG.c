@@ -39,7 +39,7 @@ void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
     
     uint8_t temp; //variable temporal para la separacion de datos
     temp = valor;
-    *lower = (temp & 0x0F);
+    *lower = (valor & 0x0F);
     temp = temp>>4;
     *upper = (temp & 0x0F);
 }
@@ -47,8 +47,43 @@ void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
 //******************************************************************************
 //  Despliegue de datos
 //******************************************************************************
-void Seg7EQ(uint8_t *dato){
+uint8_t Seg7EQ(uint8_t dato){
     //utilizado para regresar el equivalente para desplegar el dato en
     //un display de 7 segmentos.
-
+    switch(dato){    //depende el valor, regresa el equivalente para el 7SEG
+        case 0:
+        return 0b00111111;	break;//0
+        case 1:
+        return 0b00000110; break;//1
+        case 2:
+        return 0b01011011;	break;//2
+        case 3:
+        return 0b01001111;	break;//3
+        case 4:
+        return 0b01100110;	break;//4
+        case 5:
+        return 0b01101101;	break;//5
+        case 6:
+        return 0b01111101;	break;//6
+        case 7:
+        return 0b00000111;	break;//7
+        case 8:
+        return 0b01111111;	break;//8
+        case 9:
+        return 0b01100111;	break;//9   
+        case 10:
+        return 0b01110111;	break;//A   
+        case 11:
+        return 0b01111100;	break;//B   
+        case 12:
+        return 0b00111001;	break;//C   
+        case 13:
+        return 0b01011110;	break;//D   
+        case 14:
+        return 0b01111001;	break;//E   
+        case 15:
+        return 0b01110001;	break;//F   
+        default:
+        return 0b00111111;	break;//0
+    }
 }

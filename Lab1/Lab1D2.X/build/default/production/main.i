@@ -2828,19 +2828,20 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 38 "main.c" 2
 
+
 # 1 "./despliegue7SEG.h" 1
 # 35 "./despliegue7SEG.h"
 void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower);
 void ADCconfig(uint8_t canal, uint8_t just);
-void Seg7EQ(uint8_t *dato);
-# 39 "main.c" 2
+uint8_t Seg7EQ(uint8_t dato);
+# 40 "main.c" 2
 
 
 
 
 
 uint8_t referencia;
-uint8_t uphex,lowhex;
+uint8_t uphex,lowhex,multi;
 uint8_t tempo;
 void configuracion(void);
 
@@ -2859,6 +2860,7 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
     }
 
     if(INTCONbits.T0IF){
+        CONVhexa(ADRESH,&uphex,&lowhex);
         if(!ADCON0bits.GO)ADCON0bits.GO = 1;
         tempo = 1;
         INTCONbits.T0IF = 0;
@@ -2871,11 +2873,28 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 void main(void){
     configuracion();
     while(1){
-        if(tempo && !ADCON0bits.GO)CONVhexa(ADRESH,&uphex,&lowhex);
-
 
         PORTD = referencia;
 
+        if(tempo){
+            multi++;
+            if(multi>=2)multi = 0;
+        switch(multi){
+            case 0:
+                PORTE = 0;
+                PORTC = Seg7EQ(uphex);
+                PORTE = 0x01;
+                break;
+            case 1:
+                PORTE = 0;
+                PORTC = Seg7EQ(lowhex);
+                PORTE = 0x02;
+                break;
+            default:
+                break;
+        }
+        tempo = 0;
+        }
 
     }
 }
@@ -2895,7 +2914,7 @@ void configuracion(void){
     PORTB = 0X00;
     PORTC = 0X00;
     PORTD = 0X00;
-    PORTE = 0X00;
+    PORTE = 0X01;
 
 
     OSCCONbits.IRCF = 0b111;
@@ -2916,10 +2935,9 @@ void configuracion(void){
     OPTION_REGbits.T0CS = 0;
     OPTION_REGbits.PSA = 0;
     OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 0;
+    OPTION_REGbits.PS1 = 1;
     OPTION_REGbits.PS0 = 0;
 
 
     ADCconfig(0,0);
-
 }

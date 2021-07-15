@@ -36,13 +36,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <pic16f887.h>
 #include "despliegue7SEG.h"
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
 uint8_t referencia; //referencia contrastada en el ADC
-uint8_t uphex,lowhex; //valores hex a desplegar
+uint8_t uphex,lowhex,multi; //valores hex a desplegar
 uint8_t tempo; //para realizar la conversion solo con el timmer0
 void configuracion(void);
 //******************************************************************************
@@ -61,6 +62,7 @@ void __interrupt() interrupcion(void){
     }
     
     if(INTCONbits.T0IF){
+        CONVhexa(ADRESH,&uphex,&lowhex);
         if(!ADCON0bits.GO)ADCON0bits.GO = 1; //hacer la conversion acorde al T0
         tempo = 1;
         INTCONbits.T0IF = 0;
@@ -73,12 +75,29 @@ void __interrupt() interrupcion(void){
 void main(void){
     configuracion();
     while(1){
-        if(tempo && !ADCON0bits.GO)CONVhexa(ADRESH,&uphex,&lowhex);
-        //empleado para realizar la conversion del valor actualizado
-        //se adquieren los valores y se separan para su despliegue
+        
         PORTD = referencia;
         
-        
+        if(tempo){
+            multi++;
+            if(multi>=2)multi = 0;
+        switch(multi){
+            case 0:
+                PORTE = 0;
+                PORTC = Seg7EQ(uphex); //regresa el valor superior del hex
+                PORTE = 0x01;
+                break;
+            case 1:
+                PORTE = 0;
+                PORTC = Seg7EQ(lowhex); //regresa el valor ingerior del hex
+                PORTE = 0x02;
+                break;
+            default:
+                break;
+        }
+        tempo = 0;
+        }
+            
     }
 }
 //******************************************************************************
@@ -97,7 +116,7 @@ void configuracion(void){
     PORTB =         0X00;
     PORTC =         0X00;
     PORTD =         0X00;
-    PORTE =         0X00;
+    PORTE =         0X01;
     
     //Configuracion del oscilador
     OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
@@ -118,10 +137,9 @@ void configuracion(void){
     OPTION_REGbits.T0CS = 0;    //Timmer 0 a FOSC y Prescalador asignado
     OPTION_REGbits.PSA  = 0;
     OPTION_REGbits.PS2  = 1;    //valor del prescalador
-    OPTION_REGbits.PS1  = 0;
+    OPTION_REGbits.PS1  = 1;
     OPTION_REGbits.PS0  = 0;
     
     //Configuracion del ADC
     ADCconfig(0,0); //seleccion de canal 0 y justificado a la izquierda
-
 }
