@@ -2,7 +2,7 @@
  *Autor: Jose Luis Alvarez Pineda (19392)
  *
  * Creado: 14 de Julio de 2021
- * Modificado: 14 de Julio de 2021
+ * Modificado: 15 de Julio de 2021
  * 
  * General: 
  * Hardware:
@@ -52,17 +52,19 @@ void configuracion(void);
 void __interrupt() interrupcion(void){
     
     if(INTCONbits.RBIF && PORTBbits.RB0){
-        referencia++;
+        referencia++; //aumenta el valor de referencia
         INTCONbits.RBIF = 0;
     }
     
     if(INTCONbits.RBIF && PORTBbits.RB1){
-        referencia--;
+        referencia--; //disminuye el valor de referencia
         INTCONbits.RBIF = 0;
     }
-    
+        INTCONbits.RBIF = 0;
+        
     if(INTCONbits.T0IF){
-        CONVhexa(ADRESH,&uphex,&lowhex);
+        CONVhexa(ADRESH,&uphex,&lowhex); //obtener los valores a desplegar del 
+        //ADC en formato hexadecimal
         if(!ADCON0bits.GO)ADCON0bits.GO = 1; //hacer la conversion acorde al T0
         tempo = 1;
         INTCONbits.T0IF = 0;
@@ -76,14 +78,17 @@ void main(void){
     configuracion();
     while(1){
         
-        PORTD = referencia;
+        PORTD = referencia; //puertoD toma el valor de referencia
+        
+        if(ADRESH>referencia)PORTAbits.RA1 = 1; //comparador para ver
+        else PORTAbits.RA1 = 0; // que no se supera el valor
         
         if(tempo){
-            multi++;
+            multi++; //para multiplexar los 2 valores
             if(multi>=2)multi = 0;
         switch(multi){
             case 0:
-                PORTE = 0;
+                PORTE = 0; //evitar el parpadeo en cambio de valor
                 PORTC = Seg7EQ(uphex); //regresa el valor superior del hex
                 PORTE = 0x01;
                 break;

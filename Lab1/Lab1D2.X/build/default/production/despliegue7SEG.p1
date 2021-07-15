@@ -290,48 +290,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _canal `uc ~T0 @X0 1 r1 ]
 [v _just `uc ~T0 @X0 1 r2 ]
 [f ]
-"11
-[; ;despliegue7SEG.c: 11:     switch(OSCCONbits.IRCF){
+"15
+[; ;despliegue7SEG.c: 15:     switch(OSCCONbits.IRCF){
 [e $U 145  ]
 {
-"12
-[; ;despliegue7SEG.c: 12:         case 0b100:
-[e :U 146 ]
-"13
-[; ;despliegue7SEG.c: 13:             ADCON0bits.ADCS = 0b000;
-[e = . . _ADCON0bits 0 3 -> -> 0 `i `uc ]
-"14
-[; ;despliegue7SEG.c: 14:             break;
-[e $U 144  ]
-"15
-[; ;despliegue7SEG.c: 15:         case 0b110:
-[e :U 147 ]
 "16
-[; ;despliegue7SEG.c: 16:             ADCON0bits.ADCS = 0b001;
-[e = . . _ADCON0bits 0 3 -> -> 1 `i `uc ]
+[; ;despliegue7SEG.c: 16:         case 0b100:
+[e :U 146 ]
 "17
-[; ;despliegue7SEG.c: 17:             break;
-[e $U 144  ]
+[; ;despliegue7SEG.c: 17:             ADCON0bits.ADCS = 0b000;
+[e = . . _ADCON0bits 0 3 -> -> 0 `i `uc ]
 "18
-[; ;despliegue7SEG.c: 18:         case 0b111:
-[e :U 148 ]
+[; ;despliegue7SEG.c: 18:             break;
+[e $U 144  ]
 "19
-[; ;despliegue7SEG.c: 19:             ADCON0bits.ADCS = 0b010;
-[e = . . _ADCON0bits 0 3 -> -> 2 `i `uc ]
+[; ;despliegue7SEG.c: 19:         case 0b110:
+[e :U 147 ]
 "20
-[; ;despliegue7SEG.c: 20:             break;
-[e $U 144  ]
+[; ;despliegue7SEG.c: 20:             ADCON0bits.ADCS = 0b001;
+[e = . . _ADCON0bits 0 3 -> -> 1 `i `uc ]
 "21
-[; ;despliegue7SEG.c: 21:         default:
-[e :U 149 ]
-"22
-[; ;despliegue7SEG.c: 22:             ADCON0bits.ADCS = 0b11;
-[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
-"23
-[; ;despliegue7SEG.c: 23:             break;
+[; ;despliegue7SEG.c: 21:             break;
 [e $U 144  ]
+"22
+[; ;despliegue7SEG.c: 22:         case 0b111:
+[e :U 148 ]
+"23
+[; ;despliegue7SEG.c: 23:             ADCON0bits.ADCS = 0b010;
+[e = . . _ADCON0bits 0 3 -> -> 2 `i `uc ]
 "24
-[; ;despliegue7SEG.c: 24:     }
+[; ;despliegue7SEG.c: 24:             break;
+[e $U 144  ]
+"25
+[; ;despliegue7SEG.c: 25:         default:
+[e :U 149 ]
+"26
+[; ;despliegue7SEG.c: 26:             ADCON0bits.ADCS = 0b11;
+[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
+"27
+[; ;despliegue7SEG.c: 27:             break;
+[e $U 144  ]
+"28
+[; ;despliegue7SEG.c: 28:     }
 }
 [e $U 144  ]
 [e :U 145 ]
@@ -340,30 +340,30 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 7 `i 148
  149 ]
 [e :U 144 ]
-"25
-[; ;despliegue7SEG.c: 25:     ADCON0bits.CHS = canal;
-[e = . . _ADCON0bits 0 2 _canal ]
-"26
-[; ;despliegue7SEG.c: 26:     ADCON0bits.GO = 0b0;
-[e = . . _ADCON0bits 1 1 -> -> 0 `i `uc ]
-"27
-[; ;despliegue7SEG.c: 27:     ADCON0bits.ADON = 0b1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"28
-[; ;despliegue7SEG.c: 28:     ADCON1bits.ADFM = just;
-[e = . . _ADCON1bits 0 4 _just ]
 "29
-[; ;despliegue7SEG.c: 29:     ADCON1bits.VCFG1 = 0b0;
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;despliegue7SEG.c: 29:     ADCON0bits.CHS = canal;
+[e = . . _ADCON0bits 0 2 _canal ]
 "30
-[; ;despliegue7SEG.c: 30:     ADCON1bits.VCFG0 = 0b0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;despliegue7SEG.c: 30:     ADCON0bits.GO = 0b0;
+[e = . . _ADCON0bits 1 1 -> -> 0 `i `uc ]
 "31
-[; ;despliegue7SEG.c: 31: }
+[; ;despliegue7SEG.c: 31:     ADCON0bits.ADON = 0b1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"32
+[; ;despliegue7SEG.c: 32:     ADCON1bits.ADFM = just;
+[e = . . _ADCON1bits 0 4 _just ]
+"33
+[; ;despliegue7SEG.c: 33:     ADCON1bits.VCFG1 = 0b0;
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+"34
+[; ;despliegue7SEG.c: 34:     ADCON1bits.VCFG0 = 0b0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+"35
+[; ;despliegue7SEG.c: 35: }
 [e :UE 143 ]
 }
-"35
-[; ;despliegue7SEG.c: 35: void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
+"39
+[; ;despliegue7SEG.c: 39: void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
 [v _CONVhexa `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
 {
 [e :U _CONVhexa ]
@@ -371,174 +371,174 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _upper `*uc ~T0 @X0 1 r2 ]
 [v _lower `*uc ~T0 @X0 1 r3 ]
 [f ]
-"40
-[; ;despliegue7SEG.c: 40:     uint8_t temp;
-[v _temp `uc ~T0 @X0 1 a ]
-"41
-[; ;despliegue7SEG.c: 41:     temp = valor;
-[e = _temp _valor ]
-"42
-[; ;despliegue7SEG.c: 42:     *lower = (valor & 0x0F);
-[e = *U _lower -> & -> _valor `i -> 15 `i `uc ]
-"43
-[; ;despliegue7SEG.c: 43:     temp = temp>>4;
-[e = _temp -> >> -> _temp `i -> 4 `i `uc ]
 "44
-[; ;despliegue7SEG.c: 44:     *upper = (temp & 0x0F);
-[e = *U _upper -> & -> _temp `i -> 15 `i `uc ]
+[; ;despliegue7SEG.c: 44:     uint8_t temp;
+[v _temp `uc ~T0 @X0 1 a ]
 "45
-[; ;despliegue7SEG.c: 45: }
+[; ;despliegue7SEG.c: 45:     temp = valor;
+[e = _temp _valor ]
+"46
+[; ;despliegue7SEG.c: 46:     *lower = (valor & 0x0F);
+[e = *U _lower -> & -> _valor `i -> 15 `i `uc ]
+"47
+[; ;despliegue7SEG.c: 47:     temp = temp>>4;
+[e = _temp -> >> -> _temp `i -> 4 `i `uc ]
+"48
+[; ;despliegue7SEG.c: 48:     *upper = (temp & 0x0F);
+[e = *U _upper -> & -> _temp `i -> 15 `i `uc ]
+"49
+[; ;despliegue7SEG.c: 49: }
 [e :UE 150 ]
 }
-"50
-[; ;despliegue7SEG.c: 50: uint8_t Seg7EQ(uint8_t dato){
+"54
+[; ;despliegue7SEG.c: 54: uint8_t Seg7EQ(uint8_t dato){
 [v _Seg7EQ `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Seg7EQ ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"53
-[; ;despliegue7SEG.c: 53:     switch(dato){
+"58
+[; ;despliegue7SEG.c: 58:     switch(dato){
 [e $U 153  ]
 {
-"54
-[; ;despliegue7SEG.c: 54:         case 0:
+"59
+[; ;despliegue7SEG.c: 59:         case 0:
 [e :U 154 ]
-"55
-[; ;despliegue7SEG.c: 55:         return 0b00111111; break;
+"60
+[; ;despliegue7SEG.c: 60:         return 0b00111111; break;
 [e ) -> -> 63 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"56
-[; ;despliegue7SEG.c: 56:         case 1:
+"61
+[; ;despliegue7SEG.c: 61:         case 1:
 [e :U 155 ]
-"57
-[; ;despliegue7SEG.c: 57:         return 0b00000110; break;
+"62
+[; ;despliegue7SEG.c: 62:         return 0b00000110; break;
 [e ) -> -> 6 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"58
-[; ;despliegue7SEG.c: 58:         case 2:
+"63
+[; ;despliegue7SEG.c: 63:         case 2:
 [e :U 156 ]
-"59
-[; ;despliegue7SEG.c: 59:         return 0b01011011; break;
+"64
+[; ;despliegue7SEG.c: 64:         return 0b01011011; break;
 [e ) -> -> 91 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"60
-[; ;despliegue7SEG.c: 60:         case 3:
+"65
+[; ;despliegue7SEG.c: 65:         case 3:
 [e :U 157 ]
-"61
-[; ;despliegue7SEG.c: 61:         return 0b01001111; break;
+"66
+[; ;despliegue7SEG.c: 66:         return 0b01001111; break;
 [e ) -> -> 79 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"62
-[; ;despliegue7SEG.c: 62:         case 4:
+"67
+[; ;despliegue7SEG.c: 67:         case 4:
 [e :U 158 ]
-"63
-[; ;despliegue7SEG.c: 63:         return 0b01100110; break;
+"68
+[; ;despliegue7SEG.c: 68:         return 0b01100110; break;
 [e ) -> -> 102 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"64
-[; ;despliegue7SEG.c: 64:         case 5:
+"69
+[; ;despliegue7SEG.c: 69:         case 5:
 [e :U 159 ]
-"65
-[; ;despliegue7SEG.c: 65:         return 0b01101101; break;
+"70
+[; ;despliegue7SEG.c: 70:         return 0b01101101; break;
 [e ) -> -> 109 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"66
-[; ;despliegue7SEG.c: 66:         case 6:
+"71
+[; ;despliegue7SEG.c: 71:         case 6:
 [e :U 160 ]
-"67
-[; ;despliegue7SEG.c: 67:         return 0b01111101; break;
+"72
+[; ;despliegue7SEG.c: 72:         return 0b01111101; break;
 [e ) -> -> 125 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"68
-[; ;despliegue7SEG.c: 68:         case 7:
+"73
+[; ;despliegue7SEG.c: 73:         case 7:
 [e :U 161 ]
-"69
-[; ;despliegue7SEG.c: 69:         return 0b00000111; break;
+"74
+[; ;despliegue7SEG.c: 74:         return 0b00000111; break;
 [e ) -> -> 7 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"70
-[; ;despliegue7SEG.c: 70:         case 8:
+"75
+[; ;despliegue7SEG.c: 75:         case 8:
 [e :U 162 ]
-"71
-[; ;despliegue7SEG.c: 71:         return 0b01111111; break;
+"76
+[; ;despliegue7SEG.c: 76:         return 0b01111111; break;
 [e ) -> -> 127 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"72
-[; ;despliegue7SEG.c: 72:         case 9:
+"77
+[; ;despliegue7SEG.c: 77:         case 9:
 [e :U 163 ]
-"73
-[; ;despliegue7SEG.c: 73:         return 0b01100111; break;
+"78
+[; ;despliegue7SEG.c: 78:         return 0b01100111; break;
 [e ) -> -> 103 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"74
-[; ;despliegue7SEG.c: 74:         case 10:
+"79
+[; ;despliegue7SEG.c: 79:         case 10:
 [e :U 164 ]
-"75
-[; ;despliegue7SEG.c: 75:         return 0b01110111; break;
+"80
+[; ;despliegue7SEG.c: 80:         return 0b01110111; break;
 [e ) -> -> 119 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"76
-[; ;despliegue7SEG.c: 76:         case 11:
+"81
+[; ;despliegue7SEG.c: 81:         case 11:
 [e :U 165 ]
-"77
-[; ;despliegue7SEG.c: 77:         return 0b01111100; break;
+"82
+[; ;despliegue7SEG.c: 82:         return 0b01111100; break;
 [e ) -> -> 124 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"78
-[; ;despliegue7SEG.c: 78:         case 12:
+"83
+[; ;despliegue7SEG.c: 83:         case 12:
 [e :U 166 ]
-"79
-[; ;despliegue7SEG.c: 79:         return 0b00111001; break;
+"84
+[; ;despliegue7SEG.c: 84:         return 0b00111001; break;
 [e ) -> -> 57 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"80
-[; ;despliegue7SEG.c: 80:         case 13:
+"85
+[; ;despliegue7SEG.c: 85:         case 13:
 [e :U 167 ]
-"81
-[; ;despliegue7SEG.c: 81:         return 0b01011110; break;
+"86
+[; ;despliegue7SEG.c: 86:         return 0b01011110; break;
 [e ) -> -> 94 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"82
-[; ;despliegue7SEG.c: 82:         case 14:
+"87
+[; ;despliegue7SEG.c: 87:         case 14:
 [e :U 168 ]
-"83
-[; ;despliegue7SEG.c: 83:         return 0b01111001; break;
+"88
+[; ;despliegue7SEG.c: 88:         return 0b01111001; break;
 [e ) -> -> 121 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"84
-[; ;despliegue7SEG.c: 84:         case 15:
+"89
+[; ;despliegue7SEG.c: 89:         case 15:
 [e :U 169 ]
-"85
-[; ;despliegue7SEG.c: 85:         return 0b01110001; break;
+"90
+[; ;despliegue7SEG.c: 90:         return 0b01110001; break;
 [e ) -> -> 113 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"86
-[; ;despliegue7SEG.c: 86:         default:
+"91
+[; ;despliegue7SEG.c: 91:         default:
 [e :U 170 ]
-"87
-[; ;despliegue7SEG.c: 87:         return 0b00111111; break;
+"92
+[; ;despliegue7SEG.c: 92:         return 0b00111111; break;
 [e ) -> -> 63 `i `uc ]
 [e $UE 151  ]
 [e $U 152  ]
-"88
-[; ;despliegue7SEG.c: 88:     }
+"93
+[; ;despliegue7SEG.c: 93:     }
 }
 [e $U 152  ]
 [e :U 153 ]
@@ -560,7 +560,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 15 `i 169
  170 ]
 [e :U 152 ]
-"89
-[; ;despliegue7SEG.c: 89: }
+"94
+[; ;despliegue7SEG.c: 94: }
 [e :UE 151 ]
 }

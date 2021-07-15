@@ -2830,7 +2830,7 @@ typedef uint16_t uintptr_t;
 
 
 # 1 "./despliegue7SEG.h" 1
-# 35 "./despliegue7SEG.h"
+# 14 "./despliegue7SEG.h"
 void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower);
 void ADCconfig(uint8_t canal, uint8_t just);
 uint8_t Seg7EQ(uint8_t dato);
@@ -2858,9 +2858,11 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
         referencia--;
         INTCONbits.RBIF = 0;
     }
+        INTCONbits.RBIF = 0;
 
     if(INTCONbits.T0IF){
         CONVhexa(ADRESH,&uphex,&lowhex);
+
         if(!ADCON0bits.GO)ADCON0bits.GO = 1;
         tempo = 1;
         INTCONbits.T0IF = 0;
@@ -2875,6 +2877,9 @@ void main(void){
     while(1){
 
         PORTD = referencia;
+
+        if(ADRESH>referencia)PORTAbits.RA1 = 1;
+        else PORTAbits.RA1 = 0;
 
         if(tempo){
             multi++;

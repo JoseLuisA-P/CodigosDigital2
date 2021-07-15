@@ -13,18 +13,30 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
 [v _ADCconfig ADCconfig `(v  1 e 1 0 ]
-"35
+"39
 [v _CONVhexa CONVhexa `(v  1 e 1 0 ]
-"50
+"54
 [v _Seg7EQ Seg7EQ `(uc  1 e 1 0 ]
 "52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
-"75
+"77
 [v _main main `(v  1 e 1 0 ]
-"106
+"111
 [v _configuracion configuracion `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
+[s S134 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"183
+[u S143 . 1 `S134 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES143  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 [s S54 . 1 `uc 1 RB0 1 0 :1:0 
@@ -87,7 +99,7 @@
 ]
 [u S103 . 1 `S83 1 . 1 0 `S88 1 . 1 0 `S97 1 . 1 0 `S100 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES103  1 e 1 @31 ]
-[s S202 . 1 `uc 1 PS 1 0 :3:0 
+[s S223 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -95,12 +107,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S209 . 1 `uc 1 PS0 1 0 :1:0 
+[s S230 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S213 . 1 `S202 1 . 1 0 `S209 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES213  1 e 1 @129 ]
+[u S234 . 1 `S223 1 . 1 0 `S230 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES234  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
@@ -111,24 +123,24 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S150 . 1 `uc 1 SCS 1 0 :1:0 
+[s S171 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S156 . 1 `uc 1 . 1 0 :4:0 
+[s S177 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S161 . 1 `S150 1 . 1 0 `S156 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES161  1 e 1 @143 ]
-[s S176 . 1 `uc 1 IOCB 1 0 :8:0 
+[u S182 . 1 `S171 1 . 1 0 `S177 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES182  1 e 1 @143 ]
+[s S197 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
-[s S178 . 1 `uc 1 IOCB0 1 0 :1:0 
+[s S199 . 1 `uc 1 IOCB0 1 0 :1:0 
 `uc 1 IOCB1 1 0 :1:1 
 `uc 1 IOCB2 1 0 :1:2 
 `uc 1 IOCB3 1 0 :1:3 
@@ -137,17 +149,17 @@
 `uc 1 IOCB6 1 0 :1:6 
 `uc 1 IOCB7 1 0 :1:7 
 ]
-[u S187 . 1 `S176 1 . 1 0 `S178 1 . 1 0 ]
-[v _IOCBbits IOCBbits `VES187  1 e 1 @150 ]
-[s S337 . 1 `uc 1 . 1 0 :4:0 
+[u S208 . 1 `S197 1 . 1 0 `S199 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES208  1 e 1 @150 ]
+[s S366 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S343 . 1 `S337 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES343  1 e 1 @159 ]
+[u S372 . 1 `S366 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES372  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
@@ -160,15 +172,15 @@
 [v _multi multi `uc  1 e 1 0 ]
 "47
 [v _tempo tempo `uc  1 e 1 0 ]
-"75
+"77
 [v _main main `(v  1 e 1 0 ]
 {
-"102
+"107
 } 0
-"106
+"111
 [v _configuracion configuracion `(v  1 e 1 0 ]
 {
-"145
+"150
 } 0
 "10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
 [v _ADCconfig ADCconfig `(v  1 e 1 0 ]
@@ -177,32 +189,32 @@
 [v ADCconfig@canal canal `uc  1 a 1 wreg ]
 [v ADCconfig@just just `uc  1 p 1 0 ]
 [v ADCconfig@canal canal `uc  1 a 1 3 ]
-"31
+"35
 } 0
-"50
+"54
 [v _Seg7EQ Seg7EQ `(uc  1 e 1 0 ]
 {
 [v Seg7EQ@dato dato `uc  1 a 1 wreg ]
 [v Seg7EQ@dato dato `uc  1 a 1 wreg ]
 [v Seg7EQ@dato dato `uc  1 a 1 2 ]
-"89
+"94
 } 0
 "52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
 {
-"71
+"73
 } 0
-"35 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
+"39 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
 [v _CONVhexa CONVhexa `(v  1 e 1 0 ]
 {
 [v CONVhexa@valor valor `uc  1 a 1 wreg ]
-"40
+"44
 [v CONVhexa@temp temp `uc  1 a 1 5 ]
-"35
+"39
 [v CONVhexa@valor valor `uc  1 a 1 wreg ]
 [v CONVhexa@upper upper `*.1uc  1 p 1 0 ]
 [v CONVhexa@lower lower `*.1uc  1 p 1 1 ]
-"41
-[v CONVhexa@valor valor `uc  1 a 1 4 ]
 "45
+[v CONVhexa@valor valor `uc  1 a 1 4 ]
+"49
 } 0

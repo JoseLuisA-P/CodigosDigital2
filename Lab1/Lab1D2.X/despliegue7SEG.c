@@ -8,6 +8,10 @@
 //  configuracion del ADC
 //******************************************************************************
 void ADCconfig(uint8_t canal, uint8_t just){
+    //utilizado para configurar el ADC en el PIC
+    //se ajusta para no violar los tiempos y usar un estandar de 
+    //justificado a la derecha y usar el CH0 como via de lectura
+    //no comienza a leer hasta que se le indica en codigo
     switch(OSCCONbits.IRCF){
         case 0b100:
             ADCON0bits.ADCS =   0b000; // FOSC/0 para no violar tiempos
@@ -27,7 +31,7 @@ void ADCconfig(uint8_t canal, uint8_t just){
     ADCON0bits.ADON =   0b1;
     ADCON1bits.ADFM =   just; // 0--IZQUIERDA; 1--DERECHA
     ADCON1bits.VCFG1 =  0b0; //referencias a alimentacion del PIC
-    ADCON1bits.VCFG0 =  0b0;
+    ADCON1bits.VCFG0 =  0b0; //si se usa otra alimentacion, cambiarlo en codigo
 }
 //******************************************************************************
 //  Conversion de datos
@@ -39,9 +43,9 @@ void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
     
     uint8_t temp; //variable temporal para la separacion de datos
     temp = valor;
-    *lower = (valor & 0x0F);
+    *lower = (valor & 0x0F);//copia el nibble bajo
     temp = temp>>4;
-    *upper = (temp & 0x0F);
+    *upper = (temp & 0x0F);//copia el nibble alto
 }
 
 //******************************************************************************
@@ -50,7 +54,8 @@ void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
 uint8_t Seg7EQ(uint8_t dato){
     //utilizado para regresar el equivalente para desplegar el dato en
     //un display de 7 segmentos.
-    switch(dato){    //depende el valor, regresa el equivalente para el 7SEG
+    //Se regresa a un puerto o un dato con 7 bits como minimo de ancho
+    switch(dato){    //dependiendo el valor, regresa el equivalente para el 7SEG
         case 0:
         return 0b00111111;	break;//0
         case 1:

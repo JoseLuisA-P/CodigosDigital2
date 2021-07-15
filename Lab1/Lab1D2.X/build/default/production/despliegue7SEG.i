@@ -2809,7 +2809,7 @@ typedef uint16_t uintptr_t;
 # 4 "despliegue7SEG.c" 2
 
 # 1 "./despliegue7SEG.h" 1
-# 35 "./despliegue7SEG.h"
+# 14 "./despliegue7SEG.h"
 void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower);
 void ADCconfig(uint8_t canal, uint8_t just);
 uint8_t Seg7EQ(uint8_t dato);
@@ -2820,6 +2820,10 @@ uint8_t Seg7EQ(uint8_t dato);
 
 
 void ADCconfig(uint8_t canal, uint8_t just){
+
+
+
+
     switch(OSCCONbits.IRCF){
         case 0b100:
             ADCON0bits.ADCS = 0b000;
@@ -2860,6 +2864,7 @@ void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower){
 
 
 uint8_t Seg7EQ(uint8_t dato){
+
 
 
     switch(dato){
