@@ -134,7 +134,7 @@ intentry 8 233 CODE 8 0
 cstackCOMMON 70 77 COMMON 70 1
 %locals
 dist/default/production\Lab0.X.production.o
-C:\Users\jalva\AppData\Local\Temp\sg5s.s
+C:\Users\jalva\AppData\Local\Temp\seqo.s
 472 F 0 CODE 0
 475 F 0 CODE 0
 492 F 0 CODE 0

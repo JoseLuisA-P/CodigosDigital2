@@ -2,9 +2,10 @@
  *Autor: Jose Luis Alvarez Pineda (19392)
  *
  * Creado: 9 de Julio de 2021
- * Modificado: 9 de Julio de 2021
+ * Modificado: 12 de Julio de 2021
  * 
- * General:
+ * General: Juego de carreras con un contador de decada, un display 7SEG y leds
+ * indicadores de posicion, movimiento y quien gano en el juego.
  * 
  * Hardware:
  * 
