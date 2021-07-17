@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 17 "main.c"
+# 31 "main.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2507,7 +2507,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 35 "main.c" 2
+# 49 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2606,7 +2606,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 36 "main.c" 2
+# 50 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2691,7 +2691,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 37 "main.c" 2
+# 51 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2826,7 +2826,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 38 "main.c" 2
+# 52 "main.c" 2
 
 
 # 1 "./despliegue7SEG.h" 1
@@ -2834,7 +2834,7 @@ typedef uint16_t uintptr_t;
 void CONVhexa(uint8_t valor, uint8_t *upper, uint8_t *lower);
 void ADCconfig(uint8_t canal, uint8_t just);
 uint8_t Seg7EQ(uint8_t dato);
-# 40 "main.c" 2
+# 54 "main.c" 2
 
 
 

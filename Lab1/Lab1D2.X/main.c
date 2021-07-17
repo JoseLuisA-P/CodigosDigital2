@@ -4,10 +4,24 @@
  * Creado: 14 de Julio de 2021
  * Modificado: 15 de Julio de 2021
  * 
- * General: 
+ * General: laboratorio de interrupciones, la salida analogica de un POT se 
+ * despliega en un display de 7SEG en formato hexadecimal y se usan 2 botones
+ * para establecer valores de referencia visuales y una alarma para alertar
+ * si el valor analogico es mayor que el valor de referencia colocado.
+ *  
  * Hardware:
- * 
- * Software:
+ * PORTA:
+ * A0: entrada analogica
+ * A1: indicador de alarma
+ * PORTB:
+ * B0: boton de incremento de referencia
+ * B1: boton de decremento de referencia
+ * PORTC:
+ * salidas de manejo del display de 7SEG
+ * PORTD:
+ * salidas para el indicador visual de referencia
+ * PORTE:
+ * E0 y E1: utilizados para multiplexar los 2 7SEG
  * 
  */
 
@@ -37,7 +51,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <pic16f887.h>
-#include "despliegue7SEG.h"
+#include "despliegue7SEG.h" //libreria personal
 
 //******************************************************************************
 //  Variables y prototipos de funciones
@@ -83,7 +97,7 @@ void main(void){
         if(ADRESH>referencia)PORTAbits.RA1 = 1; //comparador para ver
         else PORTAbits.RA1 = 0; // que no se supera el valor
         
-        if(tempo){
+        if(tempo){ //solo cambia de valor acorde al timer0
             multi++; //para multiplexar los 2 valores
             if(multi>=2)multi = 0;
         switch(multi){
@@ -94,7 +108,7 @@ void main(void){
                 break;
             case 1:
                 PORTE = 0;
-                PORTC = Seg7EQ(lowhex); //regresa el valor ingerior del hex
+                PORTC = Seg7EQ(lowhex); //regresa el valor inferior del hex
                 PORTE = 0x02;
                 break;
             default:

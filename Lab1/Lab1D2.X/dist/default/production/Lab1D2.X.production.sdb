@@ -17,11 +17,11 @@
 [v _CONVhexa CONVhexa `(v  1 e 1 0 ]
 "54
 [v _Seg7EQ Seg7EQ `(uc  1 e 1 0 ]
-"52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+"66 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
-"77
+"91
 [v _main main `(v  1 e 1 0 ]
-"111
+"125
 [v _configuracion configuracion `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -164,23 +164,23 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"45 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+"59 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 [v _referencia referencia `uc  1 e 1 0 ]
-"46
+"60
 [v _uphex uphex `uc  1 e 1 0 ]
 [v _lowhex lowhex `uc  1 e 1 0 ]
 [v _multi multi `uc  1 e 1 0 ]
-"47
+"61
 [v _tempo tempo `uc  1 e 1 0 ]
-"77
+"91
 [v _main main `(v  1 e 1 0 ]
 {
-"107
+"121
 } 0
-"111
+"125
 [v _configuracion configuracion `(v  1 e 1 0 ]
 {
-"150
+"164
 } 0
 "10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
 [v _ADCconfig ADCconfig `(v  1 e 1 0 ]
@@ -199,10 +199,10 @@
 [v Seg7EQ@dato dato `uc  1 a 1 2 ]
 "94
 } 0
-"52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
+"66 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
 {
-"73
+"87
 } 0
 "39 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab1\Lab1D2.X\despliegue7SEG.c
 [v _CONVhexa CONVhexa `(v  1 e 1 0 ]

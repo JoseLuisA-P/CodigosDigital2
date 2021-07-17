@@ -1,8 +1,8 @@
 /* 
- * File:   
- * Author: 
- * Comments:
- * Revision history: 
+ * File:despliegue7SEG.c   
+ * Author: Jose Luis Alvarez Pineda
+ * Creado: 14 de Julio de 2021
+ * Revision history: 15 de Julio de 2021
  */
 
 // This is a guard condition so that contents of this file are not included
