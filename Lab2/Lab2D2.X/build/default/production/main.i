@@ -2826,17 +2826,36 @@ typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
 
+# 1 "./ADC.h" 1
+# 12 "./ADC.h"
+void ADCconfig(uint8_t canal, uint8_t just);
+void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
+void CONVdec(uint8_t *lectura,uint8_t *ref,float *equiv);
+# 36 "main.c" 2
 
 
 
 
 
+
+uint8_t pot1,pot2;
 void configuracion(void);
 
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
 
+    if(PIR1bits.ADIF){
+        ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
+        PIR1bits.ADIF = 0;
+        if(ADCON0bits.CHS0)pot1 = ADRESH;
+        else pot2 = ADRESH;
+    }
+
+    if(INTCONbits.T0IF){
+        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
+        INTCONbits.T0IF = 0;
+    }
 }
 
 
@@ -2844,8 +2863,10 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 
 void main(void) {
     configuracion();
-    while(1){
 
+    while(1){
+        PORTC = pot1;
+        PORTD = pot2;
     }
 }
 
@@ -2870,4 +2891,23 @@ void configuracion(void){
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
+
+
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.T0IF = 0;
+    INTCONbits.T0IE = 1;
+
+
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS2 = 1;
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS0 = 0;
+
+
+    ADCconfig(0,0);
+
+    PIR1bits.ADIF = 0;
+    PIE1bits.ADIE = 1;
 }
