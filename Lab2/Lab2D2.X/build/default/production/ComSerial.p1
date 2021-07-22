@@ -1,53 +1,69 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1251 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1251:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S45 . ADON GO_nDONE CHS ADCS ]
-"1257
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1257:     struct {
-[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . . GO CHS0 CHS1 CHS2 CHS3 ADCS0 ADCS1 ]
-"1267
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1267:     struct {
-[s S47 :1 `uc 1 :1 `uc 1 ]
-[n S47 . . nDONE ]
-"1271
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1271:     struct {
-[s S48 :1 `uc 1 :1 `uc 1 ]
-[n S48 . . GO_DONE ]
-"1250
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1250: typedef union {
-[u S44 `S45 1 `S46 1 `S47 1 `S48 1 ]
-[n S44 . . . . . ]
-"1276
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1276: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
-[v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
-"1868
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S70 . SCS LTS HTS OSTS IRCF ]
-"1875
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1875:     struct {
-[s S71 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . . IRCF0 IRCF1 IRCF2 ]
-"1867
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1867: typedef union {
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"1882
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
-"2983
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2983:     struct {
-[s S116 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S116 . . VCFG0 VCFG1 . ADFM ]
-"2982
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2982: typedef union {
-[u S115 `S116 1 ]
-[n S115 . . ]
-"2991
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2991: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0x09F)));
-[v _ADCON1bits `VS115 ~T0 @X0 0 e@159 ]
+"1546 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1546:     struct {
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1545
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1545: typedef union {
+[u S56 `S57 1 ]
+[n S56 . . ]
+"1557
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
+"2642
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2642: extern volatile unsigned char SPBRG __attribute__((address(0x099)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"2562
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2562:     struct {
+[s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S99 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"2572
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2572:     struct {
+[s S100 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S100 . TXD8 . nTX8 ]
+"2577
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2577:     struct {
+[s S101 :6 `uc 1 :1 `uc 1 ]
+[n S101 . . TX8_9 ]
+"2561
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2561: typedef union {
+[u S98 `S99 1 `S100 1 `S101 1 ]
+[n S98 . . . . ]
+"2582
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2582: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0x098)));
+[v _TXSTAbits `VS98 ~T0 @X0 0 e@152 ]
+"1044
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1044:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"1054
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1054:     struct {
+[s S38 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S38 . RCD8 . RC9 ]
+"1059
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1059:     struct {
+[s S39 :6 `uc 1 :1 `uc 1 ]
+[n S39 . . nRC8 ]
+"1063
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1063:     struct {
+[s S40 :6 `uc 1 :1 `uc 1 ]
+[n S40 . . RC8_9 ]
+"1043
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1043: typedef union {
+[u S36 `S37 1 `S38 1 `S39 1 `S40 1 ]
+[n S36 . . . . . ]
+"1068
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1068: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0x018)));
+[v _RCSTAbits `VS36 ~T0 @X0 0 e@24 ]
+"1133
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"18 ./ComSerial.h
+[; ;./ComSerial.h: 18: void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+[v _division `(v ~T0 @X0 0 ef3`uc`*uc`*uc ]
+"19
+[; ;./ComSerial.h: 19: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+[v _divisiondecimal `(v ~T0 @X0 0 ef4`uc`*uc`*uc`*uc ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -282,126 +298,285 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"10 ADC.c
-[; ;ADC.c: 10: void ADCconfig(uint8_t canal, uint8_t just){
-[v _ADCconfig `(v ~T0 @X0 1 ef2`uc`uc ]
+"11 ComSerial.c
+[; ;ComSerial.c: 11: void configUART(void){
+[v _configUART `(v ~T0 @X0 1 ef ]
 {
-[e :U _ADCconfig ]
-[v _canal `uc ~T0 @X0 1 r1 ]
-[v _just `uc ~T0 @X0 1 r2 ]
+[e :U _configUART ]
 [f ]
+"13
+[; ;ComSerial.c: 13:     TRISCbits.TRISC6 = 0;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+"14
+[; ;ComSerial.c: 14:     TRISCbits.TRISC7 = 1;
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
 "15
-[; ;ADC.c: 15:     switch(OSCCONbits.IRCF){
-[e $U 145  ]
-{
+[; ;ComSerial.c: 15:     SPBRG = 12;
+[e = _SPBRG -> -> 12 `i `uc ]
 "16
-[; ;ADC.c: 16:         case 0b100:
-[e :U 146 ]
+[; ;ComSerial.c: 16:     TXSTAbits.BRGH = 0;
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 "17
-[; ;ADC.c: 17:             ADCON0bits.ADCS = 0b000;
-[e = . . _ADCON0bits 0 3 -> -> 0 `i `uc ]
+[; ;ComSerial.c: 17:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "18
-[; ;ADC.c: 18:             break;
-[e $U 144  ]
+[; ;ComSerial.c: 18:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "19
-[; ;ADC.c: 19:         case 0b110:
-[e :U 147 ]
+[; ;ComSerial.c: 19:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "20
-[; ;ADC.c: 20:             ADCON0bits.ADCS = 0b001;
-[e = . . _ADCON0bits 0 3 -> -> 1 `i `uc ]
+[; ;ComSerial.c: 20:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "21
-[; ;ADC.c: 21:             break;
-[e $U 144  ]
-"22
-[; ;ADC.c: 22:         case 0b111:
-[e :U 148 ]
-"23
-[; ;ADC.c: 23:             ADCON0bits.ADCS = 0b010;
-[e = . . _ADCON0bits 0 3 -> -> 2 `i `uc ]
-"24
-[; ;ADC.c: 24:             break;
-[e $U 144  ]
-"25
-[; ;ADC.c: 25:         default:
-[e :U 149 ]
-"26
-[; ;ADC.c: 26:             ADCON0bits.ADCS = 0b11;
-[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
-"27
-[; ;ADC.c: 27:             break;
-[e $U 144  ]
-"28
-[; ;ADC.c: 28:     }
-}
-[e $U 144  ]
-[e :U 145 ]
-[e [\ -> . . _OSCCONbits 0 4 `i , $ -> 4 `i 146
- , $ -> 6 `i 147
- , $ -> 7 `i 148
- 149 ]
-[e :U 144 ]
-"29
-[; ;ADC.c: 29:     ADCON0bits.CHS = canal;
-[e = . . _ADCON0bits 0 2 _canal ]
-"30
-[; ;ADC.c: 30:     ADCON0bits.GO = 0b0;
-[e = . . _ADCON0bits 1 1 -> -> 0 `i `uc ]
-"31
-[; ;ADC.c: 31:     ADCON0bits.ADON = 0b1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"32
-[; ;ADC.c: 32:     ADCON1bits.ADFM = just;
-[e = . . _ADCON1bits 0 4 _just ]
-"33
-[; ;ADC.c: 33:     ADCON1bits.VCFG1 = 0b0;
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-"34
-[; ;ADC.c: 34:     ADCON1bits.VCFG0 = 0b0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-"35
-[; ;ADC.c: 35: }
+[; ;ComSerial.c: 21: }
 [e :UE 143 ]
 }
+"26
+[; ;ComSerial.c: 26: void send1dato(char dato){
+[v _send1dato `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _send1dato ]
+[v _dato `uc ~T0 @X0 1 r1 ]
+[f ]
+"27
+[; ;ComSerial.c: 27:     TXREG = dato;
+[e = _TXREG -> _dato `uc ]
+"28
+[; ;ComSerial.c: 28:     while(!TXSTAbits.TRMT);
+[e $U 145  ]
+[e :U 146 ]
+[e :U 145 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 146  ]
+[e :U 147 ]
+"29
+[; ;ComSerial.c: 29: }
+[e :UE 144 ]
+}
+"31
+[; ;ComSerial.c: 31: void sendString(unsigned char* mensaje){
+[v _sendString `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _sendString ]
+[v _mensaje `*uc ~T0 @X0 1 r1 ]
+[f ]
+"32
+[; ;ComSerial.c: 32:     while(*mensaje != 0x00){
+[e $U 149  ]
+[e :U 150 ]
+{
+"33
+[; ;ComSerial.c: 33:         send1dato(*mensaje);
+[e ( _send1dato (1 -> *U _mensaje `uc ]
+"34
+[; ;ComSerial.c: 34:         mensaje ++;
+[e ++ _mensaje * -> -> 1 `i `x -> -> # *U _mensaje `i `x ]
+"35
+[; ;ComSerial.c: 35:     }
+}
+[e :U 149 ]
+"32
+[; ;ComSerial.c: 32:     while(*mensaje != 0x00){
+[e $ != -> *U _mensaje `i -> 0 `i 150  ]
+[e :U 151 ]
+"37
+[; ;ComSerial.c: 37: }
+[e :UE 148 ]
+}
+"39
+[; ;ComSerial.c: 39: void sendfloat(const float valor){
+[v _sendfloat `(v ~T0 @X0 1 ef1`Cf ]
+{
+[e :U _sendfloat ]
+[v _valor `Cf ~T0 @X0 1 r1 ]
+[f ]
 "40
-[; ;ADC.c: 40: void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
-[v _CONVhexa `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
-{
-[e :U _CONVhexa ]
-[v _valor `*uc ~T0 @X0 1 r1 ]
-[v _upper `*uc ~T0 @X0 1 r2 ]
-[v _lower `*uc ~T0 @X0 1 r3 ]
-[f ]
+[; ;ComSerial.c: 40:     uint8_t entero;
+[v _entero `uc ~T0 @X0 1 a ]
+"41
+[; ;ComSerial.c: 41:     uint8_t decimal;
+[v _decimal `uc ~T0 @X0 1 a ]
+"42
+[; ;ComSerial.c: 42:     float temp;
+[v _temp `f ~T0 @X0 1 a ]
+"43
+[; ;ComSerial.c: 43:     unsigned char digdecimal[1];
+[v _digdecimal `uc ~T0 @X0 -> -> 1 `i `ux a ]
 "45
-[; ;ADC.c: 45:     uint8_t temp;
-[v _temp `uc ~T0 @X0 1 a ]
+[; ;ComSerial.c: 45:     entero = valor;
+[e = _entero -> _valor `uc ]
 "46
-[; ;ADC.c: 46:     temp = *valor;
-[e = _temp *U _valor ]
+[; ;ComSerial.c: 46:     temp = valor-(float)entero;
+[e = _temp - _valor -> _entero `f ]
 "47
-[; ;ADC.c: 47:     *lower = (*valor & 0x0F);
-[e = *U _lower -> & -> *U _valor `i -> 15 `i `uc ]
+[; ;ComSerial.c: 47:     decimal = (temp*100);
+[e = _decimal -> * _temp -> -> 100 `i `f `uc ]
 "48
-[; ;ADC.c: 48:     temp = temp>>4;
-[e = _temp -> >> -> _temp `i -> 4 `i `uc ]
+[; ;ComSerial.c: 48:     division(decimal,&digdecimal[0],&digdecimal[1]);
+[e ( _division (3 , , _decimal &U *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux &U *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
 "49
-[; ;ADC.c: 49:     *upper = (temp & 0x0F);
-[e = *U _upper -> & -> _temp `i -> 15 `i `uc ]
+[; ;ComSerial.c: 49:     send1dato(entero+48);
+[e ( _send1dato (1 -> + -> _entero `i -> 48 `i `uc ]
 "50
-[; ;ADC.c: 50: }
-[e :UE 150 ]
-}
+[; ;ComSerial.c: 50:     sendString(".");
+[e ( _sendString (1 :s 1C ]
+"51
+[; ;ComSerial.c: 51:     send1dato(digdecimal[1]+48);
+[e ( _send1dato (1 -> + -> *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux `i -> 48 `i `uc ]
 "52
-[; ;ADC.c: 52: void CONVdec(uint8_t *lectura,float *equiv){
-[v _CONVdec `(v ~T0 @X0 1 ef2`*uc`*f ]
-{
-[e :U _CONVdec ]
-[v _lectura `*uc ~T0 @X0 1 r1 ]
-[v _equiv `*f ~T0 @X0 1 r2 ]
-[f ]
+[; ;ComSerial.c: 52:     send1dato(digdecimal[0]+48);
+[e ( _send1dato (1 -> + -> *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux `i -> 48 `i `uc ]
 "53
-[; ;ADC.c: 53:     *equiv = (float)(0.01961)*(*lectura);
-[e = *U _equiv * -> .0.01961 `f -> -> *U _lectura `i `f ]
-"54
-[; ;ADC.c: 54: }
-[e :UE 151 ]
+[; ;ComSerial.c: 53:     sendString("\r");
+[e ( _sendString (1 :s 2C ]
+"55
+[; ;ComSerial.c: 55: }
+[e :UE 152 ]
 }
+"57
+[; ;ComSerial.c: 57: void sendhex(uint8_t valor){
+[v _sendhex `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _sendhex ]
+[v _valor `uc ~T0 @X0 1 r1 ]
+[f ]
+"58
+[; ;ComSerial.c: 58:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
+"59
+[; ;ComSerial.c: 59:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"60
+[; ;ComSerial.c: 60:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"62
+[; ;ComSerial.c: 62:     divisiondecimal(valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
+"63
+[; ;ComSerial.c: 63:     send1dato(centena +48);
+[e ( _send1dato (1 -> + -> _centena `i -> 48 `i `uc ]
+"64
+[; ;ComSerial.c: 64:     send1dato(decena +48);
+[e ( _send1dato (1 -> + -> _decena `i -> 48 `i `uc ]
+"65
+[; ;ComSerial.c: 65:     send1dato(unidad +48);
+[e ( _send1dato (1 -> + -> _unidad `i -> 48 `i `uc ]
+"66
+[; ;ComSerial.c: 66: }
+[e :UE 153 ]
+}
+"69
+[; ;ComSerial.c: 69: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+[v _division `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
+{
+[e :U _division ]
+[v _conteo `uc ~T0 @X0 1 r1 ]
+[v _un `*uc ~T0 @X0 1 r2 ]
+[v _dec `*uc ~T0 @X0 1 r3 ]
+[f ]
+"70
+[; ;ComSerial.c: 70:     uint8_t div = conteo;
+[v _div `uc ~T0 @X0 1 a ]
+[e = _div _conteo ]
+"71
+[; ;ComSerial.c: 71:     *un = 0;
+[e = *U _un -> -> 0 `i `uc ]
+"72
+[; ;ComSerial.c: 72:     *dec = 0;
+[e = *U _dec -> -> 0 `i `uc ]
+"75
+[; ;ComSerial.c: 75:     while (div >= 10){
+[e $U 155  ]
+[e :U 156 ]
+{
+"76
+[; ;ComSerial.c: 76:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"77
+[; ;ComSerial.c: 77:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"78
+[; ;ComSerial.c: 78:     }
+}
+[e :U 155 ]
+"75
+[; ;ComSerial.c: 75:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 156  ]
+[e :U 157 ]
+"80
+[; ;ComSerial.c: 80:     *un = div;
+[e = *U _un _div ]
+"81
+[; ;ComSerial.c: 81: }
+[e :UE 154 ]
+}
+"83
+[; ;ComSerial.c: 83: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+[v _divisiondecimal `(v ~T0 @X0 1 ef4`uc`*uc`*uc`*uc ]
+{
+[e :U _divisiondecimal ]
+[v _conteo `uc ~T0 @X0 1 r1 ]
+[v _un `*uc ~T0 @X0 1 r2 ]
+[v _dec `*uc ~T0 @X0 1 r3 ]
+[v _cent `*uc ~T0 @X0 1 r4 ]
+[f ]
+"84
+[; ;ComSerial.c: 84:     uint8_t div = conteo;
+[v _div `uc ~T0 @X0 1 a ]
+[e = _div _conteo ]
+"85
+[; ;ComSerial.c: 85:     *un = 0;
+[e = *U _un -> -> 0 `i `uc ]
+"86
+[; ;ComSerial.c: 86:     *dec = 0;
+[e = *U _dec -> -> 0 `i `uc ]
+"87
+[; ;ComSerial.c: 87:     *cent = 0;
+[e = *U _cent -> -> 0 `i `uc ]
+"90
+[; ;ComSerial.c: 90:     while(div >= 100){
+[e $U 159  ]
+[e :U 160 ]
+{
+"91
+[; ;ComSerial.c: 91:     *cent = div/100;
+[e = *U _cent -> / -> _div `i -> 100 `i `uc ]
+"92
+[; ;ComSerial.c: 92:     div = div - (*cent)*(100);
+[e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
+"93
+[; ;ComSerial.c: 93:     }
+}
+[e :U 159 ]
+"90
+[; ;ComSerial.c: 90:     while(div >= 100){
+[e $ >= -> _div `i -> 100 `i 160  ]
+[e :U 161 ]
+"95
+[; ;ComSerial.c: 95:     while (div >= 10){
+[e $U 162  ]
+[e :U 163 ]
+{
+"96
+[; ;ComSerial.c: 96:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"97
+[; ;ComSerial.c: 97:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"98
+[; ;ComSerial.c: 98:     }
+}
+[e :U 162 ]
+"95
+[; ;ComSerial.c: 95:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 163  ]
+[e :U 164 ]
+"100
+[; ;ComSerial.c: 100:     *un = div;
+[e = *U _un _div ]
+"101
+[; ;ComSerial.c: 101: }
+[e :UE 158 ]
+}
+[a 1C 46 0 ]
+[a 2C 13 0 ]

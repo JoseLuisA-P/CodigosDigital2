@@ -1,4 +1,4 @@
-# 1 "ADC.c"
+# 1 "ComSerial.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC.c" 2
+# 1 "ComSerial.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2487,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 1 "ADC.c" 2
+# 1 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2586,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 2 "ADC.c" 2
+# 2 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2671,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 3 "ADC.c" 2
+# 3 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2806,61 +2806,112 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 4 "ADC.c" 2
-
-# 1 "./ADC.h" 1
-# 13 "./ADC.h"
-void ADCconfig(uint8_t canal, uint8_t just);
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-void CONVdec(uint8_t *lectura, float *equiv);
-# 5 "ADC.c" 2
+# 4 "ComSerial.c" 2
 
 
-
-
-
-void ADCconfig(uint8_t canal, uint8_t just){
-
+# 1 "./ComSerial.h" 1
+# 14 "./ComSerial.h"
+void configUART(void);
+void send1dato(char dato);
+void sendString(unsigned char *mensaje);
+void sendfloat(const float valor);
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+void sendhex(uint8_t valor);
+# 6 "ComSerial.c" 2
 
 
 
-    switch(OSCCONbits.IRCF){
-        case 0b100:
-            ADCON0bits.ADCS = 0b000;
-            break;
-        case 0b110:
-            ADCON0bits.ADCS = 0b001;
-            break;
-        case 0b111:
-            ADCON0bits.ADCS = 0b010;
-            break;
-        default:
-            ADCON0bits.ADCS = 0b11;
-            break;
+
+
+void configUART(void){
+
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 1;
+    SPBRG = 12;
+    TXSTAbits.BRGH = 0;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.CREN = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+}
+
+
+
+
+void send1dato(char dato){
+    TXREG = dato;
+    while(!TXSTAbits.TRMT);
+}
+
+void sendString(unsigned char* mensaje){
+    while(*mensaje != 0x00){
+        send1dato(*mensaje);
+        mensaje ++;
     }
-    ADCON0bits.CHS = canal;
-    ADCON0bits.GO = 0b0;
-    ADCON0bits.ADON = 0b1;
-    ADCON1bits.ADFM = just;
-    ADCON1bits.VCFG1 = 0b0;
-    ADCON1bits.VCFG0 = 0b0;
+
+}
+
+void sendfloat(const float valor){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[1];
+
+    entero = valor;
+    temp = valor-(float)entero;
+    decimal = (temp*100);
+    division(decimal,&digdecimal[0],&digdecimal[1]);
+    send1dato(entero+48);
+    sendString(".");
+    send1dato(digdecimal[1]+48);
+    send1dato(digdecimal[0]+48);
+    sendString("\r");
+
+}
+
+void sendhex(uint8_t valor){
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+
+    divisiondecimal(valor,&unidad,&decena,&centena);
+    send1dato(centena +48);
+    send1dato(decena +48);
+    send1dato(unidad +48);
 }
 
 
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+    uint8_t div = conteo;
+    *un = 0;
+    *dec = 0;
 
 
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
 
-
-
-
-    uint8_t temp;
-    temp = *valor;
-    *lower = (*valor & 0x0F);
-    temp = temp>>4;
-    *upper = (temp & 0x0F);
+    *un = div;
 }
 
-void CONVdec(uint8_t *lectura,float *equiv){
-    *equiv = (float)(0.01961)*(*lectura);
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+    uint8_t div = conteo;
+    *un = 0;
+    *dec = 0;
+    *cent = 0;
+
+
+    while(div >= 100){
+    *cent = div/100;
+    div = div - (*cent)*(100);
+    }
+
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+
+    *un = div;
 }

@@ -32,19 +32,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <pic16f887.h>
 #include "ADC.h"
+#include "ComSerial.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
-uint8_t pot1,pot2;
+uint8_t pot1,pot2,UARTdat, UARTval; //valores de ADRESH de pots
+float val1,val2; //valores decimales de los pots
+unsigned char disp1[3];
 void configuracion(void);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
 void __interrupt() interrupcion(void){
+    
+    if(PIR1bits.RCIF){
+        UARTdat = RCREG; 
+        if(UARTdat == 0X2B)UARTval++; //si es + aumenta
+        if(UARTdat == 0X2D)UARTval--; //si es - disminuye
+        PIR1bits.RCIF = 0;
+    }
     
     if(PIR1bits.ADIF){
         ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
@@ -66,8 +75,19 @@ void main(void) {
     configuracion();
     
     while(1){
-        PORTC = pot1;
-        PORTD = pot2;
+        sendString("POT1: \r");
+        CONVdec(&pot1,&val1);
+        sendfloat(val1);
+        sendString("POT2: \r");
+        CONVdec(&pot2,&val2);
+        sendfloat(val2);
+        sendString("UART: \r");
+        sendhex(UARTval);
+        sendString("\r");
+        sendString("\r");
+        sendString("\r");
+        sendString("\r");
+        __delay_ms(1000);
     }
 }
 
@@ -89,6 +109,8 @@ void configuracion(void){
     PORTD =         0X00;
     PORTE =         0X01;
     
+    configUART();
+    
     //Configuracion del oscilador
     OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
     OSCCONbits.SCS = 0b1;
@@ -98,6 +120,7 @@ void configuracion(void){
     INTCONbits.PEIE =   1; //Permite INT perifericas
     INTCONbits.T0IF =   0; //Apaga bandera timer0
     INTCONbits.T0IE =   1; //permite interrupciones timmer0
+    PIE1bits.RCIE   = 1; //permite interrupciones de recepcion de datos
     
     //configuracion timmer0
     OPTION_REGbits.T0CS = 0;    //Timmer 0 a FOSC y Prescalador asignado
@@ -106,9 +129,12 @@ void configuracion(void){
     OPTION_REGbits.PS1  = 1;
     OPTION_REGbits.PS0  = 0;
     
+    //configuracion timmer1
+    
     //configuracion del ADC
     ADCconfig(0,0); //configurado comienza en el canal 0 y just Izquierda
     
     PIR1bits.ADIF = 0; //interrupciones del ADC
     PIE1bits.ADIE = 1;
+    
 }

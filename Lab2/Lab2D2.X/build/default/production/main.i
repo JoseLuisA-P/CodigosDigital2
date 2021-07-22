@@ -2825,12 +2825,22 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
-
 # 1 "./ADC.h" 1
-# 12 "./ADC.h"
+# 13 "./ADC.h"
 void ADCconfig(uint8_t canal, uint8_t just);
 void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-void CONVdec(uint8_t *lectura,uint8_t *ref,float *equiv);
+void CONVdec(uint8_t *lectura, float *equiv);
+# 35 "main.c" 2
+
+# 1 "./ComSerial.h" 1
+# 14 "./ComSerial.h"
+void configUART(void);
+void send1dato(char dato);
+void sendString(unsigned char *mensaje);
+void sendfloat(const float valor);
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+void sendhex(uint8_t valor);
 # 36 "main.c" 2
 
 
@@ -2838,12 +2848,21 @@ void CONVdec(uint8_t *lectura,uint8_t *ref,float *equiv);
 
 
 
-uint8_t pot1,pot2;
+uint8_t pot1,pot2,UARTdat, UARTval;
+float val1,val2;
+unsigned char disp1[3];
 void configuracion(void);
 
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
+
+    if(PIR1bits.RCIF){
+        UARTdat = RCREG;
+        if(UARTdat == 0X2B)UARTval++;
+        if(UARTdat == 0X2D)UARTval--;
+        PIR1bits.RCIF = 0;
+    }
 
     if(PIR1bits.ADIF){
         ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
@@ -2865,8 +2884,19 @@ void main(void) {
     configuracion();
 
     while(1){
-        PORTC = pot1;
-        PORTD = pot2;
+        sendString("POT1: \r");
+        CONVdec(&pot1,&val1);
+        sendfloat(val1);
+        sendString("POT2: \r");
+        CONVdec(&pot2,&val2);
+        sendfloat(val2);
+        sendString("UART: \r");
+        sendhex(UARTval);
+        sendString("\r");
+        sendString("\r");
+        sendString("\r");
+        sendString("\r");
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
     }
 }
 
@@ -2888,6 +2918,8 @@ void configuracion(void){
     PORTD = 0X00;
     PORTE = 0X01;
 
+    configUART();
+
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
@@ -2897,6 +2929,7 @@ void configuracion(void){
     INTCONbits.PEIE = 1;
     INTCONbits.T0IF = 0;
     INTCONbits.T0IE = 1;
+    PIE1bits.RCIE = 1;
 
 
     OPTION_REGbits.T0CS = 0;
@@ -2906,8 +2939,11 @@ void configuracion(void){
     OPTION_REGbits.PS0 = 0;
 
 
+
+
     ADCconfig(0,0);
 
     PIR1bits.ADIF = 0;
     PIE1bits.ADIE = 1;
+
 }

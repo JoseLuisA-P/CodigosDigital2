@@ -49,6 +49,6 @@ void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
     *upper = (temp & 0x0F);//copia el nibble alto
 }
 
-void CONVdec(uint8_t *lectura,uint8_t *ref,float *equiv){
-    *equiv = (*ref/1023)*(*lectura);
+void CONVdec(uint8_t *lectura,float *equiv){
+    *equiv = (float)(0.01961)*(*lectura);
 }
