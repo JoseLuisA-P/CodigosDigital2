@@ -586,7 +586,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 97:         cursorLCD(1,1);
 [e ( _cursorLCD (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "98
-[; ;main.c: 98:         LCDstring("POT1  POT2  UART");
+[; ;main.c: 98:         LCDstring("S1:   S2:   S3:");
 [e ( _LCDstring (1 :s 5C ]
 "99
 [; ;main.c: 99:         cursorLCD(2,1);
@@ -743,7 +743,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 166: }
 [e :UE 156 ]
 }
-[a 5C 80 79 84 49 32 32 80 79 84 50 32 32 85 65 82 84 0 ]
+[a 5C 83 49 58 32 32 32 83 50 58 32 32 32 83 51 58 0 ]
 [a 3C 85 65 82 84 58 32 13 0 ]
 [a 2C 80 79 84 50 58 32 13 0 ]
 [a 1C 80 79 84 49 58 32 13 0 ]

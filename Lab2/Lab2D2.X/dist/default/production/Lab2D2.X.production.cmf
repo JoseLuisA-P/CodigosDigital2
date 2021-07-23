@@ -46,11 +46,11 @@ cstackBANK1 BANK1 1 A3 A3 2 1
 intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 5E 5E 11 1
 bssBANK1 BANK1 1 A0 A0 3 1
-strings STRING 0 800 800 37 2
+strings STRING 0 800 800 36 2
 clrtext CODE 0 A3E A3E 8 2
 bssCOMMON COMMON 1 7A 7A 1 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\shlc.o
+$C:\Users\jalva\AppData\Local\Temp\sjl4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -69,15 +69,15 @@ BANK1 A5-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 837-A3D 2
+CONST 836-A3D 2
 CONST 1000-1FFF 2
 ENTRY 3-3 2
-ENTRY 837-A3D 2
+ENTRY 836-A3D 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 837-A3D 2
+CODE 836-A3D 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -86,10 +86,10 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 837-A3D 2
+STRCODE 836-A3D 2
 STRCODE 1000-1FFF 2
 STRING 3-3 2
-STRING 837-A3D 2
+STRING 836-A3D 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -105,22 +105,22 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab2D2.X.production.o
-F cinit CODE >1086:C:\Users\jalva\AppData\Local\Temp\shlc.s
-F cinit CODE >1089:C:\Users\jalva\AppData\Local\Temp\shlc.s
-F cinit CODE >1145:C:\Users\jalva\AppData\Local\Temp\shlc.s
-10 cinit CODE >1148:C:\Users\jalva\AppData\Local\Temp\shlc.s
-11 cinit CODE >1149:C:\Users\jalva\AppData\Local\Temp\shlc.s
-12 cinit CODE >1150:C:\Users\jalva\AppData\Local\Temp\shlc.s
-13 cinit CODE >1151:C:\Users\jalva\AppData\Local\Temp\shlc.s
-14 cinit CODE >1152:C:\Users\jalva\AppData\Local\Temp\shlc.s
-19 cinit CODE >1155:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1A cinit CODE >1156:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1B cinit CODE >1157:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1C cinit CODE >1158:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1D cinit CODE >1159:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1E cinit CODE >1165:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1E cinit CODE >1167:C:\Users\jalva\AppData\Local\Temp\shlc.s
-1F cinit CODE >1168:C:\Users\jalva\AppData\Local\Temp\shlc.s
+F cinit CODE >1085:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+F cinit CODE >1088:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+F cinit CODE >1144:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+10 cinit CODE >1147:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+11 cinit CODE >1148:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+12 cinit CODE >1149:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+13 cinit CODE >1150:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+14 cinit CODE >1151:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+19 cinit CODE >1154:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1A cinit CODE >1155:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1B cinit CODE >1156:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1C cinit CODE >1157:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1D cinit CODE >1158:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1E cinit CODE >1164:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1E cinit CODE >1166:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+1F cinit CODE >1167:C:\Users\jalva\AppData\Local\Temp\sjl4.s
 4 intentry CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 CF9 text26 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 CF9 text26 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
@@ -645,16 +645,16 @@ BAA text1 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D
 736 maintext CODE >113:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 73F maintext CODE >114:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 748 maintext CODE >115:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-A3E clrtext CODE >1132:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A3E clrtext CODE >1133:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A3F clrtext CODE >1134:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A3F clrtext CODE >1135:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A40 clrtext CODE >1136:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A41 clrtext CODE >1137:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A42 clrtext CODE >1138:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A43 clrtext CODE >1139:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A44 clrtext CODE >1140:C:\Users\jalva\AppData\Local\Temp\shlc.s
-A45 clrtext CODE >1141:C:\Users\jalva\AppData\Local\Temp\shlc.s
+A3E clrtext CODE >1131:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A3E clrtext CODE >1132:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A3F clrtext CODE >1133:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A3F clrtext CODE >1134:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A40 clrtext CODE >1135:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A41 clrtext CODE >1136:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A42 clrtext CODE >1137:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A43 clrtext CODE >1138:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A44 clrtext CODE >1139:C:\Users\jalva\AppData\Local\Temp\sjl4.s
+A45 clrtext CODE >1140:C:\Users\jalva\AppData\Local\Temp\sjl4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -685,7 +685,7 @@ __size_of_cursorLCD 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _CONVdec 17C2 0 CODE 0 text22 dist/default/production\Lab2D2.X.production.o
 sendfloat@decimal 59 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\shlc.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sjl4.o
 _main C26 0 CODE 0 maintext dist/default/production\Lab2D2.X.production.o
 _pot1 6E 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 _pot2 6D 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
@@ -694,7 +694,7 @@ _val2 5E 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 divisiondecimal@dec 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 divisiondecimal@div 79 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\shlc.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sjl4.o
 hexTochar@unidad 2F 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __end_of_ADCconfig 18CE 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
 ___flmul@aexp 38 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
@@ -723,12 +723,12 @@ _ADCconfig 1844 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
 _hexTochar 1696 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
 floTochar@conv 51 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 floTochar@temp 56 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shlc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjl4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_sendhex 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _division 18CE 0 CODE 0 text9 dist/default/production\Lab2D2.X.production.o
@@ -771,8 +771,8 @@ sendfloat@digdecimal 5B 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.p
 _sendfloat EAE 0 CODE 0 text2 dist/default/production\Lab2D2.X.production.o
 __Umul8_16@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 _comandoLCD 14E8 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\shlc.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\shlc.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sjl4.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sjl4.o
 ___fladd@a 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___fladd@b 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___flmul@a 2E 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
@@ -792,7 +792,7 @@ floTochar@decimal 5A 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.prod
 CONVdec@equiv 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 divisiondecimal@un 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __end_of_initLCD 19F2 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\shlc.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sjl4.o
 __end_of_comandoLCD 1510 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -857,7 +857,7 @@ division@div 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.productio
 __Lintentry 8 0 CODE 0 intentry -
 _sendString 1578 0 CODE 0 text3 dist/default/production\Lab2D2.X.production.o
 __stringtab 1000 0 STRING 0 strings dist/default/production\Lab2D2.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\shlc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sjl4.o
 __end_of___xxtofl 2000 0 CODE 0 text23 dist/default/production\Lab2D2.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
@@ -1059,7 +1059,7 @@ cstackBANK0 1 20 20 4F 1
 intentry 0 4 8 7FC 2
 reset_vec 0 0 0 3 2
 bssBANK1 1 A0 A0 5 1
-strings 0 800 1000 37 2
+strings 0 800 1000 36 2
 clrtext 0 A3E 147C 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

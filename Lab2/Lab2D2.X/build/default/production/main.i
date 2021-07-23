@@ -2934,7 +2934,7 @@ void main(void) {
         hexTochar(UARTval,&disp3);
 
         cursorLCD(1,1);
-        LCDstring("POT1  POT2  UART");
+        LCDstring("S1:   S2:   S3:");
         cursorLCD(2,1);
         dispCHAR(disp1[0]+48);
         dispCHAR('.');

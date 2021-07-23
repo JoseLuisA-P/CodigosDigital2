@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Lab2D2.X.production.sym \
   --cmf=dist/default/production\Lab2D2.X.production.cmf -z -Q16F887 \
-  -oC:\Users\jalva\AppData\Local\Temp\shlc.3 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jalva\AppData\Local\Temp\sjl4.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Lab2D2.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\shlc.o \
+  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\sjl4.o \
   dist/default/production\Lab2D2.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jalva\AppData\Local\Temp\shlc.o
+C:\Users\jalva\AppData\Local\Temp\sjl4.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -70,7 +70,7 @@ dist/default/production\Lab2D2.X.production.o
                 bssBANK1                             A0       A0        3       A0       1
                 bssBANK0                             5E       5E       11       20       1
                 bssCOMMON                            7A       7A        1       70       1
-                strings                             800      800       37     1000       0
+                strings                             800      800       36     1000       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -112,7 +112,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                             800      800       37         0
+                strings                             800      800       36         0
 
         CLASS   CONST          
 
@@ -163,7 +163,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackBANK0                    000020  00004F  00006F        20       1  BANK0       1
                 cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
                 bssBANK1                       0000A0  000005  0000A5        A0       1  BANK1       1
-                strings                        000800  000037  000837      1000       0  STRING      2
+                strings                        000800  000036  000836      1000       0  STRING      2
                 clrtext                        000A3E  000008  000A46      147C       0  CODE        2
                 text4                          000A46  00000C  000A52      148C       0  CODE        2
                 text21                         000A52  000010  000A62      14A4       0  CODE        2
@@ -198,15 +198,15 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         0837-0A3D            207
+                         0836-0A3D            208
                          1000-1FFF            800
         COMMON           007B-007D              3           1
         CONST            0003-0003              1           2
-                         0837-0A3D            100
+                         0836-0A3D            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         0837-0A3D            100
+                         0836-0A3D            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              006F-006F              1           1
@@ -219,10 +219,10 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         0837-0A3D            207
+                         0836-0A3D            208
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         0837-0A3D            100
+                         0836-0A3D            100
                          1000-1FFF            100
 
                                   Symbol Table
@@ -1257,10 +1257,10 @@ Total ram usage:        4 bytes
 		line 75 in file "LCDD2.c"
  Parameters:    Size  Location     Type
   mensaje         1    wreg     PTR unsigned char 
-		 -> STR_5(17), 
+		 -> STR_5(16), 
  Auto vars:     Size  Location     Type
   mensaje         1    6[COMMON] PTR unsigned char 
-		 -> STR_5(17), 
+		 -> STR_5(16), 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
