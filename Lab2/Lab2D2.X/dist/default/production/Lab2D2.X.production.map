@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Lab2D2.X.production.sym \
   --cmf=dist/default/production\Lab2D2.X.production.cmf -z -Q16F887 \
-  -oC:\Users\jalva\AppData\Local\Temp\sug.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jalva\AppData\Local\Temp\shlc.3 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Lab2D2.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\sug.o \
+  -pfunctab=ENTRY -k C:\Users\jalva\AppData\Local\Temp\shlc.o \
   dist/default/production\Lab2D2.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jalva\AppData\Local\Temp\sug.o
+C:\Users\jalva\AppData\Local\Temp\shlc.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -60,13 +60,13 @@ dist/default/production\Lab2D2.X.production.o
                 text5                               CAF      CAF       4A     195E       0
                 text4                               A46      A46        C     148C       0
                 text3                               ABC      ABC       1F     1578       0
-                text2                               74E      74E       A9        8       0
+                text2                               757      757       A9        8       0
                 text1                               B77      B77       34     16EE       0
-                maintext                            613      613      13B        8       0
+                maintext                            613      613      144        8       0
                 cstackBANK0                          20       20       3E       20       1
                 cstackCOMMON                         70       70        A       70       1
-                cstackBANK1                          A3       A3        3       A0       1
-                clrtext                             7F7      7F7        8        8       0
+                cstackBANK1                          A3       A3        2       A0       1
+                clrtext                             A3E      A3E        8     147C       0
                 bssBANK1                             A0       A0        3       A0       1
                 bssBANK0                             5E       5E       11       20       1
                 bssCOMMON                            7A       7A        1       70       1
@@ -104,10 +104,10 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text5                               CAF      CAF       4A         0
                 text4                               A46      A46        C         0
                 text3                               ABC      ABC       1F         0
-                text2                               74E      74E       A9         0
+                text2                               757      757       A9         0
                 text1                               B77      B77       34         0
-                maintext                            613      613      13B         0
-                clrtext                             7F7      7F7        8         0
+                maintext                            613      613      144         0
+                clrtext                             A3E      A3E        8         0
 
         CLASS   STRCODE        
 
@@ -127,7 +127,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssBANK0                             5E       5E       11         1
 
         CLASS   BANK1          
-                cstackBANK1                          A3       A3        3         1
+                cstackBANK1                          A3       A3        2         1
                 bssBANK1                             A0       A0        3         1
 
         CLASS   BANK2          
@@ -159,11 +159,12 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0007FB  0007FF         8       0  CODE        2
+                intentry                       000004  0007FC  000800         8       0  CODE        2
                 cstackBANK0                    000020  00004F  00006F        20       1  BANK0       1
                 cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
-                bssBANK1                       0000A0  000006  0000A6        A0       1  BANK1       1
+                bssBANK1                       0000A0  000005  0000A5        A0       1  BANK1       1
                 strings                        000800  000037  000837      1000       0  STRING      2
+                clrtext                        000A3E  000008  000A46      147C       0  CODE        2
                 text4                          000A46  00000C  000A52      148C       0  CODE        2
                 text21                         000A52  000010  000A62      14A4       0  CODE        2
                 text18                         000A62  000012  000A74      14C4       0  CODE        2
@@ -193,26 +194,23 @@ UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
         BANK0            006F-006F              1           1
-        BANK1            00A6-00EF             4A           1
+        BANK1            00A5-00EF             4B           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         07FF-07FF              1
-                         0837-0A45            20F
+                         0837-0A3D            207
                          1000-1FFF            800
         COMMON           007B-007D              3           1
         CONST            0003-0003              1           2
-                         07FF-07FF              1
-                         0837-0A45            100
+                         0837-0A3D            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         07FF-07FF              1
-                         0837-0A45            100
+                         0837-0A3D            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              006F-006F              1           1
-                         00A6-00EF             4A
+                         00A5-00EF             4B
                          0110-016F             60
                          0190-01EF             60
         SFR0             0000-001F             20           1
@@ -221,12 +219,10 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         07FF-07FF              1
-                         0837-0A45            20F
+                         0837-0A3D            207
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         07FF-07FF              1
-                         0837-0A45            100
+                         0837-0A3D            100
                          1000-1FFF            100
 
                                   Symbol Table
@@ -306,7 +302,7 @@ __Hsfr1                   sfr1         0000
 __Hsfr2                   sfr2         0000
 __Hsfr3                   sfr3         0000
 __Hspace_0                (abs)        1000
-__Hspace_1                (abs)        00A6
+__Hspace_1                (abs)        00A5
 __Hspace_2                (abs)        0000
 __Hspace_3                (abs)        0000
 __Hspace_4                (abs)        4010
@@ -351,7 +347,7 @@ __Lstack                  stack        0000
 __Lstrings                strings      0000
 __Ltext                   text         0000
 __S0                      (abs)        1000
-__S1                      (abs)        00A6
+__S1                      (abs)        00A5
 __S2                      (abs)        0000
 __S3                      (abs)        0000
 __Umul8_16                text25       0B22
@@ -426,10 +422,10 @@ __end_of_floTochar        text8        0F44
 __end_of_hexTochar        text6        0B77
 __end_of_initLCD          text5        0CF9
 __end_of_interrupcion     text26       0D46
-__end_of_main             maintext     074E
+__end_of_main             maintext     0757
 __end_of_send1dato        text4        0A52
 __end_of_sendString       text3        0ADB
-__end_of_sendfloat        text2        07F7
+__end_of_sendfloat        text2        0800
 __end_of_sendhex          text1        0BAB
 __initialization          cinit        000F
 __pbssBANK0               bssBANK0     005E
@@ -452,7 +448,7 @@ __ptext16                 text16       0A74
 __ptext17                 text17       0BAB
 __ptext18                 text18       0A62
 __ptext19                 text19       0C22
-__ptext2                  text2        074E
+__ptext2                  text2        0757
 __ptext20                 text20       0A9D
 __ptext21                 text21       0A52
 __ptext22                 text22       0BE1
@@ -515,12 +511,12 @@ _pot1                     bssBANK0     006E
 _pot2                     bssBANK0     006D
 _send1dato                text4        0A46
 _sendString               text3        0ABC
-_sendfloat                text2        074E
+_sendfloat                text2        0757
 _sendhex                  text1        0B77
 _val1                     bssBANK0     0062
 _val2                     bssBANK0     005E
 btemp                     (abs)        007E
-clear_ram0                clrtext      07F7
+clear_ram0                clrtext      0A3E
 comandoLCD@cmd            cstackCOMMON 0075
 cursorLCD@columna         cstackCOMMON 0076
 cursorLCD@fila            cstackCOMMON 0078
@@ -576,7 +572,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 77 in file "main.c"
+		line 78 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -592,9 +588,9 @@ FUNCTION INFORMATION:
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
       Locals:         0       0       0       0       0
-      Temps:          0       0       3       0       0
-      Totals:         0       0       3       0       0
-Total ram usage:        3 bytes
+      Temps:          0       0       2       0       0
+      Totals:         0       0       2       0       0
+Total ram usage:        2 bytes
  Hardware stack levels required when called:    4
  This function calls:
 		_CONVdec
@@ -1166,7 +1162,7 @@ Total ram usage:        3 bytes
 
  *************** function _configuracion *****************
  Defined at:
-		line 116 in file "main.c"
+		line 122 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1462,7 +1458,7 @@ Total ram usage:        9 bytes
 
  *************** function _interrupcion *****************
  Defined at:
-		line 52 in file "main.c"
+		line 53 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1557,7 +1553,7 @@ ComSerial.c
 		_sendString    		CODE           	0ABC	0000	31
 		_hexTochar     		CODE           	0B4B	0000	44
 		_division      		CODE           	0C67	0000	72
-		_sendfloat     		CODE           	074E	0000	169
+		_sendfloat     		CODE           	0757	0000	169
 		_sendhex       		CODE           	0B77	0000	52
 		_configUART    		CODE           	0A62	0000	18
 
@@ -1565,8 +1561,8 @@ ComSerial.c estimated size: 679
 
 main.c
 		_configuracion 		CODE           	0BAB	0000	54
-		_main          		CODE           	0613	0000	315
+		_main          		CODE           	0613	0000	324
 		_interrupcion  		CODE           	0CF9	0000	77
 
-main.c estimated size: 446
+main.c estimated size: 455
 

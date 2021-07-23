@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 16 "main.c"
+# 17 "main.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2504,7 +2504,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 31 "main.c" 2
+# 32 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2603,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 32 "main.c" 2
+# 33 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2688,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 33 "main.c" 2
+# 34 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,37 +2823,57 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 34 "main.c" 2
-
-# 1 "./ADC.h" 1
-# 13 "./ADC.h"
-void ADCconfig(uint8_t canal, uint8_t just);
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-void CONVdec(uint8_t *lectura, float *equiv);
 # 35 "main.c" 2
 
-# 1 "./ComSerial.h" 1
-# 14 "./ComSerial.h"
-void configUART(void);
-void send1dato(char dato);
-void sendString(unsigned char *mensaje);
-void sendfloat(const float valor);
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
-void sendhex(uint8_t *valor);
-void floTochar(const float valor,unsigned char *conv);
-void hexTochar(uint8_t valor,unsigned char *conv);
+# 1 "./ADC.h" 1
+# 14 "./ADC.h"
+void ADCconfig(uint8_t canal, uint8_t just);
+
+
+
+void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
+
+void CONVdec(uint8_t *lectura, float *equiv);
 # 36 "main.c" 2
+
+# 1 "./ComSerial.h" 1
+# 13 "./ComSerial.h"
+void configUART(void);
+
+void send1dato(char dato);
+
+void sendString(unsigned char *mensaje);
+
+void sendfloat(const float valor);
+
+
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+
+void sendhex(uint8_t *valor);
+
+void floTochar(const float valor,unsigned char *conv);
+
+
+void hexTochar(uint8_t valor,unsigned char *conv);
+# 37 "main.c" 2
 
 # 1 "./LCDD2.h" 1
 # 17 "./LCDD2.h"
 void initLCD(void);
+
+
 void dispCHAR(char b);
+
 void cursorLCD(uint8_t fila, uint8_t columna);
+
 void comandoLCD(uint8_t cmd);
+
 void ClearLCD(void);
+
 void LCDstring(unsigned char* mensaje);
-# 37 "main.c" 2
+# 38 "main.c" 2
 
 
 
@@ -2898,6 +2918,7 @@ void main(void) {
     configuracion();
     initLCD();
     while(1){
+
         sendString("POT1: \r");
         CONVdec(&pot1,&val1);
         sendfloat(val1);
@@ -2907,9 +2928,11 @@ void main(void) {
         sendString("UART: \r");
         sendhex(&UARTval);
         sendString("\r\r\r\r\r");
+
         floTochar(val1,&disp1);
         floTochar(val2,&disp2);
         hexTochar(UARTval,&disp3);
+
         cursorLCD(1,1);
         LCDstring("POT1  POT2  UART");
         cursorLCD(2,1);
@@ -2917,16 +2940,18 @@ void main(void) {
         dispCHAR('.');
         dispCHAR(disp1[1]+48);
         dispCHAR(disp1[2]+48);
+        dispCHAR('V');
         cursorLCD(2,7);
         dispCHAR(disp2[0]+48);
         dispCHAR('.');
         dispCHAR(disp2[1]+48);
         dispCHAR(disp2[2]+48);
+        dispCHAR('V');
         cursorLCD(2,13);
         dispCHAR(disp3[2]+48);
         dispCHAR(disp3[1]+48);
         dispCHAR(disp3[0]+48);
-        _delay((unsigned long)((500)*(8000000/4000.0)));
+        _delay((unsigned long)((10)*(8000000/4000.0)));
     }
 }
 

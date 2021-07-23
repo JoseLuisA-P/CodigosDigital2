@@ -55,11 +55,11 @@
 [v _comandoLCD comandoLCD `(v  1 e 1 0 ]
 "75
 [v _LCDstring LCDstring `(v  1 e 1 0 ]
-"52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"53 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
-"77
+"78
 [v _main main `(v  1 e 1 0 ]
-"116
+"122
 [v _configuracion configuracion `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -249,24 +249,24 @@
 [v _RC0 RC0 `VEb  1 e 0 @56 ]
 "4136
 [v _RC1 RC1 `VEb  1 e 0 @57 ]
-"43 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"44 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _pot1 pot1 `uc  1 e 1 0 ]
 [v _pot2 pot2 `uc  1 e 1 0 ]
 [v _UARTdat UARTdat `uc  1 e 1 0 ]
 [v _UARTval UARTval `uc  1 e 1 0 ]
-"44
+"45
 [v _val1 val1 `f  1 e 4 0 ]
 [v _val2 val2 `f  1 e 4 0 ]
-"45
-[v _disp1 disp1 `[3]uc  1 e 3 0 ]
 "46
-[v _disp2 disp2 `[3]uc  1 e 3 0 ]
+[v _disp1 disp1 `[3]uc  1 e 3 0 ]
 "47
+[v _disp2 disp2 `[3]uc  1 e 3 0 ]
+"48
 [v _disp3 disp3 `[3]uc  1 e 3 0 ]
-"77
+"78
 [v _main main `(v  1 e 1 0 ]
 {
-"111
+"117
 } 0
 "81 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 [v _sendhex sendhex `(v  1 e 1 0 ]
@@ -460,10 +460,10 @@
 [v comandoLCD@cmd cmd `uc  1 a 1 5 ]
 "69
 } 0
-"116 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"122 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _configuracion configuracion `(v  1 e 1 0 ]
 {
-"160
+"166
 } 0
 "11 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 [v _configUART configUART `(v  1 e 1 0 ]
@@ -560,8 +560,8 @@
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 4 ]
 "60
 } 0
-"52 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"53 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
 {
-"72
+"73
 } 0

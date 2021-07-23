@@ -2809,9 +2809,13 @@ typedef uint16_t uintptr_t;
 # 4 "ADC.c" 2
 
 # 1 "./ADC.h" 1
-# 13 "./ADC.h"
+# 14 "./ADC.h"
 void ADCconfig(uint8_t canal, uint8_t just);
+
+
+
 void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
+
 void CONVdec(uint8_t *lectura, float *equiv);
 # 5 "ADC.c" 2
 

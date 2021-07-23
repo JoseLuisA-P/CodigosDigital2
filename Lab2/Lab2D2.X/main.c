@@ -3,11 +3,12 @@
  * Author: Jose Alvarez (19392)
  *
  * Created on 21 de julio de 2021, 08:25 PM
- * Edicion 21 de julio de 2021
+ * Edicion 23 de julio de 2021
  * 
  * Hardware:
- * 
- * Software:
+ * Puerto A: 2 potenciometros en RA0 y RA1
+ * Puerto C: pines RS y E de la LCD, pines para comunicacion serial
+ * Puerto D: todos los pines de la LCD D0-D7
  * 
  */
 //******************************************************************************
@@ -59,15 +60,15 @@ void __interrupt() interrupcion(void){
     }
     
     if(PIR1bits.ADIF){
-        ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
+        ADCON0bits.CHS0 = ~ADCON0bits.CHS0; //cambio de canal por cada lectura
         PIR1bits.ADIF = 0;
-        if(ADCON0bits.CHS0)pot1 = ADRESH;
+        if(ADCON0bits.CHS0)pot1 = ADRESH; //asignando valores por lectura
         else pot2 = ADRESH;
     }
     
     if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        INTCONbits.T0IF = 0;
+        if(!ADCON0bits.GO)ADCON0bits.GO = 1; //go de ADC con timer y no
+        INTCONbits.T0IF = 0;                //automatico
     }
 }
 
@@ -77,19 +78,22 @@ void __interrupt() interrupcion(void){
 void main(void) {
     configuracion();
     initLCD();
-    while(1){
+    while(1){ 
+        /*Se envian los valores via comunicacion serial*/
         sendString("POT1: \r");
-        CONVdec(&pot1,&val1);
-        sendfloat(val1);
+        CONVdec(&pot1,&val1); //convierte la lectura en flotante
+        sendfloat(val1); //envia un flotante
         sendString("POT2: \r");
         CONVdec(&pot2,&val2);
         sendfloat(val2);
         sendString("UART: \r");
-        sendhex(&UARTval);
+        sendhex(&UARTval); //envia un hex, usando 3 caracteres
         sendString("\r\r\r\r\r"); 
+        /*se convierten los valores a caracteres para la LCD*/
         floTochar(val1,&disp1);
         floTochar(val2,&disp2);
         hexTochar(UARTval,&disp3);
+        /*se imprimen los valores e identificadores en la LCD*/
         cursorLCD(1,1);
         LCDstring("POT1  POT2  UART");
         cursorLCD(2,1);
@@ -97,16 +101,18 @@ void main(void) {
         dispCHAR('.');
         dispCHAR(disp1[1]+48);
         dispCHAR(disp1[2]+48);
+        dispCHAR('V');
         cursorLCD(2,7);
         dispCHAR(disp2[0]+48);
         dispCHAR('.');
         dispCHAR(disp2[1]+48);
         dispCHAR(disp2[2]+48);
+        dispCHAR('V');
         cursorLCD(2,13);
         dispCHAR(disp3[2]+48);
         dispCHAR(disp3[1]+48);
         dispCHAR(disp3[0]+48);
-        __delay_ms(500);
+        __delay_ms(10); //tiempo para poder visualizar
     }
 }
 

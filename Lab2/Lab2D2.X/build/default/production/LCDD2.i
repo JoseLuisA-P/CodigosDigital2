@@ -2812,10 +2812,16 @@ typedef uint16_t uintptr_t;
 # 1 "./LCDD2.h" 1
 # 17 "./LCDD2.h"
 void initLCD(void);
+
+
 void dispCHAR(char b);
+
 void cursorLCD(uint8_t fila, uint8_t columna);
+
 void comandoLCD(uint8_t cmd);
+
 void ClearLCD(void);
+
 void LCDstring(unsigned char* mensaje);
 # 6 "LCDD2.c" 2
 # 20 "LCDD2.c"
@@ -2830,7 +2836,7 @@ void initLCD(void){
     comandoLCD(0X30);
     comandoLCD(0X38);
     comandoLCD(0X06);
-    comandoLCD(0X0E);
+    comandoLCD(0X0C);
     comandoLCD(0X01);
 
 }

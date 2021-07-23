@@ -19,17 +19,17 @@
 
 void initLCD(void){
     RS =    0;
-    LCDport = 0X00;
+    LCDport = 0X00; //formato de 8 bits
     __delay_ms(50);
-    comandoLCD(0X30);
+    comandoLCD(0X30); //formato de 8 bits
     __delay_ms(5);
-    comandoLCD(0X30);
+    comandoLCD(0X30); //formato de 8 bits
     __delay_ms(5);
-    comandoLCD(0X30);
-    comandoLCD(0X38);
-    comandoLCD(0X06);
-    comandoLCD(0X0E);
-    comandoLCD(0X01);
+    comandoLCD(0X30); //formato de 8 bits
+    comandoLCD(0X38); //8 bits, 2 lines y formato 5x8
+    comandoLCD(0X06); //incremento sin scroll
+    comandoLCD(0X0C); //display on, cursor off, blink ff
+    comandoLCD(0X01); //limpiar display
     
 }
 

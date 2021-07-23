@@ -2810,15 +2810,25 @@ typedef uint16_t uintptr_t;
 
 
 # 1 "./ComSerial.h" 1
-# 14 "./ComSerial.h"
+# 13 "./ComSerial.h"
 void configUART(void);
+
 void send1dato(char dato);
+
 void sendString(unsigned char *mensaje);
+
 void sendfloat(const float valor);
+
+
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+
 void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+
 void sendhex(uint8_t *valor);
+
 void floTochar(const float valor,unsigned char *conv);
+
+
 void hexTochar(uint8_t valor,unsigned char *conv);
 # 6 "ComSerial.c" 2
 
