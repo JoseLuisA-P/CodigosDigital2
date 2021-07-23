@@ -78,12 +78,12 @@ void floTochar(const float valor,unsigned char *conv){
     conv[2] = digdecimal[0];
 }
 
-void sendhex(uint8_t valor){
+void sendhex(uint8_t *valor){
     uint8_t centena;
     uint8_t decena;
     uint8_t unidad;
     
-    divisiondecimal(valor,&unidad,&decena,&centena); //separa los valores
+    divisiondecimal(*valor,&unidad,&decena,&centena); //separa los valores
     send1dato(centena +48);//envia cada valor con el arreglo para el 
     send1dato(decena +48);//ASCII
     send1dato(unidad +48);

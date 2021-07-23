@@ -2817,7 +2817,7 @@ void sendString(unsigned char *mensaje);
 void sendfloat(const float valor);
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
-void sendhex(uint8_t valor);
+void sendhex(uint8_t *valor);
 void floTochar(const float valor,unsigned char *conv);
 void hexTochar(uint8_t valor,unsigned char *conv);
 # 6 "ComSerial.c" 2
@@ -2896,12 +2896,12 @@ void floTochar(const float valor,unsigned char *conv){
     conv[2] = digdecimal[0];
 }
 
-void sendhex(uint8_t valor){
+void sendhex(uint8_t *valor){
     uint8_t centena;
     uint8_t decena;
     uint8_t unidad;
 
-    divisiondecimal(valor,&unidad,&decena,&centena);
+    divisiondecimal(*valor,&unidad,&decena,&centena);
     send1dato(centena +48);
     send1dato(decena +48);
     send1dato(unidad +48);

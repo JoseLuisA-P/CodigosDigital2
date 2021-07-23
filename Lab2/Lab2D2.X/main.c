@@ -53,8 +53,8 @@ void __interrupt() interrupcion(void){
     
     if(PIR1bits.RCIF){
         UARTdat = RCREG; 
-        if(UARTdat == 0X2B)UARTval++; //si es + aumenta
-        if(UARTdat == 0X2D)UARTval--; //si es - disminuye
+        if(UARTdat == '+')UARTval++; //si es + aumenta
+        if(UARTdat == '-')UARTval--; //si es - disminuye
         PIR1bits.RCIF = 0;
     }
     
@@ -85,7 +85,7 @@ void main(void) {
         CONVdec(&pot2,&val2);
         sendfloat(val2);
         sendString("UART: \r");
-        sendhex(UARTval);
+        sendhex(&UARTval);
         sendString("\r\r\r\r\r"); 
         floTochar(val1,&disp1);
         floTochar(val2,&disp2);

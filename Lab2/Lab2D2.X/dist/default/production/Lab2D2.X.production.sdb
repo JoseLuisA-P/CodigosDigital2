@@ -271,7 +271,7 @@
 "81 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 [v _sendhex sendhex `(v  1 e 1 0 ]
 {
-[v sendhex@valor valor `uc  1 a 1 wreg ]
+[v sendhex@valor valor `*.4uc  1 a 1 wreg ]
 "83
 [v sendhex@decena decena `uc  1 a 1 16 ]
 "82
@@ -279,9 +279,9 @@
 "84
 [v sendhex@unidad unidad `uc  1 a 1 14 ]
 "81
-[v sendhex@valor valor `uc  1 a 1 wreg ]
+[v sendhex@valor valor `*.4uc  1 a 1 wreg ]
 "86
-[v sendhex@valor valor `uc  1 a 1 13 ]
+[v sendhex@valor valor `*.4uc  1 a 1 13 ]
 "90
 } 0
 "39

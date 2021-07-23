@@ -482,11 +482,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 153 ]
 }
 "81
-[; ;ComSerial.c: 81: void sendhex(uint8_t valor){
-[v _sendhex `(v ~T0 @X0 1 ef1`uc ]
+[; ;ComSerial.c: 81: void sendhex(uint8_t *valor){
+[v _sendhex `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _sendhex ]
-[v _valor `uc ~T0 @X0 1 r1 ]
+[v _valor `*uc ~T0 @X0 1 r1 ]
 [f ]
 "82
 [; ;ComSerial.c: 82:     uint8_t centena;
@@ -498,8 +498,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ComSerial.c: 84:     uint8_t unidad;
 [v _unidad `uc ~T0 @X0 1 a ]
 "86
-[; ;ComSerial.c: 86:     divisiondecimal(valor,&unidad,&decena,&centena);
-[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
+[; ;ComSerial.c: 86:     divisiondecimal(*valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , *U _valor &U _unidad &U _decena &U _centena ]
 "87
 [; ;ComSerial.c: 87:     send1dato(centena +48);
 [e ( _send1dato (1 -> + -> _centena `i -> 48 `i `uc ]
