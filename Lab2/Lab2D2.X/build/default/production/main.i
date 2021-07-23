@@ -2843,6 +2843,14 @@ void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 void sendhex(uint8_t valor);
 # 36 "main.c" 2
 
+# 1 "./LCDD2.h" 1
+# 17 "./LCDD2.h"
+void initLCD(void);
+void dispCHAR(unsigned char b);
+void cursorLCD(uint8_t pos);
+void comandoLCD(uint8_t cmd);
+# 37 "main.c" 2
+
 
 
 
@@ -2882,7 +2890,7 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 
 void main(void) {
     configuracion();
-
+    initLCD();
     while(1){
         sendString("POT1: \r");
         CONVdec(&pot1,&val1);
@@ -2892,10 +2900,9 @@ void main(void) {
         sendfloat(val2);
         sendString("UART: \r");
         sendhex(UARTval);
-        sendString("\r");
-        sendString("\r");
-        sendString("\r");
-        sendString("\r");
+        sendString("\r\r\r\r\r");
+        cursorLCD(0X80);
+        dispCHAR("a");
         _delay((unsigned long)((1000)*(8000000/4000.0)));
     }
 }
@@ -2916,7 +2923,8 @@ void configuracion(void){
     PORTB = 0X00;
     PORTC = 0X00;
     PORTD = 0X00;
-    PORTE = 0X01;
+    PORTE = 0X00;
+
 
     configUART();
 

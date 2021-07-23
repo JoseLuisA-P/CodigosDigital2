@@ -2858,6 +2858,10 @@ void sendfloat(const float valor){
     float temp;
     unsigned char digdecimal[1];
 
+
+
+
+
     entero = valor;
     temp = valor-(float)entero;
     decimal = (temp*100);
@@ -2880,6 +2884,7 @@ void sendhex(uint8_t valor){
     send1dato(decena +48);
     send1dato(unidad +48);
 }
+
 
 
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec){

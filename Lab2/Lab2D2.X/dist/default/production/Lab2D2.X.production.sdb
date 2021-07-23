@@ -35,15 +35,23 @@
 [v _sendString sendString `(v  1 e 1 0 ]
 "39
 [v _sendfloat sendfloat `(v  1 e 1 0 ]
-"57
+"61
 [v _sendhex sendhex `(v  1 e 1 0 ]
-"69
-[v _division division `(v  1 e 1 0 ]
-"83
-[v _divisiondecimal divisiondecimal `(v  1 e 1 0 ]
-"49 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-[v _interrupcion interrupcion `II(v  1 e 1 0 ]
 "74
+[v _division division `(v  1 e 1 0 ]
+"88
+[v _divisiondecimal divisiondecimal `(v  1 e 1 0 ]
+"20 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+[v _initLCD initLCD `(v  1 e 1 0 ]
+"47
+[v _dispCHAR dispCHAR `(v  1 e 1 0 ]
+"57
+[v _cursorLCD cursorLCD `(v  1 e 1 0 ]
+"65
+[v _comandoLCD comandoLCD `(v  1 e 1 0 ]
+"50 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+[v _interrupcion interrupcion `II(v  1 e 1 0 ]
+"75
 [v _main main `(v  1 e 1 0 ]
 "97
 [v _configuracion configuracion `(v  1 e 1 0 ]
@@ -85,7 +93,7 @@
 "553
 [u S30 . 1 `S22 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES30  1 e 1 @12 ]
-[s S449 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S461 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -95,18 +103,18 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S458 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S470 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S462 . 1 `uc 1 . 1 0 :6:0 
+[s S474 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S465 . 1 `uc 1 . 1 0 :6:0 
+[s S477 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S468 . 1 `S449 1 . 1 0 `S458 1 . 1 0 `S462 1 . 1 0 `S465 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES468  1 e 1 @24 ]
+[u S480 . 1 `S461 1 . 1 0 `S470 1 . 1 0 `S474 1 . 1 0 `S477 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES480  1 e 1 @24 ]
 "1133
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1140
@@ -136,7 +144,7 @@
 ]
 [u S62 . 1 `S42 1 . 1 0 `S47 1 . 1 0 `S56 1 . 1 0 `S59 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES62  1 e 1 @31 ]
-[s S213 . 1 `uc 1 PS 1 0 :3:0 
+[s S227 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -144,19 +152,19 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S220 . 1 `uc 1 PS0 1 0 :1:0 
+[s S234 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S224 . 1 `S213 1 . 1 0 `S220 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES224  1 e 1 @129 ]
+[u S238 . 1 `S227 1 . 1 0 `S234 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES238  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-[s S390 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S402 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -166,13 +174,13 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S399 . 1 `S390 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES399  1 e 1 @135 ]
+[u S411 . 1 `S402 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES411  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S194 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S208 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -181,23 +189,23 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S202 . 1 `S194 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES202  1 e 1 @140 ]
-[s S168 . 1 `uc 1 SCS 1 0 :1:0 
+[u S216 . 1 `S208 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES216  1 e 1 @140 ]
+[s S182 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S174 . 1 `uc 1 . 1 0 :4:0 
+[s S188 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S179 . 1 `S168 1 . 1 0 `S174 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES179  1 e 1 @143 ]
-[s S412 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S193 . 1 `S182 1 . 1 0 `S188 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES193  1 e 1 @143 ]
+[s S424 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -207,72 +215,76 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S421 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S433 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S425 . 1 `uc 1 . 1 0 :6:0 
+[s S437 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S428 . 1 `S412 1 . 1 0 `S421 1 . 1 0 `S425 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES428  1 e 1 @152 ]
+[u S440 . 1 `S424 1 . 1 0 `S433 1 . 1 0 `S437 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES440  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-[s S355 . 1 `uc 1 . 1 0 :4:0 
+[s S367 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S361 . 1 `S355 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES361  1 e 1 @159 ]
+[u S373 . 1 `S367 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES373  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"42 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"4133
+[v _RC0 RC0 `VEb  1 e 0 @56 ]
+"4136
+[v _RC1 RC1 `VEb  1 e 0 @57 ]
+"43 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _pot1 pot1 `uc  1 e 1 0 ]
 [v _pot2 pot2 `uc  1 e 1 0 ]
 [v _UARTdat UARTdat `uc  1 e 1 0 ]
 [v _UARTval UARTval `uc  1 e 1 0 ]
-"43
+"44
 [v _val1 val1 `f  1 e 4 0 ]
 [v _val2 val2 `f  1 e 4 0 ]
-"74
+"75
 [v _main main `(v  1 e 1 0 ]
 {
 "92
 } 0
-"57 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+"61 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 [v _sendhex sendhex `(v  1 e 1 0 ]
 {
 [v sendhex@valor valor `uc  1 a 1 wreg ]
-"59
+"63
 [v sendhex@decena decena `uc  1 a 1 16 ]
-"58
-[v sendhex@centena centena `uc  1 a 1 15 ]
-"60
-[v sendhex@unidad unidad `uc  1 a 1 14 ]
-"57
-[v sendhex@valor valor `uc  1 a 1 wreg ]
 "62
-[v sendhex@valor valor `uc  1 a 1 13 ]
+[v sendhex@centena centena `uc  1 a 1 15 ]
+"64
+[v sendhex@unidad unidad `uc  1 a 1 14 ]
+"61
+[v sendhex@valor valor `uc  1 a 1 wreg ]
 "66
+[v sendhex@valor valor `uc  1 a 1 13 ]
+"70
 } 0
-"83
+"88
 [v _divisiondecimal divisiondecimal `(v  1 e 1 0 ]
 {
 [v divisiondecimal@conteo conteo `uc  1 a 1 wreg ]
-"84
+"89
 [v divisiondecimal@div div `uc  1 a 1 9 ]
-"83
+"88
 [v divisiondecimal@conteo conteo `uc  1 a 1 wreg ]
 [v divisiondecimal@un un `*.4uc  1 p 1 4 ]
 [v divisiondecimal@dec dec `*.4uc  1 p 1 5 ]
 [v divisiondecimal@cent cent `*.4uc  1 p 1 6 ]
 [v divisiondecimal@conteo conteo `uc  1 a 1 8 ]
-"101
+"106
 } 0
 "39
 [v _sendfloat sendfloat `(v  1 e 1 0 ]
@@ -287,7 +299,7 @@
 [v sendfloat@decimal decimal `uc  1 a 1 57 ]
 "39
 [v sendfloat@valor valor `DCf  1 p 4 45 ]
-"55
+"59
 } 0
 "31
 [v _sendString sendString `(v  1 e 1 0 ]
@@ -305,18 +317,18 @@
 [v send1dato@dato dato `uc  1 a 1 3 ]
 "29
 } 0
-"69
+"74
 [v _division division `(v  1 e 1 0 ]
 {
 [v division@conteo conteo `uc  1 a 1 wreg ]
-"70
+"75
 [v division@div div `uc  1 a 1 8 ]
-"69
+"74
 [v division@conteo conteo `uc  1 a 1 wreg ]
 [v division@un un `*.4uc  1 p 1 8 ]
 [v division@dec dec `*.4uc  1 p 1 9 ]
 [v division@conteo conteo `uc  1 a 1 7 ]
-"81
+"86
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -377,10 +389,40 @@
 [v ___fladd@a a `d  1 p 4 4 ]
 "237
 } 0
+"20 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+[v _initLCD initLCD `(v  1 e 1 0 ]
+{
+"41
+} 0
+"65
+[v _comandoLCD comandoLCD `(v  1 e 1 0 ]
+{
+[v comandoLCD@cmd cmd `uc  1 a 1 wreg ]
+[v comandoLCD@cmd cmd `uc  1 a 1 wreg ]
+[v comandoLCD@cmd cmd `uc  1 a 1 5 ]
+"71
+} 0
+"47
+[v _dispCHAR dispCHAR `(v  1 e 1 0 ]
+{
+[v dispCHAR@b b `uc  1 a 1 wreg ]
+[v dispCHAR@b b `uc  1 a 1 wreg ]
+"49
+[v dispCHAR@b b `uc  1 a 1 5 ]
+"55
+} 0
+"57
+[v _cursorLCD cursorLCD `(v  1 e 1 0 ]
+{
+[v cursorLCD@pos pos `uc  1 a 1 wreg ]
+[v cursorLCD@pos pos `uc  1 a 1 wreg ]
+[v cursorLCD@pos pos `uc  1 a 1 5 ]
+"63
+} 0
 "97 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _configuracion configuracion `(v  1 e 1 0 ]
 {
-"140
+"141
 } 0
 "11 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 [v _configUART configUART `(v  1 e 1 0 ]
@@ -402,8 +444,9 @@
 [v CONVdec@lectura lectura `*.4uc  1 a 1 wreg ]
 [v CONVdec@lectura lectura `*.4uc  1 a 1 wreg ]
 [v CONVdec@equiv equiv `*.4f  1 p 1 36 ]
-[v CONVdec@lectura lectura `*.4uc  1 a 1 7 ]
 "54
+[v CONVdec@lectura lectura `*.4uc  1 a 1 7 ]
+"55
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -423,17 +466,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S835 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S864 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S840 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S843 . 4 `l 1 i 4 0 `d 1 f 4 0 `S835 1 fAsBytes 4 0 `S840 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S843  1 a 4 30 ]
+[s S869 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S872 . 4 `l 1 i 4 0 `d 1 f 4 0 `S864 1 fAsBytes 4 0 `S869 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S872  1 a 4 30 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 25 ]
-[s S912 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S941 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S915 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S912 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S915  1 a 2 34 ]
+[u S944 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S941 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S944  1 a 2 34 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 29 ]
 "11
@@ -459,8 +502,8 @@
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 4 ]
 "60
 } 0
-"49 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+"50 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
 {
-"69
+"70
 } 0

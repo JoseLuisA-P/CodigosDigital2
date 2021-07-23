@@ -1,4 +1,4 @@
-# 1 "ADC.c"
+# 1 "LCDD2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC.c" 2
+# 1 "LCDD2.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2487,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 1 "ADC.c" 2
+# 1 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2586,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 2 "ADC.c" 2
+# 2 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2671,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 3 "ADC.c" 2
+# 3 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2806,62 +2806,66 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 4 "ADC.c" 2
-
-# 1 "./ADC.h" 1
-# 13 "./ADC.h"
-void ADCconfig(uint8_t canal, uint8_t just);
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-void CONVdec(uint8_t *lectura, float *equiv);
-# 5 "ADC.c" 2
+# 4 "LCDD2.c" 2
 
 
+# 1 "./LCDD2.h" 1
+# 17 "./LCDD2.h"
+void initLCD(void);
+void dispCHAR(unsigned char b);
+void cursorLCD(uint8_t pos);
+void comandoLCD(uint8_t cmd);
+# 6 "LCDD2.c" 2
+# 20 "LCDD2.c"
+void initLCD(void){
+    RC0 = 0;
+    PORTD = 0X00;
+    _delay((unsigned long)((20)*(8000000/4000.0)));
 
+    comandoLCD(0X30);
+    _delay((unsigned long)((5)*(8000000/4000.0)));
 
+    comandoLCD(0X30);
+    _delay((unsigned long)((11)*(8000000/4000.0)));
 
-void ADCconfig(uint8_t canal, uint8_t just){
+    comandoLCD(0X30);
 
+    comandoLCD(0X38);
 
+    comandoLCD(0X08);
 
+    comandoLCD(0X01);
 
-    switch(OSCCONbits.IRCF){
-        case 0b100:
-            ADCON0bits.ADCS = 0b000;
-            break;
-        case 0b110:
-            ADCON0bits.ADCS = 0b001;
-            break;
-        case 0b111:
-            ADCON0bits.ADCS = 0b010;
-            break;
-        default:
-            ADCON0bits.ADCS = 0b11;
-            break;
-    }
-    ADCON0bits.CHS = canal;
-    ADCON0bits.GO = 0b0;
-    ADCON0bits.ADON = 0b1;
-    ADCON1bits.ADFM = just;
-    ADCON1bits.VCFG1 = 0b0;
-    ADCON1bits.VCFG0 = 0b0;
+    comandoLCD(0X06);
+
 }
 
 
 
 
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
 
+void dispCHAR(unsigned char b){
 
+    RC0 = 1;
+    PORTD = b;
+    RC1 = 1;
+    _delay((unsigned long)((4)*(8000000/4000.0)));
+    RC1 = 0;
 
-
-    uint8_t temp;
-    temp = *valor;
-    *lower = (*valor & 0x0F);
-    temp = temp>>4;
-    *upper = (temp & 0x0F);
 }
 
-void CONVdec(uint8_t *lectura,float *equiv){
+void cursorLCD(uint8_t pos){
+    RC0 = 0;
+    PORTD = pos;
+    RC1 = 1;
+    _delay((unsigned long)((4)*(8000000/4000.0)));
+    RC1 = 0;
+}
 
-    *equiv = (float)(0.01961)*(*lectura);
+void comandoLCD(uint8_t cmd){
+    RC0 = 0;
+    PORTD = cmd;
+    RC1 = 1;
+    _delay((unsigned long)((4)*(8000000/4000.0)));
+    RC1 = 0;
 }

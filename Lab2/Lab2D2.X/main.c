@@ -34,6 +34,7 @@
 #include <stdint.h>
 #include "ADC.h"
 #include "ComSerial.h"
+#include "LCDD2.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
@@ -73,7 +74,7 @@ void __interrupt() interrupcion(void){
 //******************************************************************************
 void main(void) {
     configuracion();
-    
+    initLCD();
     while(1){
         sendString("POT1: \r");
         CONVdec(&pot1,&val1);
@@ -83,10 +84,9 @@ void main(void) {
         sendfloat(val2);
         sendString("UART: \r");
         sendhex(UARTval);
-        sendString("\r");
-        sendString("\r");
-        sendString("\r");
-        sendString("\r");
+        sendString("\r\r\r\r\r");
+        cursorLCD(0X80);
+        dispCHAR("a");
         __delay_ms(1000);
     }
 }
@@ -107,8 +107,9 @@ void configuracion(void){
     PORTB =         0X00;
     PORTC =         0X00;
     PORTD =         0X00;
-    PORTE =         0X01;
+    PORTE =         0X00;
     
+    //Configuracion del UART
     configUART();
     
     //Configuracion del oscilador

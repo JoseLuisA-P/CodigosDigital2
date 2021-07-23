@@ -13,34 +13,38 @@
 %PSECTS
 $dist/default/production\Lab2D2.X.production.o
 cinit CODE 0 F F 15 2
-text1 CODE 0 D1B D1B 31 2
+text1 CODE 0 CD3 CD3 31 2
 text2 CODE 0 F83 F83 7D 2
 text3 CODE 0 6D1 6D1 A9 2
-text4 CODE 0 CAF CAF 1F 2
-text5 CODE 0 C7C C7C C 2
-text6 CODE 0 E09 E09 48 2
-text7 CODE 0 C9A C9A 15 2
+text4 CODE 0 C67 C67 1F 2
+text5 CODE 0 BF8 BF8 C 2
+text6 CODE 0 DC0 DC0 48 2
+text7 CODE 0 C52 C52 15 2
 text8 CODE 0 E9E E9E 69 2
 text9 CODE 0 F07 F07 7C 2
-text10 CODE 0 CCE CCE 24 2
+text10 CODE 0 C86 C86 24 2
 text11 CODE 0 385 385 290 2
-text12 CODE 0 D4C D4C 37 2
-text13 CODE 0 C88 C88 12 2
-text14 CODE 0 DC4 DC4 45 2
-text15 CODE 0 D83 D83 41 2
-text16 CODE 0 615 615 BC 2
-text17 CODE 0 24 24 361 2
-text18 CODE 0 CF2 CF2 29 2
-text19 CODE 0 E51 E51 4D 2
-maintext CODE 0 77A 77A 7F 2
+text12 CODE 0 E08 E08 49 2
+text13 CODE 0 C3E C3E 14 2
+text14 CODE 0 C2A C2A 14 2
+text15 CODE 0 C16 C16 14 2
+text16 CODE 0 D04 D04 36 2
+text17 CODE 0 C04 C04 12 2
+text18 CODE 0 D7B D7B 45 2
+text19 CODE 0 D3A D3A 41 2
+text20 CODE 0 615 615 BC 2
+text21 CODE 0 24 24 361 2
+text22 CODE 0 CAA CAA 29 2
+text23 CODE 0 E51 E51 4D 2
+maintext CODE 0 77A 77A 7E 2
 cstackCOMMON COMMON 1 70 70 A 1
 cstackBANK0 BANK0 1 20 20 3F 1
 intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 5F 5F E 1
-strings STRING 0 800 800 20 2
+strings STRING 0 800 800 28 2
 bssCOMMON COMMON 1 7A 7A 1 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\skgo.o
+$C:\Users\jalva\AppData\Local\Temp\shds.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -59,18 +63,18 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 7F9-7FF 2
-CONST 820-C7B 2
+CONST 7F8-7FF 2
+CONST 828-BF7 2
 CONST 1000-1FFF 2
 ENTRY 3-3 2
-ENTRY 7F9-7FF 2
-ENTRY 820-C7B 2
+ENTRY 7F8-7FF 2
+ENTRY 828-BF7 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 7F9-7FF 2
-CODE 820-C7B 2
+CODE 7F8-7FF 2
+CODE 828-BF7 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -79,12 +83,12 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 7F9-7FF 2
-STRCODE 820-C7B 2
+STRCODE 7F8-7FF 2
+STRCODE 828-BF7 2
 STRCODE 1000-1FFF 2
 STRING 3-3 2
-STRING 7F9-7FF 2
-STRING 820-C7B 2
+STRING 7F8-7FF 2
+STRING 828-BF7 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -100,229 +104,264 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab2D2.X.production.o
-F cinit CODE >883:C:\Users\jalva\AppData\Local\Temp\skgo.s
-F cinit CODE >886:C:\Users\jalva\AppData\Local\Temp\skgo.s
-F cinit CODE >918:C:\Users\jalva\AppData\Local\Temp\skgo.s
-10 cinit CODE >921:C:\Users\jalva\AppData\Local\Temp\skgo.s
-11 cinit CODE >922:C:\Users\jalva\AppData\Local\Temp\skgo.s
-12 cinit CODE >923:C:\Users\jalva\AppData\Local\Temp\skgo.s
-13 cinit CODE >924:C:\Users\jalva\AppData\Local\Temp\skgo.s
-14 cinit CODE >925:C:\Users\jalva\AppData\Local\Temp\skgo.s
-15 cinit CODE >926:C:\Users\jalva\AppData\Local\Temp\skgo.s
-16 cinit CODE >927:C:\Users\jalva\AppData\Local\Temp\skgo.s
-17 cinit CODE >928:C:\Users\jalva\AppData\Local\Temp\skgo.s
-18 cinit CODE >929:C:\Users\jalva\AppData\Local\Temp\skgo.s
-19 cinit CODE >930:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1A cinit CODE >931:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1B cinit CODE >932:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1C cinit CODE >933:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1D cinit CODE >934:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1E cinit CODE >935:C:\Users\jalva\AppData\Local\Temp\skgo.s
-1F cinit CODE >936:C:\Users\jalva\AppData\Local\Temp\skgo.s
-20 cinit CODE >942:C:\Users\jalva\AppData\Local\Temp\skgo.s
-20 cinit CODE >944:C:\Users\jalva\AppData\Local\Temp\skgo.s
-21 cinit CODE >945:C:\Users\jalva\AppData\Local\Temp\skgo.s
-4 intentry CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E51 text19 CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E51 text19 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E57 text19 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E5B text19 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E65 text19 CODE >54:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E6D text19 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E6E text19 CODE >58:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E72 text19 CODE >59:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E7F text19 CODE >60:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E80 text19 CODE >61:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E89 text19 CODE >62:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E8D text19 CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E91 text19 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E96 text19 CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-E97 text19 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-CF2 text18 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-CF5 text18 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-CF7 text18 CODE >6:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-CFE text18 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D02 text18 CODE >52:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D08 text18 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D08 text18 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D0F text18 CODE >55:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D11 text18 CODE >56:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D16 text18 CODE >59:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-D1A text18 CODE >60:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-24 text17 CODE >8:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-24 text17 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2B text17 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-31 text17 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-35 text17 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-36 text17 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-3B text17 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-40 text17 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-48 text17 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-49 text17 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-4A text17 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-52 text17 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-57 text17 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-5D text17 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-61 text17 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-62 text17 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-67 text17 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-6C text17 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-74 text17 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-75 text17 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-76 text17 CODE >57:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-7E text17 CODE >65:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-88 text17 CODE >66:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-91 text17 CODE >119:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-A1 text17 CODE >120:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-AE text17 CODE >121:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-BB text17 CODE >122:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-CB text17 CODE >123:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-E7 text17 CODE >124:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-103 text17 CODE >125:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-113 text17 CODE >126:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-12F text17 CODE >127:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-14B text17 CODE >128:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-154 text17 CODE >129:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-164 text17 CODE >130:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-181 text17 CODE >131:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-191 text17 CODE >132:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1AE text17 CODE >133:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1B7 text17 CODE >134:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1C7 text17 CODE >135:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1E4 text17 CODE >136:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1F4 text17 CODE >137:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-211 text17 CODE >138:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-221 text17 CODE >139:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-23E text17 CODE >140:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-24E text17 CODE >141:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-274 text17 CODE >145:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-29C text17 CODE >146:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2A5 text17 CODE >149:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2B2 text17 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2B3 text17 CODE >153:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2BC text17 CODE >154:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2C0 text17 CODE >155:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2C1 text17 CODE >157:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2CA text17 CODE >158:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2D0 text17 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2D4 text17 CODE >163:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2D5 text17 CODE >164:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2D9 text17 CODE >165:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2ED text17 CODE >166:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2EF text17 CODE >167:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2F0 text17 CODE >168:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2F0 text17 CODE >169:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2F5 text17 CODE >174:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2FA text17 CODE >175:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-308 text17 CODE >176:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-30C text17 CODE >177:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-325 text17 CODE >178:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-32B text17 CODE >183:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-338 text17 CODE >184:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-342 text17 CODE >185:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-343 text17 CODE >187:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-352 text17 CODE >188:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-35C text17 CODE >190:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-35D text17 CODE >191:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-35E text17 CODE >194:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-364 text17 CODE >195:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-36C text17 CODE >196:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-370 text17 CODE >197:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-371 text17 CODE >199:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-378 text17 CODE >200:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-378 text17 CODE >201:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-37C text17 CODE >203:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-384 text17 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-615 text16 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-618 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-621 text16 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-630 text16 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-631 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-639 text16 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-639 text16 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-641 text16 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-64A text16 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-64E text16 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-64F text16 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-653 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-65C text16 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-663 text16 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-667 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-675 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-67E text16 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-67E text16 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-685 text16 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-687 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-690 text16 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-69A text16 CODE >37:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-69E text16 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6A6 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6A8 text16 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6BE text16 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6C7 text16 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6C8 text16 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6D0 text16 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-D83 text15 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-D84 text15 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DC3 text15 CODE >54:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DC4 text14 CODE >10:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DC5 text14 CODE >15:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DC6 text14 CODE >17:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DCA text14 CODE >18:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DCB text14 CODE >20:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DD1 text14 CODE >21:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DD2 text14 CODE >23:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DD8 text14 CODE >24:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DD9 text14 CODE >26:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DDD text14 CODE >27:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DDE text14 CODE >28:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DF4 text14 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DFD text14 CODE >30:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DFE text14 CODE >31:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-DFF text14 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-E06 text14 CODE >33:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-E07 text14 CODE >34:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-E08 text14 CODE >35:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
-C88 text13 CODE >11:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C88 text13 CODE >13:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C8B text13 CODE >14:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C8C text13 CODE >15:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C8E text13 CODE >16:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C8F text13 CODE >17:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C90 text13 CODE >18:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C93 text13 CODE >19:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C96 text13 CODE >20:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C99 text13 CODE >21:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D4C text12 CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D4C text12 CODE >99:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D50 text12 CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D51 text12 CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D55 text12 CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D56 text12 CODE >103:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D57 text12 CODE >104:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D58 text12 CODE >105:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D59 text12 CODE >106:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D5C text12 CODE >107:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D5D text12 CODE >108:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D5E text12 CODE >109:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D5F text12 CODE >110:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D61 text12 CODE >112:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D66 text12 CODE >115:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6A text12 CODE >116:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6B text12 CODE >119:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6C text12 CODE >120:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6D text12 CODE >121:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6E text12 CODE >122:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D6F text12 CODE >123:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D70 text12 CODE >126:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D71 text12 CODE >127:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D72 text12 CODE >128:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D73 text12 CODE >129:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D74 text12 CODE >130:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D75 text12 CODE >135:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D7C text12 CODE >137:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D7F text12 CODE >138:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-D82 text12 CODE >140:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+F cinit CODE >1057:C:\Users\jalva\AppData\Local\Temp\shds.s
+F cinit CODE >1060:C:\Users\jalva\AppData\Local\Temp\shds.s
+F cinit CODE >1092:C:\Users\jalva\AppData\Local\Temp\shds.s
+10 cinit CODE >1095:C:\Users\jalva\AppData\Local\Temp\shds.s
+11 cinit CODE >1096:C:\Users\jalva\AppData\Local\Temp\shds.s
+12 cinit CODE >1097:C:\Users\jalva\AppData\Local\Temp\shds.s
+13 cinit CODE >1098:C:\Users\jalva\AppData\Local\Temp\shds.s
+14 cinit CODE >1099:C:\Users\jalva\AppData\Local\Temp\shds.s
+15 cinit CODE >1100:C:\Users\jalva\AppData\Local\Temp\shds.s
+16 cinit CODE >1101:C:\Users\jalva\AppData\Local\Temp\shds.s
+17 cinit CODE >1102:C:\Users\jalva\AppData\Local\Temp\shds.s
+18 cinit CODE >1103:C:\Users\jalva\AppData\Local\Temp\shds.s
+19 cinit CODE >1104:C:\Users\jalva\AppData\Local\Temp\shds.s
+1A cinit CODE >1105:C:\Users\jalva\AppData\Local\Temp\shds.s
+1B cinit CODE >1106:C:\Users\jalva\AppData\Local\Temp\shds.s
+1C cinit CODE >1107:C:\Users\jalva\AppData\Local\Temp\shds.s
+1D cinit CODE >1108:C:\Users\jalva\AppData\Local\Temp\shds.s
+1E cinit CODE >1109:C:\Users\jalva\AppData\Local\Temp\shds.s
+1F cinit CODE >1110:C:\Users\jalva\AppData\Local\Temp\shds.s
+20 cinit CODE >1116:C:\Users\jalva\AppData\Local\Temp\shds.s
+20 cinit CODE >1118:C:\Users\jalva\AppData\Local\Temp\shds.s
+21 cinit CODE >1119:C:\Users\jalva\AppData\Local\Temp\shds.s
+4 intentry CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E51 text23 CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E51 text23 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E57 text23 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E5B text23 CODE >54:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E65 text23 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E6D text23 CODE >56:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E6E text23 CODE >59:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E72 text23 CODE >60:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E7F text23 CODE >61:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E80 text23 CODE >62:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E89 text23 CODE >63:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E8D text23 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E91 text23 CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E96 text23 CODE >68:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+E97 text23 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+CAA text22 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CAD text22 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CAF text22 CODE >6:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CB6 text22 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CBA text22 CODE >52:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CC0 text22 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CC0 text22 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CC7 text22 CODE >55:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CC9 text22 CODE >56:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CCE text22 CODE >59:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+CD2 text22 CODE >60:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+24 text21 CODE >8:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+24 text21 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2B text21 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+31 text21 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+35 text21 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+36 text21 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+3B text21 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+40 text21 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+48 text21 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+49 text21 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+4A text21 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+52 text21 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+57 text21 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+5D text21 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+61 text21 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+62 text21 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+67 text21 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+6C text21 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+74 text21 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+75 text21 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+76 text21 CODE >57:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+7E text21 CODE >65:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+88 text21 CODE >66:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+91 text21 CODE >119:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+A1 text21 CODE >120:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+AE text21 CODE >121:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+BB text21 CODE >122:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+CB text21 CODE >123:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+E7 text21 CODE >124:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+103 text21 CODE >125:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+113 text21 CODE >126:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+12F text21 CODE >127:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+14B text21 CODE >128:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+154 text21 CODE >129:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+164 text21 CODE >130:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+181 text21 CODE >131:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+191 text21 CODE >132:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+1AE text21 CODE >133:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+1B7 text21 CODE >134:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+1C7 text21 CODE >135:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+1E4 text21 CODE >136:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+1F4 text21 CODE >137:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+211 text21 CODE >138:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+221 text21 CODE >139:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+23E text21 CODE >140:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+24E text21 CODE >141:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+274 text21 CODE >145:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+29C text21 CODE >146:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2A5 text21 CODE >149:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2B2 text21 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2B3 text21 CODE >153:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2BC text21 CODE >154:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2C0 text21 CODE >155:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2C1 text21 CODE >157:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2CA text21 CODE >158:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2D0 text21 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2D4 text21 CODE >163:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2D5 text21 CODE >164:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2D9 text21 CODE >165:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2ED text21 CODE >166:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2EF text21 CODE >167:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2F0 text21 CODE >168:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2F0 text21 CODE >169:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2F5 text21 CODE >174:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+2FA text21 CODE >175:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+308 text21 CODE >176:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+30C text21 CODE >177:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+325 text21 CODE >178:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+32B text21 CODE >183:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+338 text21 CODE >184:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+342 text21 CODE >185:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+343 text21 CODE >187:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+352 text21 CODE >188:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+35C text21 CODE >190:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+35D text21 CODE >191:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+35E text21 CODE >194:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+364 text21 CODE >195:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+36C text21 CODE >196:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+370 text21 CODE >197:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+371 text21 CODE >199:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+378 text21 CODE >200:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+378 text21 CODE >201:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+37C text21 CODE >203:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+384 text21 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+615 text20 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+618 text20 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+621 text20 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+630 text20 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+631 text20 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+639 text20 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+639 text20 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+641 text20 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+64A text20 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+64E text20 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+64F text20 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+653 text20 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+65C text20 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+663 text20 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+667 text20 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+675 text20 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+67E text20 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+67E text20 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+685 text20 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+687 text20 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+690 text20 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+69A text20 CODE >37:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+69E text20 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6A6 text20 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6A8 text20 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6BE text20 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6C7 text20 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6C8 text20 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+6D0 text20 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+D3A text19 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D3B text19 CODE >54:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D7A text19 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D7B text18 CODE >10:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D7C text18 CODE >15:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D7D text18 CODE >17:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D81 text18 CODE >18:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D82 text18 CODE >20:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D88 text18 CODE >21:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D89 text18 CODE >23:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D8F text18 CODE >24:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D90 text18 CODE >26:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D94 text18 CODE >27:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+D95 text18 CODE >28:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DAB text18 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DB4 text18 CODE >30:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DB5 text18 CODE >31:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DB6 text18 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DBD text18 CODE >33:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DBE text18 CODE >34:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+DBF text18 CODE >35:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ADC.c
+C04 text17 CODE >11:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C04 text17 CODE >13:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C07 text17 CODE >14:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C08 text17 CODE >15:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C0A text17 CODE >16:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C0B text17 CODE >17:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C0C text17 CODE >18:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C0F text17 CODE >19:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C12 text17 CODE >20:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C15 text17 CODE >21:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+D04 text16 CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D04 text16 CODE >99:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D08 text16 CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D09 text16 CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D0D text16 CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D0E text16 CODE >103:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D0F text16 CODE >104:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D10 text16 CODE >105:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D11 text16 CODE >106:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D14 text16 CODE >107:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D15 text16 CODE >108:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D16 text16 CODE >109:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D17 text16 CODE >110:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D18 text16 CODE >113:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D1D text16 CODE >116:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D21 text16 CODE >117:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D22 text16 CODE >120:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D23 text16 CODE >121:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D24 text16 CODE >122:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D25 text16 CODE >123:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D26 text16 CODE >124:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D27 text16 CODE >127:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D28 text16 CODE >128:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D29 text16 CODE >129:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D2A text16 CODE >130:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D2B text16 CODE >131:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D2C text16 CODE >136:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D33 text16 CODE >138:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D36 text16 CODE >139:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+D39 text16 CODE >141:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+C16 text15 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C17 text15 CODE >58:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C1A text15 CODE >59:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C1C text15 CODE >60:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C1D text15 CODE >61:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C26 text15 CODE >62:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C29 text15 CODE >63:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C2A text14 CODE >47:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C2B text14 CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C2E text14 CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C30 text14 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C31 text14 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C3A text14 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C3D text14 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C3E text13 CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C3F text13 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C42 text13 CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C44 text13 CODE >68:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C45 text13 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C4E text13 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+C51 text13 CODE >71:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E08 text12 CODE >20:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E08 text12 CODE >21:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E0B text12 CODE >22:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E0C text12 CODE >23:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E15 text12 CODE >25:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E1B text12 CODE >26:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E24 text12 CODE >28:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E2A text12 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E32 text12 CODE >31:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E38 text12 CODE >33:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E3E text12 CODE >35:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E44 text12 CODE >37:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E4A text12 CODE >39:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
+E50 text12 CODE >41:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\LCDD2.c
 385 text11 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 385 text11 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 38C text11 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
@@ -446,10 +485,10 @@ D82 text12 CODE >140:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab
 613 text11 CODE >234:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 614 text11 CODE >235:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 614 text11 CODE >237:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
-CCE text10 CODE >242:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
-CCE text10 CODE >248:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
-CD2 text10 CODE >249:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
-CF1 text10 CODE >250:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+C86 text10 CODE >242:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+C86 text10 CODE >248:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+C8A text10 CODE >249:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+CA9 text10 CODE >250:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 F07 text9 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
 F07 text9 CODE >47:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
 F14 text9 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
@@ -494,82 +533,81 @@ EF8 text8 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\a
 EFD text8 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 F02 text8 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 F06 text8 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-C9A text7 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-C9B text7 CODE >6:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-C9C text7 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CA0 text7 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CA4 text7 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CA6 text7 CODE >46:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CA8 text7 CODE >47:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CAD text7 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-CAE text7 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-E09 text6 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E0C text6 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E10 text6 CODE >71:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E14 text6 CODE >72:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E17 text6 CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E18 text6 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E31 text6 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E43 text6 CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E49 text6 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-E50 text6 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C7C text5 CODE >26:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C7D text5 CODE >27:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C81 text5 CODE >28:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-C87 text5 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CAF text4 CODE >31:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CB0 text4 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CB1 text4 CODE >33:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CBD text4 CODE >34:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CC1 text4 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-CCD text4 CODE >37:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C52 text7 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C53 text7 CODE >6:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C54 text7 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C58 text7 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C5C text7 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C5E text7 CODE >46:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C60 text7 CODE >47:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C65 text7 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+C66 text7 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+DC0 text6 CODE >74:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DC3 text6 CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DC7 text6 CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DCB text6 CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DCE text6 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DCF text6 CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DE8 text6 CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+DFA text6 CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+E00 text6 CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+E07 text6 CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+BF8 text5 CODE >26:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+BF9 text5 CODE >27:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+BFD text5 CODE >28:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C03 text5 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C67 text4 CODE >31:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C68 text4 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C69 text4 CODE >33:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C75 text4 CODE >34:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C79 text4 CODE >32:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+C85 text4 CODE >37:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 6D1 text3 CODE >39:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-6D1 text3 CODE >45:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-6E6 text3 CODE >46:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-71A text3 CODE >47:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-744 text3 CODE >48:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-752 text3 CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-75B text3 CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-761 text3 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-76A text3 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-773 text3 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-779 text3 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F83 text2 CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F84 text2 CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F8A text2 CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F8E text2 CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F91 text2 CODE >87:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F94 text2 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-F95 text2 CODE >91:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FAE text2 CODE >92:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FC0 text2 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FC7 text2 CODE >96:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FE0 text2 CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FF2 text2 CODE >95:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FF8 text2 CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-FFF text2 CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D1B text1 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D1E text1 CODE >62:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D30 text1 CODE >63:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D39 text1 CODE >64:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D42 text1 CODE >65:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-D4B text1 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
-77A maintext CODE >74:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+6D1 text3 CODE >49:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+6E6 text3 CODE >50:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+71A text3 CODE >51:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+744 text3 CODE >52:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+752 text3 CODE >53:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+75B text3 CODE >54:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+761 text3 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+76A text3 CODE >56:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+773 text3 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+779 text3 CODE >59:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F83 text2 CODE >88:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F84 text2 CODE >89:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F8A text2 CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F8E text2 CODE >91:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F91 text2 CODE >92:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F94 text2 CODE >95:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+F95 text2 CODE >96:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FAE text2 CODE >97:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FC0 text2 CODE >95:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FC7 text2 CODE >101:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FE0 text2 CODE >102:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FF2 text2 CODE >100:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FF8 text2 CODE >105:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+FFF text2 CODE >106:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+CD3 text1 CODE >61:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+CD6 text1 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+CE8 text1 CODE >67:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+CF1 text1 CODE >68:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+CFA text1 CODE >69:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
+D03 text1 CODE >70:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\ComSerial.c
 77A maintext CODE >75:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+77A maintext CODE >76:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 77F maintext CODE >77:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-77F maintext CODE >78:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-785 maintext CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-791 maintext CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7A0 maintext CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7A6 maintext CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7B2 maintext CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7C1 maintext CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7C7 maintext CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7CF maintext CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7D5 maintext CODE >87:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7DB maintext CODE >88:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7E1 maintext CODE >89:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
-7E7 maintext CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+784 maintext CODE >79:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+78A maintext CODE >80:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+796 maintext CODE >81:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7A5 maintext CODE >82:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7AB maintext CODE >83:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7B7 maintext CODE >84:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7C6 maintext CODE >85:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7CC maintext CODE >86:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7D4 maintext CODE >87:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7DA maintext CODE >88:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7E0 maintext CODE >89:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
+7E6 maintext CODE >90:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D2.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -585,6 +623,7 @@ D4B text1 CODE >66:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab2\Lab2D
 ___latbits 2 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __size_of_sendString 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 ___awdiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
+dispCHAR@b 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 __Hspace_0 1000 0 ABS 0 - -
 __Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
@@ -593,11 +632,13 @@ __Hspace_4 4010 0 ABS 0 - -
 sendfloat@entero 5A 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __size_of_division 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 ADCconfig@just 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
+__end_of_cursorLCD 1854 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-_CONVdec 1B06 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
+__size_of_cursorLCD 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
+_CONVdec 1A74 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
 sendfloat@decimal 59 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\skgo.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\shds.o
 _main EF4 0 CODE 0 maintext dist/default/production\Lab2D2.X.production.o
 _pot1 6C 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 _pot2 6B 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
@@ -606,8 +647,8 @@ _val2 63 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 divisiondecimal@dec 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 divisiondecimal@div 79 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\skgo.o
-__end_of_ADCconfig 1C12 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\shds.o
+__end_of_ADCconfig 1B80 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
 ___flmul@aexp 38 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___flmul@bexp 3D 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___flmul@prod 3E 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
@@ -622,53 +663,58 @@ __size_of_main 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_ADCconfig 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
+_cursorLCD 182C 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
 __size_of_configUART 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 division@conteo 27 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
-_ADCconfig 1B88 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\skgo.o
+_dispCHAR 1854 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
+_ADCconfig 1AF6 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\shds.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_sendhex 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-_division 1C12 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
+_division 1B80 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
 ___bmul@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
+__end_of_dispCHAR 187C 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __size_of_configuracion 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-__end_of_division 1CA2 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
+__end_of_division 1C10 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
 ___awdiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 _ADRESH 1E 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-__end_of_send1dato 1910 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
+__end_of_send1dato 1808 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-__end_of__Umul8_16 1A36 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
+__end_of__Umul8_16 19A6 0 CODE 0 text22 dist/default/production\Lab2D2.X.production.o
 ___awdiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 __size_of_send1dato 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __size_of__Umul8_16 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __end_of_sendfloat EF4 0 CODE 0 text3 dist/default/production\Lab2D2.X.production.o
+__size_of_initLCD 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __size_of_sendfloat 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-__end_of___bmul 195E 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
-__end_of_configuracion 1B06 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
+__end_of___bmul 18CE 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
+__end_of_configuracion 1A74 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___bmul@multiplier 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-_send1dato 18F8 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
+_send1dato 17F0 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
 __end_of___awdiv 1E0E 0 CODE 0 text8 dist/default/production\Lab2D2.X.production.o
-__Umul8_16 19E4 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
+__Umul8_16 1954 0 CODE 0 text22 dist/default/production\Lab2D2.X.production.o
 __end_of___fladd C2A 0 CODE 0 text11 dist/default/production\Lab2D2.X.production.o
-__end_of___flmul 70A 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
-__end_of___flsub 19E4 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
+__end_of___flmul 70A 0 CODE 0 text21 dist/default/production\Lab2D2.X.production.o
+__end_of___flsub 1954 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
 __end_of___fltol 1F06 0 CODE 0 text9 dist/default/production\Lab2D2.X.production.o
 sendfloat@digdecimal 5B 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 _sendfloat DA2 0 CODE 0 text3 dist/default/production\Lab2D2.X.production.o
 __Umul8_16@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\skgo.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\skgo.o
+_comandoLCD 187C 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\shds.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\shds.o
 ___fladd@a 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___fladd@b 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___flmul@a 2E 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
@@ -676,7 +722,7 @@ ___flmul@b 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.
 ___flsub@a 30 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 ___flsub@b 34 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab2D2.X.production.o
-__end_of_sendhex 1A98 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
+__end_of_sendhex 1A08 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
 _UARTdat 7A 0 COMMON 1 bssCOMMON dist/default/production\Lab2D2.X.production.o
 _UARTval 62 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
@@ -684,7 +730,9 @@ sendString@mensaje 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.p
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 CONVdec@equiv 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 divisiondecimal@un 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\skgo.o
+__end_of_initLCD 1CA2 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\shds.o
+__end_of_comandoLCD 18A4 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -725,9 +773,11 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___bmul 1934 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
+___bmul 18A4 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_RC0 38 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
+_RC1 39 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __S0 1000 0 ABS 0 - -
 __S1 7B 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
@@ -736,48 +786,52 @@ __size_of_CONVdec 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 sendhex@valor 2D 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __end_of_divisiondecimal 2000 0 CODE 0 text2 dist/default/production\Lab2D2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-___xxtofl C2A 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
+___xxtofl C2A 0 CODE 0 text20 dist/default/production\Lab2D2.X.production.o
 sendfloat@temp 55 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 division@dec 79 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 division@div 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-_sendString 195E 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
+_sendString 18CE 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
 __stringtab 1000 0 STRING 0 strings dist/default/production\Lab2D2.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\skgo.o
-__end_of___xxtofl DA2 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\shds.o
+__end_of___xxtofl DA2 0 CODE 0 text20 dist/default/production\Lab2D2.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 ___fladd@signs 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-__ptext10 199C 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
+__ptext10 190C 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
 __ptext11 70A 0 CODE 0 text11 dist/default/production\Lab2D2.X.production.o
-__ptext12 1A98 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
-__ptext13 1910 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
-__ptext14 1B88 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
-__ptext15 1B06 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
-__ptext16 C2A 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
-__ptext17 48 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
-__ptext18 19E4 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
-__ptext19 1CA2 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
+__ptext12 1C10 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
+__ptext13 187C 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
+__ptext14 1854 0 CODE 0 text14 dist/default/production\Lab2D2.X.production.o
+__ptext15 182C 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
+__ptext16 1A08 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
+__ptext17 1808 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
+__ptext18 1AF6 0 CODE 0 text18 dist/default/production\Lab2D2.X.production.o
+__ptext19 1A74 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
+__ptext20 C2A 0 CODE 0 text20 dist/default/production\Lab2D2.X.production.o
+__ptext21 48 0 CODE 0 text21 dist/default/production\Lab2D2.X.production.o
+__ptext22 1954 0 CODE 0 text22 dist/default/production\Lab2D2.X.production.o
+__ptext23 1CA2 0 CODE 0 text23 dist/default/production\Lab2D2.X.production.o
 ___awdiv 1D3C 0 CODE 0 text8 dist/default/production\Lab2D2.X.production.o
 ___fladd 70A 0 CODE 0 text11 dist/default/production\Lab2D2.X.production.o
-___flmul 48 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
-___flsub 199C 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
+___flmul 48 0 CODE 0 text21 dist/default/production\Lab2D2.X.production.o
+___flsub 190C 0 CODE 0 text10 dist/default/production\Lab2D2.X.production.o
 ___fltol 1E0E 0 CODE 0 text9 dist/default/production\Lab2D2.X.production.o
 __pmaintext EF4 0 CODE 0 maintext dist/default/production\Lab2D2.X.production.o
 _divisiondecimal 1F06 0 CODE 0 text2 dist/default/production\Lab2D2.X.production.o
 __Umul8_16@multiplier 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_interrupcion 1CA2 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
+_interrupcion 1CA2 0 CODE 0 text23 dist/default/production\Lab2D2.X.production.o
 sendhex@decena 30 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
-_configUART 1910 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
-__end_of_CONVdec 1B88 0 CODE 0 text15 dist/default/production\Lab2D2.X.production.o
-_sendhex 1A36 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
+_configUART 1808 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
+__end_of_CONVdec 1AF6 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
+_sendhex 19A6 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
-__end_of_sendString 199C 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
+__end_of_sendString 190C 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
 ___fladd@grs 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 __end_of__stringtab 100C 0 STRING 0 strings dist/default/production\Lab2D2.X.production.o
 __Lspace_0 0 0 ABS 0 - -
@@ -791,6 +845,7 @@ __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Umul8_16@product 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 _PIR1bits C 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
+__size_of_comandoLCD 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 ___fltol@exp1 78 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 end_of_initialization 40 0 CODE 0 cinit dist/default/production\Lab2D2.X.production.o
@@ -805,19 +860,20 @@ ___awdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.prod
 ?___fltol 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 1A36 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
+_initLCD 1C10 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
+__ptext1 19A6 0 CODE 0 text1 dist/default/production\Lab2D2.X.production.o
 __ptext2 1F06 0 CODE 0 text2 dist/default/production\Lab2D2.X.production.o
 __ptext3 DA2 0 CODE 0 text3 dist/default/production\Lab2D2.X.production.o
-__ptext4 195E 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
-__ptext5 18F8 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
-__ptext6 1C12 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
-__ptext7 1934 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
+__ptext4 18CE 0 CODE 0 text4 dist/default/production\Lab2D2.X.production.o
+__ptext5 17F0 0 CODE 0 text5 dist/default/production\Lab2D2.X.production.o
+__ptext6 1B80 0 CODE 0 text6 dist/default/production\Lab2D2.X.production.o
+__ptext7 18A4 0 CODE 0 text7 dist/default/production\Lab2D2.X.production.o
 __ptext8 1D3C 0 CODE 0 text8 dist/default/production\Lab2D2.X.production.o
 __ptext9 1E0E 0 CODE 0 text9 dist/default/production\Lab2D2.X.production.o
 ?__Umul8_16 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
-__end_of_configUART 1934 0 CODE 0 text13 dist/default/production\Lab2D2.X.production.o
+__end_of_configUART 182C 0 CODE 0 text17 dist/default/production\Lab2D2.X.production.o
 sendhex@unidad 2E 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
-__end_of_interrupcion 1D3C 0 CODE 0 text19 dist/default/production\Lab2D2.X.production.o
+__end_of_interrupcion 1D3C 0 CODE 0 text23 dist/default/production\Lab2D2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 ?___xxtofl 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -835,8 +891,10 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 _TXSTAbits 98 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
+cursorLCD@pos 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main FF2 0 CODE 0 maintext dist/default/production\Lab2D2.X.production.o
+__end_of_main FF0 0 CODE 0 maintext dist/default/production\Lab2D2.X.production.o
+comandoLCD@cmd 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 sendfloat@valor 4D 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
@@ -856,13 +914,14 @@ __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Lab2D2.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Lab2D2.X.production.o
-_configuracion 1A98 0 CODE 0 text12 dist/default/production\Lab2D2.X.production.o
+_configuracion 1A08 0 CODE 0 text16 dist/default/production\Lab2D2.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab2D2.X.production.o
 ___bmul@product 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 ADCconfig@canal 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab2D2.X.production.o
 ___xxtofl@sign 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 __pbssBANK0 5F 0 BANK0 1 bssBANK0 dist/default/production\Lab2D2.X.production.o
 __pstrings 1000 0 STRING 0 strings dist/default/production\Lab2D2.X.production.o
+__size_of_dispCHAR 0 0 ABS 0 - dist/default/production\Lab2D2.X.production.o
 divisiondecimal@cent 26 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -889,26 +948,30 @@ divisiondecimal@cent 26 0 BANK0 1 cstackBANK0 dist/default/production\Lab2D2.X.p
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 D1B 1A36 31 2
+text1 0 CD3 19A6 31 2
 text2 0 F83 1F06 7D 2
-text4 0 CAF 195E 1F 2
-text5 0 C7C 18F8 C 2
-text6 0 E09 1C12 48 2
-text7 0 C9A 1934 15 2
+text4 0 C67 18CE 1F 2
+text5 0 BF8 17F0 C 2
+text6 0 DC0 1B80 48 2
+text7 0 C52 18A4 15 2
 text8 0 E9E 1D3C 69 2
 text9 0 F07 1E0E 7C 2
-text10 0 CCE 199C 24 2
-text12 0 D4C 1A98 37 2
-text13 0 C88 1910 12 2
-text14 0 DC4 1B88 45 2
-text15 0 D83 1B06 41 2
-text18 0 CF2 19E4 29 2
-text19 0 E51 1CA2 4D 2
+text10 0 C86 190C 24 2
+text12 0 E08 1C10 49 2
+text13 0 C3E 187C 14 2
+text14 0 C2A 1854 14 2
+text15 0 C16 182C 14 2
+text16 0 D04 1A08 36 2
+text17 0 C04 1808 12 2
+text18 0 D7B 1AF6 45 2
+text19 0 D3A 1A74 41 2
+text22 0 CAA 1954 29 2
+text23 0 E51 1CA2 4D 2
 cstackCOMMON 1 70 70 B 1
 cstackBANK0 1 20 20 4D 1
-intentry 0 4 8 7F5 2
+intentry 0 4 8 7F4 2
 reset_vec 0 0 0 3 2
-strings 0 800 1000 20 2
+strings 0 800 1000 28 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

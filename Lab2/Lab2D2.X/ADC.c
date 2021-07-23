@@ -50,5 +50,6 @@ void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
 }
 
 void CONVdec(uint8_t *lectura,float *equiv){
+    //convierte un valor leido por el ADC en un float basado en 5V
     *equiv = (float)(0.01961)*(*lectura);
 }
