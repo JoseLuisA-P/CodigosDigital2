@@ -2841,6 +2841,8 @@ void sendfloat(const float valor);
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 void sendhex(uint8_t valor);
+void floTochar(const float valor,unsigned char *conv);
+void hexTochar(uint8_t valor,unsigned char *conv);
 # 36 "main.c" 2
 
 # 1 "./LCDD2.h" 1
@@ -2850,6 +2852,7 @@ void dispCHAR(char b);
 void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
 void ClearLCD(void);
+void LCDstring(unsigned char* mensaje);
 # 37 "main.c" 2
 
 
@@ -2860,6 +2863,8 @@ void ClearLCD(void);
 uint8_t pot1,pot2,UARTdat, UARTval;
 float val1,val2;
 unsigned char disp1[3];
+unsigned char disp2[3];
+unsigned char disp3[3];
 void configuracion(void);
 
 
@@ -2902,12 +2907,26 @@ void main(void) {
         sendString("UART: \r");
         sendhex(UARTval);
         sendString("\r\r\r\r\r");
-        ClearLCD();
+        floTochar(val1,&disp1);
+        floTochar(val2,&disp2);
+        hexTochar(UARTval,&disp3);
         cursorLCD(1,1);
-        dispCHAR('A');
-        cursorLCD(1,2);
-        dispCHAR('B');
-        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        LCDstring("POT1  POT2  UART");
+        cursorLCD(2,1);
+        dispCHAR(disp1[0]+48);
+        dispCHAR('.');
+        dispCHAR(disp1[1]+48);
+        dispCHAR(disp1[2]+48);
+        cursorLCD(2,7);
+        dispCHAR(disp2[0]+48);
+        dispCHAR('.');
+        dispCHAR(disp2[1]+48);
+        dispCHAR(disp2[2]+48);
+        cursorLCD(2,13);
+        dispCHAR(disp3[2]+48);
+        dispCHAR(disp3[1]+48);
+        dispCHAR(disp3[0]+48);
+        _delay((unsigned long)((500)*(8000000/4000.0)));
     }
 }
 

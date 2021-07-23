@@ -71,3 +71,10 @@ void comandoLCD(uint8_t cmd){
 void ClearLCD(void){
     comandoLCD(0X01);
 }
+
+void LCDstring(unsigned char* mensaje){ 
+    while(*mensaje != 0x00){    //mira si el valor es distinto a 0
+        dispCHAR(*mensaje);    //si lo es, envia el dato
+        mensaje ++;             //apunta a la siguiente letra en el mensaje
+    }
+}

@@ -58,6 +58,26 @@ void sendfloat(const float valor){
     
 }
 
+void floTochar(const float valor,unsigned char *conv){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[2];
+    /*Toma un valor tipo float y pasa su entero a una variable, el valor 
+     * restante lo opera para pasar las decimas a enteros y luego separarlos
+     * en 2 datos, para poder representarlos luego en el puerto serial enviando
+     * un caracter a la vez.
+     */
+    entero = valor;
+    digdecimal[2] = entero;
+    temp = valor-(float)entero;
+    decimal = (temp*100);
+    division(decimal,&digdecimal[0],&digdecimal[1]);
+    conv[0] = entero;
+    conv[1] = digdecimal[1];
+    conv[2] = digdecimal[0];
+}
+
 void sendhex(uint8_t valor){
     uint8_t centena;
     uint8_t decena;
@@ -67,6 +87,18 @@ void sendhex(uint8_t valor){
     send1dato(centena +48);//envia cada valor con el arreglo para el 
     send1dato(decena +48);//ASCII
     send1dato(unidad +48);
+}
+
+void hexTochar(uint8_t valor,unsigned char *conv){ 
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+    
+    divisiondecimal(valor,&unidad,&decena,&centena);
+    conv[0]= unidad;
+    conv[1]= decena;
+    conv[2]= centena;
+
 }
 
 //Divisiones utilizadas para separar los valores en decimas, centesimas y 

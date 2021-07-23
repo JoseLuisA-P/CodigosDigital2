@@ -19,6 +19,7 @@ void dispCHAR(char b);
 void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
 void ClearLCD(void);
+void LCDstring(unsigned char* mensaje);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

@@ -2816,6 +2816,7 @@ void dispCHAR(char b);
 void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
 void ClearLCD(void);
+void LCDstring(unsigned char* mensaje);
 # 6 "LCDD2.c" 2
 # 20 "LCDD2.c"
 void initLCD(void){
@@ -2871,4 +2872,11 @@ void comandoLCD(uint8_t cmd){
 
 void ClearLCD(void){
     comandoLCD(0X01);
+}
+
+void LCDstring(unsigned char* mensaje){
+    while(*mensaje != 0x00){
+        dispCHAR(*mensaje);
+        mensaje ++;
+    }
 }

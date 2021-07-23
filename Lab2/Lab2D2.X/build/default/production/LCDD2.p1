@@ -403,3 +403,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LCDD2.c: 73: }
 [e :UE 149 ]
 }
+"75
+[; ;LCDD2.c: 75: void LCDstring(unsigned char* mensaje){
+[v _LCDstring `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _LCDstring ]
+[v _mensaje `*uc ~T0 @X0 1 r1 ]
+[f ]
+"76
+[; ;LCDD2.c: 76:     while(*mensaje != 0x00){
+[e $U 151  ]
+[e :U 152 ]
+{
+"77
+[; ;LCDD2.c: 77:         dispCHAR(*mensaje);
+[e ( _dispCHAR (1 -> *U _mensaje `uc ]
+"78
+[; ;LCDD2.c: 78:         mensaje ++;
+[e ++ _mensaje * -> -> 1 `i `x -> -> # *U _mensaje `i `x ]
+"79
+[; ;LCDD2.c: 79:     }
+}
+[e :U 151 ]
+"76
+[; ;LCDD2.c: 76:     while(*mensaje != 0x00){
+[e $ != -> *U _mensaje `i -> 0 `i 152  ]
+[e :U 153 ]
+"80
+[; ;LCDD2.c: 80: }
+[e :UE 150 ]
+}

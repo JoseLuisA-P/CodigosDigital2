@@ -434,39 +434,120 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 152 ]
 }
 "61
-[; ;ComSerial.c: 61: void sendhex(uint8_t valor){
+[; ;ComSerial.c: 61: void floTochar(const float valor,unsigned char *conv){
+[v _floTochar `(v ~T0 @X0 1 ef2`Cf`*uc ]
+{
+[e :U _floTochar ]
+[v _valor `Cf ~T0 @X0 1 r1 ]
+[v _conv `*uc ~T0 @X0 1 r2 ]
+[f ]
+"62
+[; ;ComSerial.c: 62:     uint8_t entero;
+[v _entero `uc ~T0 @X0 1 a ]
+"63
+[; ;ComSerial.c: 63:     uint8_t decimal;
+[v _decimal `uc ~T0 @X0 1 a ]
+"64
+[; ;ComSerial.c: 64:     float temp;
+[v _temp `f ~T0 @X0 1 a ]
+"65
+[; ;ComSerial.c: 65:     unsigned char digdecimal[2];
+[v _digdecimal `uc ~T0 @X0 -> 2 `i a ]
+"71
+[; ;ComSerial.c: 71:     entero = valor;
+[e = _entero -> _valor `uc ]
+"72
+[; ;ComSerial.c: 72:     digdecimal[2] = entero;
+[e = *U + &U _digdecimal * -> -> -> 2 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux _entero ]
+"73
+[; ;ComSerial.c: 73:     temp = valor-(float)entero;
+[e = _temp - _valor -> _entero `f ]
+"74
+[; ;ComSerial.c: 74:     decimal = (temp*100);
+[e = _decimal -> * _temp -> -> 100 `i `f `uc ]
+"75
+[; ;ComSerial.c: 75:     division(decimal,&digdecimal[0],&digdecimal[1]);
+[e ( _division (3 , , _decimal &U *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux &U *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"76
+[; ;ComSerial.c: 76:     conv[0] = entero;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _entero ]
+"77
+[; ;ComSerial.c: 77:     conv[1] = digdecimal[1];
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"78
+[; ;ComSerial.c: 78:     conv[2] = digdecimal[0];
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"79
+[; ;ComSerial.c: 79: }
+[e :UE 153 ]
+}
+"81
+[; ;ComSerial.c: 81: void sendhex(uint8_t valor){
 [v _sendhex `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _sendhex ]
 [v _valor `uc ~T0 @X0 1 r1 ]
 [f ]
-"62
-[; ;ComSerial.c: 62:     uint8_t centena;
+"82
+[; ;ComSerial.c: 82:     uint8_t centena;
 [v _centena `uc ~T0 @X0 1 a ]
-"63
-[; ;ComSerial.c: 63:     uint8_t decena;
+"83
+[; ;ComSerial.c: 83:     uint8_t decena;
 [v _decena `uc ~T0 @X0 1 a ]
-"64
-[; ;ComSerial.c: 64:     uint8_t unidad;
+"84
+[; ;ComSerial.c: 84:     uint8_t unidad;
 [v _unidad `uc ~T0 @X0 1 a ]
-"66
-[; ;ComSerial.c: 66:     divisiondecimal(valor,&unidad,&decena,&centena);
+"86
+[; ;ComSerial.c: 86:     divisiondecimal(valor,&unidad,&decena,&centena);
 [e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
-"67
-[; ;ComSerial.c: 67:     send1dato(centena +48);
+"87
+[; ;ComSerial.c: 87:     send1dato(centena +48);
 [e ( _send1dato (1 -> + -> _centena `i -> 48 `i `uc ]
-"68
-[; ;ComSerial.c: 68:     send1dato(decena +48);
+"88
+[; ;ComSerial.c: 88:     send1dato(decena +48);
 [e ( _send1dato (1 -> + -> _decena `i -> 48 `i `uc ]
-"69
-[; ;ComSerial.c: 69:     send1dato(unidad +48);
+"89
+[; ;ComSerial.c: 89:     send1dato(unidad +48);
 [e ( _send1dato (1 -> + -> _unidad `i -> 48 `i `uc ]
-"70
-[; ;ComSerial.c: 70: }
-[e :UE 153 ]
+"90
+[; ;ComSerial.c: 90: }
+[e :UE 154 ]
 }
-"74
-[; ;ComSerial.c: 74: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+"92
+[; ;ComSerial.c: 92: void hexTochar(uint8_t valor,unsigned char *conv){
+[v _hexTochar `(v ~T0 @X0 1 ef2`uc`*uc ]
+{
+[e :U _hexTochar ]
+[v _valor `uc ~T0 @X0 1 r1 ]
+[v _conv `*uc ~T0 @X0 1 r2 ]
+[f ]
+"93
+[; ;ComSerial.c: 93:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
+"94
+[; ;ComSerial.c: 94:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"95
+[; ;ComSerial.c: 95:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"97
+[; ;ComSerial.c: 97:     divisiondecimal(valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
+"98
+[; ;ComSerial.c: 98:     conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"99
+[; ;ComSerial.c: 99:     conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"100
+[; ;ComSerial.c: 100:     conv[2]= centena;
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
+"102
+[; ;ComSerial.c: 102: }
+[e :UE 155 ]
+}
+"106
+[; ;ComSerial.c: 106: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
 [v _division `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
 {
 [e :U _division ]
@@ -474,44 +555,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _un `*uc ~T0 @X0 1 r2 ]
 [v _dec `*uc ~T0 @X0 1 r3 ]
 [f ]
-"75
-[; ;ComSerial.c: 75:     uint8_t div = conteo;
+"107
+[; ;ComSerial.c: 107:     uint8_t div = conteo;
 [v _div `uc ~T0 @X0 1 a ]
 [e = _div _conteo ]
-"76
-[; ;ComSerial.c: 76:     *un = 0;
+"108
+[; ;ComSerial.c: 108:     *un = 0;
 [e = *U _un -> -> 0 `i `uc ]
-"77
-[; ;ComSerial.c: 77:     *dec = 0;
+"109
+[; ;ComSerial.c: 109:     *dec = 0;
 [e = *U _dec -> -> 0 `i `uc ]
-"80
-[; ;ComSerial.c: 80:     while (div >= 10){
-[e $U 155  ]
-[e :U 156 ]
+"112
+[; ;ComSerial.c: 112:     while (div >= 10){
+[e $U 157  ]
+[e :U 158 ]
 {
-"81
-[; ;ComSerial.c: 81:     *dec = div/10;
+"113
+[; ;ComSerial.c: 113:     *dec = div/10;
 [e = *U _dec -> / -> _div `i -> 10 `i `uc ]
-"82
-[; ;ComSerial.c: 82:     div = div - (*dec)*(10);
+"114
+[; ;ComSerial.c: 114:     div = div - (*dec)*(10);
 [e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
-"83
-[; ;ComSerial.c: 83:     }
+"115
+[; ;ComSerial.c: 115:     }
 }
-[e :U 155 ]
-"80
-[; ;ComSerial.c: 80:     while (div >= 10){
-[e $ >= -> _div `i -> 10 `i 156  ]
 [e :U 157 ]
-"85
-[; ;ComSerial.c: 85:     *un = div;
+"112
+[; ;ComSerial.c: 112:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 158  ]
+[e :U 159 ]
+"117
+[; ;ComSerial.c: 117:     *un = div;
 [e = *U _un _div ]
-"86
-[; ;ComSerial.c: 86: }
-[e :UE 154 ]
+"118
+[; ;ComSerial.c: 118: }
+[e :UE 156 ]
 }
-"88
-[; ;ComSerial.c: 88: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+"120
+[; ;ComSerial.c: 120: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
 [v _divisiondecimal `(v ~T0 @X0 1 ef4`uc`*uc`*uc`*uc ]
 {
 [e :U _divisiondecimal ]
@@ -520,63 +601,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dec `*uc ~T0 @X0 1 r3 ]
 [v _cent `*uc ~T0 @X0 1 r4 ]
 [f ]
-"89
-[; ;ComSerial.c: 89:     uint8_t div = conteo;
+"121
+[; ;ComSerial.c: 121:     uint8_t div = conteo;
 [v _div `uc ~T0 @X0 1 a ]
 [e = _div _conteo ]
-"90
-[; ;ComSerial.c: 90:     *un = 0;
+"122
+[; ;ComSerial.c: 122:     *un = 0;
 [e = *U _un -> -> 0 `i `uc ]
-"91
-[; ;ComSerial.c: 91:     *dec = 0;
+"123
+[; ;ComSerial.c: 123:     *dec = 0;
 [e = *U _dec -> -> 0 `i `uc ]
-"92
-[; ;ComSerial.c: 92:     *cent = 0;
+"124
+[; ;ComSerial.c: 124:     *cent = 0;
 [e = *U _cent -> -> 0 `i `uc ]
-"95
-[; ;ComSerial.c: 95:     while(div >= 100){
-[e $U 159  ]
-[e :U 160 ]
-{
-"96
-[; ;ComSerial.c: 96:     *cent = div/100;
-[e = *U _cent -> / -> _div `i -> 100 `i `uc ]
-"97
-[; ;ComSerial.c: 97:     div = div - (*cent)*(100);
-[e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
-"98
-[; ;ComSerial.c: 98:     }
-}
-[e :U 159 ]
-"95
-[; ;ComSerial.c: 95:     while(div >= 100){
-[e $ >= -> _div `i -> 100 `i 160  ]
-[e :U 161 ]
-"100
-[; ;ComSerial.c: 100:     while (div >= 10){
-[e $U 162  ]
-[e :U 163 ]
-{
-"101
-[; ;ComSerial.c: 101:     *dec = div/10;
-[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
-"102
-[; ;ComSerial.c: 102:     div = div - (*dec)*(10);
-[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
-"103
-[; ;ComSerial.c: 103:     }
-}
+"127
+[; ;ComSerial.c: 127:     while(div >= 100){
+[e $U 161  ]
 [e :U 162 ]
-"100
-[; ;ComSerial.c: 100:     while (div >= 10){
-[e $ >= -> _div `i -> 10 `i 163  ]
+{
+"128
+[; ;ComSerial.c: 128:     *cent = div/100;
+[e = *U _cent -> / -> _div `i -> 100 `i `uc ]
+"129
+[; ;ComSerial.c: 129:     div = div - (*cent)*(100);
+[e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
+"130
+[; ;ComSerial.c: 130:     }
+}
+[e :U 161 ]
+"127
+[; ;ComSerial.c: 127:     while(div >= 100){
+[e $ >= -> _div `i -> 100 `i 162  ]
+[e :U 163 ]
+"132
+[; ;ComSerial.c: 132:     while (div >= 10){
+[e $U 164  ]
+[e :U 165 ]
+{
+"133
+[; ;ComSerial.c: 133:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"134
+[; ;ComSerial.c: 134:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"135
+[; ;ComSerial.c: 135:     }
+}
 [e :U 164 ]
-"105
-[; ;ComSerial.c: 105:     *un = div;
+"132
+[; ;ComSerial.c: 132:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 165  ]
+[e :U 166 ]
+"137
+[; ;ComSerial.c: 137:     *un = div;
 [e = *U _un _div ]
-"106
-[; ;ComSerial.c: 106: }
-[e :UE 158 ]
+"138
+[; ;ComSerial.c: 138: }
+[e :UE 160 ]
 }
 [a 1C 46 0 ]
 [a 2C 13 0 ]

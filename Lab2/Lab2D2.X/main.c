@@ -43,6 +43,8 @@
 uint8_t pot1,pot2,UARTdat, UARTval; //valores de ADRESH de pots
 float val1,val2; //valores decimales de los pots
 unsigned char disp1[3];
+unsigned char disp2[3];
+unsigned char disp3[3];
 void configuracion(void);
 //******************************************************************************
 //  Rutina de interrupcion
@@ -85,12 +87,26 @@ void main(void) {
         sendString("UART: \r");
         sendhex(UARTval);
         sendString("\r\r\r\r\r"); 
-        ClearLCD();
+        floTochar(val1,&disp1);
+        floTochar(val2,&disp2);
+        hexTochar(UARTval,&disp3);
         cursorLCD(1,1);
-        dispCHAR('A');
-        cursorLCD(1,2);
-        dispCHAR('B');
-        __delay_ms(1000);
+        LCDstring("POT1  POT2  UART");
+        cursorLCD(2,1);
+        dispCHAR(disp1[0]+48);
+        dispCHAR('.');
+        dispCHAR(disp1[1]+48);
+        dispCHAR(disp1[2]+48);
+        cursorLCD(2,7);
+        dispCHAR(disp2[0]+48);
+        dispCHAR('.');
+        dispCHAR(disp2[1]+48);
+        dispCHAR(disp2[2]+48);
+        cursorLCD(2,13);
+        dispCHAR(disp3[2]+48);
+        dispCHAR(disp3[1]+48);
+        dispCHAR(disp3[0]+48);
+        __delay_ms(500);
     }
 }
 
