@@ -84,9 +84,12 @@ void main(void) {
         sendfloat(val2);
         sendString("UART: \r");
         sendhex(UARTval);
-        sendString("\r\r\r\r\r");
-        cursorLCD(0X80);
-        dispCHAR("a");
+        sendString("\r\r\r\r\r"); 
+        ClearLCD();
+        cursorLCD(1,1);
+        dispCHAR('A');
+        cursorLCD(1,2);
+        dispCHAR('B');
         __delay_ms(1000);
     }
 }

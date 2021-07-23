@@ -2812,31 +2812,25 @@ typedef uint16_t uintptr_t;
 # 1 "./LCDD2.h" 1
 # 17 "./LCDD2.h"
 void initLCD(void);
-void dispCHAR(unsigned char b);
-void cursorLCD(uint8_t pos);
+void dispCHAR(char b);
+void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
+void ClearLCD(void);
 # 6 "LCDD2.c" 2
 # 20 "LCDD2.c"
 void initLCD(void){
     RC0 = 0;
     PORTD = 0X00;
-    _delay((unsigned long)((20)*(8000000/4000.0)));
-
+    _delay((unsigned long)((50)*(8000000/4000.0)));
     comandoLCD(0X30);
     _delay((unsigned long)((5)*(8000000/4000.0)));
-
     comandoLCD(0X30);
-    _delay((unsigned long)((11)*(8000000/4000.0)));
-
+    _delay((unsigned long)((5)*(8000000/4000.0)));
     comandoLCD(0X30);
-
     comandoLCD(0X38);
-
-    comandoLCD(0X08);
-
-    comandoLCD(0X01);
-
     comandoLCD(0X06);
+    comandoLCD(0X0E);
+    comandoLCD(0X01);
 
 }
 
@@ -2844,22 +2838,27 @@ void initLCD(void){
 
 
 
-void dispCHAR(unsigned char b){
+void dispCHAR(char b){
 
     RC0 = 1;
     PORTD = b;
     RC1 = 1;
-    _delay((unsigned long)((4)*(8000000/4000.0)));
+    _delay((unsigned long)((40)*(8000000/4000000.0)));
     RC1 = 0;
 
 }
 
-void cursorLCD(uint8_t pos){
-    RC0 = 0;
-    PORTD = pos;
-    RC1 = 1;
-    _delay((unsigned long)((4)*(8000000/4000.0)));
-    RC1 = 0;
+void cursorLCD(uint8_t fila, uint8_t columna){
+    uint8_t temp;
+    if(fila == 1){
+        temp = 0X80 + columna - 1;
+        comandoLCD(temp);
+    }
+
+    if(fila == 2){
+        temp = 0XC0 + columna -1;
+        comandoLCD(temp);
+    }
 }
 
 void comandoLCD(uint8_t cmd){
@@ -2868,4 +2867,8 @@ void comandoLCD(uint8_t cmd){
     RC1 = 1;
     _delay((unsigned long)((4)*(8000000/4000.0)));
     RC1 = 0;
+}
+
+void ClearLCD(void){
+    comandoLCD(0X01);
 }

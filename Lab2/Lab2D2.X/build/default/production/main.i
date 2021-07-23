@@ -2846,9 +2846,10 @@ void sendhex(uint8_t valor);
 # 1 "./LCDD2.h" 1
 # 17 "./LCDD2.h"
 void initLCD(void);
-void dispCHAR(unsigned char b);
-void cursorLCD(uint8_t pos);
+void dispCHAR(char b);
+void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
+void ClearLCD(void);
 # 37 "main.c" 2
 
 
@@ -2901,8 +2902,11 @@ void main(void) {
         sendString("UART: \r");
         sendhex(UARTval);
         sendString("\r\r\r\r\r");
-        cursorLCD(0X80);
-        dispCHAR("a");
+        ClearLCD();
+        cursorLCD(1,1);
+        dispCHAR('A');
+        cursorLCD(1,2);
+        dispCHAR('B');
         _delay((unsigned long)((1000)*(8000000/4000.0)));
     }
 }

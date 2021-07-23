@@ -20,23 +20,16 @@
 void initLCD(void){
     RS =    0;
     LCDport = 0X00;
-    __delay_ms(20);
-    //LCDport = 0X30;
+    __delay_ms(50);
     comandoLCD(0X30);
     __delay_ms(5);
-    //LCDport = 0X30;
     comandoLCD(0X30);
-    __delay_ms(11);
-    //LCDport = 0X30;
+    __delay_ms(5);
     comandoLCD(0X30);
-    //LCDport = 0X38; // 2 Lineas y 5x8
     comandoLCD(0X38);
-    //LCDport = 0X08; //display off
-    comandoLCD(0X08);
-    //LCDport = 0X01; // display clear
-    comandoLCD(0X01);
-    //LCDport = 0X06; //corrimiento a la derecha y no mueve el display
     comandoLCD(0X06);
+    comandoLCD(0X0E);
+    comandoLCD(0X01);
     
 }
 
@@ -44,22 +37,27 @@ void initLCD(void){
 //  Despliegue de datos
 //******************************************************************************
 
-void dispCHAR(unsigned char b){
+void dispCHAR(char b){
     //enviar un dato en la LCD
     RS = 1;             //se envia dato
     LCDport = b;        //se coloca el dato en el puerto
     EN = 1;
-    __delay_ms(4);     //cambio en EN para la recepcion del dato
+    __delay_us(40);     //cambio en EN para la recepcion del dato
     EN = 0;
 
 }
 
-void cursorLCD(uint8_t pos){
-    RS = 0;
-    LCDport = pos;
-    EN = 1;
-    __delay_ms(4);     //cambio en EN para la recepcion del dato
-    EN = 0;
+void cursorLCD(uint8_t fila, uint8_t columna){
+    uint8_t temp;
+    if(fila == 1){
+        temp = 0X80 + columna - 1;
+        comandoLCD(temp);
+    }
+    
+    if(fila == 2){
+        temp = 0XC0 + columna -1;
+        comandoLCD(temp);
+    } 
 }
 
 void comandoLCD(uint8_t cmd){
@@ -68,4 +66,8 @@ void comandoLCD(uint8_t cmd){
     EN = 1;
     __delay_ms(4);     //cambio en EN para la recepcion del dato
     EN = 0;
+}
+
+void ClearLCD(void){
+    comandoLCD(0X01);
 }

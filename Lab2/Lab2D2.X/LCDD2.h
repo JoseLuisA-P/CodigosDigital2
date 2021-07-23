@@ -15,9 +15,10 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 void initLCD(void);
-void dispCHAR(unsigned char b);
-void cursorLCD(uint8_t pos);
+void dispCHAR(char b);
+void cursorLCD(uint8_t fila, uint8_t columna);
 void comandoLCD(uint8_t cmd);
+void ClearLCD(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
