@@ -1,8 +1,10 @@
 /* 
- * ESTE ES EL CODIGO DEL SLAVE
+ * ESTE ES EL CODIGO DEL MASTER
  * File:   main.c
  * Author: Jose Alvarez (19392)
- *  
+ * 
+ * Hardware:
+ * 
  */
 //******************************************************************************
 //  Palabras de configurafcion e inclusion de librerias
@@ -26,40 +28,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "ADC.h"
 #include "SPI.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
-uint8_t pot1,pot2;
+union DATOS{
+    struct{
+        unsigned enviar: 1; //para manejar el envio- 1bit
+        unsigned dato:   4; //dato a escribir- 4 bits
+    };    
+}SPIcontrol;
+
 char dato;
+uint8_t val1,val2;
 
 void config(void);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
 void __interrupt() interrupcion(void){
-    if(PIR1bits.ADIF){
-        ADCON0bits.CHS0 = ~ADCON0bits.CHS0; //cambio de canal por cada lectura
-        PIR1bits.ADIF = 0;
-        if(!ADCON0bits.CHS0)pot1 = ADRESH; //asignando valores por lectura
-        else pot2 = ADRESH;
-    }
-    
-    if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1; //go de ADC con timer y no
-        INTCONbits.T0IF = 0;                //automatico
-    }
-    
-    if(PIR1bits.SSPIF){
-        dato = readSPI();
-        if(dato == '1') sendSPI(pot1);       //envia dato POT1
-        else if(dato == '2') sendSPI(pot2);       //envia dato POT1
-        PIR1bits.SSPIF = 0;
-    }
-    
+
 }
 
 //******************************************************************************
@@ -67,10 +57,17 @@ void __interrupt() interrupcion(void){
 //******************************************************************************
 void main(void) {
     config();
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     while(1){
-      PORTB = pot1;
-      PORTD = pot2;
+        PORTCbits.RC2 = 0;
+        sendSPI('1');
+        PORTB = readSPI();
+        __delay_ms(10);
+        
+        sendSPI('2');
+        PORTD = readSPI();
+        __delay_ms(10);
+        PORTCbits.RC2 = 1;
     }
 }
 
@@ -79,15 +76,17 @@ void main(void) {
 //******************************************************************************
 void config(void){
 //Configuracion de los puertos y tipos de entradas
-    ANSEL =         0X03; //2 entradas analogica
+    ANSEL =         0X00; 
     ANSELH =        0X00;
-    TRISAbits.TRISA0 = 1; 
-    TRISAbits.TRISA1 = 1; 
+    //TRISA =         0X00;
     TRISB =         0X00;
+    //TRISC =         0X00;
+    TRISCbits.TRISC2 = 0; //entrada del SS
     TRISD =         0X00;
     TRISE =         0X00;
     PORTA =         0X00;
     PORTB =         0X00;
+    PORTC =         0X00;
     PORTD =         0X00;
     PORTE =         0X00;
     
@@ -98,22 +97,5 @@ void config(void){
     //configuracion de interrupciones
     INTCONbits.GIE =    1; //permite interrupciones
     INTCONbits.PEIE =   1; //Permite INT perifericas
-    INTCONbits.T0IF =   0; //Apaga bandera timer0
-    INTCONbits.T0IE =   1; //permite interrupciones timmer0
-    PIR1bits.SSPIF = 0;     //borrar bandera SPI
-    PIE1bits.SSPIE = 1;    // habilitar interrupcion SPI
-    
-    //configuracion timmer0
-    OPTION_REGbits.T0CS = 0;    //Timmer 0 a FOSC y Prescalador asignado
-    OPTION_REGbits.PSA  = 0;
-    OPTION_REGbits.PS2  = 1;    //valor del prescalador
-    OPTION_REGbits.PS1  = 1;
-    OPTION_REGbits.PS0  = 0;
-    
-    //configuracion del ADC
-    ADCconfig(0,0); //configurado comienza en el canal 0 y just Izquierda
-    
-    PIR1bits.ADIF = 0; //interrupciones del ADC
-    PIE1bits.ADIE = 1;
     
 }

@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
+# 12 "main.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2504,7 +2504,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 25 "main.c" 2
+# 27 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2603,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 26 "main.c" 2
+# 28 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2688,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 27 "main.c" 2
+# 29 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,19 +2823,10 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 28 "main.c" 2
-
-# 1 "./ADC.h" 1
-# 14 "./ADC.h"
-void ADCconfig(uint8_t canal, uint8_t just);
-
-
-
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-# 29 "main.c" 2
+# 30 "main.c" 2
 
 # 1 "./SPI.h" 1
-# 17 "./SPI.h"
+# 18 "./SPI.h"
 typedef enum
 {
     SPI_MASTER_OSC_DIV4 = 0b00100000,
@@ -2869,39 +2860,28 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 
 void sendSPI(char valor);
 char readSPI(void);
-# 30 "main.c" 2
+# 31 "main.c" 2
 
 
 
 
 
 
-uint8_t pot1,pot2;
+union DATOS{
+    struct{
+        unsigned enviar: 1;
+        unsigned dato: 4;
+    };
+}SPIcontrol;
+
 char dato;
+uint8_t val1,val2;
 
 void config(void);
 
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
-    if(PIR1bits.ADIF){
-        ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
-        PIR1bits.ADIF = 0;
-        if(!ADCON0bits.CHS0)pot1 = ADRESH;
-        else pot2 = ADRESH;
-    }
-
-    if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        INTCONbits.T0IF = 0;
-    }
-
-    if(PIR1bits.SSPIF){
-        dato = readSPI();
-        if(dato == '1') sendSPI(pot1);
-        else if(dato == '2') sendSPI(pot2);
-        PIR1bits.SSPIF = 0;
-    }
 
 }
 
@@ -2910,10 +2890,17 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 
 void main(void) {
     config();
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     while(1){
-      PORTB = pot1;
-      PORTD = pot2;
+        PORTCbits.RC2 = 0;
+        sendSPI('1');
+        PORTB = readSPI();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+        sendSPI('2');
+        PORTD = readSPI();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        PORTCbits.RC2 = 1;
     }
 }
 
@@ -2922,15 +2909,17 @@ void main(void) {
 
 void config(void){
 
-    ANSEL = 0X03;
+    ANSEL = 0X00;
     ANSELH = 0X00;
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
+
     TRISB = 0X00;
+
+    TRISCbits.TRISC2 = 0;
     TRISD = 0X00;
     TRISE = 0X00;
     PORTA = 0X00;
     PORTB = 0X00;
+    PORTC = 0X00;
     PORTD = 0X00;
     PORTE = 0X00;
 
@@ -2941,22 +2930,5 @@ void config(void){
 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
-    INTCONbits.T0IF = 0;
-    INTCONbits.T0IE = 1;
-    PIR1bits.SSPIF = 0;
-    PIE1bits.SSPIE = 1;
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 0;
-
-
-    ADCconfig(0,0);
-
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
 
 }

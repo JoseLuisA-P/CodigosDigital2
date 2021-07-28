@@ -8,9 +8,10 @@
   <PWI>
    <POPUP w="800" x="46" flags="00000002" y="137" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">663</ITEM>
+     <ITEM name="Message Column Width">542</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
+     <ITEM name="Time Column Width">120</ITEM>
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
@@ -31,7 +32,7 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="380" x="86" flags="00000008" y="177" h="182" pid="3" iid="1">
+   <POPUP w="52" x="86" flags="00000008" y="177" h="13" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="106" flags="0000000a" y="197" h="32" pid="4" iid="1">
@@ -64,10 +65,10 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="114" x="166" flags="00000008" y="257" h="127" pid="7" iid="1">
+   <POPUP w="14" x="166" flags="00000008" y="257" h="8" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="186" flags="80000002" y="277" h="8" pid="8" iid="1">
+   <POPUP w="8" x="186" flags="00000002" y="277" h="8" pid="8" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -75,6 +76,22 @@
      <ITEM name="ShowChanges">Yes</ITEM>
      <ITEM name="ShowToolTips">Yes</ITEM>
      <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="644" x="279" flags="00000022" y="90" h="320" pid="0" iid="4">
+    <PROPERTIES>
+     <ITEM name="ComboBox1000">1</ITEM>
+     <ITEM name="ComboBox1001">2</ITEM>
+     <ITEM name="ComboBox1002">1</ITEM>
+     <ITEM name="ComboBox1003">1</ITEM>
+     <ITEM name="ComboBox1004">1</ITEM>
+     <ITEM name="ComboBox1005">1</ITEM>
+     <ITEM name="ComboBox1006">2</ITEM>
+     <ITEM name="ComboBox1007">1</ITEM>
+     <ITEM name="ComboBox1008">1</ITEM>
+     <ITEM name="ComboBox1009">1</ITEM>
+     <ITEM name="HSplitter1Pos">100</ITEM>
+     <ITEM name="VSplitter1Pos">238</ITEM>
     </PROPERTIES>
    </POPUP>
   </PWI>
