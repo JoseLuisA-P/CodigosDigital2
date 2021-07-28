@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 17 "main.c"
+# 11 "main.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2504,7 +2504,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 32 "main.c" 2
+# 26 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2603,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 33 "main.c" 2
+# 27 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2688,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 34 "main.c" 2
+# 28 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,142 +2823,27 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 35 "main.c" 2
-
-# 1 "./ADC.h" 1
-# 14 "./ADC.h"
-void ADCconfig(uint8_t canal, uint8_t just);
-
-
-
-void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-
-void CONVdec(uint8_t *lectura, float *equiv);
-# 36 "main.c" 2
-
-# 1 "./ComSerial.h" 1
-# 13 "./ComSerial.h"
-void configUART(void);
-
-void send1dato(char dato);
-
-void sendString(unsigned char *mensaje);
-
-void sendfloat(const float valor);
-
-
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
-
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
-
-void sendhex(uint8_t *valor);
-
-void floTochar(const float valor,unsigned char *conv);
-
-
-void hexTochar(uint8_t valor,unsigned char *conv);
-# 37 "main.c" 2
-
-# 1 "./LCDD2.h" 1
-# 17 "./LCDD2.h"
-void initLCD(void);
-
-
-void dispCHAR(char b);
-
-void cursorLCD(uint8_t fila, uint8_t columna);
-
-void comandoLCD(uint8_t cmd);
-
-void ClearLCD(void);
-
-void LCDstring(unsigned char* mensaje);
-# 38 "main.c" 2
-
-
-
-
-
-
-uint8_t pot1,pot2,UARTdat, UARTval;
-float val1,val2;
-unsigned char disp1[3];
-unsigned char disp2[3];
-unsigned char disp3[3];
-void configuracion(void);
+# 29 "main.c" 2
+# 38 "main.c"
+void config(void);
 
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
 
-    if(PIR1bits.RCIF){
-        UARTdat = RCREG;
-        if(UARTdat == '+')UARTval++;
-        if(UARTdat == '-')UARTval--;
-        PIR1bits.RCIF = 0;
-    }
-
-    if(PIR1bits.ADIF){
-        ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
-        PIR1bits.ADIF = 0;
-        if(ADCON0bits.CHS0)pot1 = ADRESH;
-        else pot2 = ADRESH;
-    }
-
-    if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        INTCONbits.T0IF = 0;
-    }
 }
 
 
 
 
 void main(void) {
-    configuracion();
-    initLCD();
-    while(1){
-
-        sendString("POT1: \n");
-        CONVdec(&pot1,&val1);
-        sendfloat(val1);
-        sendString("\nPOT2: \n");
-        CONVdec(&pot2,&val2);
-        sendfloat(val2);
-        sendString("\nUART: \n");
-        sendhex(&UARTval);
-        sendString("\n\n\n\n\n");
-
-        floTochar(val1,&disp1);
-        floTochar(val2,&disp2);
-        hexTochar(UARTval,&disp3);
-
-        cursorLCD(1,1);
-        LCDstring("S1:   S2:   S3:");
-        cursorLCD(2,1);
-        dispCHAR(disp1[0]+48);
-        dispCHAR('.');
-        dispCHAR(disp1[1]+48);
-        dispCHAR(disp1[2]+48);
-        dispCHAR('V');
-        cursorLCD(2,7);
-        dispCHAR(disp2[0]+48);
-        dispCHAR('.');
-        dispCHAR(disp2[1]+48);
-        dispCHAR(disp2[2]+48);
-        dispCHAR('V');
-        cursorLCD(2,13);
-        dispCHAR(disp3[2]+48);
-        dispCHAR(disp3[1]+48);
-        dispCHAR(disp3[0]+48);
-        _delay((unsigned long)((250)*(8000000/4000.0)));
-    }
+    config();
 }
 
 
 
 
-void configuracion(void){
+void config(void){
 
     ANSEL = 0X03;
     ANSELH = 0X00;
@@ -2972,33 +2857,4 @@ void configuracion(void){
     PORTC = 0X00;
     PORTD = 0X00;
     PORTE = 0X00;
-
-
-    configUART();
-
-
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
-
-
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.T0IF = 0;
-    INTCONbits.T0IE = 1;
-    PIE1bits.RCIE = 1;
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 0;
-
-
-
-    ADCconfig(0,0);
-
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
-
 }

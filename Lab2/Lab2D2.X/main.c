@@ -80,15 +80,15 @@ void main(void) {
     initLCD();
     while(1){ 
         /*Se envian los valores via comunicacion serial*/
-        sendString("POT1: \r");
+        sendString("POT1: \n");
         CONVdec(&pot1,&val1); //convierte la lectura en flotante
         sendfloat(val1); //envia un flotante
-        sendString("POT2: \r");
+        sendString("\nPOT2: \n");
         CONVdec(&pot2,&val2);
         sendfloat(val2);
-        sendString("UART: \r");
+        sendString("\nUART: \n");
         sendhex(&UARTval); //envia un hex, usando 3 caracteres
-        sendString("\r\r\r\r\r"); 
+        sendString("\n\n\n\n\n"); 
         /*se convierten los valores a caracteres para la LCD*/
         floTochar(val1,&disp1);
         floTochar(val2,&disp2);
@@ -112,7 +112,7 @@ void main(void) {
         dispCHAR(disp3[2]+48);
         dispCHAR(disp3[1]+48);
         dispCHAR(disp3[0]+48);
-        __delay_ms(10); //tiempo para poder visualizar
+        __delay_ms(250); //tiempo para poder visualizar
     }
 }
 
@@ -155,7 +155,6 @@ void configuracion(void){
     OPTION_REGbits.PS1  = 1;
     OPTION_REGbits.PS0  = 0;
     
-    //configuracion timmer1
     
     //configuracion del ADC
     ADCconfig(0,0); //configurado comienza en el canal 0 y just Izquierda
