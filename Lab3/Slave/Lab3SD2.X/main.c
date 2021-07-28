@@ -1,4 +1,5 @@
 /* 
+ * ESTE ES EL CODIGO DEL SLAVE
  * File:   main.c
  * Author: Jose Alvarez (19392)
  * 
@@ -27,20 +28,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include "ADC.h"
+#include "SPI.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
-
+uint8_t pot1,pot2;
+unsigned char dato;
 
 void config(void);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
 void __interrupt() interrupcion(void){
-
+    if(PIR1bits.ADIF){
+        ADCON0bits.CHS0 = ~ADCON0bits.CHS0; //cambio de canal por cada lectura
+        PIR1bits.ADIF = 0;
+        if(ADCON0bits.CHS0)pot1 = ADRESH; //asignando valores por lectura
+        else pot2 = ADRESH;
+    }
+    
+    if(INTCONbits.T0IF){
+        if(!ADCON0bits.GO)ADCON0bits.GO = 1; //go de ADC con timer y no
+        INTCONbits.T0IF = 0;                //automatico
+    }
+    
+    if(PIR1bits.SSPIF){
+        dato = SPIread();
+        PORTAbits.RA5 = 1;
+        if(dato == '1') SPIsend(pot1);       //envia dato POT1
+        else if (dato == '2') SPIsend(pot2); //envia dato POT2
+        else SPIsend('b'); //por mala comunicacion
+        PORTAbits.RA5 = 0;
+    }
+    
 }
 
 //******************************************************************************
@@ -48,6 +71,10 @@ void __interrupt() interrupcion(void){
 //******************************************************************************
 void main(void) {
     config();
+    configSPI(SPI_SLAVE_SS_EN,CLOCK_LOW,FLANCO_REPOSO_CAMBIO,MUESTREO_MITAD);
+    while(1){
+
+    }
 }
 
 //******************************************************************************
@@ -67,4 +94,31 @@ void config(void){
     PORTC =         0X00;
     PORTD =         0X00;
     PORTE =         0X00;
+    
+    //Configuracion del oscilador
+    OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
+    OSCCONbits.SCS = 0b1;
+    
+    //configuracion de interrupciones
+    INTCONbits.GIE =    1; //permite interrupciones
+    INTCONbits.PEIE =   1; //Permite INT perifericas
+    INTCONbits.T0IF =   0; //Apaga bandera timer0
+    INTCONbits.T0IE =   1; //permite interrupciones timmer0
+    PIR1bits.SSPIF = 0;     //borrar bandera SPI
+    PIE1bits.SSPIE = 1;    // habilitar interrupcion SPI
+    PIE1bits.RCIE   = 1; //permite interrupciones de recepcion de datos
+    
+    //configuracion timmer0
+    OPTION_REGbits.T0CS = 0;    //Timmer 0 a FOSC y Prescalador asignado
+    OPTION_REGbits.PSA  = 0;
+    OPTION_REGbits.PS2  = 1;    //valor del prescalador
+    OPTION_REGbits.PS1  = 1;
+    OPTION_REGbits.PS0  = 0;
+    
+    //configuracion del ADC
+    ADCconfig(0,0); //configurado comienza en el canal 0 y just Izquierda
+    
+    PIR1bits.ADIF = 0; //interrupciones del ADC
+    PIE1bits.ADIE = 1;
+    
 }

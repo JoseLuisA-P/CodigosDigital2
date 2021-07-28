@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,24 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
+# 1 "ADC.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2504,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 27 "main.c" 2
+# 1 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 28 "main.c" 2
+# 2 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 29 "main.c" 2
+# 3 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,7 +2806,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 30 "main.c" 2
+# 4 "ADC.c" 2
 
 # 1 "./ADC.h" 1
 # 14 "./ADC.h"
@@ -2832,135 +2815,50 @@ void ADCconfig(uint8_t canal, uint8_t just);
 
 
 void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-# 31 "main.c" 2
-
-# 1 "./SPI.h" 1
-# 13 "./SPI.h"
-typedef enum
-{
-    SPI_MASTER_OSC_DIV4 = 0b00100000,
-    SPI_MASTER_OSC_DIV16 = 0b00100001,
-    SPI_MASTER_OSC_DIV64 = 0b00100010,
-    SPI_MASTER_TMR2 = 0b00100011,
-    SPI_SLAVE_SS_EN = 0b00100100,
-    SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum {
-
-    CLOCK_HIGH = 0X10,
-    CLOCK_LOW = 0X00
-
-}ClockType;
-
-typedef enum{
-
-    FLANCO_CAMBIO_REPOSO = 0B01000000,
-    FLANCO_REPOSO_CAMBIO = 0B01000000
-
-}TipoFlanco;
-
-typedef enum{
-
-    MUESTREO_FIN = 0X80,
-    MUESTREO_MITAD = 0X00
-
-}Muestreo;
-
-void configSPI(Spi_Type mode,ClockType flanco,TipoFlanco cambio,Muestreo punto);
-void SPIsend (char dat);
-char SPIread(void);
-# 32 "main.c" 2
+# 5 "ADC.c" 2
 
 
 
 
 
-
-uint8_t pot1,pot2;
-unsigned char dato;
-
-void config(void);
+void ADCconfig(uint8_t canal, uint8_t just){
 
 
 
-void __attribute__((picinterrupt(("")))) interrupcion(void){
-    if(PIR1bits.ADIF){
-        ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
-        PIR1bits.ADIF = 0;
-        if(ADCON0bits.CHS0)pot1 = ADRESH;
-        else pot2 = ADRESH;
+
+    switch(OSCCONbits.IRCF){
+        case 0b100:
+            ADCON0bits.ADCS = 0b000;
+            break;
+        case 0b110:
+            ADCON0bits.ADCS = 0b001;
+            break;
+        case 0b111:
+            ADCON0bits.ADCS = 0b010;
+            break;
+        default:
+            ADCON0bits.ADCS = 0b11;
+            break;
     }
-
-    if(INTCONbits.T0IF){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        INTCONbits.T0IF = 0;
-    }
-
-    if(PIR1bits.SSPIF){
-        dato = SPIread();
-        PORTAbits.RA5 = 1;
-        if(dato == '1') SPIsend(pot1);
-        else if (dato == '2') SPIsend(pot2);
-        else SPIsend('b');
-        PORTAbits.RA5 = 0;
-    }
-
+    ADCON0bits.CHS = canal;
+    ADCON0bits.GO = 0b0;
+    ADCON0bits.ADON = 0b1;
+    ADCON1bits.ADFM = just;
+    ADCON1bits.VCFG1 = 0b0;
+    ADCON1bits.VCFG0 = 0b0;
 }
 
 
 
 
-void main(void) {
-    config();
-    configSPI(SPI_SLAVE_SS_EN,CLOCK_LOW,FLANCO_REPOSO_CAMBIO,MUESTREO_MITAD);
-    while(1){
-
-    }
-}
+void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
 
 
 
 
-void config(void){
-
-    ANSEL = 0X03;
-    ANSELH = 0X00;
-    TRISA = 0X03;
-    TRISB = 0X00;
-    TRISC = 0X00;
-    TRISD = 0X00;
-    TRISE = 0X00;
-    PORTA = 0X00;
-    PORTB = 0X00;
-    PORTC = 0X00;
-    PORTD = 0X00;
-    PORTE = 0X00;
-
-
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
-
-
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.T0IF = 0;
-    INTCONbits.T0IE = 1;
-    PIR1bits.SSPIF = 0;
-    PIE1bits.SSPIE = 1;
-    PIE1bits.RCIE = 1;
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 0;
-
-
-    ADCconfig(0,0);
-
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
-
+    uint8_t temp;
+    temp = *valor;
+    *lower = (*valor & 0x0F);
+    temp = temp>>4;
+    *upper = (temp & 0x0F);
 }

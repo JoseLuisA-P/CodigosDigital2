@@ -3,6 +3,50 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"74 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
+[e E1480 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1488 . `uc
+CLOCK_HIGH 16
+CLOCK_LOW 0
+]
+[e E1492 . `uc
+FLANCO_CAMBIO_REPOSO 64
+FLANCO_REPOSO_CAMBIO 64
+]
+[e E1496 . `uc
+MUESTREO_FIN 128
+MUESTREO_MITAD 0
+]
+"10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\SPI.c
+[e E1473 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1481 . `uc
+CLOCK_HIGH 16
+CLOCK_LOW 0
+]
+[e E1485 . `uc
+FLANCO_CAMBIO_REPOSO 64
+FLANCO_REPOSO_CAMBIO 64
+]
+[e E1489 . `uc
+MUESTREO_FIN 128
+MUESTREO_MITAD 0
+]
+"10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\ADC.c
+[v _ADCconfig ADCconfig `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
@@ -11,14 +55,32 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"42 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
+"45 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
-"49
+"72
 [v _main main `(v  1 e 1 0 ]
-"56
+"83
 [v _config config `(v  1 e 1 0 ]
+"10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\SPI.c
+[v _configSPI configSPI `(v  1 e 1 0 ]
+"37
+[v _SPIsend SPIsend `(v  1 e 1 0 ]
+"41
+[v _SPIread SPIread `(uc  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
+[s S124 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"183
+[u S133 . 1 `S124 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES133  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "290
@@ -27,32 +89,244 @@
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+[s S88 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S97 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S102 . 1 `S88 1 . 1 0 `S97 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES102  1 e 1 @11 ]
+[s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S30 . 1 `S22 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES30  1 e 1 @12 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"850
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1238
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+[s S41 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1276
+[s S46 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S55 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S58 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S61 . 1 `S41 1 . 1 0 `S46 1 . 1 0 `S55 1 . 1 0 `S58 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES61  1 e 1 @31 ]
+[s S235 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"1366
+[s S242 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S246 . 1 `S235 1 . 1 0 `S242 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES246  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
+[s S423 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1433
+[u S432 . 1 `S423 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES432  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
+[s S444 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1557
+[u S453 . 1 `S444 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES453  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+[s S216 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S224 . 1 `S216 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES224  1 e 1 @140 ]
+[s S190 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S196 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S201 . 1 `S190 1 . 1 0 `S196 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES201  1 e 1 @143 ]
+"2177
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S467 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S476 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S481 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S487 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S492 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S497 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S502 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S507 . 1 `S467 1 . 1 0 `S476 1 . 1 0 `S481 1 . 1 0 `S487 1 . 1 0 `S492 1 . 1 0 `S497 1 . 1 0 `S502 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES507  1 e 1 @148 ]
+[s S374 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2991
+[u S380 . 1 `S374 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES380  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"49 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
+"38 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
+[v _pot1 pot1 `uc  1 e 1 0 ]
+[v _pot2 pot2 `uc  1 e 1 0 ]
+"39
+[v _dato dato `uc  1 e 1 0 ]
+"72
 [v _main main `(v  1 e 1 0 ]
 {
-"51
+"78
 } 0
-"56
+"10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\SPI.c
+[v _configSPI configSPI `(v  1 e 1 0 ]
+{
+[v configSPI@mode mode `E1473  1 a 1 wreg ]
+[v configSPI@mode mode `E1473  1 a 1 wreg ]
+[v configSPI@flanco flanco `E1481  1 p 1 4 ]
+[v configSPI@cambio cambio `E1485  1 p 1 5 ]
+[v configSPI@punto punto `E1489  1 p 1 6 ]
+[v configSPI@mode mode `E1473  1 a 1 0 ]
+"31
+} 0
+"83 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
 [v _config config `(v  1 e 1 0 ]
 {
-"70
+"124
 } 0
-"42
+"10 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\ADC.c
+[v _ADCconfig ADCconfig `(v  1 e 1 0 ]
+{
+[v ADCconfig@canal canal `uc  1 a 1 wreg ]
+[v ADCconfig@canal canal `uc  1 a 1 wreg ]
+[v ADCconfig@just just `uc  1 p 1 4 ]
+[v ADCconfig@canal canal `uc  1 a 1 0 ]
+"35
+} 0
+"45 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\main.c
 [v _interrupcion interrupcion `II(v  1 e 1 0 ]
+{
+"67
+} 0
+"37 D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab3\Slave\Lab3SD2.X\SPI.c
+[v _SPIsend SPIsend `(v  1 e 1 0 ]
+{
+[v SPIsend@dat dat `uc  1 a 1 wreg ]
+[v SPIsend@dat dat `uc  1 a 1 wreg ]
+[v SPIsend@dat dat `uc  1 a 1 0 ]
+"39
+} 0
+"41
+[v _SPIread SPIread `(uc  1 e 1 0 ]
 {
 "44
 } 0
