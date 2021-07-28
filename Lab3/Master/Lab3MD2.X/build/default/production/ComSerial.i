@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ComSerial.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,24 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
+# 1 "ComSerial.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2504,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 27 "main.c" 2
+# 1 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 28 "main.c" 2
+# 2 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 29 "main.c" 2
+# 3 "ComSerial.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,44 +2806,8 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 30 "main.c" 2
+# 4 "ComSerial.c" 2
 
-# 1 "./SPI.h" 1
-# 18 "./SPI.h"
-typedef enum
-{
-    SPI_MASTER_OSC_DIV4 = 0b00100000,
-    SPI_MASTER_OSC_DIV16 = 0b00100001,
-    SPI_MASTER_OSC_DIV64 = 0b00100010,
-    SPI_MASTER_TMR2 = 0b00100011,
-    SPI_SLAVE_SS_EN = 0b00100100,
-    SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum
-{
-    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-    SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-    SPI_CLOCK_IDLE_HIGH = 0b00010000,
-    SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-    SPI_IDLE_2_ACTIVE = 0b00000000,
-    SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
-
-
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-
-void sendSPI(char valor);
-char readSPI(void);
-# 31 "main.c" 2
 
 # 1 "./ComSerial.h" 1
 # 13 "./ComSerial.h"
@@ -2883,96 +2830,137 @@ void floTochar(const float valor,unsigned char *conv);
 
 
 void hexTochar(uint8_t valor,unsigned char *conv);
-# 32 "main.c" 2
+# 6 "ComSerial.c" 2
 
 
 
 
 
+void configUART(void){
 
-union DATOS{
-    struct{
-        unsigned enviar: 1;
-        unsigned dato: 4;
-    };
-}SPIcontrol;
-
-char dato;
-uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
-
-void config(void);
-
-
-
-void __attribute__((picinterrupt(("")))) interrupcion(void){
-    if(PIR1bits.RCIF){
-        UARTdat = RCREG;
-        if(UARTdat == '1')PORTA = 0x0F;
-        else if(UARTdat == '2')PORTA = 0xF0;
-        else PORTA = 0;
-        PIR1bits.RCIF = 0;
-    }
-}
-
-
-
-
-void main(void) {
-    config();
-    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-    while(1){
-        PORTCbits.RC2 = 0;
-        sendSPI('1');
-        PORTB = readSPI();
-        UARTsend = PORTB;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-
-        sendSPI('2');
-        PORTD = readSPI();
-        UARTsend2 = PORTD;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        PORTCbits.RC2 = 1;
-
-        sendString("POT1: ");
-        sendhex(&UARTsend);
-        sendString("\r");
-        sendString("\rPOT2: ");
-        sendhex(&UARTsend2);
-        sendString("\r\r\r\r");
-        _delay((unsigned long)((250)*(8000000/4000.0)));
-    }
-}
-
-
-
-
-void config(void){
-
-    ANSEL = 0X00;
-    ANSELH = 0X00;
-    TRISA = 0X00;
-    TRISB = 0X00;
-
-    TRISCbits.TRISC2 = 0;
     TRISCbits.TRISC6 = 0;
     TRISCbits.TRISC7 = 1;
-    TRISD = 0X00;
-    TRISE = 0X00;
-    PORTA = 0X00;
-    PORTB = 0X00;
-    PORTC = 0X00;
-    PORTD = 0X00;
-    PORTE = 0X00;
+    SPBRG = 12;
+    TXSTAbits.BRGH = 0;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.CREN = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+}
 
 
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
 
 
-    configUART();
+void send1dato(char dato){
+    TXREG = dato;
+    while(!TXSTAbits.TRMT);
+}
+
+void sendString(unsigned char* mensaje){
+    while(*mensaje != 0x00){
+        send1dato(*mensaje);
+        mensaje ++;
+    }
+
+}
+
+void sendfloat(const float valor){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[1];
 
 
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.RCIE = 1;
+
+
+
+    entero = valor;
+    temp = valor-(float)entero;
+    decimal = (temp*100);
+    division(decimal,&digdecimal[0],&digdecimal[1]);
+    send1dato(entero+48);
+    sendString(".");
+    send1dato(digdecimal[1]+48);
+    send1dato(digdecimal[0]+48);
+    sendString("\r");
+
+}
+
+void floTochar(const float valor,unsigned char *conv){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[2];
+
+
+
+
+
+    entero = valor;
+    digdecimal[2] = entero;
+    temp = valor-(float)entero;
+    decimal = (temp*100);
+    division(decimal,&digdecimal[0],&digdecimal[1]);
+    conv[0] = entero;
+    conv[1] = digdecimal[1];
+    conv[2] = digdecimal[0];
+}
+
+void sendhex(uint8_t *valor){
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+
+    divisiondecimal(*valor,&unidad,&decena,&centena);
+    send1dato(centena +48);
+    send1dato(decena +48);
+    send1dato(unidad +48);
+}
+
+void hexTochar(uint8_t valor,unsigned char *conv){
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+
+    divisiondecimal(valor,&unidad,&decena,&centena);
+    conv[0]= unidad;
+    conv[1]= decena;
+    conv[2]= centena;
+
+}
+
+
+
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+    uint8_t div = conteo;
+    *un = 0;
+    *dec = 0;
+
+
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+
+    *un = div;
+}
+
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+    uint8_t div = conteo;
+    *un = 0;
+    *dec = 0;
+    *cent = 0;
+
+
+    while(div >= 100){
+    *cent = div/100;
+    div = div - (*cent)*(100);
+    }
+
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+
+    *un = div;
 }

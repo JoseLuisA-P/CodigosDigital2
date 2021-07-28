@@ -29,6 +29,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "SPI.h"
+#include "ComSerial.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
@@ -42,14 +43,20 @@ union DATOS{
 }SPIcontrol;
 
 char dato;
-uint8_t val1,val2;
+uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
 
 void config(void);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
 void __interrupt() interrupcion(void){
-
+    if(PIR1bits.RCIF){
+        UARTdat = RCREG;
+        if(UARTdat == '1')PORTA = 0x0F;
+        else if(UARTdat == '2')PORTA = 0xF0;
+        else PORTA = 0;
+        PIR1bits.RCIF = 0;
+    }
 }
 
 //******************************************************************************
@@ -62,12 +69,22 @@ void main(void) {
         PORTCbits.RC2 = 0;
         sendSPI('1');
         PORTB = readSPI();
+        UARTsend = PORTB;
         __delay_ms(10);
         
         sendSPI('2');
         PORTD = readSPI();
+        UARTsend2 = PORTD;
         __delay_ms(10);
         PORTCbits.RC2 = 1;
+        
+        sendString("POT1: ");
+        sendhex(&UARTsend);
+        sendString("\r");
+        sendString("\rPOT2: ");
+        sendhex(&UARTsend2);
+        sendString("\r\r\r\r");
+        __delay_ms(250);
     }
 }
 
@@ -78,10 +95,12 @@ void config(void){
 //Configuracion de los puertos y tipos de entradas
     ANSEL =         0X00; 
     ANSELH =        0X00;
-    //TRISA =         0X00;
+    TRISA =         0X00;
     TRISB =         0X00;
     //TRISC =         0X00;
     TRISCbits.TRISC2 = 0; //entrada del SS
+    TRISCbits.TRISC6 = 0; //salida TX
+    TRISCbits.TRISC7 = 1; //entrada RX
     TRISD =         0X00;
     TRISE =         0X00;
     PORTA =         0X00;
@@ -94,8 +113,11 @@ void config(void){
     OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
     OSCCONbits.SCS = 0b1;
     
+    //configurar el UART
+    configUART();
+    
     //configuracion de interrupciones
     INTCONbits.GIE =    1; //permite interrupciones
     INTCONbits.PEIE =   1; //Permite INT perifericas
-    
+    PIE1bits.RCIE   = 1; //permite interrupciones de recepcion de datos
 }

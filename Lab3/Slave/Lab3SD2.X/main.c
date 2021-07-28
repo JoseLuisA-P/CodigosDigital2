@@ -54,7 +54,7 @@ void __interrupt() interrupcion(void){
     }
     
     if(PIR1bits.SSPIF){
-        dato = readSPI();
+        dato = readSPI();       //lee el dato enviado por el maestro
         if(dato == '1') sendSPI(pot1);       //envia dato POT1
         else if(dato == '2') sendSPI(pot2);       //envia dato POT1
         PIR1bits.SSPIF = 0;

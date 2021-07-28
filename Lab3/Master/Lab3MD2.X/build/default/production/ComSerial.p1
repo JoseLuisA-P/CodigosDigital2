@@ -1,94 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"39 main.c
-[; ;main.c: 39:     struct{
-[s S144 :1 `uc 1 :4 `uc 1 ]
-[n S144 . enviar dato ]
-"38
-[; ;main.c: 38: union DATOS{
-[u S143 `S144 1 ]
-[n S143 DATOS . ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"543 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 543:     struct {
-[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"542
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 542: typedef union {
-[u S18 `S19 1 ]
-[n S18 . . ]
-"553
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
-"1140
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"166
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
-[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
-[p mainexit ]
-"48 main.c
-[; ;main.c: 48: void config(void);
-[v _config `(v ~T0 @X0 0 ef ]
-"67
-[; ;main.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[c E1473 32 33 34 35 36 37 .. ]
-[n E1473 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
-[c E1481 0 128 .. ]
-[n E1481 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
-[c E1485 16 0 .. ]
-[n E1485 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
-[c E1489 0 64 .. ]
-[n E1489 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
-"47 ./SPI.h
-[; ;./SPI.h: 47: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-[v _spiInit `(v ~T0 @X0 0 ef4`E1473`E1481`E1485`E1489 ]
-"296 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 296:     struct {
-[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"295
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 295: typedef union {
-[u S9 `S10 1 ]
-[n S9 . . ]
-"307
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 307: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
-[v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
-"49 ./SPI.h
-[; ;./SPI.h: 49: void sendSPI(char valor);
-[v _sendSPI `(v ~T0 @X0 0 ef1`uc ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"50 ./SPI.h
-[; ;./SPI.h: 50: char readSPI(void);
-[v _readSPI `(uc ~T0 @X0 0 ef ]
-[v F1256 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF1256 ~T0 @X0 0 e ]
-[p i __delay ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"17 ./ComSerial.h
-[; ;./ComSerial.h: 17: void sendString(unsigned char *mensaje);
-[v _sendString `(v ~T0 @X0 0 ef1`*uc ]
-"26
-[; ;./ComSerial.h: 26: void sendhex(uint8_t *valor);
-[v _sendhex `(v ~T0 @X0 0 ef1`*uc ]
-"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
-"3449
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
-[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
-"1416
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
-[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"1478
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"1546
+"1546 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1546:     struct {
 [s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
@@ -99,86 +10,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1557
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
 [v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"1602
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
-[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
-"1664
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
-[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
-"290
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
-"414
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
-[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"1868
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S70 . SCS LTS HTS OSTS IRCF ]
-"1875
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1875:     struct {
-[s S71 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . . IRCF0 IRCF1 IRCF2 ]
-"1867
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1867: typedef union {
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"1882
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
-"13 ./ComSerial.h
-[; ;./ComSerial.h: 13: void configUART(void);
-[v _configUART `(v ~T0 @X0 0 ef ]
-"465 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 465:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
-"475
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 475:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"464
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 464: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"482
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"1708
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1708:     struct {
-[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"1707
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1707: typedef union {
-[u S62 `S63 1 ]
-[n S62 . . ]
-"1718
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
-[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
-"12 main.c
-[p x FOSC  =  INTRC_NOCLKOUT ]
-"13
-[p x WDTE  =  OFF        ]
-"14
-[p x PWRTE  =  OFF       ]
-"15
-[p x MCLRE  =  ON        ]
-"16
-[p x CP  =  OFF          ]
-"17
-[p x CPD  =  OFF         ]
-"18
-[p x BOREN  =  OFF       ]
-"19
-[p x IESO  =  OFF        ]
-"20
-[p x FCMEN  =  OFF       ]
-"21
-[p x LVP  =  OFF         ]
+"2642
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2642: extern volatile unsigned char SPBRG __attribute__((address(0x099)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"2562
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2562:     struct {
+[s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S99 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"2572
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2572:     struct {
+[s S100 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S100 . TXD8 . nTX8 ]
+"2577
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2577:     struct {
+[s S101 :6 `uc 1 :1 `uc 1 ]
+[n S101 . . TX8_9 ]
+"2561
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2561: typedef union {
+[u S98 `S99 1 `S100 1 `S101 1 ]
+[n S98 . . . . ]
+"2582
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2582: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0x098)));
+[v _TXSTAbits `VS98 ~T0 @X0 0 e@152 ]
+"1044
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1044:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"1054
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1054:     struct {
+[s S38 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S38 . RCD8 . RC9 ]
+"1059
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1059:     struct {
+[s S39 :6 `uc 1 :1 `uc 1 ]
+[n S39 . . nRC8 ]
+"1063
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1063:     struct {
+[s S40 :6 `uc 1 :1 `uc 1 ]
+[n S40 . . RC8_9 ]
+"1043
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1043: typedef union {
+[u S36 `S37 1 `S38 1 `S39 1 `S40 1 ]
+[n S36 . . . . . ]
+"1068
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1068: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0x018)));
+[v _RCSTAbits `VS36 ~T0 @X0 0 e@24 ]
+"1133
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"22 ./ComSerial.h
+[; ;./ComSerial.h: 22: void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+[v _division `(v ~T0 @X0 0 ef3`uc`*uc`*uc ]
 "24
-[p x BOR4V  =  BOR40V    ]
-"25
-[p x WRT  =  OFF         ]
+[; ;./ComSerial.h: 24: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+[v _divisiondecimal `(v ~T0 @X0 0 ef4`uc`*uc`*uc`*uc ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -413,210 +298,366 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"43 main.c
-[; ;main.c: 43: }SPIcontrol;
-[v _SPIcontrol `S143 ~T0 @X0 1 e ]
-"45
-[; ;main.c: 45: char dato;
-[v _dato `uc ~T0 @X0 1 e ]
-"46
-[; ;main.c: 46: uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
-[v _val1 `uc ~T0 @X0 1 e ]
-[v _val2 `uc ~T0 @X0 1 e ]
-[v _UARTdat `uc ~T0 @X0 1 e ]
-[v _UARTsend `uc ~T0 @X0 1 e ]
-[v _UARTsend2 `uc ~T0 @X0 1 e ]
-[v $root$_interrupcion `(v ~T0 @X0 0 e ]
-"52
-[; ;main.c: 52: void __attribute__((picinterrupt(("")))) interrupcion(void){
-[v _interrupcion `(v ~T1 @X0 1 ef ]
+"11 ComSerial.c
+[; ;ComSerial.c: 11: void configUART(void){
+[v _configUART `(v ~T0 @X0 1 ef ]
 {
-[e :U _interrupcion ]
+[e :U _configUART ]
 [f ]
-"53
-[; ;main.c: 53:     if(PIR1bits.RCIF){
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 146  ]
-{
-"54
-[; ;main.c: 54:         UARTdat = RCREG;
-[e = _UARTdat _RCREG ]
-"55
-[; ;main.c: 55:         if(UARTdat == '1')PORTA = 0x0F;
-[e $ ! == -> _UARTdat `ui -> 49 `ui 147  ]
-[e = _PORTA -> -> 15 `i `uc ]
-[e $U 148  ]
-"56
-[; ;main.c: 56:         else if(UARTdat == '2')PORTA = 0xF0;
-[e :U 147 ]
-[e $ ! == -> _UARTdat `ui -> 50 `ui 149  ]
-[e = _PORTA -> -> 240 `i `uc ]
-[e $U 150  ]
-"57
-[; ;main.c: 57:         else PORTA = 0;
-[e :U 149 ]
-[e = _PORTA -> -> 0 `i `uc ]
-[e :U 150 ]
-[e :U 148 ]
-"58
-[; ;main.c: 58:         PIR1bits.RCIF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:     }
-}
-[e :U 146 ]
-"60
-[; ;main.c: 60: }
-[e :UE 145 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"65
-[; ;main.c: 65: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"66
-[; ;main.c: 66:     config();
-[e ( _config ..  ]
-"67
-[; ;main.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e ( _spiInit (4 , , , . `E1473 0 . `E1481 0 . `E1485 1 . `E1489 0 ]
-"68
-[; ;main.c: 68:     while(1){
-[e :U 153 ]
-{
-"69
-[; ;main.c: 69:         PORTCbits.RC2 = 0;
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"70
-[; ;main.c: 70:         sendSPI('1');
-[e ( _sendSPI (1 -> -> 49 `ui `uc ]
-"71
-[; ;main.c: 71:         PORTB = readSPI();
-[e = _PORTB -> ( _readSPI ..  `uc ]
-"72
-[; ;main.c: 72:         UARTsend = PORTB;
-[e = _UARTsend _PORTB ]
-"73
-[; ;main.c: 73:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"75
-[; ;main.c: 75:         sendSPI('2');
-[e ( _sendSPI (1 -> -> 50 `ui `uc ]
-"76
-[; ;main.c: 76:         PORTD = readSPI();
-[e = _PORTD -> ( _readSPI ..  `uc ]
-"77
-[; ;main.c: 77:         UARTsend2 = PORTD;
-[e = _UARTsend2 _PORTD ]
-"78
-[; ;main.c: 78:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:         PORTCbits.RC2 = 1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"81
-[; ;main.c: 81:         sendString("POT1: ");
-[e ( _sendString (1 :s 1C ]
-"82
-[; ;main.c: 82:         sendhex(&UARTsend);
-[e ( _sendhex (1 &U _UARTsend ]
-"83
-[; ;main.c: 83:         sendString("\r");
-[e ( _sendString (1 :s 2C ]
-"84
-[; ;main.c: 84:         sendString("\rPOT2: ");
-[e ( _sendString (1 :s 3C ]
-"85
-[; ;main.c: 85:         sendhex(&UARTsend2);
-[e ( _sendhex (1 &U _UARTsend2 ]
-"86
-[; ;main.c: 86:         sendString("\r\r\r\r");
-[e ( _sendString (1 :s 4C ]
-"87
-[; ;main.c: 87:         _delay((unsigned long)((250)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"88
-[; ;main.c: 88:     }
-}
-[e :U 152 ]
-[e $U 153  ]
-[e :U 154 ]
-"89
-[; ;main.c: 89: }
-[e :UE 151 ]
-}
-"94
-[; ;main.c: 94: void config(void){
-[v _config `(v ~T0 @X0 1 ef ]
-{
-[e :U _config ]
-[f ]
-"96
-[; ;main.c: 96:     ANSEL = 0X00;
-[e = _ANSEL -> -> 0 `i `uc ]
-"97
-[; ;main.c: 97:     ANSELH = 0X00;
-[e = _ANSELH -> -> 0 `i `uc ]
-"98
-[; ;main.c: 98:     TRISA = 0X00;
-[e = _TRISA -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:     TRISB = 0X00;
-[e = _TRISB -> -> 0 `i `uc ]
-"101
-[; ;main.c: 101:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"102
-[; ;main.c: 102:     TRISCbits.TRISC6 = 0;
+"13
+[; ;ComSerial.c: 13:     TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:     TRISCbits.TRISC7 = 1;
+"14
+[; ;ComSerial.c: 14:     TRISCbits.TRISC7 = 1;
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"104
-[; ;main.c: 104:     TRISD = 0X00;
-[e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105:     TRISE = 0X00;
-[e = _TRISE -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:     PORTA = 0X00;
-[e = _PORTA -> -> 0 `i `uc ]
-"107
-[; ;main.c: 107:     PORTB = 0X00;
-[e = _PORTB -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     PORTC = 0X00;
-[e = _PORTC -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     PORTD = 0X00;
-[e = _PORTD -> -> 0 `i `uc ]
-"110
-[; ;main.c: 110:     PORTE = 0X00;
-[e = _PORTE -> -> 0 `i `uc ]
-"113
-[; ;main.c: 113:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"114
-[; ;main.c: 114:     OSCCONbits.SCS = 0b1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"117
-[; ;main.c: 117:     configUART();
-[e ( _configUART ..  ]
-"120
-[; ;main.c: 120:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"121
-[; ;main.c: 121:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"122
-[; ;main.c: 122:     PIE1bits.RCIE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"123
-[; ;main.c: 123: }
+"15
+[; ;ComSerial.c: 15:     SPBRG = 12;
+[e = _SPBRG -> -> 12 `i `uc ]
+"16
+[; ;ComSerial.c: 16:     TXSTAbits.BRGH = 0;
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
+"17
+[; ;ComSerial.c: 17:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+"18
+[; ;ComSerial.c: 18:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"19
+[; ;ComSerial.c: 19:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"20
+[; ;ComSerial.c: 20:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"21
+[; ;ComSerial.c: 21: }
+[e :UE 143 ]
+}
+"26
+[; ;ComSerial.c: 26: void send1dato(char dato){
+[v _send1dato `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _send1dato ]
+[v _dato `uc ~T0 @X0 1 r1 ]
+[f ]
+"27
+[; ;ComSerial.c: 27:     TXREG = dato;
+[e = _TXREG -> _dato `uc ]
+"28
+[; ;ComSerial.c: 28:     while(!TXSTAbits.TRMT);
+[e $U 145  ]
+[e :U 146 ]
+[e :U 145 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 146  ]
+[e :U 147 ]
+"29
+[; ;ComSerial.c: 29: }
+[e :UE 144 ]
+}
+"31
+[; ;ComSerial.c: 31: void sendString(unsigned char* mensaje){
+[v _sendString `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _sendString ]
+[v _mensaje `*uc ~T0 @X0 1 r1 ]
+[f ]
+"32
+[; ;ComSerial.c: 32:     while(*mensaje != 0x00){
+[e $U 149  ]
+[e :U 150 ]
+{
+"33
+[; ;ComSerial.c: 33:         send1dato(*mensaje);
+[e ( _send1dato (1 -> *U _mensaje `uc ]
+"34
+[; ;ComSerial.c: 34:         mensaje ++;
+[e ++ _mensaje * -> -> 1 `i `x -> -> # *U _mensaje `i `x ]
+"35
+[; ;ComSerial.c: 35:     }
+}
+[e :U 149 ]
+"32
+[; ;ComSerial.c: 32:     while(*mensaje != 0x00){
+[e $ != -> *U _mensaje `i -> 0 `i 150  ]
+[e :U 151 ]
+"37
+[; ;ComSerial.c: 37: }
+[e :UE 148 ]
+}
+"39
+[; ;ComSerial.c: 39: void sendfloat(const float valor){
+[v _sendfloat `(v ~T0 @X0 1 ef1`Cf ]
+{
+[e :U _sendfloat ]
+[v _valor `Cf ~T0 @X0 1 r1 ]
+[f ]
+"40
+[; ;ComSerial.c: 40:     uint8_t entero;
+[v _entero `uc ~T0 @X0 1 a ]
+"41
+[; ;ComSerial.c: 41:     uint8_t decimal;
+[v _decimal `uc ~T0 @X0 1 a ]
+"42
+[; ;ComSerial.c: 42:     float temp;
+[v _temp `f ~T0 @X0 1 a ]
+"43
+[; ;ComSerial.c: 43:     unsigned char digdecimal[1];
+[v _digdecimal `uc ~T0 @X0 -> -> 1 `i `ux a ]
+"49
+[; ;ComSerial.c: 49:     entero = valor;
+[e = _entero -> _valor `uc ]
+"50
+[; ;ComSerial.c: 50:     temp = valor-(float)entero;
+[e = _temp - _valor -> _entero `f ]
+"51
+[; ;ComSerial.c: 51:     decimal = (temp*100);
+[e = _decimal -> * _temp -> -> 100 `i `f `uc ]
+"52
+[; ;ComSerial.c: 52:     division(decimal,&digdecimal[0],&digdecimal[1]);
+[e ( _division (3 , , _decimal &U *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux &U *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"53
+[; ;ComSerial.c: 53:     send1dato(entero+48);
+[e ( _send1dato (1 -> + -> _entero `i -> 48 `i `uc ]
+"54
+[; ;ComSerial.c: 54:     sendString(".");
+[e ( _sendString (1 :s 1C ]
+"55
+[; ;ComSerial.c: 55:     send1dato(digdecimal[1]+48);
+[e ( _send1dato (1 -> + -> *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux `i -> 48 `i `uc ]
+"56
+[; ;ComSerial.c: 56:     send1dato(digdecimal[0]+48);
+[e ( _send1dato (1 -> + -> *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux `i -> 48 `i `uc ]
+"57
+[; ;ComSerial.c: 57:     sendString("\r");
+[e ( _sendString (1 :s 2C ]
+"59
+[; ;ComSerial.c: 59: }
+[e :UE 152 ]
+}
+"61
+[; ;ComSerial.c: 61: void floTochar(const float valor,unsigned char *conv){
+[v _floTochar `(v ~T0 @X0 1 ef2`Cf`*uc ]
+{
+[e :U _floTochar ]
+[v _valor `Cf ~T0 @X0 1 r1 ]
+[v _conv `*uc ~T0 @X0 1 r2 ]
+[f ]
+"62
+[; ;ComSerial.c: 62:     uint8_t entero;
+[v _entero `uc ~T0 @X0 1 a ]
+"63
+[; ;ComSerial.c: 63:     uint8_t decimal;
+[v _decimal `uc ~T0 @X0 1 a ]
+"64
+[; ;ComSerial.c: 64:     float temp;
+[v _temp `f ~T0 @X0 1 a ]
+"65
+[; ;ComSerial.c: 65:     unsigned char digdecimal[2];
+[v _digdecimal `uc ~T0 @X0 -> 2 `i a ]
+"71
+[; ;ComSerial.c: 71:     entero = valor;
+[e = _entero -> _valor `uc ]
+"72
+[; ;ComSerial.c: 72:     digdecimal[2] = entero;
+[e = *U + &U _digdecimal * -> -> -> 2 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux _entero ]
+"73
+[; ;ComSerial.c: 73:     temp = valor-(float)entero;
+[e = _temp - _valor -> _entero `f ]
+"74
+[; ;ComSerial.c: 74:     decimal = (temp*100);
+[e = _decimal -> * _temp -> -> 100 `i `f `uc ]
+"75
+[; ;ComSerial.c: 75:     division(decimal,&digdecimal[0],&digdecimal[1]);
+[e ( _division (3 , , _decimal &U *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux &U *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"76
+[; ;ComSerial.c: 76:     conv[0] = entero;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _entero ]
+"77
+[; ;ComSerial.c: 77:     conv[1] = digdecimal[1];
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"78
+[; ;ComSerial.c: 78:     conv[2] = digdecimal[0];
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
+"79
+[; ;ComSerial.c: 79: }
+[e :UE 153 ]
+}
+"81
+[; ;ComSerial.c: 81: void sendhex(uint8_t *valor){
+[v _sendhex `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _sendhex ]
+[v _valor `*uc ~T0 @X0 1 r1 ]
+[f ]
+"82
+[; ;ComSerial.c: 82:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
+"83
+[; ;ComSerial.c: 83:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"84
+[; ;ComSerial.c: 84:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"86
+[; ;ComSerial.c: 86:     divisiondecimal(*valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , *U _valor &U _unidad &U _decena &U _centena ]
+"87
+[; ;ComSerial.c: 87:     send1dato(centena +48);
+[e ( _send1dato (1 -> + -> _centena `i -> 48 `i `uc ]
+"88
+[; ;ComSerial.c: 88:     send1dato(decena +48);
+[e ( _send1dato (1 -> + -> _decena `i -> 48 `i `uc ]
+"89
+[; ;ComSerial.c: 89:     send1dato(unidad +48);
+[e ( _send1dato (1 -> + -> _unidad `i -> 48 `i `uc ]
+"90
+[; ;ComSerial.c: 90: }
+[e :UE 154 ]
+}
+"92
+[; ;ComSerial.c: 92: void hexTochar(uint8_t valor,unsigned char *conv){
+[v _hexTochar `(v ~T0 @X0 1 ef2`uc`*uc ]
+{
+[e :U _hexTochar ]
+[v _valor `uc ~T0 @X0 1 r1 ]
+[v _conv `*uc ~T0 @X0 1 r2 ]
+[f ]
+"93
+[; ;ComSerial.c: 93:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
+"94
+[; ;ComSerial.c: 94:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"95
+[; ;ComSerial.c: 95:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"97
+[; ;ComSerial.c: 97:     divisiondecimal(valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
+"98
+[; ;ComSerial.c: 98:     conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"99
+[; ;ComSerial.c: 99:     conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"100
+[; ;ComSerial.c: 100:     conv[2]= centena;
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
+"102
+[; ;ComSerial.c: 102: }
 [e :UE 155 ]
 }
-[a 3C 13 80 79 84 50 58 32 0 ]
-[a 1C 80 79 84 49 58 32 0 ]
-[a 4C 13 13 13 13 0 ]
+"106
+[; ;ComSerial.c: 106: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+[v _division `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
+{
+[e :U _division ]
+[v _conteo `uc ~T0 @X0 1 r1 ]
+[v _un `*uc ~T0 @X0 1 r2 ]
+[v _dec `*uc ~T0 @X0 1 r3 ]
+[f ]
+"107
+[; ;ComSerial.c: 107:     uint8_t div = conteo;
+[v _div `uc ~T0 @X0 1 a ]
+[e = _div _conteo ]
+"108
+[; ;ComSerial.c: 108:     *un = 0;
+[e = *U _un -> -> 0 `i `uc ]
+"109
+[; ;ComSerial.c: 109:     *dec = 0;
+[e = *U _dec -> -> 0 `i `uc ]
+"112
+[; ;ComSerial.c: 112:     while (div >= 10){
+[e $U 157  ]
+[e :U 158 ]
+{
+"113
+[; ;ComSerial.c: 113:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"114
+[; ;ComSerial.c: 114:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"115
+[; ;ComSerial.c: 115:     }
+}
+[e :U 157 ]
+"112
+[; ;ComSerial.c: 112:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 158  ]
+[e :U 159 ]
+"117
+[; ;ComSerial.c: 117:     *un = div;
+[e = *U _un _div ]
+"118
+[; ;ComSerial.c: 118: }
+[e :UE 156 ]
+}
+"120
+[; ;ComSerial.c: 120: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+[v _divisiondecimal `(v ~T0 @X0 1 ef4`uc`*uc`*uc`*uc ]
+{
+[e :U _divisiondecimal ]
+[v _conteo `uc ~T0 @X0 1 r1 ]
+[v _un `*uc ~T0 @X0 1 r2 ]
+[v _dec `*uc ~T0 @X0 1 r3 ]
+[v _cent `*uc ~T0 @X0 1 r4 ]
+[f ]
+"121
+[; ;ComSerial.c: 121:     uint8_t div = conteo;
+[v _div `uc ~T0 @X0 1 a ]
+[e = _div _conteo ]
+"122
+[; ;ComSerial.c: 122:     *un = 0;
+[e = *U _un -> -> 0 `i `uc ]
+"123
+[; ;ComSerial.c: 123:     *dec = 0;
+[e = *U _dec -> -> 0 `i `uc ]
+"124
+[; ;ComSerial.c: 124:     *cent = 0;
+[e = *U _cent -> -> 0 `i `uc ]
+"127
+[; ;ComSerial.c: 127:     while(div >= 100){
+[e $U 161  ]
+[e :U 162 ]
+{
+"128
+[; ;ComSerial.c: 128:     *cent = div/100;
+[e = *U _cent -> / -> _div `i -> 100 `i `uc ]
+"129
+[; ;ComSerial.c: 129:     div = div - (*cent)*(100);
+[e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
+"130
+[; ;ComSerial.c: 130:     }
+}
+[e :U 161 ]
+"127
+[; ;ComSerial.c: 127:     while(div >= 100){
+[e $ >= -> _div `i -> 100 `i 162  ]
+[e :U 163 ]
+"132
+[; ;ComSerial.c: 132:     while (div >= 10){
+[e $U 164  ]
+[e :U 165 ]
+{
+"133
+[; ;ComSerial.c: 133:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"134
+[; ;ComSerial.c: 134:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"135
+[; ;ComSerial.c: 135:     }
+}
+[e :U 164 ]
+"132
+[; ;ComSerial.c: 132:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 165  ]
+[e :U 166 ]
+"137
+[; ;ComSerial.c: 137:     *un = div;
+[e = *U _un _div ]
+"138
+[; ;ComSerial.c: 138: }
+[e :UE 160 ]
+}
+[a 1C 46 0 ]
 [a 2C 13 0 ]
