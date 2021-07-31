@@ -1,12 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"39 main.c
-[; ;main.c: 39:     struct{
-[s S144 :1 `uc 1 :4 `uc 1 ]
-[n S144 . enviar dato ]
-"38
-[; ;main.c: 38: union DATOS{
-[u S143 `S144 1 ]
-[n S143 DATOS . ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "543 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
@@ -20,18 +12,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "553
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
 [v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
-"1140
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 "166
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"1140
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 [p mainexit ]
-"48 main.c
-[; ;main.c: 48: void config(void);
+"40 main.c
+[; ;main.c: 40: void config(void);
 [v _config `(v ~T0 @X0 0 ef ]
-"67
-[; ;main.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"56
+[; ;main.c: 56:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1473 32 33 34 35 36 37 .. ]
 [n E1473 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1481 0 128 .. ]
@@ -57,25 +49,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49 ./SPI.h
 [; ;./SPI.h: 49: void sendSPI(char valor);
 [v _sendSPI `(v ~T0 @X0 0 ef1`uc ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"50 ./SPI.h
+"50
 [; ;./SPI.h: 50: char readSPI(void);
 [v _readSPI `(uc ~T0 @X0 0 ef ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"17 ./ComSerial.h
-[; ;./ComSerial.h: 17: void sendString(unsigned char *mensaje);
-[v _sendString `(v ~T0 @X0 0 ef1`*uc ]
-"26
+"26 ./ComSerial.h
 [; ;./ComSerial.h: 26: void sendhex(uint8_t *valor);
 [v _sendhex `(v ~T0 @X0 0 ef1`*uc ]
+"17
+[; ;./ComSerial.h: 17: void sendString(unsigned char *mensaje);
+[v _sendString `(v ~T0 @X0 0 ef1`*uc ]
 "3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -105,9 +91,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1664
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
 [v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "290
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "414
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
@@ -413,210 +405,173 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"43 main.c
-[; ;main.c: 43: }SPIcontrol;
-[v _SPIcontrol `S143 ~T0 @X0 1 e ]
-"45
-[; ;main.c: 45: char dato;
-[v _dato `uc ~T0 @X0 1 e ]
-"46
-[; ;main.c: 46: uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
+"38 main.c
+[; ;main.c: 38: uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
 [v _val1 `uc ~T0 @X0 1 e ]
 [v _val2 `uc ~T0 @X0 1 e ]
 [v _UARTdat `uc ~T0 @X0 1 e ]
 [v _UARTsend `uc ~T0 @X0 1 e ]
 [v _UARTsend2 `uc ~T0 @X0 1 e ]
 [v $root$_interrupcion `(v ~T0 @X0 0 e ]
-"52
-[; ;main.c: 52: void __attribute__((picinterrupt(("")))) interrupcion(void){
+"44
+[; ;main.c: 44: void __attribute__((picinterrupt(("")))) interrupcion(void){
 [v _interrupcion `(v ~T1 @X0 1 ef ]
 {
 [e :U _interrupcion ]
 [f ]
-"53
-[; ;main.c: 53:     if(PIR1bits.RCIF){
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 146  ]
+"45
+[; ;main.c: 45:     if(PIR1bits.RCIF){
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 144  ]
 {
-"54
-[; ;main.c: 54:         UARTdat = RCREG;
-[e = _UARTdat _RCREG ]
-"55
-[; ;main.c: 55:         if(UARTdat == '1')PORTA = 0x0F;
-[e $ ! == -> _UARTdat `ui -> 49 `ui 147  ]
-[e = _PORTA -> -> 15 `i `uc ]
-[e $U 148  ]
-"56
-[; ;main.c: 56:         else if(UARTdat == '2')PORTA = 0xF0;
-[e :U 147 ]
-[e $ ! == -> _UARTdat `ui -> 50 `ui 149  ]
-[e = _PORTA -> -> 240 `i `uc ]
-[e $U 150  ]
-"57
-[; ;main.c: 57:         else PORTA = 0;
-[e :U 149 ]
-[e = _PORTA -> -> 0 `i `uc ]
-[e :U 150 ]
-[e :U 148 ]
-"58
-[; ;main.c: 58:         PIR1bits.RCIF = 0;
+"46
+[; ;main.c: 46:         PORTA = RCREG;
+[e = _PORTA _RCREG ]
+"47
+[; ;main.c: 47:         PIR1bits.RCIF = 0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:     }
+"48
+[; ;main.c: 48:     }
 }
-[e :U 146 ]
-"60
-[; ;main.c: 60: }
-[e :UE 145 ]
+[e :U 144 ]
+"49
+[; ;main.c: 49: }
+[e :UE 143 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"65
-[; ;main.c: 65: void main(void) {
+"54
+[; ;main.c: 54: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"66
-[; ;main.c: 66:     config();
+"55
+[; ;main.c: 55:     config();
 [e ( _config ..  ]
-"67
-[; ;main.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"56
+[; ;main.c: 56:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e ( _spiInit (4 , , , . `E1473 0 . `E1481 0 . `E1485 1 . `E1489 0 ]
-"68
-[; ;main.c: 68:     while(1){
-[e :U 153 ]
+"57
+[; ;main.c: 57:     while(1){
+[e :U 147 ]
 {
-"69
-[; ;main.c: 69:         PORTCbits.RC2 = 0;
+"58
+[; ;main.c: 58:         PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"70
-[; ;main.c: 70:         sendSPI('1');
+"59
+[; ;main.c: 59:         sendSPI('1');
 [e ( _sendSPI (1 -> -> 49 `ui `uc ]
-"71
-[; ;main.c: 71:         PORTB = readSPI();
-[e = _PORTB -> ( _readSPI ..  `uc ]
-"72
-[; ;main.c: 72:         UARTsend = PORTB;
-[e = _UARTsend _PORTB ]
-"73
-[; ;main.c: 73:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"61
+[; ;main.c: 61:         UARTsend = readSPI();
+[e = _UARTsend -> ( _readSPI ..  `uc ]
+"62
+[; ;main.c: 62:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"75
-[; ;main.c: 75:         sendSPI('2');
+"64
+[; ;main.c: 64:         sendSPI('2');
 [e ( _sendSPI (1 -> -> 50 `ui `uc ]
-"76
-[; ;main.c: 76:         PORTD = readSPI();
-[e = _PORTD -> ( _readSPI ..  `uc ]
-"77
-[; ;main.c: 77:         UARTsend2 = PORTD;
-[e = _UARTsend2 _PORTD ]
-"78
-[; ;main.c: 78:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"66
+[; ;main.c: 66:         UARTsend2 = readSPI();
+[e = _UARTsend2 -> ( _readSPI ..  `uc ]
+"67
+[; ;main.c: 67:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:         PORTCbits.RC2 = 1;
+"68
+[; ;main.c: 68:         PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"81
-[; ;main.c: 81:         sendString("POT1: ");
-[e ( _sendString (1 :s 1C ]
-"82
-[; ;main.c: 82:         sendhex(&UARTsend);
+"70
+[; ;main.c: 70:         sendhex(&UARTsend);
 [e ( _sendhex (1 &U _UARTsend ]
-"83
-[; ;main.c: 83:         sendString("\r");
-[e ( _sendString (1 :s 2C ]
-"84
-[; ;main.c: 84:         sendString("\rPOT2: ");
-[e ( _sendString (1 :s 3C ]
-"85
-[; ;main.c: 85:         sendhex(&UARTsend2);
+"71
+[; ;main.c: 71:         sendString("\n");
+[e ( _sendString (1 :s 1C ]
+"73
+[; ;main.c: 73:         sendhex(&UARTsend2);
 [e ( _sendhex (1 &U _UARTsend2 ]
-"86
-[; ;main.c: 86:         sendString("\r\r\r\r");
-[e ( _sendString (1 :s 4C ]
-"87
-[; ;main.c: 87:         _delay((unsigned long)((250)*(8000000/4000.0)));
+"74
+[; ;main.c: 74:         sendString("\n");
+[e ( _sendString (1 :s 2C ]
+"75
+[; ;main.c: 75:         _delay((unsigned long)((250)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"88
-[; ;main.c: 88:     }
+"76
+[; ;main.c: 76:     }
 }
-[e :U 152 ]
-[e $U 153  ]
-[e :U 154 ]
-"89
-[; ;main.c: 89: }
-[e :UE 151 ]
+[e :U 146 ]
+[e $U 147  ]
+[e :U 148 ]
+"77
+[; ;main.c: 77: }
+[e :UE 145 ]
 }
-"94
-[; ;main.c: 94: void config(void){
+"82
+[; ;main.c: 82: void config(void){
 [v _config `(v ~T0 @X0 1 ef ]
 {
 [e :U _config ]
 [f ]
-"96
-[; ;main.c: 96:     ANSEL = 0X00;
+"84
+[; ;main.c: 84:     ANSEL = 0X00;
 [e = _ANSEL -> -> 0 `i `uc ]
-"97
-[; ;main.c: 97:     ANSELH = 0X00;
+"85
+[; ;main.c: 85:     ANSELH = 0X00;
 [e = _ANSELH -> -> 0 `i `uc ]
-"98
-[; ;main.c: 98:     TRISA = 0X00;
+"86
+[; ;main.c: 86:     TRISA = 0X00;
 [e = _TRISA -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:     TRISB = 0X00;
+"87
+[; ;main.c: 87:     TRISB = 0X00;
 [e = _TRISB -> -> 0 `i `uc ]
-"101
-[; ;main.c: 101:     TRISCbits.TRISC2 = 0;
+"89
+[; ;main.c: 89:     TRISCbits.TRISC2 = 0;
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"102
-[; ;main.c: 102:     TRISCbits.TRISC6 = 0;
+"90
+[; ;main.c: 90:     TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:     TRISCbits.TRISC7 = 1;
+"91
+[; ;main.c: 91:     TRISCbits.TRISC7 = 1;
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"104
-[; ;main.c: 104:     TRISD = 0X00;
+"92
+[; ;main.c: 92:     TRISD = 0X00;
 [e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105:     TRISE = 0X00;
+"93
+[; ;main.c: 93:     TRISE = 0X00;
 [e = _TRISE -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:     PORTA = 0X00;
+"94
+[; ;main.c: 94:     PORTA = 0X00;
 [e = _PORTA -> -> 0 `i `uc ]
-"107
-[; ;main.c: 107:     PORTB = 0X00;
+"95
+[; ;main.c: 95:     PORTB = 0X00;
 [e = _PORTB -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     PORTC = 0X00;
+"96
+[; ;main.c: 96:     PORTC = 0X00;
 [e = _PORTC -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     PORTD = 0X00;
+"97
+[; ;main.c: 97:     PORTD = 0X00;
 [e = _PORTD -> -> 0 `i `uc ]
-"110
-[; ;main.c: 110:     PORTE = 0X00;
+"98
+[; ;main.c: 98:     PORTE = 0X00;
 [e = _PORTE -> -> 0 `i `uc ]
-"113
-[; ;main.c: 113:     OSCCONbits.IRCF = 0b111;
+"101
+[; ;main.c: 101:     OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"114
-[; ;main.c: 114:     OSCCONbits.SCS = 0b1;
+"102
+[; ;main.c: 102:     OSCCONbits.SCS = 0b1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"117
-[; ;main.c: 117:     configUART();
+"105
+[; ;main.c: 105:     configUART();
 [e ( _configUART ..  ]
-"120
-[; ;main.c: 120:     INTCONbits.GIE = 1;
+"108
+[; ;main.c: 108:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"121
-[; ;main.c: 121:     INTCONbits.PEIE = 1;
+"109
+[; ;main.c: 109:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"122
-[; ;main.c: 122:     PIE1bits.RCIE = 1;
+"110
+[; ;main.c: 110:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"123
-[; ;main.c: 123: }
-[e :UE 155 ]
+"111
+[; ;main.c: 111: }
+[e :UE 149 ]
 }
-[a 3C 13 80 79 84 50 58 32 0 ]
-[a 1C 80 79 84 49 58 32 0 ]
-[a 4C 13 13 13 13 0 ]
-[a 2C 13 0 ]
+[a 1C 10 0 ]
+[a 2C 10 0 ]

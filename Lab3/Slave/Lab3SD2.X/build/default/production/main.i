@@ -2835,7 +2835,7 @@ void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
 # 29 "main.c" 2
 
 # 1 "./SPI.h" 1
-# 17 "./SPI.h"
+# 18 "./SPI.h"
 typedef enum
 {
     SPI_MASTER_OSC_DIV4 = 0b00100000,

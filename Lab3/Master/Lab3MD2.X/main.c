@@ -3,7 +3,7 @@
  * File:   main.c
  * Author: Jose Alvarez (19392)
  * 
- * Hardware:
+ * Creado 28 de Julio de 2021
  * 
  */
 //******************************************************************************
@@ -35,14 +35,6 @@
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
-union DATOS{
-    struct{
-        unsigned enviar: 1; //para manejar el envio- 1bit
-        unsigned dato:   4; //dato a escribir- 4 bits
-    };    
-}SPIcontrol;
-
-char dato;
 uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
 
 void config(void);
@@ -51,10 +43,7 @@ void config(void);
 //******************************************************************************
 void __interrupt() interrupcion(void){
     if(PIR1bits.RCIF){
-        UARTdat = RCREG;
-        if(UARTdat == '1')PORTA = 0x0F;
-        else if(UARTdat == '2')PORTA = 0xF0;
-        else PORTA = 0;
+        PORTA = RCREG;
         PIR1bits.RCIF = 0;
     }
 }
@@ -68,22 +57,21 @@ void main(void) {
     while(1){
         PORTCbits.RC2 = 0;
         sendSPI('1');
-        PORTB = readSPI();
-        UARTsend = PORTB;
+        //PORTB = readSPI(); UARTsend = PORTB;
+        UARTsend = readSPI();
         __delay_ms(10);
         
         sendSPI('2');
-        PORTD = readSPI();
-        UARTsend2 = PORTD;
+        //PORTD = readSPI(); UARTsend2 = PORTD;
+        UARTsend2 = readSPI();
         __delay_ms(10);
         PORTCbits.RC2 = 1;
-        
-        sendString("POT1: ");
+        //sendString("POT1: \n");
         sendhex(&UARTsend);
-        sendString("\r");
-        sendString("\rPOT2: ");
+        sendString("\n");
+        //sendString("\rPOT2: ");
         sendhex(&UARTsend2);
-        sendString("\r\r\r\r");
+        sendString("\n");
         __delay_ms(250);
     }
 }

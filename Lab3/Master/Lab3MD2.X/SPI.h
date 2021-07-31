@@ -24,25 +24,25 @@ typedef enum
     SPI_SLAVE_SS_EN      = 0b00100100,
     SPI_SLAVE_SS_DIS     = 0b00100101
 }Spi_Type;
-
+/*Valores para colocar la configuracion del uC en la comunicacion SPI*/
 typedef enum
 {
     SPI_DATA_SAMPLE_MIDDLE   = 0b00000000,
     SPI_DATA_SAMPLE_END      = 0b10000000
 }Spi_Data_Sample;
-
+/*Valores para el muestreo de los datos*/
 typedef enum
 {
     SPI_CLOCK_IDLE_HIGH  = 0b00010000,
     SPI_CLOCK_IDLE_LOW   = 0b00000000        
 }Spi_Clock_Idle;
-
+/*Valores para el estado estacionario del reloj, estado sin activarse*/
 typedef enum
 {
     SPI_IDLE_2_ACTIVE    = 0b00000000,
     SPI_ACTIVE_2_IDLE    = 0b01000000
 }Spi_Transmit_Edge;
-
+/*Valor para el flanco en el cual se transmite el dato*/
 
 void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 

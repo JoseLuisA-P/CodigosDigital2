@@ -2535,15 +2535,18 @@ void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockI
     if(sType & 0b00000100)
     {
         SSPSTAT = sTransmitEdge;
+
         TRISC3 = 1;
     }
     else
     {
         SSPSTAT = sDataSample | sTransmitEdge;
+
         TRISC3 = 0;
     }
 
     SSPCON = sType | sClockIdle;
+
 }
 
 void sendSPI(char valor){

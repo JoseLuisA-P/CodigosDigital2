@@ -321,68 +321,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;SPI.c: 18:         SSPSTAT = sTransmitEdge;
 [e = _SSPSTAT -> _sTransmitEdge `uc ]
-"19
-[; ;SPI.c: 19:         TRISC3 = 1;
-[e = _TRISC3 -> -> 1 `i `b ]
 "20
-[; ;SPI.c: 20:     }
+[; ;SPI.c: 20:         TRISC3 = 1;
+[e = _TRISC3 -> -> 1 `i `b ]
+"21
+[; ;SPI.c: 21:     }
 }
 [e $U 140  ]
-"21
-[; ;SPI.c: 21:     else
-[e :U 139 ]
 "22
-[; ;SPI.c: 22:     {
-{
+[; ;SPI.c: 22:     else
+[e :U 139 ]
 "23
-[; ;SPI.c: 23:         SSPSTAT = sDataSample | sTransmitEdge;
-[e = _SSPSTAT -> | -> _sDataSample `ui -> _sTransmitEdge `ui `uc ]
+[; ;SPI.c: 23:     {
+{
 "24
-[; ;SPI.c: 24:         TRISC3 = 0;
+[; ;SPI.c: 24:         SSPSTAT = sDataSample | sTransmitEdge;
+[e = _SSPSTAT -> | -> _sDataSample `ui -> _sTransmitEdge `ui `uc ]
+"26
+[; ;SPI.c: 26:         TRISC3 = 0;
 [e = _TRISC3 -> -> 0 `i `b ]
-"25
-[; ;SPI.c: 25:     }
+"27
+[; ;SPI.c: 27:     }
 }
 [e :U 140 ]
-"27
-[; ;SPI.c: 27:     SSPCON = sType | sClockIdle;
+"29
+[; ;SPI.c: 29:     SSPCON = sType | sClockIdle;
 [e = _SSPCON -> | -> _sType `ui -> _sClockIdle `ui `uc ]
-"28
-[; ;SPI.c: 28: }
+"31
+[; ;SPI.c: 31: }
 [e :UE 138 ]
 }
-"30
-[; ;SPI.c: 30: void sendSPI(char valor){
+"33
+[; ;SPI.c: 33: void sendSPI(char valor){
 [v _sendSPI `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _sendSPI ]
 [v _valor `uc ~T0 @X0 1 r1 ]
 [f ]
-"31
-[; ;SPI.c: 31:     SSPBUF = valor;
+"34
+[; ;SPI.c: 34:     SSPBUF = valor;
 [e = _SSPBUF -> _valor `uc ]
-"32
-[; ;SPI.c: 32: }
+"35
+[; ;SPI.c: 35: }
 [e :UE 141 ]
 }
-"34
-[; ;SPI.c: 34: char readSPI(void){
+"37
+[; ;SPI.c: 37: char readSPI(void){
 [v _readSPI `(uc ~T0 @X0 1 ef ]
 {
 [e :U _readSPI ]
 [f ]
-"35
-[; ;SPI.c: 35:     while(!SSPSTATbits.BF);
+"38
+[; ;SPI.c: 38:     while(!SSPSTATbits.BF);
 [e $U 143  ]
 [e :U 144 ]
 [e :U 143 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 144  ]
 [e :U 145 ]
-"36
-[; ;SPI.c: 36:     return(SSPBUF);
+"39
+[; ;SPI.c: 39:     return(SSPBUF);
 [e ) -> _SSPBUF `uc ]
 [e $UE 142  ]
-"37
-[; ;SPI.c: 37: }
+"40
+[; ;SPI.c: 40: }
 [e :UE 142 ]
 }

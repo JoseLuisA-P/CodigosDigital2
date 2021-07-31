@@ -53,11 +53,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "482
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"49 ./SPI.h
-[; ;./SPI.h: 49: char readSPI(void);
+"50 ./SPI.h
+[; ;./SPI.h: 50: char readSPI(void);
 [v _readSPI `(uc ~T0 @X0 0 ef ]
-"48
-[; ;./SPI.h: 48: void sendSPI(char valor);
+"49
+[; ;./SPI.h: 49: void sendSPI(char valor);
 [v _sendSPI `(v ~T0 @X0 0 ef1`uc ]
 [p mainexit ]
 "39 main.c
@@ -73,8 +73,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E1492 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
 [c E1496 0 64 .. ]
 [n E1496 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
-"46 ./SPI.h
-[; ;./SPI.h: 46: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+"47 ./SPI.h
+[; ;./SPI.h: 47: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 [v _spiInit `(v ~T0 @X0 0 ef4`E1480`E1488`E1492`E1496 ]
 "228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));

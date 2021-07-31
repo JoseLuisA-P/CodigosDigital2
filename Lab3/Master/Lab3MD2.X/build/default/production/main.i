@@ -2890,14 +2890,6 @@ void hexTochar(uint8_t valor,unsigned char *conv);
 
 
 
-union DATOS{
-    struct{
-        unsigned enviar: 1;
-        unsigned dato: 4;
-    };
-}SPIcontrol;
-
-char dato;
 uint8_t val1,val2,UARTdat,UARTsend,UARTsend2;
 
 void config(void);
@@ -2906,10 +2898,7 @@ void config(void);
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
     if(PIR1bits.RCIF){
-        UARTdat = RCREG;
-        if(UARTdat == '1')PORTA = 0x0F;
-        else if(UARTdat == '2')PORTA = 0xF0;
-        else PORTA = 0;
+        PORTA = RCREG;
         PIR1bits.RCIF = 0;
     }
 }
@@ -2923,22 +2912,21 @@ void main(void) {
     while(1){
         PORTCbits.RC2 = 0;
         sendSPI('1');
-        PORTB = readSPI();
-        UARTsend = PORTB;
+
+        UARTsend = readSPI();
         _delay((unsigned long)((10)*(8000000/4000.0)));
 
         sendSPI('2');
-        PORTD = readSPI();
-        UARTsend2 = PORTD;
+
+        UARTsend2 = readSPI();
         _delay((unsigned long)((10)*(8000000/4000.0)));
         PORTCbits.RC2 = 1;
 
-        sendString("POT1: ");
         sendhex(&UARTsend);
-        sendString("\r");
-        sendString("\rPOT2: ");
+        sendString("\n");
+
         sendhex(&UARTsend2);
-        sendString("\r\r\r\r");
+        sendString("\n");
         _delay((unsigned long)((250)*(8000000/4000.0)));
     }
 }
