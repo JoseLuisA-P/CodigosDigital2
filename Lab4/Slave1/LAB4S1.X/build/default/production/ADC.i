@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,24 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
+# 1 "ADC.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2504,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 27 "main.c" 2
+# 1 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 28 "main.c" 2
+# 2 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 29 "main.c" 2
+# 3 "ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,34 +2806,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 30 "main.c" 2
-
-# 1 "./I2C.h" 1
-# 10 "./I2C.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "./I2C.h" 2
-# 20 "./I2C.h"
-void MasterInit_I2C(unsigned long frec);
-
-void SlaveInit_I2C(uint8_t address);
-
-
-
-void waitCondition(void);
-
-
-
-
-
-
-void MasterStart_I2C(void);
-
-void MasterStop_I2C(void);
-
-void MasterSend_I2C(uint8_t dato);
-
-void MasterReceive_I2C(uint8_t *valor);
-# 31 "main.c" 2
+# 4 "ADC.c" 2
 
 # 1 "./ADC.h" 1
 # 14 "./ADC.h"
@@ -2859,96 +2815,50 @@ void ADCconfig(uint8_t canal, uint8_t just);
 
 
 void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower);
-# 32 "main.c" 2
+# 5 "ADC.c" 2
 
 
 
 
 
-
-uint8_t clean;
-uint8_t DATA;
-void config(void);
+void ADCconfig(uint8_t canal, uint8_t just){
 
 
 
-void __attribute__((picinterrupt(("")))) interrupcion(void){
 
-    if(PIR1bits.ADIF){
-        DATA = ADRESH;
-        PIR1bits.ADIF = 0;
+    switch(OSCCONbits.IRCF){
+        case 0b100:
+            ADCON0bits.ADCS = 0b000;
+            break;
+        case 0b110:
+            ADCON0bits.ADCS = 0b001;
+            break;
+        case 0b111:
+            ADCON0bits.ADCS = 0b010;
+            break;
+        default:
+            ADCON0bits.ADCS = 0b11;
+            break;
     }
-
-    if(PIR1bits.SSPIF){
-
-        SSPCONbits.CKP = 0;
-
-        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
-            clean = SSPBUF;
-            SSPCONbits.SSPOV = 0;
-            SSPCONbits.WCOL = 0;
-            SSPCONbits.CKP = 1;
-        }
-
-        if(!SSPSTATbits.R && !SSPSTATbits.D){
-            clean = SSPBUF;
-            SSPCONbits.CKP = 1;
-            while(!SSPSTATbits.BF);
-            PORTB = SSPBUF;
-            _delay((unsigned long)((1)*(8000000/4000.0)));
-        }
-
-        else if(SSPSTATbits.R && !SSPSTATbits.D){
-            clean = SSPBUF;
-            SSPSTATbits.BF = 0;
-            SSPBUF = DATA;
-            SSPCONbits.CKP = 1;
-            _delay((unsigned long)((1)*(8000000/4000.0)));
-            while(SSPSTATbits.BF);
-        }
-
-        PIR1bits.SSPIF = 0;
-
-    }
-
+    ADCON0bits.CHS = canal;
+    ADCON0bits.GO = 0b0;
+    ADCON0bits.ADON = 0b1;
+    ADCON1bits.ADFM = just;
+    ADCON1bits.VCFG1 = 0b0;
+    ADCON1bits.VCFG0 = 0b0;
 }
 
 
 
 
-void main(void) {
-    config();
-    while(1){
-        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-    }
-}
+void CONVhexa(uint8_t *valor, uint8_t *upper, uint8_t *lower){
 
 
 
 
-void config(void){
-    ANSEL = 0X01;
-    ANSELH = 0X00;
-    TRISA = 0X01;
-    TRISB = 0X00;
-    TRISD = 0X00;
-    PORTA = 0X00;
-    PORTB = 0X00;
-    PORTD = 0X00;
-
-
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
-
-    ADCconfig(0,0);
-
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
-    PIR1bits.SSPIF = 0;
-    PIE1bits.SSPIE = 1;
-
-    SlaveInit_I2C(0X20);
+    uint8_t temp;
+    temp = *valor;
+    *lower = (*valor & 0x0F);
+    temp = temp>>4;
+    *upper = (temp & 0x0F);
 }

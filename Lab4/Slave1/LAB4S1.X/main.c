@@ -43,6 +43,11 @@ void config(void);
 //******************************************************************************
 void __interrupt() interrupcion(void){
     
+    if(PIR1bits.ADIF){
+        DATA = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
+    
     if(PIR1bits.SSPIF){
     
         SSPCONbits.CKP = 0; //mantiene el clock en 0
@@ -83,7 +88,8 @@ void __interrupt() interrupcion(void){
 void main(void) {
     config();
     while(1){
-   
+        if(!ADCON0bits.GO)ADCON0bits.GO = 1;
+        __delay_ms(10);
     }
 }
 
@@ -100,10 +106,16 @@ void config(void){
     PORTB =     0X00;
     PORTD =     0X00;
     
-    ADCconfig(0,0);
+    //Configuracion del oscilador
+    OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
+    OSCCONbits.SCS = 0b1;
     
-    INTCONbits.GIE = 1; //Interrupciones usadas por el I2C
+    ADCconfig(0,0); //canal 0 y justificado a la izquierda
+    
+    INTCONbits.GIE = 1; //Interrupciones usadas por el I2C y ADC
     INTCONbits.PEIE = 1;
+    PIR1bits.ADIF = 0;
+    PIE1bits.ADIE = 1;
     PIR1bits.SSPIF = 0;
     PIE1bits.SSPIE = 1;
     
