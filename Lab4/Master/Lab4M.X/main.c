@@ -36,12 +36,16 @@
 //  Variables y prototipos de funciones
 //******************************************************************************
 uint8_t DatS1;
+uint8_t DatS2;
 float lect1;
 unsigned char disp1[3];
+unsigned char disp2[3];
 
 void config(void);
 void floTochar(const float valor,unsigned char *conv);
+void hexTochar(uint8_t valor,unsigned char *conv);
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
@@ -56,16 +60,24 @@ void main(void) {
     config();
     initLCD();
     while(1){  
+        //Pedir dato al slave 1
         MasterStart_I2C();//Inicia la comunicacion
         MasterSend_I2C(0X21);//direccion del que se va a leer
         MasterReceive_I2C(&DatS1);
         MasterStop_I2C();//termina la comunicacion
         __delay_ms(100);
+        //pedir dato al slave 2
+        MasterStart_I2C();//Inicia la comunicacion
+        MasterSend_I2C(0X31);//direccion del que se va a leer
+        MasterReceive_I2C(&DatS2);
+        MasterStop_I2C();//termina la comunicacion
+        __delay_ms(100);
+        
         //PORTB = DatS1; //observar que si funciona
         lect1 = (float)(0.01961)*(DatS1);//pasar el valor leido a flotante
-        __delay_ms(1);
         //despliegue de valores luego de la lectura
         floTochar(lect1,&disp1);
+        hexTochar(DatS2,&disp2);
         cursorLCD(1,1);
         LCDstring("S1:   S2:   S3:");
         cursorLCD(2,1);
@@ -74,6 +86,10 @@ void main(void) {
         dispCHAR(disp1[1]+48);
         dispCHAR(disp1[2]+48);
         dispCHAR('V');
+        cursorLCD(2,7);
+        dispCHAR(disp2[2]+48);
+        dispCHAR(disp2[1]+48);
+        dispCHAR(disp2[0]+48);
     }
 }
 
@@ -91,6 +107,10 @@ void config(void){
     PORTB =     0X00;
     PORTD =     0X00;
     PORTE =     0X00;
+    
+    //Configuracion del oscilador
+    OSCCONbits.IRCF = 0b111; //oscilador a 8Mhz
+    OSCCONbits.SCS = 0b1;
     
     MasterInit_I2C(100000); //inicializado a 100KHz, frec estandar
 }
@@ -122,6 +142,38 @@ void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
     *un =   0;
     *dec =  0;
     //modifica los valores de las variables asignadas de forma inmediata
+    
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+    
+    *un = div;
+}
+
+void hexTochar(uint8_t valor,unsigned char *conv){ 
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+    
+    divisiondecimal(valor,&unidad,&decena,&centena);
+    conv[0]= unidad;
+    conv[1]= decena;
+    conv[2]= centena;
+
+}
+
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+    uint8_t div = conteo;
+    *un =   0;
+    *dec =  0;
+    *cent = 0;
+    //modifica los valores de las variables asignadas de forma inmediata
+    
+    while(div >= 100){
+    *cent = div/100;
+    div = div - (*cent)*(100);
+    }
     
     while (div >= 10){
     *dec = div/10;

@@ -2852,42 +2852,64 @@ void MasterSend_I2C(uint8_t dato);
 void MasterReceive_I2C(uint8_t *valor);
 # 31 "main.c" 2
 
-# 1 "./LCDD2.h" 1
-# 17 "./LCDD2.h"
-void initLCD(void);
-
-
-void dispCHAR(char b);
-
-void cursorLCD(uint8_t fila, uint8_t columna);
-
-void comandoLCD(uint8_t cmd);
-
-void ClearLCD(void);
-
-void LCDstring(unsigned char* mensaje);
-# 32 "main.c" 2
 
 
 
 
 
-
-uint8_t DatS1;
-uint8_t DatS2;
-float lect1;
-unsigned char disp1[3];
-unsigned char disp2[3];
-
+uint8_t clean;
+uint8_t DATA;
 void config(void);
-void floTochar(const float valor,unsigned char *conv);
-void hexTochar(uint8_t valor,unsigned char *conv);
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 
 
 
 void __attribute__((picinterrupt(("")))) interrupcion(void){
+
+    if(PORTBbits.RB0 && INTCONbits.RBIF){
+        DATA++;
+        if(DATA>=15)DATA = 15;
+        INTCONbits.RBIF = 0;
+    }
+
+    if(PORTBbits.RB1 && INTCONbits.RBIF){
+        if(DATA<=0)DATA = 0;
+        else DATA--;
+        INTCONbits.RBIF = 0;
+    }
+
+    INTCONbits.RBIF = 0;
+
+    if(PIR1bits.SSPIF){
+
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            clean = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.R && !SSPSTATbits.D){
+            clean = SSPBUF;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            PORTB = SSPBUF;
+            _delay((unsigned long)((1)*(8000000/4000.0)));
+        }
+
+        else if(SSPSTATbits.R && !SSPSTATbits.D){
+            clean = SSPBUF;
+            SSPSTATbits.BF = 0;
+            SSPBUF = DATA;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((1)*(8000000/4000.0)));
+            while(SSPSTATbits.BF);
+        }
+
+        PIR1bits.SSPIF = 0;
+
+    }
 
 }
 
@@ -2896,38 +2918,8 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 
 void main(void) {
     config();
-    initLCD();
     while(1){
-
-        MasterStart_I2C();
-        MasterSend_I2C(0X21);
-        MasterReceive_I2C(&DatS1);
-        MasterStop_I2C();
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-        MasterStart_I2C();
-        MasterSend_I2C(0X31);
-        MasterReceive_I2C(&DatS2);
-        MasterStop_I2C();
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-        lect1 = (float)(0.01961)*(DatS1);
-
-        floTochar(lect1,&disp1);
-        hexTochar(DatS2,&disp2);
-        cursorLCD(1,1);
-        LCDstring("S1:   S2:   S3:");
-        cursorLCD(2,1);
-        dispCHAR(disp1[0]+48);
-        dispCHAR('.');
-        dispCHAR(disp1[1]+48);
-        dispCHAR(disp1[2]+48);
-        dispCHAR('V');
-        cursorLCD(2,7);
-        dispCHAR(disp2[2]+48);
-        dispCHAR(disp2[1]+48);
-        dispCHAR(disp2[0]+48);
+        PORTD = DATA;
     }
 }
 
@@ -2938,85 +2930,27 @@ void config(void){
     ANSEL = 0X00;
     ANSELH = 0X00;
     TRISA = 0X00;
-    TRISB = 0X00;
+    TRISB = 0X03;
     TRISD = 0X00;
-    TRISE = 0X00;
     PORTA = 0X00;
     PORTB = 0X00;
     PORTD = 0X00;
-    PORTE = 0X00;
+
+    DATA = 0;
 
 
     OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 0b1;
 
-    MasterInit_I2C(100000);
-}
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.RBIF = 0;
+    INTCONbits.RBIE = 1;
+    PIR1bits.SSPIF = 0;
+    PIE1bits.SSPIE = 1;
 
-void floTochar(const float valor,unsigned char *conv){
-    uint8_t entero;
-    uint8_t decimal;
-    float temp;
-    unsigned char digdecimal[2];
+    IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
 
-
-
-
-
-    entero = valor;
-    digdecimal[2] = entero;
-    temp = valor-(float)entero;
-    decimal = (temp*100);
-    division(decimal,&digdecimal[0],&digdecimal[1]);
-    conv[0] = entero;
-    conv[1] = digdecimal[1];
-    conv[2] = digdecimal[0];
-}
-
-
-
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
-    uint8_t div = conteo;
-    *un = 0;
-    *dec = 0;
-
-
-    while (div >= 10){
-    *dec = div/10;
-    div = div - (*dec)*(10);
-    }
-
-    *un = div;
-}
-
-void hexTochar(uint8_t valor,unsigned char *conv){
-    uint8_t centena;
-    uint8_t decena;
-    uint8_t unidad;
-
-    divisiondecimal(valor,&unidad,&decena,&centena);
-    conv[0]= unidad;
-    conv[1]= decena;
-    conv[2]= centena;
-
-}
-
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
-    uint8_t div = conteo;
-    *un = 0;
-    *dec = 0;
-    *cent = 0;
-
-
-    while(div >= 100){
-    *cent = div/100;
-    div = div - (*cent)*(100);
-    }
-
-    while (div >= 10){
-    *dec = div/10;
-    div = div - (*dec)*(10);
-    }
-
-    *un = div;
+    SlaveInit_I2C(0X30);
 }
