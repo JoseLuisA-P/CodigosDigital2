@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LCDD2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,24 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
+# 1 "LCDD2.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2504,7 +2487,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 27 "main.c" 2
+# 1 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2603,7 +2586,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 28 "main.c" 2
+# 2 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2688,7 +2671,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 29 "main.c" 2
+# 3 "LCDD2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,34 +2806,8 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 30 "main.c" 2
+# 4 "LCDD2.c" 2
 
-# 1 "./I2C.h" 1
-# 10 "./I2C.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "./I2C.h" 2
-# 20 "./I2C.h"
-void MasterInit_I2C(unsigned long frec);
-
-void SlaveInit_I2C(uint8_t address);
-
-
-
-void waitCondition(void);
-
-
-
-
-
-
-void MasterStart_I2C(void);
-
-void MasterStop_I2C(void);
-
-void MasterSend_I2C(uint8_t dato);
-
-void MasterReceive_I2C(uint8_t *valor);
-# 31 "main.c" 2
 
 # 1 "./LCDD2.h" 1
 # 17 "./LCDD2.h"
@@ -2866,105 +2823,66 @@ void comandoLCD(uint8_t cmd);
 void ClearLCD(void);
 
 void LCDstring(unsigned char* mensaje);
-# 32 "main.c" 2
-
-
-
-
-
-
-uint8_t DatS1;
-float lect1;
-unsigned char disp1[3];
-
-void config(void);
-void floTochar(const float valor,unsigned char *conv);
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
-
-
-
-void __attribute__((picinterrupt(("")))) interrupcion(void){
-
-}
-
-
-
-
-void main(void) {
-    config();
-    initLCD();
-    while(1){
-        MasterStart_I2C();
-        MasterSend_I2C(0X21);
-        MasterReceive_I2C(&DatS1);
-        MasterStop_I2C();
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-        lect1 = (float)(0.01961)*(DatS1);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-
-        floTochar(lect1,&disp1);
-        cursorLCD(1,1);
-        LCDstring("S1:   S2:   S3:");
-        cursorLCD(2,1);
-        dispCHAR(disp1[0]+48);
-        dispCHAR('.');
-        dispCHAR(disp1[1]+48);
-        dispCHAR(disp1[2]+48);
-        dispCHAR('V');
-    }
-}
-
-
-
-
-void config(void){
-    ANSEL = 0X00;
-    ANSELH = 0X00;
-    TRISA = 0X00;
-    TRISB = 0X00;
-    TRISD = 0X00;
-    TRISE = 0X00;
-    PORTA = 0X00;
-    PORTB = 0X00;
+# 6 "LCDD2.c" 2
+# 20 "LCDD2.c"
+void initLCD(void){
+    RE0 = 0;
     PORTD = 0X00;
-    PORTE = 0X00;
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+    comandoLCD(0X30);
+    _delay((unsigned long)((5)*(8000000/4000.0)));
+    comandoLCD(0X30);
+    _delay((unsigned long)((5)*(8000000/4000.0)));
+    comandoLCD(0X30);
+    comandoLCD(0X38);
+    comandoLCD(0X06);
+    comandoLCD(0X0C);
+    comandoLCD(0X01);
 
-    MasterInit_I2C(100000);
-}
-
-void floTochar(const float valor,unsigned char *conv){
-    uint8_t entero;
-    uint8_t decimal;
-    float temp;
-    unsigned char digdecimal[2];
-
-
-
-
-
-    entero = valor;
-    digdecimal[2] = entero;
-    temp = valor-(float)entero;
-    decimal = (temp*100);
-    division(decimal,&digdecimal[0],&digdecimal[1]);
-    conv[0] = entero;
-    conv[1] = digdecimal[1];
-    conv[2] = digdecimal[0];
 }
 
 
 
-void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
-    uint8_t div = conteo;
-    *un = 0;
-    *dec = 0;
 
 
-    while (div >= 10){
-    *dec = div/10;
-    div = div - (*dec)*(10);
+void dispCHAR(char b){
+
+    RE0 = 1;
+    PORTD = b;
+    RE1 = 1;
+    _delay((unsigned long)((40)*(8000000/4000000.0)));
+    RE1 = 0;
+
+}
+
+void cursorLCD(uint8_t fila, uint8_t columna){
+    uint8_t temp;
+    if(fila == 1){
+        temp = 0X80 + columna - 1;
+        comandoLCD(temp);
     }
 
-    *un = div;
+    if(fila == 2){
+        temp = 0XC0 + columna -1;
+        comandoLCD(temp);
+    }
+}
+
+void comandoLCD(uint8_t cmd){
+    RE0 = 0;
+    PORTD = cmd;
+    RE1 = 1;
+    _delay((unsigned long)((4)*(8000000/4000.0)));
+    RE1 = 0;
+}
+
+void ClearLCD(void){
+    comandoLCD(0X01);
+}
+
+void LCDstring(unsigned char* mensaje){
+    while(*mensaje != 0x00){
+        dispCHAR(*mensaje);
+        mensaje ++;
+    }
 }

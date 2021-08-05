@@ -23,7 +23,7 @@ cstackBANK0 BANK0 1 20 20 2 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 78 78 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\s8m8.o
+$C:\Users\jalva\AppData\Local\Temp\s8ho.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -73,13 +73,13 @@ STRING 12A-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LAB4S1.X.production.o
-F cinit CODE >791:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-F cinit CODE >794:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-F cinit CODE >808:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-10 cinit CODE >809:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-11 cinit CODE >815:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-11 cinit CODE >817:C:\Users\jalva\AppData\Local\Temp\s8m8.s
-12 cinit CODE >818:C:\Users\jalva\AppData\Local\Temp\s8m8.s
+F cinit CODE >791:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+F cinit CODE >794:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+F cinit CODE >808:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+10 cinit CODE >809:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+11 cinit CODE >815:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+11 cinit CODE >817:C:\Users\jalva\AppData\Local\Temp\s8ho.s
+12 cinit CODE >818:C:\Users\jalva\AppData\Local\Temp\s8ho.s
 4 intentry CODE >44:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Slave1\LAB4S1.X\main.c
 15 text4 CODE >44:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Slave1\LAB4S1.X\main.c
 15 text4 CODE >46:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Slave1\LAB4S1.X\main.c
@@ -182,22 +182,22 @@ ADCconfig@just 74 0 COMMON 1 cstackCOMMON dist/default/production\LAB4S1.X.produ
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _DATA 78 0 COMMON 1 bssCOMMON dist/default/production\LAB4S1.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s8m8.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s8ho.o
 _main 1FC 0 CODE 0 maintext dist/default/production\LAB4S1.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s8m8.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s8ho.o
 __end_of_ADCconfig 19A 0 CODE 0 text3 dist/default/production\LAB4S1.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_ADCconfig 0 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 _ADCconfig 110 0 CODE 0 text3 dist/default/production\LAB4S1.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8m8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s8ho.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
@@ -209,15 +209,15 @@ _SSPCONbits 14 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 _SlaveInit_I2C 232 0 CODE 0 text2 dist/default/production\LAB4S1.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 __end_of_config 1FC 0 CODE 0 text1 dist/default/production\LAB4S1.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s8m8.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s8m8.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s8ho.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s8ho.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\LAB4S1.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\LAB4S1.X.production.o
 _SSPADD 93 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s8m8.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s8ho.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -261,7 +261,7 @@ __S3 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 _config 19A 0 CODE 0 text1 dist/default/production\LAB4S1.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s8m8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s8ho.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 __size_of_config 0 0 ABS 0 - dist/default/production\LAB4S1.X.production.o
 __pmaintext 1FC 0 CODE 0 maintext dist/default/production\LAB4S1.X.production.o

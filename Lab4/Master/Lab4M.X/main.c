@@ -29,13 +29,19 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "I2C.h"
+#include "LCDD2.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //******************************************************************************
 //  Variables y prototipos de funciones
 //******************************************************************************
 uint8_t DatS1;
+float lect1;
+unsigned char disp1[3];
+
 void config(void);
+void floTochar(const float valor,unsigned char *conv);
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 //******************************************************************************
 //  Rutina de interrupcion
 //******************************************************************************
@@ -48,14 +54,26 @@ void __interrupt() interrupcion(void){
 //******************************************************************************
 void main(void) {
     config();
+    initLCD();
     while(1){  
         MasterStart_I2C();//Inicia la comunicacion
         MasterSend_I2C(0X21);//direccion del que se va a leer
         MasterReceive_I2C(&DatS1);
         MasterStop_I2C();//termina la comunicacion
         __delay_ms(100);
-        
-        PORTD = DatS1;
+        //PORTB = DatS1; //observar que si funciona
+        lect1 = (float)(0.01961)*(DatS1);//pasar el valor leido a flotante
+        __delay_ms(1);
+        //despliegue de valores luego de la lectura
+        floTochar(lect1,&disp1);
+        cursorLCD(1,1);
+        LCDstring("S1:   S2:   S3:");
+        cursorLCD(2,1);
+        dispCHAR(disp1[0]+48);
+        dispCHAR('.');
+        dispCHAR(disp1[1]+48);
+        dispCHAR(disp1[2]+48);
+        dispCHAR('V');
     }
 }
 
@@ -68,9 +86,47 @@ void config(void){
     TRISA =     0X00;
     TRISB =     0X00;
     TRISD =     0X00;
+    TRISE =     0X00;
     PORTA =     0X00;
     PORTB =     0X00;
     PORTD =     0X00;
-
+    PORTE =     0X00;
+    
     MasterInit_I2C(100000); //inicializado a 100KHz, frec estandar
+}
+
+void floTochar(const float valor,unsigned char *conv){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[2];
+    /*Toma un valor tipo float y pasa su entero a una variable, el valor 
+     * restante lo opera para pasar las decimas a enteros y luego separarlos
+     * en 2 datos, para poder representarlos luego en el puerto serial enviando
+     * un caracter a la vez.
+     */
+    entero = valor;
+    digdecimal[2] = entero;
+    temp = valor-(float)entero;
+    decimal = (temp*100);
+    division(decimal,&digdecimal[0],&digdecimal[1]);
+    conv[0] = entero;
+    conv[1] = digdecimal[1];
+    conv[2] = digdecimal[0];
+}
+
+//Divisiones utilizadas para separar los valores en decimas, centesimas y 
+//unidades
+void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+    uint8_t div = conteo;
+    *un =   0;
+    *dec =  0;
+    //modifica los valores de las variables asignadas de forma inmediata
+    
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+    
+    *un = div;
 }
