@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Aug 05 13:02:38 2021
+                                                                                               Thu Aug 05 13:05:13 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -1522,8 +1522,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1508  0C80  00AE               	movwf	hexTocharNEG@valor
   1509  0C81                     l2604:
   1510                           
-  1511                           ;main.c: 197:     uint8_t centena;;main.c: 198:     uint8_t decena;;main.c: 199:     uin
-      +                          t8_t unidad;;main.c: 200:     uint8_t temporal;;main.c: 201:     if(valor <= 128){
+  1511                           ;main.c: 200:     uint8_t centena;;main.c: 201:     uint8_t decena;;main.c: 202:     uin
+      +                          t8_t unidad;;main.c: 203:     uint8_t temporal;;main.c: 204:     if(valor <= 128){
   1512  0C81  3081               	movlw	129
   1513  0C82  022E               	subwf	hexTocharNEG@valor,w
   1514  0C83  1803               	skipnc
@@ -1534,7 +1534,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1519  0C87                     u3420:
   1520  0C87                     l2606:
   1521                           
-  1522                           ;main.c: 202:         divisiondecimal(valor,&unidad,&decena,&centena);
+  1522                           ;main.c: 205:         divisiondecimal(valor,&unidad,&decena,&centena);
   1523  0C87  3030               	movlw	(low (hexTocharNEG@unidad| 0))& (0+255)
   1524  0C88  00AA               	movwf	??_hexTocharNEG
   1525  0C89  082A               	movf	??_hexTocharNEG,w
@@ -1551,7 +1551,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1536  0C94  120A  158A  262B  120A  158A  	fcall	_divisiondecimal
   1537  0C99                     l2608:
   1538                           
-  1539                           ;main.c: 203:         conv[0]= unidad;
+  1539                           ;main.c: 206:         conv[0]= unidad;
   1540  0C99  1283               	bcf	3,5	;RP0=0, select bank0
   1541  0C9A  1303               	bcf	3,6	;RP1=0, select bank0
   1542  0C9B  0830               	movf	hexTocharNEG@unidad,w
@@ -1563,7 +1563,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1548  0CA1  0080               	movwf	0
   1549  0CA2                     l2610:
   1550                           
-  1551                           ;main.c: 204:         conv[1]= decena;
+  1551                           ;main.c: 207:         conv[1]= decena;
   1552  0CA2  0831               	movf	hexTocharNEG@decena,w
   1553  0CA3  00AA               	movwf	??_hexTocharNEG
   1554  0CA4  0A29               	incf	hexTocharNEG@conv,w
@@ -1572,7 +1572,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1557  0CA7  0080               	movwf	0
   1558  0CA8                     l2612:
   1559                           
-  1560                           ;main.c: 205:         conv[2]= centena;
+  1560                           ;main.c: 208:         conv[2]= centena;
   1561  0CA8  082F               	movf	hexTocharNEG@centena,w
   1562  0CA9  00AA               	movwf	??_hexTocharNEG
   1563  0CAA  0829               	movf	hexTocharNEG@conv,w
@@ -1581,11 +1581,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1566  0CAD  082A               	movf	??_hexTocharNEG,w
   1567  0CAE  0080               	movwf	0
   1568                           
-  1569                           ;main.c: 206:     }
+  1569                           ;main.c: 209:     }
   1570  0CAF  2CDD               	goto	l103
   1571  0CB0                     l2614:
   1572                           
-  1573                           ;main.c: 208:         temporal = 256 - valor;
+  1573                           ;main.c: 211:         temporal = 256 - valor;
   1574  0CB0  082E               	movf	hexTocharNEG@valor,w
   1575  0CB1  3C00               	sublw	0
   1576  0CB2  00AA               	movwf	??_hexTocharNEG
@@ -1593,7 +1593,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1578  0CB4  00AD               	movwf	hexTocharNEG@temporal
   1579  0CB5                     l2616:
   1580                           
-  1581                           ;main.c: 209:         divisiondecimal(temporal,&unidad,&decena,&centena);
+  1581                           ;main.c: 212:         divisiondecimal(temporal,&unidad,&decena,&centena);
   1582  0CB5  3030               	movlw	(low (hexTocharNEG@unidad| 0))& (0+255)
   1583  0CB6  00AA               	movwf	??_hexTocharNEG
   1584  0CB7  082A               	movf	??_hexTocharNEG,w
@@ -1610,7 +1610,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1595  0CC2  120A  158A  262B  120A  158A  	fcall	_divisiondecimal
   1596  0CC7                     l2618:
   1597                           
-  1598                           ;main.c: 210:         conv[0]= unidad;
+  1598                           ;main.c: 213:         conv[0]= unidad;
   1599  0CC7  1283               	bcf	3,5	;RP0=0, select bank0
   1600  0CC8  1303               	bcf	3,6	;RP1=0, select bank0
   1601  0CC9  0830               	movf	hexTocharNEG@unidad,w
@@ -1622,7 +1622,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1607  0CCF  0080               	movwf	0
   1608  0CD0                     l2620:
   1609                           
-  1610                           ;main.c: 211:         conv[1]= decena;
+  1610                           ;main.c: 214:         conv[1]= decena;
   1611  0CD0  0831               	movf	hexTocharNEG@decena,w
   1612  0CD1  00AA               	movwf	??_hexTocharNEG
   1613  0CD2  0A29               	incf	hexTocharNEG@conv,w
@@ -1631,7 +1631,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1616  0CD5  0080               	movwf	0
   1617  0CD6                     l2622:
   1618                           
-  1619                           ;main.c: 212:         conv[2]= '-';
+  1619                           ;main.c: 215:         conv[2]= '-';
   1620  0CD6  302D               	movlw	45
   1621  0CD7  00AA               	movwf	??_hexTocharNEG
   1622  0CD8  0829               	movf	hexTocharNEG@conv,w
@@ -1747,7 +1747,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1731  0E2B                     __ptext4:	
   1732 ;; *************** function _divisiondecimal *****************
   1733 ;; Defined at:
-  1734 ;;		line 217 in file "main.c"
+  1734 ;;		line 220 in file "main.c"
   1735 ;; Parameters:    Size  Location     Type
   1736 ;;  conteo          1    wreg     unsigned char 
   1737 ;;  un              1    4[BANK0 ] PTR unsigned char 
@@ -1796,36 +1796,36 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1780  0E2D  00A7               	movwf	divisiondecimal@conteo
   1781  0E2E                     l2418:
   1782                           
-  1783                           ;main.c: 218:     uint8_t div = conteo;
+  1783                           ;main.c: 221:     uint8_t div = conteo;
   1784  0E2E  0827               	movf	divisiondecimal@conteo,w
   1785  0E2F  00F7               	movwf	??_divisiondecimal
   1786  0E30  0877               	movf	??_divisiondecimal,w
   1787  0E31  00A8               	movwf	divisiondecimal@div
   1788  0E32                     l2420:
   1789                           
-  1790                           ;main.c: 219:     *un = 0;
+  1790                           ;main.c: 222:     *un = 0;
   1791  0E32  0824               	movf	divisiondecimal@un,w
   1792  0E33  0084               	movwf	4
   1793  0E34  1383               	bcf	3,7	;select IRP bank0
   1794  0E35  0180               	clrf	0
   1795  0E36                     l2422:
   1796                           
-  1797                           ;main.c: 220:     *dec = 0;
+  1797                           ;main.c: 223:     *dec = 0;
   1798  0E36  0825               	movf	divisiondecimal@dec,w
   1799  0E37  0084               	movwf	4
   1800  0E38  0180               	clrf	0
   1801  0E39                     l2424:
   1802                           
-  1803                           ;main.c: 221:     *cent = 0;
+  1803                           ;main.c: 224:     *cent = 0;
   1804  0E39  0826               	movf	divisiondecimal@cent,w
   1805  0E3A  0084               	movwf	4
   1806  0E3B  0180               	clrf	0
   1807                           
-  1808                           ;main.c: 224:     while(div >= 100){
+  1808                           ;main.c: 227:     while(div >= 100){
   1809  0E3C  2E68               	goto	l2428
   1810  0E3D                     l2426:
   1811                           
-  1812                           ;main.c: 225:     *cent = div/100;
+  1812                           ;main.c: 228:     *cent = div/100;
   1813  0E3D  3064               	movlw	100
   1814  0E3E  00F2               	movwf	___awdiv@divisor
   1815  0E3F  3000               	movlw	0
@@ -1848,7 +1848,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1832  0E54  1383               	bcf	3,7	;select IRP bank0
   1833  0E55  0080               	movwf	0
   1834                           
-  1835                           ;main.c: 226:     div = div - (*cent)*(100);
+  1835                           ;main.c: 229:     div = div - (*cent)*(100);
   1836  0E56  309C               	movlw	156
   1837  0E57  00F7               	movwf	??_divisiondecimal
   1838  0E58  0877               	movf	??_divisiondecimal,w
@@ -1865,7 +1865,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1849  0E67  00A8               	movwf	divisiondecimal@div
   1850  0E68                     l2428:
   1851                           
-  1852                           ;main.c: 224:     while(div >= 100){
+  1852                           ;main.c: 227:     while(div >= 100){
   1853  0E68  3064               	movlw	100
   1854  0E69  0228               	subwf	divisiondecimal@div,w
   1855  0E6A  1803               	skipnc
@@ -1877,7 +1877,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1861  0E6E  2E9A               	goto	l2432
   1862  0E6F                     l2430:
   1863                           
-  1864                           ;main.c: 230:     *dec = div/10;
+  1864                           ;main.c: 233:     *dec = div/10;
   1865  0E6F  300A               	movlw	10
   1866  0E70  00F2               	movwf	___awdiv@divisor
   1867  0E71  3000               	movlw	0
@@ -1900,7 +1900,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1884  0E86  1383               	bcf	3,7	;select IRP bank0
   1885  0E87  0080               	movwf	0
   1886                           
-  1887                           ;main.c: 231:     div = div - (*dec)*(10);
+  1887                           ;main.c: 234:     div = div - (*dec)*(10);
   1888  0E88  30F6               	movlw	246
   1889  0E89  00F7               	movwf	??_divisiondecimal
   1890  0E8A  0877               	movf	??_divisiondecimal,w
@@ -1917,7 +1917,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1901  0E99  00A8               	movwf	divisiondecimal@div
   1902  0E9A                     l2432:
   1903                           
-  1904                           ;main.c: 229:     while (div >= 10){
+  1904                           ;main.c: 232:     while (div >= 10){
   1905  0E9A  300A               	movlw	10
   1906  0E9B  0228               	subwf	divisiondecimal@div,w
   1907  0E9C  1803               	skipnc
@@ -1928,7 +1928,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1912  0EA0                     u3040:
   1913  0EA0                     l2434:
   1914                           
-  1915                           ;main.c: 234:     *un = div;
+  1915                           ;main.c: 237:     *un = div;
   1916  0EA0  0828               	movf	divisiondecimal@div,w
   1917  0EA1  00F7               	movwf	??_divisiondecimal
   1918  0EA2  0824               	movf	divisiondecimal@un,w
@@ -6630,7 +6630,7 @@ DATA                 0      0      5A      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Aug 05 13:02:38 2021
+Symbol Table                                                                                   Thu Aug 05 13:05:13 2021
 
                          pc 0002              ___bmul@product 0074               ?_hexTocharNEG 0029  
                         l80 077F                          l86 0BA7                          l78 0645  

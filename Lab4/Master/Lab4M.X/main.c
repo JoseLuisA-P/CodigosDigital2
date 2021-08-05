@@ -114,11 +114,11 @@ void main(void) {
         dispCHAR(disp2[1]+48);
         dispCHAR(disp2[0]+48);
         cursorLCD(2,12);
-        if(DatS3<=128) dispCHAR(disp3[2]+48);
-        else dispCHAR(disp3[2]);
+        if(DatS3<=128) dispCHAR(disp3[2]+48); //si despliega el numero
+        else dispCHAR(disp3[2]); //despliega el signo menos
         dispCHAR(disp3[1]+48);
         dispCHAR(disp3[0]+48);
-        dispCHAR(223);
+        dispCHAR(223); //desplegar el ° para los °C
         dispCHAR('C');
     }
 }
@@ -194,6 +194,9 @@ void hexTochar(uint8_t valor,unsigned char *conv){
 }
 
 void hexTocharNEG (uint8_t valor,unsigned char *conv){ 
+    /*Funcion especial implementada para el sensor, donde se pueden leer los 
+     valores de temperatura positivos y negativos agregando de forma directa
+     el signo en la lectura*/
     uint8_t centena;
     uint8_t decena;
     uint8_t unidad;

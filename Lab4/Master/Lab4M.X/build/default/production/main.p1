@@ -737,67 +737,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _valor `uc ~T0 @X0 1 r1 ]
 [v _conv `*uc ~T0 @X0 1 r2 ]
 [f ]
-"197
-[; ;main.c: 197:     uint8_t centena;
-[v _centena `uc ~T0 @X0 1 a ]
-"198
-[; ;main.c: 198:     uint8_t decena;
-[v _decena `uc ~T0 @X0 1 a ]
-"199
-[; ;main.c: 199:     uint8_t unidad;
-[v _unidad `uc ~T0 @X0 1 a ]
 "200
-[; ;main.c: 200:     uint8_t temporal;
-[v _temporal `uc ~T0 @X0 1 a ]
+[; ;main.c: 200:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
 "201
-[; ;main.c: 201:     if(valor <= 128){
+[; ;main.c: 201:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"202
+[; ;main.c: 202:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"203
+[; ;main.c: 203:     uint8_t temporal;
+[v _temporal `uc ~T0 @X0 1 a ]
+"204
+[; ;main.c: 204:     if(valor <= 128){
 [e $ ! <= -> _valor `i -> 128 `i 158  ]
 {
-"202
-[; ;main.c: 202:         divisiondecimal(valor,&unidad,&decena,&centena);
-[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
-"203
-[; ;main.c: 203:         conv[0]= unidad;
-[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
-"204
-[; ;main.c: 204:         conv[1]= decena;
-[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
 "205
-[; ;main.c: 205:         conv[2]= centena;
-[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
+[; ;main.c: 205:         divisiondecimal(valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
 "206
-[; ;main.c: 206:     }
+[; ;main.c: 206:         conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"207
+[; ;main.c: 207:         conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"208
+[; ;main.c: 208:         conv[2]= centena;
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
+"209
+[; ;main.c: 209:     }
 }
 [e $U 159  ]
-"207
-[; ;main.c: 207:     else{
+"210
+[; ;main.c: 210:     else{
 [e :U 158 ]
 {
-"208
-[; ;main.c: 208:         temporal = 256 - valor;
-[e = _temporal -> - -> 256 `i -> _valor `i `uc ]
-"209
-[; ;main.c: 209:         divisiondecimal(temporal,&unidad,&decena,&centena);
-[e ( _divisiondecimal (4 , , , _temporal &U _unidad &U _decena &U _centena ]
-"210
-[; ;main.c: 210:         conv[0]= unidad;
-[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
 "211
-[; ;main.c: 211:         conv[1]= decena;
-[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+[; ;main.c: 211:         temporal = 256 - valor;
+[e = _temporal -> - -> 256 `i -> _valor `i `uc ]
 "212
-[; ;main.c: 212:         conv[2]= '-';
-[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x -> -> 45 `ui `uc ]
+[; ;main.c: 212:         divisiondecimal(temporal,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _temporal &U _unidad &U _decena &U _centena ]
 "213
-[; ;main.c: 213:     }
+[; ;main.c: 213:         conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"214
+[; ;main.c: 214:         conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"215
+[; ;main.c: 215:         conv[2]= '-';
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x -> -> 45 `ui `uc ]
+"216
+[; ;main.c: 216:     }
 }
 [e :U 159 ]
-"215
-[; ;main.c: 215: }
+"218
+[; ;main.c: 218: }
 [e :UE 157 ]
 }
-"217
-[; ;main.c: 217: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+"220
+[; ;main.c: 220: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
 [v _divisiondecimal `(v ~T0 @X0 1 ef4`uc`*uc`*uc`*uc ]
 {
 [e :U _divisiondecimal ]
@@ -806,62 +806,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dec `*uc ~T0 @X0 1 r3 ]
 [v _cent `*uc ~T0 @X0 1 r4 ]
 [f ]
-"218
-[; ;main.c: 218:     uint8_t div = conteo;
+"221
+[; ;main.c: 221:     uint8_t div = conteo;
 [v _div `uc ~T0 @X0 1 a ]
 [e = _div _conteo ]
-"219
-[; ;main.c: 219:     *un = 0;
+"222
+[; ;main.c: 222:     *un = 0;
 [e = *U _un -> -> 0 `i `uc ]
-"220
-[; ;main.c: 220:     *dec = 0;
+"223
+[; ;main.c: 223:     *dec = 0;
 [e = *U _dec -> -> 0 `i `uc ]
-"221
-[; ;main.c: 221:     *cent = 0;
-[e = *U _cent -> -> 0 `i `uc ]
 "224
-[; ;main.c: 224:     while(div >= 100){
+[; ;main.c: 224:     *cent = 0;
+[e = *U _cent -> -> 0 `i `uc ]
+"227
+[; ;main.c: 227:     while(div >= 100){
 [e $U 161  ]
 [e :U 162 ]
 {
-"225
-[; ;main.c: 225:     *cent = div/100;
+"228
+[; ;main.c: 228:     *cent = div/100;
 [e = *U _cent -> / -> _div `i -> 100 `i `uc ]
-"226
-[; ;main.c: 226:     div = div - (*cent)*(100);
+"229
+[; ;main.c: 229:     div = div - (*cent)*(100);
 [e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
-"227
-[; ;main.c: 227:     }
+"230
+[; ;main.c: 230:     }
 }
 [e :U 161 ]
-"224
-[; ;main.c: 224:     while(div >= 100){
+"227
+[; ;main.c: 227:     while(div >= 100){
 [e $ >= -> _div `i -> 100 `i 162  ]
 [e :U 163 ]
-"229
-[; ;main.c: 229:     while (div >= 10){
+"232
+[; ;main.c: 232:     while (div >= 10){
 [e $U 164  ]
 [e :U 165 ]
 {
-"230
-[; ;main.c: 230:     *dec = div/10;
+"233
+[; ;main.c: 233:     *dec = div/10;
 [e = *U _dec -> / -> _div `i -> 10 `i `uc ]
-"231
-[; ;main.c: 231:     div = div - (*dec)*(10);
+"234
+[; ;main.c: 234:     div = div - (*dec)*(10);
 [e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
-"232
-[; ;main.c: 232:     }
+"235
+[; ;main.c: 235:     }
 }
 [e :U 164 ]
-"229
-[; ;main.c: 229:     while (div >= 10){
+"232
+[; ;main.c: 232:     while (div >= 10){
 [e $ >= -> _div `i -> 10 `i 165  ]
 [e :U 166 ]
-"234
-[; ;main.c: 234:     *un = div;
+"237
+[; ;main.c: 237:     *un = div;
 [e = *U _un _div ]
-"235
-[; ;main.c: 235: }
+"238
+[; ;main.c: 238: }
 [e :UE 160 ]
 }
 [a 1C 83 49 58 32 32 32 83 50 58 32 32 32 83 51 58 0 ]

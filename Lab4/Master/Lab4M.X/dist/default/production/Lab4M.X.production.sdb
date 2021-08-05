@@ -63,7 +63,7 @@
 [v _hexTochar hexTochar `(v  1 e 1 0 ]
 "196
 [v _hexTocharNEG hexTocharNEG `(v  1 e 1 0 ]
-"217
+"220
 [v _divisiondecimal divisiondecimal `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -165,20 +165,20 @@
 [v _hexTocharNEG hexTocharNEG `(v  1 e 1 0 ]
 {
 [v hexTocharNEG@valor valor `uc  1 a 1 wreg ]
-"198
+"201
 [v hexTocharNEG@decena decena `uc  1 a 1 17 ]
-"199
+"202
 [v hexTocharNEG@unidad unidad `uc  1 a 1 16 ]
-"197
-[v hexTocharNEG@centena centena `uc  1 a 1 15 ]
 "200
+[v hexTocharNEG@centena centena `uc  1 a 1 15 ]
+"203
 [v hexTocharNEG@temporal temporal `uc  1 a 1 13 ]
 "196
 [v hexTocharNEG@valor valor `uc  1 a 1 wreg ]
 [v hexTocharNEG@conv conv `*.4uc  1 p 1 9 ]
-"201
+"204
 [v hexTocharNEG@valor valor `uc  1 a 1 14 ]
-"215
+"218
 } 0
 "184
 [v _hexTochar hexTochar `(v  1 e 1 0 ]
@@ -197,19 +197,19 @@
 [v hexTochar@valor valor `uc  1 a 1 13 ]
 "194
 } 0
-"217
+"220
 [v _divisiondecimal divisiondecimal `(v  1 e 1 0 ]
 {
 [v divisiondecimal@conteo conteo `uc  1 a 1 wreg ]
-"218
+"221
 [v divisiondecimal@div div `uc  1 a 1 8 ]
-"217
+"220
 [v divisiondecimal@conteo conteo `uc  1 a 1 wreg ]
 [v divisiondecimal@un un `*.4uc  1 p 1 4 ]
 [v divisiondecimal@dec dec `*.4uc  1 p 1 5 ]
 [v divisiondecimal@cent cent `*.4uc  1 p 1 6 ]
 [v divisiondecimal@conteo conteo `uc  1 a 1 7 ]
-"235
+"238
 } 0
 "148
 [v _floTochar floTochar `(v  1 e 1 0 ]

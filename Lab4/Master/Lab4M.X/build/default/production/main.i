@@ -3034,6 +3034,9 @@ void hexTochar(uint8_t valor,unsigned char *conv){
 }
 
 void hexTocharNEG (uint8_t valor,unsigned char *conv){
+
+
+
     uint8_t centena;
     uint8_t decena;
     uint8_t unidad;
