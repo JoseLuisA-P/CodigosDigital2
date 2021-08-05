@@ -2847,6 +2847,8 @@ void MasterStart_I2C(void);
 
 void MasterStop_I2C(void);
 
+void MasterRepeatS_I2C(void);
+
 void MasterSend_I2C(uint8_t dato);
 
 void MasterReceive_I2C(uint8_t *valor);
@@ -2875,13 +2877,16 @@ void LCDstring(unsigned char* mensaje);
 
 uint8_t DatS1;
 uint8_t DatS2;
+uint8_t DatS3;
 float lect1;
 unsigned char disp1[3];
 unsigned char disp2[3];
+unsigned char disp3[3];
 
 void config(void);
 void floTochar(const float valor,unsigned char *conv);
 void hexTochar(uint8_t valor,unsigned char *conv);
+void hexTocharNEG (uint8_t valor,unsigned char *conv);
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 
@@ -2897,25 +2902,45 @@ void __attribute__((picinterrupt(("")))) interrupcion(void){
 void main(void) {
     config();
     initLCD();
+
+    MasterStart_I2C();
+    MasterSend_I2C(0X90);
+    MasterSend_I2C(0XAC);
+    MasterSend_I2C(0X00);
+    MasterRepeatS_I2C();
+    MasterSend_I2C(0X90);
+    MasterSend_I2C(0XEE);
+    MasterStop_I2C();
+
     while(1){
 
         MasterStart_I2C();
         MasterSend_I2C(0X21);
         MasterReceive_I2C(&DatS1);
         MasterStop_I2C();
-        _delay((unsigned long)((100)*(8000000/4000.0)));
+
 
         MasterStart_I2C();
         MasterSend_I2C(0X31);
         MasterReceive_I2C(&DatS2);
         MasterStop_I2C();
-        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+        MasterStart_I2C();
+        MasterSend_I2C(0X90);
+        MasterSend_I2C(0XAA);
+        MasterRepeatS_I2C();
+        MasterSend_I2C(0X91);
+        MasterReceive_I2C(&DatS3);
+        MasterStop_I2C();
+
 
 
         lect1 = (float)(0.01961)*(DatS1);
 
         floTochar(lect1,&disp1);
         hexTochar(DatS2,&disp2);
+        hexTocharNEG(DatS3,&disp3);
         cursorLCD(1,1);
         LCDstring("S1:   S2:   S3:");
         cursorLCD(2,1);
@@ -2928,6 +2953,13 @@ void main(void) {
         dispCHAR(disp2[2]+48);
         dispCHAR(disp2[1]+48);
         dispCHAR(disp2[0]+48);
+        cursorLCD(2,12);
+        if(DatS3<=128) dispCHAR(disp3[2]+48);
+        else dispCHAR(disp3[2]);
+        dispCHAR(disp3[1]+48);
+        dispCHAR(disp3[0]+48);
+        dispCHAR(223);
+        dispCHAR('C');
     }
 }
 
@@ -2998,6 +3030,27 @@ void hexTochar(uint8_t valor,unsigned char *conv){
     conv[0]= unidad;
     conv[1]= decena;
     conv[2]= centena;
+
+}
+
+void hexTocharNEG (uint8_t valor,unsigned char *conv){
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+    uint8_t temporal;
+    if(valor <= 128){
+        divisiondecimal(valor,&unidad,&decena,&centena);
+        conv[0]= unidad;
+        conv[1]= decena;
+        conv[2]= centena;
+    }
+    else{
+        temporal = 256 - valor;
+        divisiondecimal(temporal,&unidad,&decena,&centena);
+        conv[0]= unidad;
+        conv[1]= decena;
+        conv[2]= '-';
+    }
 
 }
 

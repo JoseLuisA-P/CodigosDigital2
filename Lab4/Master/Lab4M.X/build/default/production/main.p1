@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 [p mainexit ]
-"44 main.c
-[; ;main.c: 44: void config(void);
+"46 main.c
+[; ;main.c: 46: void config(void);
 [v _config `(v ~T0 @X0 0 ef ]
 "17 ./LCDD2.h
 [; ;./LCDD2.h: 17: void initLCD(void);
@@ -11,25 +11,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33 ./I2C.h
 [; ;./I2C.h: 33: void MasterStart_I2C(void);
 [v _MasterStart_I2C `(v ~T0 @X0 0 ef ]
-"37
-[; ;./I2C.h: 37: void MasterSend_I2C(uint8_t dato);
-[v _MasterSend_I2C `(v ~T0 @X0 0 ef1`uc ]
 "39
-[; ;./I2C.h: 39: void MasterReceive_I2C(uint8_t *valor);
-[v _MasterReceive_I2C `(v ~T0 @X0 0 ef1`*uc ]
+[; ;./I2C.h: 39: void MasterSend_I2C(uint8_t dato);
+[v _MasterSend_I2C `(v ~T0 @X0 0 ef1`uc ]
+"37
+[; ;./I2C.h: 37: void MasterRepeatS_I2C(void);
+[v _MasterRepeatS_I2C `(v ~T0 @X0 0 ef ]
 "35
 [; ;./I2C.h: 35: void MasterStop_I2C(void);
 [v _MasterStop_I2C `(v ~T0 @X0 0 ef ]
-[v F1256 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF1256 ~T0 @X0 0 e ]
-[p i __delay ]
-"45 main.c
-[; ;main.c: 45: void floTochar(const float valor,unsigned char *conv);
+"41
+[; ;./I2C.h: 41: void MasterReceive_I2C(uint8_t *valor);
+[v _MasterReceive_I2C `(v ~T0 @X0 0 ef1`*uc ]
+"47 main.c
+[; ;main.c: 47: void floTochar(const float valor,unsigned char *conv);
 [v _floTochar `(v ~T0 @X0 0 ef2`Cf`*uc ]
-"46
-[; ;main.c: 46: void hexTochar(uint8_t valor,unsigned char *conv);
+"48
+[; ;main.c: 48: void hexTochar(uint8_t valor,unsigned char *conv);
 [v _hexTochar `(v ~T0 @X0 0 ef2`uc`*uc ]
+"49
+[; ;main.c: 49: void hexTocharNEG (uint8_t valor,unsigned char *conv);
+[v _hexTocharNEG `(v ~T0 @X0 0 ef2`uc`*uc ]
 "22 ./LCDD2.h
 [; ;./LCDD2.h: 22: void cursorLCD(uint8_t fila, uint8_t columna);
 [v _cursorLCD `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -87,11 +89,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 ./I2C.h
 [; ;./I2C.h: 20: void MasterInit_I2C(unsigned long frec);
 [v _MasterInit_I2C `(v ~T0 @X0 0 ef1`ul ]
-"47 main.c
-[; ;main.c: 47: void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
+"50 main.c
+[; ;main.c: 50: void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 [v _division `(v ~T0 @X0 0 ef3`uc`*uc`*uc ]
-"48
-[; ;main.c: 48: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
+"51
+[; ;main.c: 51: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 [v _divisiondecimal `(v ~T0 @X0 0 ef4`uc`*uc`*uc`*uc ]
 "12 main.c
 [p x FOSC  =  INTRC_NOCLKOUT ]
@@ -358,226 +360,299 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 39: uint8_t DatS2;
 [v _DatS2 `uc ~T0 @X0 1 e ]
 "40
-[; ;main.c: 40: float lect1;
-[v _lect1 `f ~T0 @X0 1 e ]
+[; ;main.c: 40: uint8_t DatS3;
+[v _DatS3 `uc ~T0 @X0 1 e ]
 "41
-[; ;main.c: 41: unsigned char disp1[3];
-[v _disp1 `uc ~T0 @X0 -> 3 `i e ]
+[; ;main.c: 41: float lect1;
+[v _lect1 `f ~T0 @X0 1 e ]
 "42
-[; ;main.c: 42: unsigned char disp2[3];
+[; ;main.c: 42: unsigned char disp1[3];
+[v _disp1 `uc ~T0 @X0 -> 3 `i e ]
+"43
+[; ;main.c: 43: unsigned char disp2[3];
 [v _disp2 `uc ~T0 @X0 -> 3 `i e ]
+"44
+[; ;main.c: 44: unsigned char disp3[3];
+[v _disp3 `uc ~T0 @X0 -> 3 `i e ]
 [v $root$_interrupcion `(v ~T0 @X0 0 e ]
-"52
-[; ;main.c: 52: void __attribute__((picinterrupt(("")))) interrupcion(void){
+"55
+[; ;main.c: 55: void __attribute__((picinterrupt(("")))) interrupcion(void){
 [v _interrupcion `(v ~T1 @X0 1 ef ]
 {
 [e :U _interrupcion ]
 [f ]
-"54
-[; ;main.c: 54: }
+"57
+[; ;main.c: 57: }
 [e :UE 143 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"59
-[; ;main.c: 59: void main(void) {
+"62
+[; ;main.c: 62: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"60
-[; ;main.c: 60:     config();
+"63
+[; ;main.c: 63:     config();
 [e ( _config ..  ]
-"61
-[; ;main.c: 61:     initLCD();
+"64
+[; ;main.c: 64:     initLCD();
 [e ( _initLCD ..  ]
-"62
-[; ;main.c: 62:     while(1){
+"66
+[; ;main.c: 66:     MasterStart_I2C();
+[e ( _MasterStart_I2C ..  ]
+"67
+[; ;main.c: 67:     MasterSend_I2C(0X90);
+[e ( _MasterSend_I2C (1 -> -> 144 `i `uc ]
+"68
+[; ;main.c: 68:     MasterSend_I2C(0XAC);
+[e ( _MasterSend_I2C (1 -> -> 172 `i `uc ]
+"69
+[; ;main.c: 69:     MasterSend_I2C(0X00);
+[e ( _MasterSend_I2C (1 -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:     MasterRepeatS_I2C();
+[e ( _MasterRepeatS_I2C ..  ]
+"71
+[; ;main.c: 71:     MasterSend_I2C(0X90);
+[e ( _MasterSend_I2C (1 -> -> 144 `i `uc ]
+"72
+[; ;main.c: 72:     MasterSend_I2C(0XEE);
+[e ( _MasterSend_I2C (1 -> -> 238 `i `uc ]
+"73
+[; ;main.c: 73:     MasterStop_I2C();
+[e ( _MasterStop_I2C ..  ]
+"75
+[; ;main.c: 75:     while(1){
 [e :U 146 ]
 {
-"64
-[; ;main.c: 64:         MasterStart_I2C();
-[e ( _MasterStart_I2C ..  ]
-"65
-[; ;main.c: 65:         MasterSend_I2C(0X21);
-[e ( _MasterSend_I2C (1 -> -> 33 `i `uc ]
-"66
-[; ;main.c: 66:         MasterReceive_I2C(&DatS1);
-[e ( _MasterReceive_I2C (1 &U _DatS1 ]
-"67
-[; ;main.c: 67:         MasterStop_I2C();
-[e ( _MasterStop_I2C ..  ]
-"68
-[; ;main.c: 68:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"70
-[; ;main.c: 70:         MasterStart_I2C();
-[e ( _MasterStart_I2C ..  ]
-"71
-[; ;main.c: 71:         MasterSend_I2C(0X31);
-[e ( _MasterSend_I2C (1 -> -> 49 `i `uc ]
-"72
-[; ;main.c: 72:         MasterReceive_I2C(&DatS2);
-[e ( _MasterReceive_I2C (1 &U _DatS2 ]
-"73
-[; ;main.c: 73:         MasterStop_I2C();
-[e ( _MasterStop_I2C ..  ]
-"74
-[; ;main.c: 74:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "77
-[; ;main.c: 77:         lect1 = (float)(0.01961)*(DatS1);
-[e = _lect1 * -> .0.01961 `f -> -> _DatS1 `i `f ]
+[; ;main.c: 77:         MasterStart_I2C();
+[e ( _MasterStart_I2C ..  ]
+"78
+[; ;main.c: 78:         MasterSend_I2C(0X21);
+[e ( _MasterSend_I2C (1 -> -> 33 `i `uc ]
 "79
-[; ;main.c: 79:         floTochar(lect1,&disp1);
-[e ( _floTochar (2 , _lect1 -> &U _disp1 `*uc ]
+[; ;main.c: 79:         MasterReceive_I2C(&DatS1);
+[e ( _MasterReceive_I2C (1 &U _DatS1 ]
 "80
-[; ;main.c: 80:         hexTochar(DatS2,&disp2);
-[e ( _hexTochar (2 , _DatS2 -> &U _disp2 `*uc ]
-"81
-[; ;main.c: 81:         cursorLCD(1,1);
-[e ( _cursorLCD (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"82
-[; ;main.c: 82:         LCDstring("S1:   S2:   S3:");
-[e ( _LCDstring (1 :s 1C ]
+[; ;main.c: 80:         MasterStop_I2C();
+[e ( _MasterStop_I2C ..  ]
 "83
-[; ;main.c: 83:         cursorLCD(2,1);
-[e ( _cursorLCD (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 83:         MasterStart_I2C();
+[e ( _MasterStart_I2C ..  ]
 "84
-[; ;main.c: 84:         dispCHAR(disp1[0]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
+[; ;main.c: 84:         MasterSend_I2C(0X31);
+[e ( _MasterSend_I2C (1 -> -> 49 `i `uc ]
 "85
-[; ;main.c: 85:         dispCHAR('.');
-[e ( _dispCHAR (1 -> -> 46 `ui `uc ]
+[; ;main.c: 85:         MasterReceive_I2C(&DatS2);
+[e ( _MasterReceive_I2C (1 &U _DatS2 ]
 "86
-[; ;main.c: 86:         dispCHAR(disp1[1]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
-"87
-[; ;main.c: 87:         dispCHAR(disp1[2]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
-"88
-[; ;main.c: 88:         dispCHAR('V');
-[e ( _dispCHAR (1 -> -> 86 `ui `uc ]
+[; ;main.c: 86:         MasterStop_I2C();
+[e ( _MasterStop_I2C ..  ]
 "89
-[; ;main.c: 89:         cursorLCD(2,7);
-[e ( _cursorLCD (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+[; ;main.c: 89:         MasterStart_I2C();
+[e ( _MasterStart_I2C ..  ]
 "90
-[; ;main.c: 90:         dispCHAR(disp2[2]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+[; ;main.c: 90:         MasterSend_I2C(0X90);
+[e ( _MasterSend_I2C (1 -> -> 144 `i `uc ]
 "91
-[; ;main.c: 91:         dispCHAR(disp2[1]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+[; ;main.c: 91:         MasterSend_I2C(0XAA);
+[e ( _MasterSend_I2C (1 -> -> 170 `i `uc ]
 "92
-[; ;main.c: 92:         dispCHAR(disp2[0]+48);
-[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+[; ;main.c: 92:         MasterRepeatS_I2C();
+[e ( _MasterRepeatS_I2C ..  ]
 "93
-[; ;main.c: 93:     }
+[; ;main.c: 93:         MasterSend_I2C(0X91);
+[e ( _MasterSend_I2C (1 -> -> 145 `i `uc ]
+"94
+[; ;main.c: 94:         MasterReceive_I2C(&DatS3);
+[e ( _MasterReceive_I2C (1 &U _DatS3 ]
+"95
+[; ;main.c: 95:         MasterStop_I2C();
+[e ( _MasterStop_I2C ..  ]
+"99
+[; ;main.c: 99:         lect1 = (float)(0.01961)*(DatS1);
+[e = _lect1 * -> .0.01961 `f -> -> _DatS1 `i `f ]
+"101
+[; ;main.c: 101:         floTochar(lect1,&disp1);
+[e ( _floTochar (2 , _lect1 -> &U _disp1 `*uc ]
+"102
+[; ;main.c: 102:         hexTochar(DatS2,&disp2);
+[e ( _hexTochar (2 , _DatS2 -> &U _disp2 `*uc ]
+"103
+[; ;main.c: 103:         hexTocharNEG(DatS3,&disp3);
+[e ( _hexTocharNEG (2 , _DatS3 -> &U _disp3 `*uc ]
+"104
+[; ;main.c: 104:         cursorLCD(1,1);
+[e ( _cursorLCD (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"105
+[; ;main.c: 105:         LCDstring("S1:   S2:   S3:");
+[e ( _LCDstring (1 :s 1C ]
+"106
+[; ;main.c: 106:         cursorLCD(2,1);
+[e ( _cursorLCD (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"107
+[; ;main.c: 107:         dispCHAR(disp1[0]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
+"108
+[; ;main.c: 108:         dispCHAR('.');
+[e ( _dispCHAR (1 -> -> 46 `ui `uc ]
+"109
+[; ;main.c: 109:         dispCHAR(disp1[1]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
+"110
+[; ;main.c: 110:         dispCHAR(disp1[2]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp1 `ui `ux `i -> 48 `i `uc ]
+"111
+[; ;main.c: 111:         dispCHAR('V');
+[e ( _dispCHAR (1 -> -> 86 `ui `uc ]
+"112
+[; ;main.c: 112:         cursorLCD(2,7);
+[e ( _cursorLCD (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"113
+[; ;main.c: 113:         dispCHAR(disp2[2]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+"114
+[; ;main.c: 114:         dispCHAR(disp2[1]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+"115
+[; ;main.c: 115:         dispCHAR(disp2[0]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _disp2 `ui `ux `i -> 48 `i `uc ]
+"116
+[; ;main.c: 116:         cursorLCD(2,12);
+[e ( _cursorLCD (2 , -> -> 2 `i `uc -> -> 12 `i `uc ]
+"117
+[; ;main.c: 117:         if(DatS3<=128) dispCHAR(disp3[2]+48);
+[e $ ! <= -> _DatS3 `i -> 128 `i 148  ]
+[e ( _dispCHAR (1 -> + -> *U + &U _disp3 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp3 `ui `ux `i -> 48 `i `uc ]
+[e $U 149  ]
+"118
+[; ;main.c: 118:         else dispCHAR(disp3[2]);
+[e :U 148 ]
+[e ( _dispCHAR (1 -> *U + &U _disp3 * -> -> -> 2 `i `ui `ux -> -> # *U &U _disp3 `ui `ux `uc ]
+[e :U 149 ]
+"119
+[; ;main.c: 119:         dispCHAR(disp3[1]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _disp3 `ui `ux `i -> 48 `i `uc ]
+"120
+[; ;main.c: 120:         dispCHAR(disp3[0]+48);
+[e ( _dispCHAR (1 -> + -> *U + &U _disp3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _disp3 `ui `ux `i -> 48 `i `uc ]
+"121
+[; ;main.c: 121:         dispCHAR(223);
+[e ( _dispCHAR (1 -> -> 223 `i `uc ]
+"122
+[; ;main.c: 122:         dispCHAR('C');
+[e ( _dispCHAR (1 -> -> 67 `ui `uc ]
+"123
+[; ;main.c: 123:     }
 }
 [e :U 145 ]
 [e $U 146  ]
 [e :U 147 ]
-"94
-[; ;main.c: 94: }
+"124
+[; ;main.c: 124: }
 [e :UE 144 ]
 }
-"99
-[; ;main.c: 99: void config(void){
+"129
+[; ;main.c: 129: void config(void){
 [v _config `(v ~T0 @X0 1 ef ]
 {
 [e :U _config ]
 [f ]
-"100
-[; ;main.c: 100:     ANSEL = 0X00;
+"130
+[; ;main.c: 130:     ANSEL = 0X00;
 [e = _ANSEL -> -> 0 `i `uc ]
-"101
-[; ;main.c: 101:     ANSELH = 0X00;
+"131
+[; ;main.c: 131:     ANSELH = 0X00;
 [e = _ANSELH -> -> 0 `i `uc ]
-"102
-[; ;main.c: 102:     TRISA = 0X00;
+"132
+[; ;main.c: 132:     TRISA = 0X00;
 [e = _TRISA -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:     TRISB = 0X00;
+"133
+[; ;main.c: 133:     TRISB = 0X00;
 [e = _TRISB -> -> 0 `i `uc ]
-"104
-[; ;main.c: 104:     TRISD = 0X00;
+"134
+[; ;main.c: 134:     TRISD = 0X00;
 [e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105:     TRISE = 0X00;
+"135
+[; ;main.c: 135:     TRISE = 0X00;
 [e = _TRISE -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:     PORTA = 0X00;
+"136
+[; ;main.c: 136:     PORTA = 0X00;
 [e = _PORTA -> -> 0 `i `uc ]
-"107
-[; ;main.c: 107:     PORTB = 0X00;
+"137
+[; ;main.c: 137:     PORTB = 0X00;
 [e = _PORTB -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     PORTD = 0X00;
+"138
+[; ;main.c: 138:     PORTD = 0X00;
 [e = _PORTD -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     PORTE = 0X00;
+"139
+[; ;main.c: 139:     PORTE = 0X00;
 [e = _PORTE -> -> 0 `i `uc ]
-"112
-[; ;main.c: 112:     OSCCONbits.IRCF = 0b111;
+"142
+[; ;main.c: 142:     OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"113
-[; ;main.c: 113:     OSCCONbits.SCS = 0b1;
+"143
+[; ;main.c: 143:     OSCCONbits.SCS = 0b1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"115
-[; ;main.c: 115:     MasterInit_I2C(100000);
+"145
+[; ;main.c: 145:     MasterInit_I2C(100000);
 [e ( _MasterInit_I2C (1 -> -> 100000 `l `ul ]
-"116
-[; ;main.c: 116: }
-[e :UE 148 ]
+"146
+[; ;main.c: 146: }
+[e :UE 150 ]
 }
-"118
-[; ;main.c: 118: void floTochar(const float valor,unsigned char *conv){
+"148
+[; ;main.c: 148: void floTochar(const float valor,unsigned char *conv){
 [v _floTochar `(v ~T0 @X0 1 ef2`Cf`*uc ]
 {
 [e :U _floTochar ]
 [v _valor `Cf ~T0 @X0 1 r1 ]
 [v _conv `*uc ~T0 @X0 1 r2 ]
 [f ]
-"119
-[; ;main.c: 119:     uint8_t entero;
+"149
+[; ;main.c: 149:     uint8_t entero;
 [v _entero `uc ~T0 @X0 1 a ]
-"120
-[; ;main.c: 120:     uint8_t decimal;
+"150
+[; ;main.c: 150:     uint8_t decimal;
 [v _decimal `uc ~T0 @X0 1 a ]
-"121
-[; ;main.c: 121:     float temp;
+"151
+[; ;main.c: 151:     float temp;
 [v _temp `f ~T0 @X0 1 a ]
-"122
-[; ;main.c: 122:     unsigned char digdecimal[2];
+"152
+[; ;main.c: 152:     unsigned char digdecimal[2];
 [v _digdecimal `uc ~T0 @X0 -> 2 `i a ]
-"128
-[; ;main.c: 128:     entero = valor;
+"158
+[; ;main.c: 158:     entero = valor;
 [e = _entero -> _valor `uc ]
-"129
-[; ;main.c: 129:     digdecimal[2] = entero;
+"159
+[; ;main.c: 159:     digdecimal[2] = entero;
 [e = *U + &U _digdecimal * -> -> -> 2 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux _entero ]
-"130
-[; ;main.c: 130:     temp = valor-(float)entero;
+"160
+[; ;main.c: 160:     temp = valor-(float)entero;
 [e = _temp - _valor -> _entero `f ]
-"131
-[; ;main.c: 131:     decimal = (temp*100);
+"161
+[; ;main.c: 161:     decimal = (temp*100);
 [e = _decimal -> * _temp -> -> 100 `i `f `uc ]
-"132
-[; ;main.c: 132:     division(decimal,&digdecimal[0],&digdecimal[1]);
+"162
+[; ;main.c: 162:     division(decimal,&digdecimal[0],&digdecimal[1]);
 [e ( _division (3 , , _decimal &U *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux &U *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
-"133
-[; ;main.c: 133:     conv[0] = entero;
+"163
+[; ;main.c: 163:     conv[0] = entero;
 [e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _entero ]
-"134
-[; ;main.c: 134:     conv[1] = digdecimal[1];
+"164
+[; ;main.c: 164:     conv[1] = digdecimal[1];
 [e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 1 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
-"135
-[; ;main.c: 135:     conv[2] = digdecimal[0];
+"165
+[; ;main.c: 165:     conv[2] = digdecimal[0];
 [e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x *U + &U _digdecimal * -> -> -> 0 `i `ui `ux -> -> # *U &U _digdecimal `ui `ux ]
-"136
-[; ;main.c: 136: }
-[e :UE 149 ]
+"166
+[; ;main.c: 166: }
+[e :UE 151 ]
 }
-"140
-[; ;main.c: 140: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
+"170
+[; ;main.c: 170: void division(uint8_t conteo,uint8_t* un,uint8_t* dec){
 [v _division `(v ~T0 @X0 1 ef3`uc`*uc`*uc ]
 {
 [e :U _division ]
@@ -585,77 +660,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _un `*uc ~T0 @X0 1 r2 ]
 [v _dec `*uc ~T0 @X0 1 r3 ]
 [f ]
-"141
-[; ;main.c: 141:     uint8_t div = conteo;
+"171
+[; ;main.c: 171:     uint8_t div = conteo;
 [v _div `uc ~T0 @X0 1 a ]
 [e = _div _conteo ]
-"142
-[; ;main.c: 142:     *un = 0;
+"172
+[; ;main.c: 172:     *un = 0;
 [e = *U _un -> -> 0 `i `uc ]
-"143
-[; ;main.c: 143:     *dec = 0;
+"173
+[; ;main.c: 173:     *dec = 0;
 [e = *U _dec -> -> 0 `i `uc ]
-"146
-[; ;main.c: 146:     while (div >= 10){
-[e $U 151  ]
-[e :U 152 ]
+"176
+[; ;main.c: 176:     while (div >= 10){
+[e $U 153  ]
+[e :U 154 ]
 {
-"147
-[; ;main.c: 147:     *dec = div/10;
+"177
+[; ;main.c: 177:     *dec = div/10;
 [e = *U _dec -> / -> _div `i -> 10 `i `uc ]
-"148
-[; ;main.c: 148:     div = div - (*dec)*(10);
+"178
+[; ;main.c: 178:     div = div - (*dec)*(10);
 [e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
-"149
-[; ;main.c: 149:     }
+"179
+[; ;main.c: 179:     }
 }
-[e :U 151 ]
-"146
-[; ;main.c: 146:     while (div >= 10){
-[e $ >= -> _div `i -> 10 `i 152  ]
 [e :U 153 ]
-"151
-[; ;main.c: 151:     *un = div;
+"176
+[; ;main.c: 176:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 154  ]
+[e :U 155 ]
+"181
+[; ;main.c: 181:     *un = div;
 [e = *U _un _div ]
-"152
-[; ;main.c: 152: }
-[e :UE 150 ]
+"182
+[; ;main.c: 182: }
+[e :UE 152 ]
 }
-"154
-[; ;main.c: 154: void hexTochar(uint8_t valor,unsigned char *conv){
+"184
+[; ;main.c: 184: void hexTochar(uint8_t valor,unsigned char *conv){
 [v _hexTochar `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _hexTochar ]
 [v _valor `uc ~T0 @X0 1 r1 ]
 [v _conv `*uc ~T0 @X0 1 r2 ]
 [f ]
-"155
-[; ;main.c: 155:     uint8_t centena;
+"185
+[; ;main.c: 185:     uint8_t centena;
 [v _centena `uc ~T0 @X0 1 a ]
-"156
-[; ;main.c: 156:     uint8_t decena;
+"186
+[; ;main.c: 186:     uint8_t decena;
 [v _decena `uc ~T0 @X0 1 a ]
-"157
-[; ;main.c: 157:     uint8_t unidad;
+"187
+[; ;main.c: 187:     uint8_t unidad;
 [v _unidad `uc ~T0 @X0 1 a ]
-"159
-[; ;main.c: 159:     divisiondecimal(valor,&unidad,&decena,&centena);
+"189
+[; ;main.c: 189:     divisiondecimal(valor,&unidad,&decena,&centena);
 [e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
-"160
-[; ;main.c: 160:     conv[0]= unidad;
+"190
+[; ;main.c: 190:     conv[0]= unidad;
 [e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
-"161
-[; ;main.c: 161:     conv[1]= decena;
+"191
+[; ;main.c: 191:     conv[1]= decena;
 [e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
-"162
-[; ;main.c: 162:     conv[2]= centena;
+"192
+[; ;main.c: 192:     conv[2]= centena;
 [e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
-"164
-[; ;main.c: 164: }
-[e :UE 154 ]
+"194
+[; ;main.c: 194: }
+[e :UE 156 ]
 }
-"166
-[; ;main.c: 166: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+"196
+[; ;main.c: 196: void hexTocharNEG (uint8_t valor,unsigned char *conv){
+[v _hexTocharNEG `(v ~T0 @X0 1 ef2`uc`*uc ]
+{
+[e :U _hexTocharNEG ]
+[v _valor `uc ~T0 @X0 1 r1 ]
+[v _conv `*uc ~T0 @X0 1 r2 ]
+[f ]
+"197
+[; ;main.c: 197:     uint8_t centena;
+[v _centena `uc ~T0 @X0 1 a ]
+"198
+[; ;main.c: 198:     uint8_t decena;
+[v _decena `uc ~T0 @X0 1 a ]
+"199
+[; ;main.c: 199:     uint8_t unidad;
+[v _unidad `uc ~T0 @X0 1 a ]
+"200
+[; ;main.c: 200:     uint8_t temporal;
+[v _temporal `uc ~T0 @X0 1 a ]
+"201
+[; ;main.c: 201:     if(valor <= 128){
+[e $ ! <= -> _valor `i -> 128 `i 158  ]
+{
+"202
+[; ;main.c: 202:         divisiondecimal(valor,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _valor &U _unidad &U _decena &U _centena ]
+"203
+[; ;main.c: 203:         conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"204
+[; ;main.c: 204:         conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"205
+[; ;main.c: 205:         conv[2]= centena;
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x _centena ]
+"206
+[; ;main.c: 206:     }
+}
+[e $U 159  ]
+"207
+[; ;main.c: 207:     else{
+[e :U 158 ]
+{
+"208
+[; ;main.c: 208:         temporal = 256 - valor;
+[e = _temporal -> - -> 256 `i -> _valor `i `uc ]
+"209
+[; ;main.c: 209:         divisiondecimal(temporal,&unidad,&decena,&centena);
+[e ( _divisiondecimal (4 , , , _temporal &U _unidad &U _decena &U _centena ]
+"210
+[; ;main.c: 210:         conv[0]= unidad;
+[e = *U + _conv * -> -> 0 `i `x -> -> # *U _conv `i `x _unidad ]
+"211
+[; ;main.c: 211:         conv[1]= decena;
+[e = *U + _conv * -> -> 1 `i `x -> -> # *U _conv `i `x _decena ]
+"212
+[; ;main.c: 212:         conv[2]= '-';
+[e = *U + _conv * -> -> 2 `i `x -> -> # *U _conv `i `x -> -> 45 `ui `uc ]
+"213
+[; ;main.c: 213:     }
+}
+[e :U 159 ]
+"215
+[; ;main.c: 215: }
+[e :UE 157 ]
+}
+"217
+[; ;main.c: 217: void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
 [v _divisiondecimal `(v ~T0 @X0 1 ef4`uc`*uc`*uc`*uc ]
 {
 [e :U _divisiondecimal ]
@@ -664,62 +806,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dec `*uc ~T0 @X0 1 r3 ]
 [v _cent `*uc ~T0 @X0 1 r4 ]
 [f ]
-"167
-[; ;main.c: 167:     uint8_t div = conteo;
+"218
+[; ;main.c: 218:     uint8_t div = conteo;
 [v _div `uc ~T0 @X0 1 a ]
 [e = _div _conteo ]
-"168
-[; ;main.c: 168:     *un = 0;
+"219
+[; ;main.c: 219:     *un = 0;
 [e = *U _un -> -> 0 `i `uc ]
-"169
-[; ;main.c: 169:     *dec = 0;
+"220
+[; ;main.c: 220:     *dec = 0;
 [e = *U _dec -> -> 0 `i `uc ]
-"170
-[; ;main.c: 170:     *cent = 0;
+"221
+[; ;main.c: 221:     *cent = 0;
 [e = *U _cent -> -> 0 `i `uc ]
-"173
-[; ;main.c: 173:     while(div >= 100){
-[e $U 156  ]
-[e :U 157 ]
+"224
+[; ;main.c: 224:     while(div >= 100){
+[e $U 161  ]
+[e :U 162 ]
 {
-"174
-[; ;main.c: 174:     *cent = div/100;
+"225
+[; ;main.c: 225:     *cent = div/100;
 [e = *U _cent -> / -> _div `i -> 100 `i `uc ]
-"175
-[; ;main.c: 175:     div = div - (*cent)*(100);
+"226
+[; ;main.c: 226:     div = div - (*cent)*(100);
 [e = _div -> - -> _div `i * -> *U _cent `i -> 100 `i `uc ]
-"176
-[; ;main.c: 176:     }
+"227
+[; ;main.c: 227:     }
 }
-[e :U 156 ]
-"173
-[; ;main.c: 173:     while(div >= 100){
-[e $ >= -> _div `i -> 100 `i 157  ]
-[e :U 158 ]
-"178
-[; ;main.c: 178:     while (div >= 10){
-[e $U 159  ]
-[e :U 160 ]
-{
-"179
-[; ;main.c: 179:     *dec = div/10;
-[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
-"180
-[; ;main.c: 180:     div = div - (*dec)*(10);
-[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
-"181
-[; ;main.c: 181:     }
-}
-[e :U 159 ]
-"178
-[; ;main.c: 178:     while (div >= 10){
-[e $ >= -> _div `i -> 10 `i 160  ]
 [e :U 161 ]
-"183
-[; ;main.c: 183:     *un = div;
+"224
+[; ;main.c: 224:     while(div >= 100){
+[e $ >= -> _div `i -> 100 `i 162  ]
+[e :U 163 ]
+"229
+[; ;main.c: 229:     while (div >= 10){
+[e $U 164  ]
+[e :U 165 ]
+{
+"230
+[; ;main.c: 230:     *dec = div/10;
+[e = *U _dec -> / -> _div `i -> 10 `i `uc ]
+"231
+[; ;main.c: 231:     div = div - (*dec)*(10);
+[e = _div -> - -> _div `i * -> *U _dec `i -> 10 `i `uc ]
+"232
+[; ;main.c: 232:     }
+}
+[e :U 164 ]
+"229
+[; ;main.c: 229:     while (div >= 10){
+[e $ >= -> _div `i -> 10 `i 165  ]
+[e :U 166 ]
+"234
+[; ;main.c: 234:     *un = div;
 [e = *U _un _div ]
-"184
-[; ;main.c: 184: }
-[e :UE 155 ]
+"235
+[; ;main.c: 235: }
+[e :UE 160 ]
 }
 [a 1C 83 49 58 32 32 32 83 50 58 32 32 32 83 51 58 0 ]

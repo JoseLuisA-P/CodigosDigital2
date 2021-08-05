@@ -349,80 +349,96 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 144 ]
 }
 "39
-[; ;I2C.c: 39: void MasterSend_I2C(uint8_t dato){
-[v _MasterSend_I2C `(v ~T0 @X0 1 ef1`uc ]
+[; ;I2C.c: 39: void MasterRepeatS_I2C(void){
+[v _MasterRepeatS_I2C `(v ~T0 @X0 1 ef ]
 {
-[e :U _MasterSend_I2C ]
-[v _dato `uc ~T0 @X0 1 r1 ]
+[e :U _MasterRepeatS_I2C ]
 [f ]
 "40
 [; ;I2C.c: 40:     waitCondition();
 [e ( _waitCondition ..  ]
 "41
-[; ;I2C.c: 41:     SSPBUF = dato;
-[e = _SSPBUF _dato ]
+[; ;I2C.c: 41:     SSPCON2bits.RSEN = 1;
+[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
 "42
 [; ;I2C.c: 42: }
 [e :UE 145 ]
 }
 "44
-[; ;I2C.c: 44: void MasterReceive_I2C(uint8_t *valor){
-[v _MasterReceive_I2C `(v ~T0 @X0 1 ef1`*uc ]
+[; ;I2C.c: 44: void MasterSend_I2C(uint8_t dato){
+[v _MasterSend_I2C `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _MasterReceive_I2C ]
-[v _valor `*uc ~T0 @X0 1 r1 ]
+[e :U _MasterSend_I2C ]
+[v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
 "45
 [; ;I2C.c: 45:     waitCondition();
 [e ( _waitCondition ..  ]
 "46
-[; ;I2C.c: 46:     SSPCON2bits.RCEN = 1;
-[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;I2C.c: 46:     SSPBUF = dato;
+[e = _SSPBUF _dato ]
 "47
-[; ;I2C.c: 47:     waitCondition();
-[e ( _waitCondition ..  ]
-"48
-[; ;I2C.c: 48:     *valor = SSPBUF;
-[e = *U _valor _SSPBUF ]
-"49
-[; ;I2C.c: 49:     waitCondition();
-[e ( _waitCondition ..  ]
-"50
-[; ;I2C.c: 50:     SSPCON2bits.ACKDT = 1;
-[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
-"51
-[; ;I2C.c: 51:     SSPCON2bits.ACKEN = 1;
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-"53
-[; ;I2C.c: 53: }
+[; ;I2C.c: 47: }
 [e :UE 146 ]
 }
+"49
+[; ;I2C.c: 49: void MasterReceive_I2C(uint8_t *valor){
+[v _MasterReceive_I2C `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _MasterReceive_I2C ]
+[v _valor `*uc ~T0 @X0 1 r1 ]
+[f ]
+"50
+[; ;I2C.c: 50:     waitCondition();
+[e ( _waitCondition ..  ]
+"51
+[; ;I2C.c: 51:     SSPCON2bits.RCEN = 1;
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"52
+[; ;I2C.c: 52:     waitCondition();
+[e ( _waitCondition ..  ]
+"53
+[; ;I2C.c: 53:     *valor = SSPBUF;
+[e = *U _valor _SSPBUF ]
+"54
+[; ;I2C.c: 54:     waitCondition();
+[e ( _waitCondition ..  ]
+"55
+[; ;I2C.c: 55:     SSPCON2bits.ACKDT = 1;
+[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
+"56
+[; ;I2C.c: 56:     SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
 "58
-[; ;I2C.c: 58: void SlaveInit_I2C(uint8_t address){
+[; ;I2C.c: 58: }
+[e :UE 147 ]
+}
+"63
+[; ;I2C.c: 63: void SlaveInit_I2C(uint8_t address){
 [v _SlaveInit_I2C `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _SlaveInit_I2C ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;I2C.c: 59:     SSPADD = address;
-[e = _SSPADD _address ]
-"60
-[; ;I2C.c: 60:     SSPCON = 0X26;
-[e = _SSPCON -> -> 38 `i `uc ]
-"61
-[; ;I2C.c: 61:     SSPCON2 = 0X00;
-[e = _SSPCON2 -> -> 0 `i `uc ]
-"62
-[; ;I2C.c: 62:     SSPSTAT = 0X80;
-[e = _SSPSTAT -> -> 128 `i `uc ]
-"63
-[; ;I2C.c: 63:     TRISCbits.TRISC3 = 1;
-[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
 "64
-[; ;I2C.c: 64:     TRISCbits.TRISC4 = 1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;I2C.c: 64:     SSPADD = address;
+[e = _SSPADD _address ]
+"65
+[; ;I2C.c: 65:     SSPCON = 0X26;
+[e = _SSPCON -> -> 38 `i `uc ]
 "66
-[; ;I2C.c: 66: }
-[e :UE 147 ]
+[; ;I2C.c: 66:     SSPCON2 = 0X00;
+[e = _SSPCON2 -> -> 0 `i `uc ]
+"67
+[; ;I2C.c: 67:     SSPSTAT = 0X80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
+"68
+[; ;I2C.c: 68:     TRISCbits.TRISC3 = 1;
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+"69
+[; ;I2C.c: 69:     TRISCbits.TRISC4 = 1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+"71
+[; ;I2C.c: 71: }
+[e :UE 148 ]
 }

@@ -2658,6 +2658,8 @@ void MasterStart_I2C(void);
 
 void MasterStop_I2C(void);
 
+void MasterRepeatS_I2C(void);
+
 void MasterSend_I2C(uint8_t dato);
 
 void MasterReceive_I2C(uint8_t *valor);
@@ -2690,6 +2692,11 @@ void MasterStart_I2C(void){
 void MasterStop_I2C(void){
     waitCondition();
     SSPCON2bits.PEN = 1;
+}
+
+void MasterRepeatS_I2C(void){
+    waitCondition();
+    SSPCON2bits.RSEN = 1;
 }
 
 void MasterSend_I2C(uint8_t dato){

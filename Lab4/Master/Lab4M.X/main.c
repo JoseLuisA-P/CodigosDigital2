@@ -37,13 +37,16 @@
 //******************************************************************************
 uint8_t DatS1;
 uint8_t DatS2;
+uint8_t DatS3;
 float lect1;
 unsigned char disp1[3];
 unsigned char disp2[3];
+unsigned char disp3[3];
 
 void config(void);
 void floTochar(const float valor,unsigned char *conv);
 void hexTochar(uint8_t valor,unsigned char *conv);
+void hexTocharNEG (uint8_t valor,unsigned char *conv);
 void division(uint8_t conteo,uint8_t* un,uint8_t* dec);
 void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 //******************************************************************************
@@ -59,25 +62,45 @@ void __interrupt() interrupcion(void){
 void main(void) {
     config();
     initLCD();
+    //Inicializando el DS1621
+    MasterStart_I2C();
+    MasterSend_I2C(0X90); //direccion del sensor de temperatura
+    MasterSend_I2C(0XAC); //acceder al registro de configuracion
+    MasterSend_I2C(0X00); //le indica que es una conversion continua
+    MasterRepeatS_I2C();
+    MasterSend_I2C(0X90);   //ahora se comunica con lectura a otro registro
+    MasterSend_I2C(0XEE); //para que la ocnversion de temperatura sea continua
+    MasterStop_I2C();   //se detiene la comunicacion
+    
     while(1){  
         //Pedir dato al slave 1
         MasterStart_I2C();//Inicia la comunicacion
         MasterSend_I2C(0X21);//direccion del que se va a leer
         MasterReceive_I2C(&DatS1);
         MasterStop_I2C();//termina la comunicacion
-        __delay_ms(100);
+        //__delay_us(10);
         //pedir dato al slave 2
         MasterStart_I2C();//Inicia la comunicacion
         MasterSend_I2C(0X31);//direccion del que se va a leer
         MasterReceive_I2C(&DatS2);
         MasterStop_I2C();//termina la comunicacion
-        __delay_ms(100);
+        //__delay_us(10);
+        //pedir dato al sensor de temperatura
+        MasterStart_I2C();
+        MasterSend_I2C(0X90); //direccion del sensor en escritura
+        MasterSend_I2C(0XAA); //para que aliste la temeperatura en lectura
+        MasterRepeatS_I2C(); //reinicia la com
+        MasterSend_I2C(0X91);//ahora como una lectura
+        MasterReceive_I2C(&DatS3); //guarda el valor de la temperatura
+        MasterStop_I2C();
+        //__delay_us(10);
         
         //PORTB = DatS1; //observar que si funciona
         lect1 = (float)(0.01961)*(DatS1);//pasar el valor leido a flotante
         //despliegue de valores luego de la lectura
         floTochar(lect1,&disp1);
         hexTochar(DatS2,&disp2);
+        hexTocharNEG(DatS3,&disp3);
         cursorLCD(1,1);
         LCDstring("S1:   S2:   S3:");
         cursorLCD(2,1);
@@ -90,6 +113,13 @@ void main(void) {
         dispCHAR(disp2[2]+48);
         dispCHAR(disp2[1]+48);
         dispCHAR(disp2[0]+48);
+        cursorLCD(2,12);
+        if(DatS3<=128) dispCHAR(disp3[2]+48);
+        else dispCHAR(disp3[2]);
+        dispCHAR(disp3[1]+48);
+        dispCHAR(disp3[0]+48);
+        dispCHAR(223);
+        dispCHAR('C');
     }
 }
 
@@ -160,6 +190,27 @@ void hexTochar(uint8_t valor,unsigned char *conv){
     conv[0]= unidad;
     conv[1]= decena;
     conv[2]= centena;
+
+}
+
+void hexTocharNEG (uint8_t valor,unsigned char *conv){ 
+    uint8_t centena;
+    uint8_t decena;
+    uint8_t unidad;
+    uint8_t temporal;
+    if(valor <= 128){
+        divisiondecimal(valor,&unidad,&decena,&centena);
+        conv[0]= unidad;
+        conv[1]= decena;
+        conv[2]= centena;
+    }
+    else{
+        temporal = 256 - valor;
+        divisiondecimal(temporal,&unidad,&decena,&centena);
+        conv[0]= unidad;
+        conv[1]= decena;
+        conv[2]= '-';
+    }
 
 }
 

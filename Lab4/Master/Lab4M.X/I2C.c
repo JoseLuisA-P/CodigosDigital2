@@ -36,6 +36,11 @@ void MasterStop_I2C(void){
     SSPCON2bits.PEN = 1;//inicia la condicion de detenido
 }
 
+void MasterRepeatS_I2C(void){
+    waitCondition();
+    SSPCON2bits.RSEN = 1; //reinicia la comunicacion
+}
+
 void MasterSend_I2C(uint8_t dato){
     waitCondition();
     SSPBUF = dato; //coloca el dato en el buffer para enviarlo

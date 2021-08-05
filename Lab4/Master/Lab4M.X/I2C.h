@@ -34,6 +34,8 @@ void MasterStart_I2C(void);
 /*SDA y SCL realizan la condicion de inicio*/
 void MasterStop_I2C(void);
 /*SDA y SCL realizan la condicion de parada*/
+void MasterRepeatS_I2C(void);
+/*SDA y SCL realizan la condicion de reinicio de COM*/
 void MasterSend_I2C(uint8_t dato);
 /*coloca el dato en el buffer y luego lo envia*/
 void MasterReceive_I2C(uint8_t *valor);
