@@ -49,7 +49,7 @@ bssBANK0 BANK0 1 60 60 E 1
 strings STRING 0 800 800 16 2
 bssCOMMON COMMON 1 7A 7A 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jalva\AppData\Local\Temp\sjbc.o
+$C:\Users\jalva\AppData\Local\Temp\s2ho.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -104,29 +104,29 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab4M.X.production.o
-F cinit CODE >861:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-F cinit CODE >864:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-F cinit CODE >896:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-10 cinit CODE >897:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-11 cinit CODE >900:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-12 cinit CODE >901:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-13 cinit CODE >902:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-14 cinit CODE >903:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-15 cinit CODE >904:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-16 cinit CODE >905:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-17 cinit CODE >906:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-18 cinit CODE >907:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-19 cinit CODE >908:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1A cinit CODE >909:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1B cinit CODE >910:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1C cinit CODE >911:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1D cinit CODE >912:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1E cinit CODE >913:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-1F cinit CODE >914:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-20 cinit CODE >915:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-21 cinit CODE >921:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-21 cinit CODE >923:C:\Users\jalva\AppData\Local\Temp\sjbc.s
-22 cinit CODE >924:C:\Users\jalva\AppData\Local\Temp\sjbc.s
+F cinit CODE >861:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+F cinit CODE >864:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+F cinit CODE >896:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+10 cinit CODE >897:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+11 cinit CODE >900:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+12 cinit CODE >901:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+13 cinit CODE >902:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+14 cinit CODE >903:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+15 cinit CODE >904:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+16 cinit CODE >905:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+17 cinit CODE >906:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+18 cinit CODE >907:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+19 cinit CODE >908:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1A cinit CODE >909:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1B cinit CODE >910:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1C cinit CODE >911:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1D cinit CODE >912:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1E cinit CODE >913:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+1F cinit CODE >914:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+20 cinit CODE >915:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+21 cinit CODE >921:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+21 cinit CODE >923:C:\Users\jalva\AppData\Local\Temp\s2ho.s
+22 cinit CODE >924:C:\Users\jalva\AppData\Local\Temp\s2ho.s
 4 intentry CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Master\Lab4M.X\main.c
 A9E text28 CODE >55:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Master\Lab4M.X\main.c
 A9E text28 CODE >57:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Lab4\Master\Lab4M.X\main.c
@@ -674,12 +674,12 @@ __size_of_cursorLCD 0 0 ABS 0 - dist/default/production\Lab4M.X.production.o
 __size_of_MasterStop_I2C 0 0 ABS 0 - dist/default/production\Lab4M.X.production.o
 hexTocharNEG@decena 31 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sjbc.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s2ho.o
 _main C1C 0 CODE 0 maintext dist/default/production\Lab4M.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab4M.X.production.o
 divisiondecimal@dec 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 divisiondecimal@div 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
-start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sjbc.o
+start 18 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s2ho.o
 hexTochar@unidad 2E 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 ___flmul@aexp 34 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 ___flmul@bexp 39 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
@@ -708,12 +708,12 @@ _dispCHAR 15B0 0 CODE 0 text27 dist/default/production\Lab4M.X.production.o
 _hexTochar 17A2 0 CODE 0 text3 dist/default/production\Lab4M.X.production.o
 floTochar@conv 4F 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 floTochar@temp 54 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sjbc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s2ho.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _division 186C 0 CODE 0 text6 dist/default/production\Lab4M.X.production.o
 ___bmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab4M.X.production.o
@@ -753,8 +753,8 @@ __end_of___lldiv 1A8C 0 CODE 0 text19 dist/default/production\Lab4M.X.production
 __end_of_config 1750 0 CODE 0 text17 dist/default/production\Lab4M.X.production.o
 __Umul8_16@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab4M.X.production.o
 _comandoLCD 15D0 0 CODE 0 text16 dist/default/production\Lab4M.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sjbc.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sjbc.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s2ho.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s2ho.o
 ___fladd@a 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab4M.X.production.o
 ___fladd@b 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab4M.X.production.o
 ___flmul@a 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
@@ -777,7 +777,7 @@ floTochar@decimal 58 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.produ
 __end_of_MasterRepeatS_I2C 155C 0 CODE 0 text23 dist/default/production\Lab4M.X.production.o
 divisiondecimal@un 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab4M.X.production.o
 __end_of_initLCD FD6 0 CODE 0 text1 dist/default/production\Lab4M.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sjbc.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s2ho.o
 __end_of_comandoLCD 15F8 0 CODE 0 text16 dist/default/production\Lab4M.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -842,7 +842,7 @@ __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab4M.X.production.o
 __stringtab 1000 0 STRING 0 strings dist/default/production\Lab4M.X.production.o
 _MasterRepeatS_I2C 154A 0 CODE 0 text23 dist/default/production\Lab4M.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sjbc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s2ho.o
 __end_of___xxtofl 2000 0 CODE 0 text9 dist/default/production\Lab4M.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\Lab4M.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
