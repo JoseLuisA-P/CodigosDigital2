@@ -2905,7 +2905,7 @@ void main(void) {
             }
 
         T1CONbits.TMR1ON = 0;
-        _delay((unsigned long)((100)*(8000000/4000.0)));
+        _delay((unsigned long)((10)*(8000000/4000.0)));
     }
 }
 

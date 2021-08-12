@@ -85,7 +85,7 @@ void main(void) {
             }
         
         T1CONbits.TMR1ON = 0;
-        __delay_ms(100);
+        __delay_ms(10);
     }
 }
 
