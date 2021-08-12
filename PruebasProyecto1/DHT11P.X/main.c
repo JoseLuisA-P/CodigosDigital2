@@ -28,6 +28,7 @@
 #include <stdint.h>
 #include "DHT11.h"
 #include "LCDD2.h"
+#include "I2C.h"
 #define _XTAL_FREQ 8000000 //utilizado para los delays
 
 //variables utilizadas
@@ -36,11 +37,16 @@ uint8_t dummyT1;
 uint8_t Hum1;
 uint8_t dummyHum1;
 uint8_t CHECKSUM;
-
+uint8_t TempENT, TempDEC;
+int temp;
+float digTemp;
 char temperatura[] = "TEMP = 00.0 C ";
 char humedadR[] = "RH   = 00.0 % ";
+unsigned char TEMPdig[6];
 
 //prototipos
+void floToChar(const float valor, unsigned char *salida);
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
 void config(void);
 
 //loop principal
@@ -50,7 +56,30 @@ void main(void) {
     TMR1L = 0;
     initLCD();
     
+    //configurando el LM75BD
+    MasterStart_I2C();
+    MasterSend_I2C(0X90); //direccion del sensor
+    MasterSend_I2C(0X01); //registro de configuracion
+    MasterSend_I2C(0x02); //Configuracion de interrupcion
+    MasterStop_I2C();   //se detiene la comunicacion
+    
     while(1){
+        
+        //lectura del LM75DB
+        MasterStart_I2C();
+        MasterSend_I2C(0X90); //DIRECCION DEL SENSORE
+        MasterSend_I2C(0X00); //indica que leeremos temperatura
+        MasterRepeatS_I2C();
+        MasterSend_I2C(0X91); //direccion pero de lectura
+        MasterReceive_I2C(&TempENT); //lee los dos bytes de temperatura, entero
+        MasterReceive_I2C(&TempDEC); //esta es la parte decimal
+        MasterStop_I2C();
+        
+        temp = (TempENT<<3)|(TempDEC>>5);
+        digTemp = (float)temp*0.125;
+        PORTB = TempENT;
+        floToChar(digTemp,TEMPdig);
+        
         DHT11_START();
         
         if(DHT11_ALIVE()){
@@ -68,7 +97,14 @@ void main(void) {
                 cursorLCD(1,1);
                 LCDstring(temperatura);
                 cursorLCD(2,1);
-                LCDstring(humedadR);
+                dispCHAR(TEMPdig[5]+48);
+                dispCHAR(TEMPdig[4]+48);
+                dispCHAR(TEMPdig[3]+48);
+                dispCHAR('.');
+                dispCHAR(TEMPdig[1]+48);
+                dispCHAR(TEMPdig[2]+48);
+                dispCHAR(TEMPdig[0]+48);
+                //LCDstring(humedadR);
             }
             else{
                 cursorLCD(1,1);
@@ -108,5 +144,45 @@ void config(void){
     //Configuracion del timmer1
     T1CON = 0X10; //periodo de 1MHz, ya que fuente es FOSC/4
     TMR1H = 0; //valores en 0 para el conteo de los periodos de pulso
-    TMR1L = 0;
+    TMR1L = 0;  
+    MasterInit_I2C(100000);
+}
+
+void floToChar(const float valor, unsigned char *salida){
+    uint8_t entero;
+    uint8_t decimal;
+    float temp;
+    unsigned char digdecimal[2];
+    
+    entero = valor;
+    temp = valor - (float)entero;
+    decimal = (temp*100);
+    divisiondecimal(entero,&digdecimal[0],&digdecimal[1],&digdecimal[2]);
+    salida[3] = digdecimal[0];
+    salida[4] = digdecimal[1];
+    salida[5] = digdecimal[2];
+    divisiondecimal(decimal,&digdecimal[0],&digdecimal[1],&digdecimal[2]);
+    salida[2] = digdecimal[0];
+    salida[1] = digdecimal[1];
+    salida[0] = digdecimal[2];
+}
+
+void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
+    uint8_t div = conteo;
+    *un =   0;
+    *dec =  0;
+    *cent = 0;
+    //modifica los valores de las variables asignadas de forma inmediata
+    
+    while(div >= 100){
+    *cent = div/100;
+    div = div - (*cent)*(100);
+    }
+    
+    while (div >= 10){
+    *dec = div/10;
+    div = div - (*dec)*(10);
+    }
+    
+    *un = div;
 }

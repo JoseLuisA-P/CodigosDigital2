@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "I2C.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,22 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 10 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
+# 1 "I2C.c" 2
 
 
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
+
+
+
+
+
+
+# 1 "./I2C.h" 1
+
+
+
+
+
+
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
@@ -2504,191 +2504,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 25 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
-
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
-
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 26 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
-
-
-
-
-
-
-typedef unsigned short wchar_t;
-
-
-
-
-
-
-
-typedef struct {
- int rem;
- int quot;
-} div_t;
-typedef struct {
- unsigned rem;
- unsigned quot;
-} udiv_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- unsigned long quot;
- unsigned long rem;
-} uldiv_t;
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-
-
-
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-
-
-
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-# 104 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-# 27 "main.c" 2
+# 9 "./I2C.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2823,34 +2639,6 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 28 "main.c" 2
-
-# 1 "./DHT11.h" 1
-# 14 "./DHT11.h"
-uint8_t DHT11_ALIVE(void);
-void DHT11_ReadData(uint8_t* datos);
-void DHT11_START(void);
-# 29 "main.c" 2
-
-# 1 "./LCDD2.h" 1
-# 17 "./LCDD2.h"
-void initLCD(void);
-
-
-void dispCHAR(char b);
-
-void cursorLCD(uint8_t fila, uint8_t columna);
-
-void comandoLCD(uint8_t cmd);
-
-void ClearLCD(void);
-
-void LCDstring(unsigned char* mensaje);
-# 30 "main.c" 2
-
-# 1 "./I2C.h" 1
-# 10 "./I2C.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "./I2C.h" 2
 # 20 "./I2C.h"
 void MasterInit_I2C(unsigned long frec);
@@ -2875,162 +2663,67 @@ void MasterRepeatS_I2C(void);
 void MasterSend_I2C(uint8_t dato);
 
 void MasterReceive_I2C(uint8_t *valor);
-# 31 "main.c" 2
+# 9 "I2C.c" 2
 
 
 
 
-uint8_t Temp1;
-uint8_t dummyT1;
-uint8_t Hum1;
-uint8_t dummyHum1;
-uint8_t CHECKSUM;
-uint8_t TempENT, TempDEC;
-int temp;
-float digTemp;
-char temperatura[] = "TEMP = 00.0 C ";
-char humedadR[] = "RH   = 00.0 % ";
-unsigned char TEMPdig[6];
+void MasterInit_I2C(unsigned long frec){
+    SSPCON = 0X28;
+    SSPCON2 = 0X00;
+    SSPSTAT = 0X80;
+    SSPADD = (8000000/(4*frec))-1;
 
-
-void floToChar(const float valor, unsigned char *salida);
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent);
-void config(void);
-
-
-void main(void) {
-    config();
-    TMR1H = 0;
-    TMR1L = 0;
-    initLCD();
-
-
-    MasterStart_I2C();
-    MasterSend_I2C(0X90);
-    MasterSend_I2C(0X01);
-    MasterSend_I2C(0x02);
-    MasterStop_I2C();
-
-    while(1){
-
-
-        MasterStart_I2C();
-        MasterSend_I2C(0X90);
-        MasterSend_I2C(0X00);
-        MasterRepeatS_I2C();
-        MasterSend_I2C(0X91);
-        MasterReceive_I2C(&TempENT);
-        MasterReceive_I2C(&TempDEC);
-        MasterStop_I2C();
-
-        temp = (TempENT<<3)|(TempDEC>>5);
-        digTemp = (float)temp*0.125;
-        PORTB = TempENT;
-        floToChar(digTemp,TEMPdig);
-
-        DHT11_START();
-
-        if(DHT11_ALIVE()){
-            DHT11_ReadData(&Hum1);
-            DHT11_ReadData(&dummyHum1);
-            DHT11_ReadData(&Temp1);
-            DHT11_ReadData(&dummyT1);
-            DHT11_ReadData(&CHECKSUM);
-
-            if(CHECKSUM == ((Hum1 + dummyHum1 + Temp1 + dummyT1) & 0XFF)){
-                temperatura[7] = Temp1/10 + 48;
-                temperatura[8] = Temp1%10 + 48;
-                humedadR[7] = Hum1/10 + 48;
-                humedadR[8] = Hum1%10 + 48;
-                cursorLCD(1,1);
-                LCDstring(temperatura);
-                cursorLCD(2,1);
-                dispCHAR(TEMPdig[5]+48);
-                dispCHAR(TEMPdig[4]+48);
-                dispCHAR(TEMPdig[3]+48);
-                dispCHAR('.');
-                dispCHAR(TEMPdig[1]+48);
-                dispCHAR(TEMPdig[2]+48);
-                dispCHAR(TEMPdig[0]+48);
-
-            }
-            else{
-                cursorLCD(1,1);
-                LCDstring("ERROR");
-                cursorLCD(2,1);
-                LCDstring("ERROR");
-            }
-        }
-        else{
-                cursorLCD(1,1);
-                LCDstring("ERROR");
-                cursorLCD(2,1);
-                LCDstring("ERROR");
-            }
-
-        T1CONbits.TMR1ON = 0;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-    }
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC4 = 1;
 }
 
-void config(void){
-    ANSEL = 0X00;
-    ANSELH = 0X00;
-    TRISA = 0X00;
-    TRISB = 0X00;
-    TRISD = 0X00;
-    TRISEbits.TRISE1 = 0;
-    TRISEbits.TRISE2 = 0;
-    PORTA = 0X00;
-    PORTB = 0X00;
-    PORTD = 0X00;
+void waitCondition(void){
+    while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
 
 
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b1;
-
-
-    T1CON = 0X10;
-    TMR1H = 0;
-    TMR1L = 0;
-    MasterInit_I2C(100000);
 }
 
-void floToChar(const float valor, unsigned char *salida){
-    uint8_t entero;
-    uint8_t decimal;
-    float temp;
-    unsigned char digdecimal[2];
-
-    entero = valor;
-    temp = valor - (float)entero;
-    decimal = (temp*100);
-    divisiondecimal(entero,&digdecimal[0],&digdecimal[1],&digdecimal[2]);
-    salida[3] = digdecimal[0];
-    salida[4] = digdecimal[1];
-    salida[5] = digdecimal[2];
-    divisiondecimal(decimal,&digdecimal[0],&digdecimal[1],&digdecimal[2]);
-    salida[2] = digdecimal[0];
-    salida[1] = digdecimal[1];
-    salida[0] = digdecimal[2];
+void MasterStart_I2C(void){
+    waitCondition();
+    SSPCON2bits.SEN = 1;
 }
 
-void divisiondecimal(uint8_t conteo,uint8_t* un,uint8_t* dec,uint8_t* cent){
-    uint8_t div = conteo;
-    *un = 0;
-    *dec = 0;
-    *cent = 0;
+void MasterStop_I2C(void){
+    waitCondition();
+    SSPCON2bits.PEN = 1;
+}
+
+void MasterRepeatS_I2C(void){
+    waitCondition();
+    SSPCON2bits.RSEN = 1;
+}
+
+void MasterSend_I2C(uint8_t dato){
+    waitCondition();
+    SSPBUF = dato;
+}
+
+void MasterReceive_I2C(uint8_t *valor){
+    waitCondition();
+    SSPCON2bits.RCEN = 1;
+    waitCondition();
+    *valor = SSPBUF;
+    waitCondition();
+    SSPCON2bits.ACKDT = 1;
+    SSPCON2bits.ACKEN = 1;
+
+}
 
 
-    while(div >= 100){
-    *cent = div/100;
-    div = div - (*cent)*(100);
-    }
 
-    while (div >= 10){
-    *dec = div/10;
-    div = div - (*dec)*(10);
-    }
 
-    *un = div;
+void SlaveInit_I2C(uint8_t address){
+    SSPADD = address;
+    SSPCON = 0X26;
+    SSPCON2 = 0X00;
+    SSPSTAT = 0X80;
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC4 = 1;
+
 }
