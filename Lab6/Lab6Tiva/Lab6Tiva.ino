@@ -36,10 +36,10 @@ void setup() {
 //Loop continuo
 void loop() {
   switch(ESTADO){
-    case 0:
+    case 0: //esperando la señal para comenzar
     if(digitalRead(pushB1) == LOW) ESTADO = 1; //Comienza el juego 
       break;
-    case 1:
+    case 1: //simulacion semaforo antes de comenzar
       for(int i=0; i<9; i++){ //Inicializar los valores
       Comp1[i] = false;
       Comp2[i] = false;
@@ -59,7 +59,7 @@ void loop() {
       digitalWrite(GREEN_LED, LOW);
       ESTADO = 2;
       break;
-    case 2:
+    case 2: //ya comenzo la carrera y saca quien gano
       CheckB1(); //revisar botones y modificar la lista
       CheckB2();
       if(Comp1[0]== true) { //Ver quien gano e identificarlo
