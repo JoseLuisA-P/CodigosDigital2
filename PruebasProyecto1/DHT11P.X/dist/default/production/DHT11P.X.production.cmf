@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\jalva\AppData\Local\Temp\sc7c.o
+$C:\Users\jalva\AppData\Local\Temp\s9u0.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\DHT11P.X.production.o
@@ -104,44 +104,44 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\DHT11P.X.production.o
-7D7 cinit CODE >1069:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7D7 cinit CODE >1072:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7D7 cinit CODE >1155:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7D8 cinit CODE >1156:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7D9 cinit CODE >1157:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DA cinit CODE >1158:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DB cinit CODE >1159:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DC cinit CODE >1160:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DD cinit CODE >1161:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DE cinit CODE >1162:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7DF cinit CODE >1163:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E0 cinit CODE >1164:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E5 cinit CODE >1168:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E6 cinit CODE >1169:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E7 cinit CODE >1170:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E8 cinit CODE >1171:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7E9 cinit CODE >1172:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7EA cinit CODE >1173:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7EB cinit CODE >1174:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7EC cinit CODE >1175:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7ED cinit CODE >1178:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7EE cinit CODE >1179:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7EF cinit CODE >1180:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F0 cinit CODE >1181:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F1 cinit CODE >1182:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F2 cinit CODE >1183:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F3 cinit CODE >1184:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F4 cinit CODE >1185:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F5 cinit CODE >1186:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F6 cinit CODE >1187:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F7 cinit CODE >1188:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F8 cinit CODE >1189:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7F9 cinit CODE >1190:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7FA cinit CODE >1191:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7FB cinit CODE >1192:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7FC cinit CODE >1198:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7FC cinit CODE >1200:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-7FD cinit CODE >1201:C:\Users\jalva\AppData\Local\Temp\sc7c.s
+7D7 cinit CODE >1069:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7D7 cinit CODE >1072:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7D7 cinit CODE >1155:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7D8 cinit CODE >1156:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7D9 cinit CODE >1157:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DA cinit CODE >1158:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DB cinit CODE >1159:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DC cinit CODE >1160:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DD cinit CODE >1161:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DE cinit CODE >1162:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7DF cinit CODE >1163:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E0 cinit CODE >1164:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E5 cinit CODE >1168:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E6 cinit CODE >1169:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E7 cinit CODE >1170:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E8 cinit CODE >1171:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7E9 cinit CODE >1172:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7EA cinit CODE >1173:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7EB cinit CODE >1174:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7EC cinit CODE >1175:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7ED cinit CODE >1178:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7EE cinit CODE >1179:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7EF cinit CODE >1180:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F0 cinit CODE >1181:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F1 cinit CODE >1182:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F2 cinit CODE >1183:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F3 cinit CODE >1184:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F4 cinit CODE >1185:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F5 cinit CODE >1186:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F6 cinit CODE >1187:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F7 cinit CODE >1188:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F8 cinit CODE >1189:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7F9 cinit CODE >1190:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7FA cinit CODE >1191:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7FB cinit CODE >1192:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7FC cinit CODE >1198:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7FC cinit CODE >1200:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+7FD cinit CODE >1201:C:\Users\jalva\AppData\Local\Temp\s9u0.s
 B2F text28 CODE >24:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\DHT11.c
 B2F text28 CODE >29:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\DHT11.c
 B32 text28 CODE >30:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\DHT11.c
@@ -692,23 +692,23 @@ FDD maintext CODE >119:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\Prueba
 FE5 maintext CODE >120:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\main.c
 FEE maintext CODE >123:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\main.c
 FF1 maintext CODE >124:D:\UVG\UVG\UVG6toSemestre\Digital2\CodigosDigital2\PruebasProyecto1\DHT11P.X\main.c
-9DC inittext CODE >1129:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9DC inittext CODE >1130:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9DD inittext CODE >1131:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9DE inittext CODE >1132:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9DF inittext CODE >1133:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E0 inittext CODE >1140:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E0 inittext CODE >1141:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E5 inittext CODE >1142:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E6 inittext CODE >1143:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E7 inittext CODE >1144:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E8 inittext CODE >1145:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9E9 inittext CODE >1146:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9EA inittext CODE >1147:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9EB inittext CODE >1148:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9EC inittext CODE >1149:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9ED inittext CODE >1150:C:\Users\jalva\AppData\Local\Temp\sc7c.s
-9EE inittext CODE >1151:C:\Users\jalva\AppData\Local\Temp\sc7c.s
+9DC inittext CODE >1129:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9DC inittext CODE >1130:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9DD inittext CODE >1131:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9DE inittext CODE >1132:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9DF inittext CODE >1133:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E0 inittext CODE >1140:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E0 inittext CODE >1141:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E5 inittext CODE >1142:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E6 inittext CODE >1143:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E7 inittext CODE >1144:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E8 inittext CODE >1145:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9E9 inittext CODE >1146:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9EA inittext CODE >1147:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9EB inittext CODE >1148:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9EC inittext CODE >1149:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9ED inittext CODE >1150:C:\Users\jalva\AppData\Local\Temp\s9u0.s
+9EE inittext CODE >1151:C:\Users\jalva\AppData\Local\Temp\s9u0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -739,13 +739,13 @@ __size_of_cursorLCD 0 0 ABS 0 - dist/default/production\DHT11P.X.production.o
 __size_of_MasterStop_I2C 0 0 ABS 0 - dist/default/production\DHT11P.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _Hum1 6A 0 BANK0 1 bssBANK0 dist/default/production\DHT11P.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sc7c.o
+___sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s9u0.o
 _main 1BB2 0 CODE 0 maintext dist/default/production\DHT11P.X.production.o
 _temp 64 0 BANK0 1 bssBANK0 dist/default/production\DHT11P.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\DHT11P.X.production.o
 divisiondecimal@dec 7A 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 divisiondecimal@div 7D 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
-start 0 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\sc7c.o
+start 0 0 CODE 0 init C:\Users\jalva\AppData\Local\Temp\s9u0.o
 ___flmul@aexp 32 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.production.o
 ___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.production.o
 ___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.production.o
@@ -769,12 +769,12 @@ LCDstring@mensaje 72 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.pr
 __Hpowerup 0 0 CODE 0 powerup -
 _dispCHAR 1398 0 CODE 0 text25 dist/default/production\DHT11P.X.production.o
 ___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\sc7c.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jalva\AppData\Local\Temp\s9u0.o
 _DHT11_ALIVE 165E 0 CODE 0 text28 dist/default/production\DHT11P.X.production.o
 _DHT11_START 1430 0 CODE 0 text26 dist/default/production\DHT11P.X.production.o
 ___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
@@ -810,8 +810,8 @@ __end_of___lldiv 18F2 0 CODE 0 text16 dist/default/production\DHT11P.X.productio
 __end_of_config 165E 0 CODE 0 text14 dist/default/production\DHT11P.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 _comandoLCD 13DE 0 CODE 0 text13 dist/default/production\DHT11P.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sc7c.o
-___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\sc7c.o
+___stackhi 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s9u0.o
+___stacklo 0 0 ABS 0 - C:\Users\jalva\AppData\Local\Temp\s9u0.o
 ___fladd@a 74 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 ___fladd@b 70 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 ___flmul@a 24 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.production.o
@@ -839,7 +839,7 @@ MasterInit_I2C@frec 20 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.pr
 __end_of_MasterRepeatS_I2C 1344 0 CODE 0 text21 dist/default/production\DHT11P.X.production.o
 divisiondecimal@un 79 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 __end_of_initLCD 1826 0 CODE 0 text1 dist/default/production\DHT11P.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\sc7c.o
+___int_sp 0 0 STACK 2 stack C:\Users\jalva\AppData\Local\Temp\s9u0.o
 __end_of_comandoLCD 1406 0 CODE 0 text13 dist/default/production\DHT11P.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -906,7 +906,7 @@ __Lintentry 0 0 CODE 0 intentry -
 ___lldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\DHT11P.X.production.o
 __stringtab 1000 0 STRING 0 strings dist/default/production\DHT11P.X.production.o
 _MasterRepeatS_I2C 1332 0 CODE 0 text21 dist/default/production\DHT11P.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\sc7c.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jalva\AppData\Local\Temp\s9u0.o
 floToChar@temp 4E 0 BANK0 1 cstackBANK0 dist/default/production\DHT11P.X.production.o
 __end_of___xxtofl 230 0 CODE 0 text6 dist/default/production\DHT11P.X.production.o
 __pdataBANK1 A0 0 BANK1 1 dataBANK1 dist/default/production\DHT11P.X.production.o

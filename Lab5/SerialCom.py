@@ -5,7 +5,7 @@ import time
 import sys
 
 AIO_User = "ALV19392"
-AIO_Key = "aio_WuKP60HIJExY46VNSaePqKiOqLfE"
+AIO_Key = "aio_GtEa42EssXeaDuDNTFeLgpvm4LUP"
 aio = Client(AIO_User,AIO_Key)
 
 
