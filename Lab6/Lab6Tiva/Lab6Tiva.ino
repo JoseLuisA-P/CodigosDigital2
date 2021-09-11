@@ -31,6 +31,16 @@ void setup() {
   pinMode(pushB2, INPUT_PULLUP);
   pinMode(RED_LED, OUTPUT); //Led rojo como salida
   pinMode(GREEN_LED, OUTPUT); //Led verde como salida
+  //pines de salida del J1
+  pinMode(PA_2,OUTPUT);
+  pinMode(PA_3,OUTPUT);
+  pinMode(PA_4,OUTPUT);
+  pinMode(PB_6,OUTPUT);
+  //pines de salida del J2
+  pinMode(PC_4,OUTPUT);
+  pinMode(PC_5,OUTPUT);
+  pinMode(PC_6,OUTPUT);
+  pinMode(PC_7,OUTPUT);
 }
 
 //Loop continuo
@@ -72,6 +82,15 @@ void loop() {
         digitalWrite(GREEN_LED, HIGH);
         Serial.println("El jugador 2 GANO (VERDE)\n\n\n\n\n");
       }
+      digitalWrite(PA_2,Comp1[0]);
+      digitalWrite(PA_3,Comp1[1]);
+      digitalWrite(PA_4,Comp1[2]);
+      digitalWrite(PB_6,Comp1[3]);
+
+      digitalWrite(PC_4,Comp2[0]);
+      digitalWrite(PC_5,Comp2[1]);
+      digitalWrite(PC_6,Comp2[2]);
+      digitalWrite(PC_7,Comp2[3]);
       break;
     
     }
