@@ -33,7 +33,7 @@ void setup() {
   for(int i=1; i < 5;i++){ //imprime el nombre de los archivos en la SD
     Serial.println(archives[i]);
     }
-
+  
   Serial.println("terminado"); //indicador de terminado, evitar errores
 }
 
@@ -50,5 +50,22 @@ void ListaNombres(File archivo){
     archives[n] = String(dummy.name()); //agrega los nombres de los archivos
     n++; //lo coloca en el siguiente string
     }
+  
+  }
+
+void imprimirArchivo(const char *nombre){
+  File archivo; //dummy para la funcion
+  archivo = SD.open(nombre,FILE_READ); //abre el archivo con el nombre en modo lectura
+  if (archivo){ //si esta disponible
+    Serial.println(nombre);
+    while(archivo.available()){ //imprime su nombre y sus lineas hasta encontrar un vacio
+      Serial.write(archivo.read());
+      }
+      archivo.close();
+    }
+  else{ //imprime que es error de apertura
+    Serial.println("error de apertura");
+    }
+    
   
   }
