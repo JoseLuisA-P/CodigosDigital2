@@ -61,7 +61,7 @@ void loop() {
     if (archselect >= 4){
       archselect = 1;
       }
-    Serial.println("¿Quiere imprimir el archivo" + archives[archselect] + "?\n\n\n\n");
+    Serial.println("¿Quiere imprimir el archivo " + archives[archselect] + "?\n\n\n\n");
     S1DEB = false;
     }   
     
