@@ -11,12 +11,23 @@ CS -   PA_3
 
 File root;
 String archives[10];
+int archselect = 1;
 
 const int chipSelect = PA_3; //PIN del chip select
 
+const int pushB1 = 31; //button 1 placa
+const int pushB2 = 17;//button 2 placa
+
+bool S1DEB = false;  //antirebote software B1
+bool S2DEB = false;  //antirebote software B2
+
+//////////////////////////////////////////VOID SETUP////////////////////////////////////////////////
+
 void setup() {
   Serial.begin(9600);
-
+  pinMode(pushB1, INPUT_PULLUP); //Boton con PullUp
+  pinMode(pushB2, INPUT_PULLUP);
+  
   SPI.setModule(0);
   Serial.print("\nInitializing SD card...");
   pinMode(PA_3,OUTPUT);
@@ -34,20 +45,48 @@ void setup() {
     Serial.println(archives[i]);
     }
   
-  Serial.println("terminado"); //indicador de terminado, evitar errores
+  Serial.println("Esos son todos los archivos"); //indicador de terminado, evitar errores
 }
 
+//////////////////////////////////////////VOID LOOP////////////////////////////////////////////////
+
 void loop() {
-   
-  
+  //COMPROBACION DEL BOTON 1
+  if(digitalRead(pushB1) == LOW){ 
+    S1DEB = true;
+    }
+    
+  if(digitalRead(pushB1)== HIGH && S1DEB == true){
+    archselect ++;
+    if (archselect >= 4){
+      archselect = 1;
+      }
+    Serial.println("¿Quiere imprimir el archivo" + archives[archselect] + "?\n\n\n\n");
+    S1DEB = false;
+    }   
+    
+  //COMPROBACION DEL BOTON 2
+  if(digitalRead(pushB2) == LOW){
+    S2DEB = true;
+    }
+    
+   if(digitalRead(pushB2)== HIGH && S2DEB == true){
+    char impresion[20]; //para crear el array de caracteres
+    archives[archselect].toCharArray(impresion,20); //convertir el string en array de caracteres
+    imprimirArchivo(impresion); //imprimir el archivo
+    Serial.print("\n\n\n\n");
+    S2DEB = false;
+    }
 }
+
+/////////////////////////////////FUNCIONES PROPIAS////////////////////////////////////////////////
 
 void ListaNombres(File archivo){
   int n = 0; //para cada uno de los archivos que pueden existir
   while(true){
     File dummy = archivo.openNextFile(); //abre el siguiente archivo
     if(!dummy){ break;} //deja de hacerlo, no hay mas archivos
-    archives[n] = String(dummy.name()); //agrega los nombres de los archivos
+    archives[n] = dummy.name(); //agrega los nombres de los archivos
     n++; //lo coloca en el siguiente string
     }
   
