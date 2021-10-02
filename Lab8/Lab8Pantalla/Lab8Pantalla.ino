@@ -30,8 +30,17 @@
 
 //archivos de la SD
 File root;
+File archivo;
 String archives[10];
 const int chipSelect = PA_3; //PIN del chip select
+int imagen = 0;
+
+//variables de manejo de los botones
+const int pushB1 = 31; //button 1 placa
+const int pushB2 = 17;//button 2 placa
+
+bool S1DEB = false;  //antirebote software B1
+bool S2DEB = false;  //antirebote software B2
 
 #define LCD_RST PD_0
 #define LCD_CS PD_1
@@ -57,7 +66,7 @@ void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
 
-extern uint8_t fondo[];
+extern uint8_t prueba[];
 extern uint8_t uvg[];
 //***************************************************************************************************************************************
 // Initialization
@@ -66,6 +75,9 @@ void setup() {
   SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
+  
+  pinMode(pushB1, INPUT_PULLUP);
+  pinMode(pushB2, INPUT_PULLUP);
   
   SPI.setModule(0);
   Serial.print("\nInitializing SD card...");
@@ -90,22 +102,58 @@ void setup() {
   root = SD.open("/"); //acceso a los archivos de la SD
   ListaNombres(root); //crea el listado de nombres de los archivos
   int posY = 45; 
-  for (int i = 1; i<5; i++){
-  LCD_Print(archives[i],55,posY,1,0x0000,0xf4f4); //Nombres de los archivos en color negro y por orden
+  for (int i = 1; i<10; i++){
+  LCD_Print(archives[i],75,posY,1,0x0000,0xf4f4); //Nombres de los archivos en color negro y por orden
   posY = posY + 10;
     }
   delay(1000); 
   
-  File archivo;
   archivo = SD.open("Bitmap1.TXT",FILE_READ);
-  leerDatos(archivo);
+  bitmapSD(archivo); //imprimir la imagen en la pantalla
+  archivo.close();
   
 }
 //***************************************************************************************************************************************
 // Loop
 //***************************************************************************************************************************************
 void loop() {
-  
+//COMPROBACION DEL BOTON 1
+  if(digitalRead(pushB1) == LOW){ 
+    S1DEB = true;
+    }
+    
+  if(digitalRead(pushB1)== HIGH && S1DEB == true){
+    imagen ++;
+    if(imagen > 2)imagen = 0;
+
+    if(imagen == 0){
+      LCD_Print("IMAGEN1",0,0,2,0X0000,0XF4F4);
+      }
+    if(imagen == 1);{
+      LCD_Print("IMAGEN2",0,0,2,0X0000,0XF4F4);
+      }
+    S1DEB = false;
+    delay(100);
+    }
+
+    if(digitalRead(pushB2) == LOW){
+    S2DEB = true;
+    }
+    
+   if(digitalRead(pushB2)== HIGH && S2DEB == true){
+    if(imagen == 0){
+      archivo = SD.open("Bitmap1.TXT",FILE_READ);
+      bitmapSD(archivo);
+      archivo.close();
+      }
+    if(imagen == 1);{
+      archivo = SD.open("Bitmap2.TXT",FILE_READ);
+      bitmapSD(archivo);
+      archivo.close();
+      }
+      
+    S2DEB = false;
+    }
   
 }
 //***************************************************************************************************************************************
@@ -477,38 +525,37 @@ void imprimirArchivo(const char *nombre){
   
   }
 
-uint16_t leer16(File f){
-  uint16_t resultado;
-  ((uint8_t *)&resultado)[0] = hex2bin(f.read());
-  ((uint8_t *)&resultado)[1] = hex2bin(f.read());
-  return resultado;
-  }
-
-int hex2bin(char c){
-  if (c >= '0' && c <= '9')
+int hex2bin(char c){ //convertir los hex del texto en binario
+  if (c >= '0' && c <= '9') //numeros
     return c - '0' ;
-  if (c >= 'A' && c <= 'F')
+  if (c >= 'A' && c <= 'F')//letras en mayusculas
     return c - 'A' + 10 ;
-  if (c >= 'a' && c <= 'f')
+  if (c >= 'a' && c <= 'f')//letras en minusculas
     return c - 'a' + 10 ;
 }
 
-void leerDatos(File f){
+void bitmapSD(File f){
   LCD_CMD(0x02c); //write_memory_start
   digitalWrite(LCD_RS, HIGH);
   digitalWrite(LCD_CS, LOW);
   
-  SetWindows(0,0,320,240);
+  SetWindows(0,0,319,239); //para indicar que escribe en toda la pantalla
   
-  int color;
-  int color2;
- while(f.available()){
-    f.read();f.read(); //dummy
-    color = hex2bin(f.read());
+  uint8_t color; //almacenar el valor entero del dato
+  uint8_t color2; //almacenar el valor entero del dato
+  uint8_t color4;
+  uint8_t color5;
+  f.seek(0);
+  while(f.available()){
+    color  = hex2bin(f.read());
     color2 = hex2bin(f.read());
-    unsigned int color3 = (color*16)+ color2;
+    color4 = hex2bin(f.read());
+    color5 = hex2bin(f.read());
+    unsigned char color3 = (color*16) + color2;
+    unsigned char color6 = (color4*16) + color5;
     LCD_DATA(color3);
-   }
-   
+    LCD_DATA(color6); 
+  }
    digitalWrite(LCD_CS, HIGH);
+  
   }
