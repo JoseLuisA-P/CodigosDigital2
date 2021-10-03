@@ -33,7 +33,7 @@ File root;
 File archivo;
 String archives[10];
 const int chipSelect = PA_3; //PIN del chip select
-int imagen = 0;
+int imagendisp = 0;
 
 //variables de manejo de los botones
 const int pushB1 = 31; //button 1 placa
@@ -65,9 +65,6 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
-
-extern uint8_t prueba[];
-extern uint8_t uvg[];
 //***************************************************************************************************************************************
 // Initialization
 //***************************************************************************************************************************************
@@ -108,10 +105,6 @@ void setup() {
     }
   delay(1000); 
   
-  archivo = SD.open("Bitmap1.TXT",FILE_READ);
-  bitmapSD(archivo); //imprimir la imagen en la pantalla
-  archivo.close();
-  
 }
 //***************************************************************************************************************************************
 // Loop
@@ -123,36 +116,77 @@ void loop() {
     }
     
   if(digitalRead(pushB1)== HIGH && S1DEB == true){
-    imagen ++;
-    if(imagen > 2)imagen = 0;
-
-    if(imagen == 0){
-      LCD_Print("IMAGEN1",0,0,2,0X0000,0XF4F4);
+    imagendisp = imagendisp + 1;
+    if(imagendisp > 4)imagendisp = 1;
+    Serial.println(imagendisp);
+    switch(imagendisp){
+      case 1:
+        archivo = SD.open("Bitmap1.TXT",FILE_READ);
+        bitmapSD(archivo);
+        archivo.close();
+      break;
+      case 2:
+          archivo = SD.open("Bitmap2.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+      break;
+      case 3:
+          archivo = SD.open("Bitmap3.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+      break;
+      case 4:
+          archivo = SD.open("Bitmap4.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+          imagendisp = 0;
+      break;
+      default:
+        imagendisp = 0;
+      break;
       }
-    if(imagen == 1);{
-      LCD_Print("IMAGEN2",0,0,2,0X0000,0XF4F4);
-      }
+      
     S1DEB = false;
     delay(100);
     }
 
-    if(digitalRead(pushB2) == LOW){
+    if(digitalRead(pushB2) == LOW){ 
     S2DEB = true;
     }
-    
-   if(digitalRead(pushB2)== HIGH && S2DEB == true){
-    if(imagen == 0){
-      archivo = SD.open("Bitmap1.TXT",FILE_READ);
-      bitmapSD(archivo);
-      archivo.close();
-      }
-    if(imagen == 1);{
-      archivo = SD.open("Bitmap2.TXT",FILE_READ);
-      bitmapSD(archivo);
-      archivo.close();
+
+    if(digitalRead(pushB2)== HIGH && S2DEB == true){
+    imagendisp = imagendisp - 1;
+    if(imagendisp < 1)imagendisp = 4;
+    Serial.println(imagendisp);
+    switch(imagendisp){
+      case 1:
+        archivo = SD.open("Bitmap1.TXT",FILE_READ);
+        bitmapSD(archivo);
+        archivo.close();
+        imagendisp = 5;
+      break;
+      case 2:
+          archivo = SD.open("Bitmap2.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+      break;
+      case 3:
+          archivo = SD.open("Bitmap3.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+      break;
+      case 4:
+          archivo = SD.open("Bitmap4.TXT",FILE_READ);
+          bitmapSD(archivo);
+          archivo.close();
+      break;
+      default:
+        imagendisp = 5;
+      break;
       }
       
     S2DEB = false;
+    delay(100);
     }
   
 }
@@ -545,15 +579,15 @@ void bitmapSD(File f){
   uint8_t color2; //almacenar el valor entero del dato
   uint8_t color4;
   uint8_t color5;
-  f.seek(0);
+  f.seek(0); //colocar al inicio del archivo por seguridad
   while(f.available()){
     color  = hex2bin(f.read());
     color2 = hex2bin(f.read());
     color4 = hex2bin(f.read());
     color5 = hex2bin(f.read());
-    unsigned char color3 = (color*16) + color2;
+    unsigned char color3 = (color*16) + color2; //MSB y LSB obtenidos del texto
     unsigned char color6 = (color4*16) + color5;
-    LCD_DATA(color3);
+    LCD_DATA(color3); //imprimir parte por parte
     LCD_DATA(color6); 
   }
    digitalWrite(LCD_CS, HIGH);
