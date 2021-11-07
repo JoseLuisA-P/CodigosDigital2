@@ -34,11 +34,12 @@ int main(void)
     //configuracion del timmer
     SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0); //habilitar el reloj del timmer 0
     TimerConfigure(TIMER0_BASE,TIMER_CFG_PERIODIC); //configurar el Timer0 como periodico y down, de 32 bits
-    TimerLoadSet(TIMER0_BASE,TIMER_BOTH,valTimer);
-    IntEnable(INT_TIMER0B); // Habilita la interrupcion del timer0a
-    TimerIntEnable(TIMER0_BASE, TIMER_TIMB_TIMEOUT); //establece interrupcion por timeout en el timer 0
+    valTimer = (SysCtlClockGet()/2); //cargar un valor de medio segundo
+    TimerLoadSet(TIMER0_BASE,TIMER_A,valTimer-1); //cargar en ambos registros el valor
+    IntEnable(INT_TIMER0A); // Habilita la interrupcion del timer0A
+    TimerIntEnable(TIMER0_BASE, TIMER_TIMA_TIMEOUT); //establece interrupcion por timeout en el timer 0
     IntMasterEnable(); //habilita las interrupciones globales
-    TimerEnable(TIMER0_BASE,TIMER_BOTH); //para usar ambos timers0
+    //TimerEnable(TIMER0_BASE,TIMER_A); //para usar ambos timers0
 
     while(1){ //LOOP para ejecutar el programa
 
@@ -80,4 +81,17 @@ void combinacionColores(void){
     GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 |GPIO_PIN_2 |GPIO_PIN_3,0X0A); //enciende el amarillo
     delayMs(2000);
     GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 |GPIO_PIN_2 |GPIO_PIN_3,0X02); //enciende el rojo
+}
+
+void Timer0Int(void){ //toogle de un led
+
+
+    TimerIntClear(TIMER0_BASE,TIMER_TIMA_TIMEOUT); //limpia la interrupcion del timer
+    //Toogle del Led rojo cada 0.5segundos
+    if(!GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_1)){
+        GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0X02);
+    }
+    else{
+        GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0X00);
+    }
 }
